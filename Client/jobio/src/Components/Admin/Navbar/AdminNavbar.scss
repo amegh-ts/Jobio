@@ -1,0 +1,119 @@
+
+
+
+/* ===== Sidebar ===== */
+.sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 50px;
+    padding: 10px 14px;
+    background: var(--sidebar-color);
+    transition: var(--tran-05);
+    z-index: 100;
+}
+
+
+
+
+
+
+.home {
+    position: absolute;
+    top: 0;
+    top: 0;
+    left: 60px;
+    height: 100vh;
+    width: calc(100% - 40px);
+    background-color: var(--body-color);
+    transition: var(--tran-05);
+}
+
+.home .text {
+    font-size: 30px;
+    font-weight: 500;
+    color: var(--text-color);
+    padding: 12px 60px;
+}
+
+.sidebar.close~.home {
+    left: 78px;
+    height: 100vh;
+    width: calc(100% - 78px);
+}
+
+
+
+.navbar-container {
+    background: var(--sidebar-color);
+    min-width: 100px;
+    height: 70px;
+    margin: 10px 30px;
+    padding: 0 20px;
+    border-radius: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    /* position: fixed; */
+    overflow: hidden;
+}
+
+.navbar-header {
+    color: var(--primary-color);
+    height: 100%;
+    display: flex;
+    align-items: center;
+}
+
+.navbar-search {
+    display: flex;
+    background: var(--body-color);
+    padding: 10px;
+    border-radius: 10px;
+    align-items: center;
+    color: var(--primary-color);
+}
+
+.navbar-search input {
+    outline: none;
+    font-size: 18px;
+    border: none;
+    background: var(--body-color);
+    width: 300px;
+}
+
+.navbar-icon {
+    display: flex;
+}
+
+.navbar-icon:hover {
+    cursor: pointer;
+}
+
+.navbar-icon span {
+    color: var(--primary-color);
+    margin-right: 10px;
+    display: flex;
+    align-items: center;
+    padding: 10px 14px;
+    border-radius: 6px;
+}
+
+.navbar-icon span:hover {
+    color: var(--sidebar-color);
+    background: var(--primary-color);
+    transition: all .5s ease;
+
+}
+
+.main-body {
+    background: var(--sidebar-color);
+    margin: 10px 30px;
+    border-radius: 10px;
+    min-width: 200px;
+    height: 830px;
+    padding: 0 20px;
+    overflow: auto;
+    transition: all 0.3s ease;
+}
