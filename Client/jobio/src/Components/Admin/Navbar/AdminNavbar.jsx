@@ -38,11 +38,16 @@ const AdminNavbar = () => {
                             <li className="nav-link">
                                 <IoCog className='icon' />
                                 <span>Settings</span>
-
                             </li>
                         </ul>
                     </div>
                 </div>
+
+                <footer>
+                    <div className="logout">
+                        <IoLogOut className='icon logout-icon' />
+                    </div>
+                </footer>
             </nav>
 
             <section className="home" >
