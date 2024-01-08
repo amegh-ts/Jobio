@@ -50,7 +50,7 @@ const AdminNavbar = () => {
                 <>
                     <div className='navbar-container'>
                         <div className='navbar-header'>
-                            <h1>Unknown</h1>
+                            <h1>Jobio</h1>
                         </div>
 
                         <div className='navbar-icon'>
