@@ -5,15 +5,16 @@
 :root {
   /* ===== Colors ===== */
   /* ******Light****** */
-  --body-color-light: #E4E9F7;
+  --body-color: #F1F2F2;
   --sidebar-color: #FFF;
   --primary-color: #695CFE;
   --primary-color-light: #F6F5FF;
   --toggle-color: #DDD;
-  --text-color: #707070;
+  --text-color: #A8ABAB;
 
   /* ********Dark******** */
   --body-color-dark: #000000;
+  --primary-color-dark:#5F61E1;
 
   /* ====== Transition ====== */
   --tran-03: all 0.2s ease;
@@ -37,9 +38,10 @@
 *{
   margin: 0;
   border: 0 ;
+  font-family: poppins;
 }
 
 body{
-  background: var(--body-color-light);
+  background: var(--body-color);
   overflow: hidden;
 }
