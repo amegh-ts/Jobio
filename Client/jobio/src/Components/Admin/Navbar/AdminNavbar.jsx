@@ -1,6 +1,6 @@
 import './AdminNavbar.scss'
 import { DiCodeigniter } from "react-icons/di";
-import { IoPersonSharp, IoHome, IoLayers, IoChatbubbleEllipses, IoPeople, IoDocumentText, IoCog, IoLogOut, IoNotifications } from "react-icons/io5";
+import { IoPersonSharp, IoHome, IoLayers, IoChatbubbleEllipses, IoPeople, IoDocumentText, IoCog, IoLogOut, IoNotifications ,IoMoonOutline} from "react-icons/io5";
 
 const AdminNavbar = () => {
     return (
@@ -54,7 +54,9 @@ const AdminNavbar = () => {
                         </div>
 
                         <div className='navbar-icon'>
-                            
+                            <span>
+                                <IoMoonOutline/>
+                            </span>
                             <span>
                                 <IoNotifications />
                             </span>
