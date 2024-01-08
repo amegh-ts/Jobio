@@ -13,19 +13,29 @@ const AdminNavbar = () => {
                 </header>
 
                 <div className="menu-bar">
-                    <div className="menu">
-                        <ul className="menu-links">
+                    <div className="menu-item">
+                        <IoHome className='icon' />
+                        <span>Home</span>
+                    </div>
+                    <div className="menu-item">
+                        <IoLayers className='icon' />
+                        <span>Services</span>
+                    </div>
+                    <div className="menu-item">
+                        <IoChatbubbleEllipses className='icon' />
+                        <span>Inbox</span>
+                    </div>
+                    <div className="menu-item">
+                        <IoHome className='icon' />
+                    </div>
+                    <div className="menu-item">
+                        <IoHome className='icon' />
+                    </div>
+
+                    {/* <ul className="menu-links">
+                           
                             <li className="nav-link">
-                                <IoHome className='icon' />
-                                <span>Home</span>
-                            </li>
-                            <li className="nav-link">
-                                <IoLayers className='icon' />
-                                <span>Services</span>
-                            </li>
-                            <li className="nav-link">
-                                <IoChatbubbleEllipses className='icon' />
-                                <span>Inbox</span>
+                                
                             </li>
                             <li className="nav-link">
                                 <IoPeople className='icon' />
@@ -39,8 +49,7 @@ const AdminNavbar = () => {
                                 <IoCog className='icon' />
                                 <span>Settings</span>
                             </li>
-                        </ul>
-                    </div>
+                        </ul> */}
                 </div>
 
                 <footer>

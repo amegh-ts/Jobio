@@ -34,6 +34,10 @@
   --icon-size: 34px;
 }
 
+*{
+  margin: 0;
+  border: 0 ;
+}
 
 body{
   background: var(--body-color-light);
