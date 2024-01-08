@@ -10,7 +10,7 @@ const AdminNavbar = () => {
             <div className="sidebar">
                 <header>
                     <div className="title">
-                        <DiCodeigniter className='icon'/>
+                        <DiCodeigniter className='icon logo'/>
                     </div>
                 </header>
 
@@ -48,7 +48,7 @@ const AdminNavbar = () => {
 
                 <footer>
                     <div className="logout">
-                        <IoLogOut className='icon'/>
+                        <IoLogOut className='icon logout-icon'/>
                     </div>
                 </footer>
             </div>
