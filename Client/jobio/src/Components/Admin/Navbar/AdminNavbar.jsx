@@ -1,6 +1,6 @@
 import './AdminNavbar.scss'
 import { DiCodeigniter } from "react-icons/di";
-import { IoPersonSharp, IoHome, IoLayers, IoChatbubbleEllipses, IoPeople, IoDocumentText, IoCog, IoLogOut, IoNotifications ,IoMoonOutline} from "react-icons/io5";
+import { IoPersonSharp, IoHome, IoLayers, IoChatbubbleEllipses,IoSearch, IoPeople, IoDocumentText, IoCog, IoLogOut, IoNotifications ,IoMoonOutline} from "react-icons/io5";
 
 const AdminNavbar = () => {
     return (
@@ -31,7 +31,7 @@ const AdminNavbar = () => {
                     </div>
                     <div className="menu-item">
                         <IoDocumentText className='icon' />
-                        <span>Requests</span>
+                        <span>Request</span>
                     </div>
                     <div className="menu-item">
                         <IoCog className='icon' />
@@ -50,19 +50,18 @@ const AdminNavbar = () => {
                 <>
                     <div className='navbar-container'>
                         <div className='navbar-search'>
+                            <IoSearch className='icon'/>
                             <input type="text" placeholder='Search jobs, freelancers...' />
                         </div>
 
                         <div className='navbar-icon'>
                             <span>
                                 <IoMoonOutline/>
-                            </span>
-                            <span>
                                 <IoNotifications />
                             </span>
-                            <span>
+                            <div className='profile'>
                                 <IoPersonSharp />
-                            </span>
+                            </div>
                         </div>
                     </div>
                 </>
