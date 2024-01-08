@@ -6,7 +6,7 @@ import { IoHome, IoLayers, IoChatbubbleEllipses, IoPeople, IoDocumentText, IoCog
 
 const AdminNavbar = () => {
     return (
-        <div>
+        <div className='admin-main'>
             <div className="sidebar">
                 <header>
                     <div className="title">
@@ -52,6 +52,10 @@ const AdminNavbar = () => {
                     </div>
                 </footer>
             </div>
+
+            <section className='home'>
+                abba
+            </section>
         </div>
     )
 }

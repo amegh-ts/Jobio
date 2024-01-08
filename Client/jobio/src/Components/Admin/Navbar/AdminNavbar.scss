@@ -1,58 +1,72 @@
-.sidebar {
-    position: fixed;
-    top: 0;
-    left: 0;
-    height: 100vh;
-    width: 60px;
-    padding: 10px 14px;
-    background: red;
-    transition: var(--tran-05);
-    z-index: 100;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: space-between;
-    padding: 10px;
-    
+.admin-main {
+    .sidebar {
+        position: fixed;
+        top: 0;
+        left: 0;
+        height: 100vh;
+        width: 60px;
+        padding: 10px 14px;
+        background: red;
+        transition: var(--tran-05);
+        z-index: 100;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-between;
+        padding: 10px;
 
-    header{
-        .title {
-            background: white;
-            width: 40px;
-            height: 40px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            border-radius: 8px;
-            box-shadow: 1px 1px 10px rgb(211, 211, 211);
-        }
-    }
 
-    .sidebar-menu {
-        width: 100%;
-
-        .menu {
-            .menu-links {
+        header {
+            .title {
+                background: white;
+                width: 40px;
+                height: 40px;
                 display: flex;
-                flex-direction: column;
-                gap: 20px;
+                align-items: center;
+                justify-content: center;
+                color: var(--primary-color);
+                border-radius: 8px;
+                box-shadow: 1px 1px 10px rgb(211, 211, 211);
+            }
+        }
 
-                .nav-link {
+        .sidebar-menu {
+            width: 100%;
+
+            .menu {
+                .menu-links {
                     display: flex;
-                    align-items: center;
                     flex-direction: column;
+                    gap: 20px;
 
-                    span {
-                        font-size: 16px;
+                    .nav-link {
+                        display: flex;
+                        align-items: center;
+                        flex-direction: column;
+
+                        span {
+                            font-size: 16px;
+                        }
                     }
                 }
             }
         }
+
+        footer {
+            .logout {
+                margin-bottom: 15px;
+            }
+        }
     }
 
-    footer{
-        .logout{
-            margin-bottom: 15px;
-        }
+    .home {
+        position: absolute;
+        top: 0;
+        top: 0;
+        left: 90px;
+        height: 100vh;
+        width: calc(100% - 250px);
+        background-color: var(--body-color);
+        transition: var(--tran-05);
     }
 }
