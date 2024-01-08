@@ -26,19 +26,17 @@ const AdminNavbar = () => {
                         <span>Inbox</span>
                     </div>
                     <div className="menu-item">
-                    <IoPeople className='icon' />
-                                <span>Chats</span>
+                        <IoPeople className='icon' />
+                        <span>Chats</span>
                     </div>
                     <div className="menu-item">
-                    <IoDocumentText className='icon' />
-                                <span>Requests</span>
+                        <IoDocumentText className='icon' />
+                        <span>Requests</span>
                     </div>
                     <div className="menu-item">
-                    <IoCog className='icon' />
-                                <span>Settings</span>
+                        <IoCog className='icon' />
+                        <span>Settings</span>
                     </div>
-
-                    
                 </div>
 
                 <footer>
