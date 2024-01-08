@@ -10,7 +10,7 @@ const AdminNavbar = () => {
             <div className="sidebar">
                 <header>
                     <div className="title">
-                        <DiCodeigniter />
+                        <DiCodeigniter className='icon'/>
                     </div>
                 </header>
 
@@ -18,27 +18,27 @@ const AdminNavbar = () => {
                     <div className="menu">
                         <ul className="menu-links">
                             <li className="nav-link">
-                                <IoHome />
+                                <IoHome className='icon'/>
                                 <span>Home</span>
                             </li>
                             <li className="nav-link">
-                                <IoLayers />
+                                <IoLayers className='icon'/>
                                 <span>Services</span>
                             </li>
                             <li className="nav-link">
-                                <IoChatbubbleEllipses />
+                                <IoChatbubbleEllipses className='icon'/>
                                 <span>Inbox</span>
                             </li>
                             <li className="nav-link">
-                                <IoPeople />
+                                <IoPeople className='icon'/>
                                 <span>Chats</span>
                             </li>
                             <li className="nav-link">
-                                <IoDocumentText />
+                                <IoDocumentText className='icon'/>
                                 <span>Requests</span>
                             </li>
                             <li className="nav-link">
-                                <IoCog />
+                                <IoCog className='icon'/>
                                 <span>Settings</span>
 
                             </li>
@@ -48,7 +48,7 @@ const AdminNavbar = () => {
 
                 <footer>
                     <div className="logout">
-                        <IoLogOut />
+                        <IoLogOut className='icon'/>
                     </div>
                 </footer>
             </div>
