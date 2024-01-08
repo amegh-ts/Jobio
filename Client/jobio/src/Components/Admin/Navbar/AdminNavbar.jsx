@@ -1,7 +1,7 @@
 import React from 'react'
 import './AdminNavbar.scss'
 import { DiCodeigniter } from "react-icons/di";
-import { IoHome, IoLayers, IoChatbubbleEllipses, IoPeople, IoDocumentText, IoCog } from "react-icons/io5";
+import { IoHome, IoLayers, IoChatbubbleEllipses, IoPeople, IoDocumentText, IoCog, IoLogOut } from "react-icons/io5";
 
 
 const AdminNavbar = () => {
@@ -34,7 +34,7 @@ const AdminNavbar = () => {
                                 <span>Chats</span>
                             </li>
                             <li>
-                                <IoDocumentText/>
+                                <IoDocumentText />
                                 <span>Requests</span>
                             </li>
                             <li>
@@ -45,6 +45,12 @@ const AdminNavbar = () => {
                         </ul>
                     </div>
                 </div>
+
+                <footer>
+                    <div className="logout">
+                        <IoLogOut />
+                    </div>
+                </footer>
             </div>
         </div>
     )
