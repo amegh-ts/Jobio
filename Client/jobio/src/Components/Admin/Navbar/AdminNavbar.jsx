@@ -3,17 +3,17 @@ import './AdminNavbar.scss'
 import { DiCodeigniter } from "react-icons/di";
 
 const AdminNavbar = () => {
-  return (
-    <div>
-        <div className="sidebar">
-            <header>
-                <div className="title">
-
-                </div>
-            </header>
+    return (
+        <div>
+            <div className="sidebar">
+                <header>
+                    <div className="title">
+                        <DiCodeigniter />
+                    </div>
+                </header>
+            </div>
         </div>
-    </div>
-  )
+    )
 }
 
 export default AdminNavbar

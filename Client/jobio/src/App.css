@@ -24,16 +24,20 @@
 
   /* ===== text ======= */
 
-  --h3-font-size: 30px;
-  --h3-font-weight: 500;
+  --h3-font: 30px;
 
   --icon-size: 34px;
 }
+body{
+  background: var(--body-color);
 
+}
+*{
+  margin: 0;
+  padding: 0;
 
-
+}
 .App-header {
-  background-color: #E4E9F7;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
