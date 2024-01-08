@@ -49,8 +49,8 @@ const AdminNavbar = () => {
             <section className="home" >
                 <>
                     <div className='navbar-container'>
-                        <div className='navbar-header'>
-                            <h1>Jobio</h1>
+                        <div className='navbar-search'>
+                            <input type="text" placeholder='hiiiii'/>
                         </div>
 
                         <div className='navbar-icon'>

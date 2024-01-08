@@ -5,7 +5,6 @@
     height: 100%;
     width: 50px;
     padding: 10px 14px;
-    background: var(--sidebar-color);
     transition: var(--tran-05);
     z-index: 100;
     display: flex;
@@ -15,6 +14,8 @@
     padding: 10px;
 
     header {
+        margin-top: 5px;
+
         .title {
             background: white;
             width: 60px;
@@ -67,7 +68,7 @@
         }
     }
 
-    footer{
+    footer {
         .logout {
             display: flex;
             align-items: center;
@@ -116,16 +117,23 @@
         padding: 0 20px;
         border-radius: 10px;
         display: flex;
-        justify-content: space-between;
+        // justify-content: space-between;
         align-items: center;
         /* position: fixed; */
         overflow: hidden;
 
-        .navbar-header {
-            color: var(--primary-color);
-            height: 100%;
+        .navbar-search {
+            background: red;
             display: flex;
             align-items: center;
+            padding: 10px;
+            border-radius: 10px;
+            width: 100%;
+
+
+            input {
+                font-size: 16px;
+            }
         }
     }
 }
