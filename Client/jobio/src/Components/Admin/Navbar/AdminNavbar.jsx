@@ -21,23 +21,23 @@ const AdminNavbar = () => {
                                 <IoHome />
                                 <span>Home</span>
                             </li>
-                            <li>
+                            <li className="nav-link">
                                 <IoLayers />
                                 <span>Services</span>
                             </li>
-                            <li>
+                            <li className="nav-link">
                                 <IoChatbubbleEllipses />
                                 <span>Inbox</span>
                             </li>
-                            <li>
+                            <li className="nav-link">
                                 <IoPeople />
                                 <span>Chats</span>
                             </li>
-                            <li>
+                            <li className="nav-link">
                                 <IoDocumentText />
                                 <span>Requests</span>
                             </li>
-                            <li>
+                            <li className="nav-link">
                                 <IoCog />
                                 <span>Settings</span>
 
