@@ -1,11 +1,125 @@
-/* 
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+
+:root {
+  /* ===== Colors ===== */
+  --body-color: #E4E9F7;
+  --sidebar-color: #FFF;
+  --primary-color: #695CFE;
+  --primary-color-light: #F6F5FF;
+  --toggle-color: #DDD;
+  --text-color: #707070;
+
+  /* ====== Transition ====== */
+  --tran-03: all 0.2s ease;
+  --tran-03: all 0.3s ease;
+  --tran-04: all 0.3s ease;
+  --tran-05: all 0.3s ease;
+
+  /* ====== Card gradient ====== */
+
+  --card-gradient-color1: #5a4fd0;
+  --card-gradient-color2: #695CFE;
+
+  /* ===== text ======= */
+
+  --h3-font-size: 30px;
+  --h3-font-weight: 500;
+
+  --icon-size: 34px;
+}
+
+
+
 .App-header {
-  background-color: #282c34;
+  background-color: #E4E9F7;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   font-size: calc(10px + 2vmin);
-  color: white;
-} */
+}
+
+.App-invisible {
+  display: none;
+
+}
+
+
+/* 1116 */
+@media (max-width: 1116px) {
+  .admin-dash-bottom {
+    display: none;
+  }
+
+}
+
+/* 860 */
+@media (max-width: 860px) {
+  .navbar-search input {
+    width: 150px !important;
+    transition: all .50s ease;
+  }
+
+  .notification-box {
+    padding-left: 60px !important;
+    transition: all .50s ease;
+  }
+}
+
+/* 620 */
+@media (max-width: 620px) {
+  .navbar-search input {
+    width: 100px !important;
+    transition: all .50s ease;
+  }
+
+  .notification-box {
+    padding-left: 40px !important;
+    transition: all .50s ease;
+
+  }
+}
+
+/* 540 */
+@media (max-width: 540px) {
+  .navbar-search {
+    display: none !important;
+    transition: all .50s ease;
+  }
+
+  .notification-box {
+    padding-left: 10px !important;
+    transition: all .50s ease;
+
+  }
+
+  .admin-dash-card {
+    max-width: 500px;
+    width: 200px !important;
+    padding: 15px 20px;
+    background-color: var(--box1-color);
+    transition: var(--tran-05);
+  }
+}
+
+/* 340 */
+@media (max-width: 340px) {
+  .App-header {
+    display: none;
+  }
+
+  .App-invisible {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    text-align: center;
+  }
+
+  .App-invisible span {
+    color: red;
+  }
+}
