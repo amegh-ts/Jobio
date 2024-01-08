@@ -13,6 +13,45 @@
     align-items: center;
     justify-content: space-between;
     padding: 10px;
+
+    header {
+        .title {
+            background: white;
+            width: 60px;
+            height: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--primary-color);
+            border-radius: 8px;
+            box-shadow: 1px 1px 10px rgb(177, 177, 177);
+
+
+            .logo {
+                color: var(--primary-color);
+                font-size: 26px;
+            }
+        }
+    }
+
+
+    .menu-bar {
+        width: 100%;
+
+        .menu {
+            .menu-link {
+                display: flex;
+                align-items: center;
+                flex-direction: column;
+                padding: 10px;
+                width: 40px;
+                height: 40px;
+                border-radius: 8px;
+                font-size: 24px;
+                color: var(--text-color);
+            }
+        }
+    }
 }
 
 
