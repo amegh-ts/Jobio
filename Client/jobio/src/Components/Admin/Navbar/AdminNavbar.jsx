@@ -1,7 +1,7 @@
 import React from 'react'
 import './AdminNavbar.scss'
 import { DiCodeigniter } from "react-icons/di";
-import { IoHome,IoLayers, IoChatbubbleEllipses,IoPeople ,IoCog} from "react-icons/io5";
+import { IoHome, IoLayers, IoChatbubbleEllipses, IoPeople, IoDocumentText, IoCog } from "react-icons/io5";
 
 
 const AdminNavbar = () => {
@@ -30,11 +30,18 @@ const AdminNavbar = () => {
                                 <span>Inbox</span>
                             </li>
                             <li>
-                                <IoPeople/>
+                                <IoPeople />
                                 <span>Chats</span>
                             </li>
-                            <li><IoCog/></li>
-                            <span>Settings</span>
+                            <li>
+                                <IoDocumentText/>
+                                <span>Requests</span>
+                            </li>
+                            <li>
+                                <IoCog />
+                                <span>Settings</span>
+
+                            </li>
                         </ul>
                     </div>
                 </div>
