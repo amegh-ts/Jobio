@@ -1,6 +1,6 @@
 import './AdminNavbar.scss'
 import { DiCodeigniter } from "react-icons/di";
-import { IoPersonSharp, IoHome, IoLayers, IoChatbubbleEllipses, IoPeople, IoDocumentText, IoCog, IoLogOut } from "react-icons/io5";
+import { IoPersonSharp, IoHome, IoLayers, IoChatbubbleEllipses, IoPeople, IoDocumentText, IoCog, IoLogOut, IoNotifications } from "react-icons/io5";
 
 const AdminNavbar = () => {
     return (
@@ -50,10 +50,14 @@ const AdminNavbar = () => {
                 <>
                     <div className='navbar-container'>
                         <div className='navbar-search'>
-                            <input type="text" placeholder='hiiiii'/>
+                            <input type="text" placeholder='Search jobs, freelancers...' />
                         </div>
 
                         <div className='navbar-icon'>
+                            
+                            <span>
+                                <IoNotifications />
+                            </span>
                             <span>
                                 <IoPersonSharp />
                             </span>
