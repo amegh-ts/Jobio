@@ -18,7 +18,9 @@ const Home = () => {
 
         <div className='middle'></div>
 
-        <div className='right'></div>
+        <div className='right'>
+          <h1>ads</h1>
+        </div>
       </div>
     </div>
   )
