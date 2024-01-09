@@ -89,7 +89,9 @@
                         text-decoration: none;
 
                         &:hover {
-                            background-color: #ddd;
+                            background-color: #ffffff;
+                            color: var(--primary-color);
+                            font-weight: 500;
                         }
                     }
                 }

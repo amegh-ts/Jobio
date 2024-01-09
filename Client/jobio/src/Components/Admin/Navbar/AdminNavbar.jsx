@@ -55,9 +55,8 @@ const AdminNavbar = () => {
                         <IoNotifications className="icon" />
                         <span>Home</span>
                         <div className={`dropdown-container ${isDropdownVisible ? 'visible' : ''}`} style={{ display: isDropdownVisible ? 'block' : 'none' }}>
-                            <span className="dropdown-item">jjd</span>
-                            <span className="dropdown-item">jjd</span>
-                            <span className="dropdown-item">jjd</span>
+                            <span className="dropdown-item">Send</span>
+                            <span className="dropdown-item">View</span>
                         </div>
                     </div>
 
