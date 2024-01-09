@@ -55,9 +55,9 @@ const AdminNavbar = () => {
         home: <Home />,
         sendAlert: <SendAlert />,
         viewAlert: <ViewAlert />,
-        chats:<Chats/>,
-        jobs:<Jobs/>,
-        users: <Users/>,
+        chats: <Chats />,
+        jobs: <Jobs />,
+        users: <Users />,
         settings
     };
 
