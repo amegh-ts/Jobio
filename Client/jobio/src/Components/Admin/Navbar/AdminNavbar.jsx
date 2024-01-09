@@ -53,7 +53,10 @@ const AdminNavbar = () => {
         home: <Home />,
         sendAlert: <SendAlert />,
         viewAlert: <ViewAlert />,
-        chats:<Chats/>
+        chats:<Chats/>,
+        jobs,
+        users,
+        settings
     };
 
     return (
@@ -83,15 +86,15 @@ const AdminNavbar = () => {
                         <span>Chats</span>
                     </div>
 
-                    <div className="menu-item">
+                    <div className={`menu-item ${activePage === 'jobs' ? 'active' : ''}`} onClick={() => { setActivePage('jobs'); }}>
                         <IoBriefcase className="icon" />
                         <span>Jobs</span>
                     </div>
-                    <div className="menu-item">
+                    <div className={`menu-item ${activePage === 'users' ? 'active' : ''}`} onClick={() => { setActivePage('users'); }}>
                         <IoPeople className="icon" />
                         <span>Users</span>
                     </div>
-                    <div className="menu-item">
+                    <div className={`menu-item ${activePage === 'settings' ? 'active' : ''}`} onClick={() => { setActivePage('settings'); }}>
                         <IoCog className="icon" />
                         <span>Settings</span>
                     </div>
