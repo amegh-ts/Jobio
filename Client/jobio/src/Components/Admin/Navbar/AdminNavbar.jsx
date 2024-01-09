@@ -47,7 +47,7 @@ const AdminNavbar = () => {
                 </header>
 
                 <div className="menu-bar">
-                    <div className="menu-item" onClick={toggleDropdown}>
+                    <div className="menu-item" onClick={toggleDropdown} ref={dropdownRef}>
                         <IoHome className="icon" />
                         <span>Home</span>
                         <div className={`dropdown-container ${isDropdownVisible ? 'visible' : ''}`} style={{ display: isDropdownVisible ? 'block' : 'none' }}>
