@@ -1,35 +1,59 @@
-.Home{
+.Home {
     height: 100%;
-    background-color: rgb(232, 90, 90);
 
-    .home-main{
+    .home-main {
+        padding: 20px;
         display: flex;
         flex-direction: row;
         justify-content: space-around;
         gap: 20px;
 
-        .left{
-            height: 4000px;
+        .left {
+            border-radius: 10px;
+            height: 300px;
             width: 300px;
-            background-color: blue;
+            background: var(--sidebar-color);
+            position: relative;
 
-            .header{
-                img{
+
+            .header {
+                img {
                     width: 100%;
+                    border-radius: 10px;
                 }
+            }
+
+            .photo {
+                background: rgb(0, 255, 94);
+                width: 50px;
+                height: 50px;
+                border-radius: 50%;
+                position: relative;
+                left: 20px;
+                bottom: 40px;
+            }
+
+            .footer {
+                position: absolute;
+                left: 20px;
+                top: 100px;
             }
         }
 
-        .middle{
+        .middle {
             height: 400px;
             width: 800px;
-            background-color: blue;
+            background: var(--sidebar-color);
+            border-radius: 10px;
+
         }
 
-        .right{
+        .right {
             height: 400px;
             width: 400px;
-            background-color: blue;
+            background: var(--sidebar-color);
+            border-radius: 10px;
+
         }
     }
 }
