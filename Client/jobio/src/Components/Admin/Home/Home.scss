@@ -52,16 +52,16 @@
                 padding: 20px;
                 align-items: center;
 
-                .close{
+                .close {
                     position: relative;
                     left: 360px;
 
-                    .icon{
+                    .icon {
                         font-size: 26px;
                         color: var(--text-color);
                         cursor: pointer;
 
-                        &:hover{
+                        &:hover {
                             color: var(--primary-color);
                             font-weight: 500;
                         }
@@ -76,7 +76,7 @@
                     display: flex;
                     align-items: center;
 
-                    img{
+                    img {
                         width: 100%;
                         object-fit: contain;
                     }
