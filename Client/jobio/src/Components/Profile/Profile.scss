@@ -9,7 +9,7 @@
         justify-content: center;
 
         .profile-container {
-            // width: 800px;
+            width: 100%;
             max-width: 800px;
             background: green;
             padding: 10px;
@@ -28,6 +28,7 @@
                     height: 200px;
                     width: 800px;
                     object-fit: cover;
+                    border-radius: 10px;
 
                 }
             }
@@ -40,6 +41,7 @@
                 position: relative;
                 left: 30px;
                 bottom: 100px;
+                
             }
 
             .footer {
