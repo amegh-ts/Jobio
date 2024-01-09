@@ -1,81 +1,94 @@
 import { useState } from 'react';
-import { IoPersonSharp } from "react-icons/io5";
 import './AdminNavbar.scss';
+import { DiCodeigniter } from 'react-icons/di';
+import {
+    IoPersonSharp,
+    IoHome,
+    IoLayers,
+    IoChatbubbleEllipses,
+    IoSearch,
+    IoPeople,
+    IoDocumentText,
+    IoCog,
+    IoLogOut,
+    IoNotifications,
+    IoMoonOutline,
+} from 'react-icons/io5';
 
 const AdminNavbar = () => {
-    const [isSidebarClosed, setSidebarClosed] = useState(true);
-    const [activePage, setActivePage] = useState('dashboard');
+    const [isDropdownVisible, setIsDropdownVisible] = useState(false);
 
-    const toggleSidebar = () => {
-        setSidebarClosed(!isSidebarClosed);
-    };
-
-    const closeSidebar = () => {
-        setSidebarClosed(true);
-    };
-
-    const handleLogout = () => {
-        // Implement logout functionality
+    const toggleDropdown = () => {
+        setIsDropdownVisible(!isDropdownVisible);
     };
 
     return (
         <div>
-            <>
-                <nav className={`sidebar ${isSidebarClosed ? 'close' : ''}`}>
-                    <header>
-                        <div className="image-text" onClick={toggleSidebar}>
-                            <span className="image">
-                                <img src="logo.png" alt="" />
-                            </span>
-                            <div className="text logo-text">
-                                <span className="name">Admin</span>
-                                <span className="profession">Page</span>
-                            </div>
-                        </div>
-                    </header>
+            <nav className="sidebar">
+                <header>
+                    <div className="title">
+                        <DiCodeigniter className="icon logo" />
+                    </div>
+                </header>
 
-                    <div className="menu-bar">
-                        <div className="menu">
-                            <ul className="menu-links">
-                                <li className={`nav-link ${activePage === 'dashboard' ? 'active' : ''}`} onClick={() => { setActivePage('dashboard'); closeSidebar(); }}>
-                                    <a href="#dashboard">
-                                        <i className='bx bx-home-alt icon' ></i>
-                                        <span className="text nav-text">Dashboard</span>
-                                    </a>
-                                </li>
-                                {/* ... Other menu items ... */}
-                            </ul>
-                        </div>
-
-                        <div className="bottom-content">
-                            <li onClick={handleLogout}>
-                                <a href="#logout">
-                                    <i className='bx bx-log-out icon' ></i>
-                                    <span className="text nav-text">Logout</span>
-                                </a>
-                            </li>
+                <div className="menu-bar">
+                    <div className="menu-item" onClick={toggleDropdown}>
+                        <IoHome className="icon" />
+                        <span>Home</span>
+                        <div className={`dropdown-container ${isDropdownVisible ? 'visible' : ''}`} style={{ display: isDropdownVisible ? 'block' : 'none' }}>
+                            <span className="dropdown-item">jjd</span>
+                            <span className="dropdown-item">jjd</span>
+                            <span className="dropdown-item">jjd</span>
                         </div>
                     </div>
-                </nav>
-
-                <section className="home">
-                    <>
-                        <div className='navbar-container'>
-                            <div className='navbar-header'>
-                                <h1>Unknown</h1>
-                            </div>
-                            <div className={`navbar-icon ${activePage === 'profile' ? 'active' : ''}`} onClick={() => { setActivePage('profile'); closeSidebar(); }}>
-                                <span>
-                                    <IoPersonSharp />
-                                </span>
-                            </div>
-                        </div>
-                    </>
-                    <div className={'main-body'} onClick={closeSidebar}>
-                        {/* Content based on activePage */}
+                    <div className="menu-item">
+                        <IoLayers className="icon" />
+                        <span>Services</span>
                     </div>
-                </section>
-            </>
+                    <div className="menu-item">
+                        <IoChatbubbleEllipses className="icon" />
+                        <span>Inbox</span>
+                    </div>
+                    <div className="menu-item">
+                        <IoPeople className="icon" />
+                        <span>Chats</span>
+                    </div>
+                    <div className="menu-item">
+                        <IoDocumentText className="icon" />
+                        <span>Request</span>
+                    </div>
+                    <div className="menu-item">
+                        <IoCog className="icon" />
+                        <span>Settings</span>
+                    </div>
+                </div>
+
+                <footer>
+                    <div className="logout">
+                        <IoLogOut className="icon logout-icon" />
+                    </div>
+                </footer>
+            </nav>
+
+            <section className="home">
+                <div className="navbar-container">
+                    <div className="navbar-search">
+                        <IoSearch className="icon" />
+                        <input type="text" placeholder="Search jobs, freelancers..." />
+                    </div>
+
+                    <div className="navbar-icon">
+                        <span>
+                            <IoMoonOutline />
+                            <IoNotifications />
+                        </span>
+                        <div className="profile">
+                            <IoPersonSharp />
+                        </div>
+                    </div>
+                </div>
+                <div className={'main-body'}></div>
+            </section>
         </div>
     );
 };
