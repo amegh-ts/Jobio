@@ -12,6 +12,7 @@ const Profile = () => {
 
           <div className='footer'>
             <h2>Name</h2>
+            <h3>Highlights</h3>
           </div>
 
         </div>
