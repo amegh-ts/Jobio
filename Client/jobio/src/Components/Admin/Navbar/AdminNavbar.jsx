@@ -59,7 +59,7 @@ const AdminNavbar = () => {
         chats: <Chats />,
         jobs: <Jobs />,
         users: <Users />,
-        settings:<AdminSettings/>
+        settings: <AdminSettings />
     };
 
     return (
@@ -121,9 +121,11 @@ const AdminNavbar = () => {
                         <span>
                             <IoMoonOutline />
                         </span>
-                        <div className="profile">
-                            <IoPersonSharp />
-                        </div>
+                        <Link>
+                            <div className="profile">
+                                <IoPersonSharp />
+                            </div>
+                        </Link>
                     </div>
                 </div>
                 <div className={'main-body'}>
