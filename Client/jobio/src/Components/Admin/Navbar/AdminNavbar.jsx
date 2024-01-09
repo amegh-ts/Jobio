@@ -1,9 +1,6 @@
 import { useState } from 'react';
-import './AdminNavbar.scss'
 import { IoPersonSharp } from "react-icons/io5";
-
-
-
+import './AdminNavbar.scss';
 
 const AdminNavbar = () => {
     const [isSidebarClosed, setSidebarClosed] = useState(true);
@@ -18,39 +15,27 @@ const AdminNavbar = () => {
     };
 
     const handleLogout = () => {
+        // Implement logout functionality
     };
-
-    const setActivePageToChats = () => {
-        setActivePage('chats');
-    };
-
-    const pageComponents = {
-  
-    };
-
-
 
     return (
         <div>
             <>
                 <nav className={`sidebar ${isSidebarClosed ? 'close' : ''}`}>
                     <header>
-                        <div className="image-text">
+                        <div className="image-text" onClick={toggleSidebar}>
                             <span className="image">
-                                <img src="logo.png" alt="" onClick={toggleSidebar} />
+                                <img src="logo.png" alt="" />
                             </span>
-
                             <div className="text logo-text">
                                 <span className="name">Admin</span>
                                 <span className="profession">Page</span>
                             </div>
                         </div>
-
                     </header>
 
                     <div className="menu-bar">
                         <div className="menu">
-
                             <ul className="menu-links">
                                 <li className={`nav-link ${activePage === 'dashboard' ? 'active' : ''}`} onClick={() => { setActivePage('dashboard'); closeSidebar(); }}>
                                     <a href="#dashboard">
@@ -58,54 +43,12 @@ const AdminNavbar = () => {
                                         <span className="text nav-text">Dashboard</span>
                                     </a>
                                 </li>
-
-                                <li className={`nav-link ${activePage === 'notification' ? 'active' : ''}`} onClick={() => { setActivePage('notification'); closeSidebar(); }}>
-                                    <a href="#notification">
-                                        <i className='bx bx-bell icon'></i>
-                                        <span className="text nav-text">Notifications</span>
-                                    </a>
-                                </li>
-
-                                <li className={`nav-link ${activePage === 'allusers' ? 'active' : ''}`} onClick={() => { setActivePage('allusers'); closeSidebar(); }}>
-                                    <a href="#revenue">
-                                        <i className='bx bx-group icon' ></i>
-                                        <span className="text nav-text">Users</span>
-                                    </a>
-                                </li>
-
-                                <li className={`nav-link ${activePage === 'chats' ? 'active' : ''}`} onClick={() => { setActivePage('chats'); closeSidebar(); }}>
-                                    <a href="#chats">
-                                        <i className='bx bx-chat icon' ></i>
-                                        <span className="text nav-text">Chats</span>
-                                    </a>
-                                </li>
-
-                                <li className="nav-link" onClick={closeSidebar}>
-                                    <a href="#analytic">
-                                        <i className='bx bx-pie-chart-alt icon' ></i>
-                                        <span className="text nav-text">Analytics</span>
-                                    </a>
-                                </li>
-
-                                <li className="nav-link" onClick={closeSidebar}>
-                                    <a href="#likes">
-                                        <i className='bx bx-heart icon' ></i>
-                                        <span className="text nav-text">Likes</span>
-                                    </a>
-                                </li>
-
-                                <li className="nav-link" onClick={closeSidebar}>
-                                    <a href="#wallet">
-                                        <i className='bx bx-wallet icon' ></i>
-                                        <span className="text nav-text">Wallets</span>
-                                    </a>
-                                </li>
-
+                                {/* ... Other menu items ... */}
                             </ul>
                         </div>
 
                         <div className="bottom-content">
-                            <li className="" onClick={handleLogout}>
+                            <li onClick={handleLogout}>
                                 <a href="#logout">
                                     <i className='bx bx-log-out icon' ></i>
                                     <span className="text nav-text">Logout</span>
@@ -115,16 +58,12 @@ const AdminNavbar = () => {
                     </div>
                 </nav>
 
-                <section className="home" >
+                <section className="home">
                     <>
                         <div className='navbar-container'>
                             <div className='navbar-header'>
                                 <h1>Unknown</h1>
                             </div>
-                            {/* <div className='navbar-search'>
-                                <input type="text" />
-                                <IoSearch />
-                            </div> */}
                             <div className={`navbar-icon ${activePage === 'profile' ? 'active' : ''}`} onClick={() => { setActivePage('profile'); closeSidebar(); }}>
                                 <span>
                                     <IoPersonSharp />
@@ -133,7 +72,7 @@ const AdminNavbar = () => {
                         </div>
                     </>
                     <div className={'main-body'} onClick={closeSidebar}>
-                        {pageComponents[activePage]}
+                        {/* Content based on activePage */}
                     </div>
                 </section>
             </>
