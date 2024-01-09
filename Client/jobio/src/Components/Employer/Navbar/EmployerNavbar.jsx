@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import './EmployerNavbar.scss'
 import { DiCodeigniter } from 'react-icons/di';
 import {
@@ -17,10 +17,26 @@ import {
 
 const EmployerNavbar = () => {
     const [isDropdownVisible, setIsDropdownVisible] = useState(false);
+    const dropdownRef = useRef(null);
+
 
     const toggleDropdown = () => {
         setIsDropdownVisible(!isDropdownVisible);
     };
+
+    const closeDropdown = (event) => {
+        if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
+            setIsDropdownVisible(false);
+        }
+    };
+
+    useEffect(() => {
+        document.addEventListener('click', closeDropdown);
+
+        return () => {
+            document.removeEventListener('click', closeDropdown);
+        };
+    }, []);
 
   return (
     <div className='employer'>
@@ -32,7 +48,7 @@ const EmployerNavbar = () => {
                 </header>
 
                 <div className="menu-bar">
-                    <div className="menu-item" onClick={toggleDropdown}>
+                    <div className="menu-item" onClick={toggleDropdown} ref={dropdownRef}>
                         <IoHome className="icon" />
                         <span>Home</span>
                         <div className={`dropdown-container ${isDropdownVisible ? 'visible' : ''}`} style={{ display: isDropdownVisible ? 'block' : 'none' }}>
