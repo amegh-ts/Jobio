@@ -90,12 +90,12 @@
                     border-radius: 10px;
 
                     .header {
-                        background: red;
                         display: flex;
                         justify-content: space-between;
+                        border-bottom: 1px solid rgb(182, 182, 182);
+                        padding-bottom: 10px;
 
                         .header-left {
-                            background: cadetblue;
                             display: flex;
 
                             .image {
@@ -103,6 +103,12 @@
                                 height: 70px;
                                 width: 70px;
                                 border-radius: 50%;
+                            }
+                        }
+
+                        .header-right{
+                            .icon{
+                                font-size: 26px;
                             }
                         }
                     }
@@ -125,7 +131,6 @@
                         .blocks{
                             cursor: pointer;
                             padding: 10px 20px;
-                            background: aqua ;
                             border-radius: 10px;
                             font-size: 18px;
                             display: flex;
@@ -134,7 +139,8 @@
                             
 
                             &:hover{
-                                background-color: var(--text-color);
+                                background:rgb(198, 198, 198);
+                                color: var(--primary-color);
                             }
                         }
                     }
