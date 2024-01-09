@@ -45,6 +45,22 @@ const Home = () => {
               </div>
             </div>
           )}
+
+          <div className="posts">
+            <div className="post-container">
+              <div className='header'>
+                <div className='left'>
+                  <div className='image'></div>
+                </div>
+                <div className='right'>
+
+                </div>
+              </div>
+              <div></div>
+              <div></div>
+              <div></div>
+            </div>
+          </div>
         </div>
 
         <div className="right">

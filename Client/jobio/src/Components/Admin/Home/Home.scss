@@ -82,6 +82,20 @@
                     }
                 }
             }
+
+            .posts{
+                .post-container{
+                    .header{
+                        .left{
+                            .image{
+                                background: red;
+                                height: 50px;
+                                width: 50px;
+                            }
+                        }
+                    }
+                }
+            }
         }
 
         .right {
