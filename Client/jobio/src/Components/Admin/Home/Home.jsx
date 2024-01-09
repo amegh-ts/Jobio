@@ -19,9 +19,11 @@ const Home = () => {
         <div className='middle'>
           <div className="welcome-container">
             <div className='image'>
-              
+
             </div>
-            <div></div>
+            <div>
+              <h1>Welcome back Devil</h1>
+            </div>
             <div></div>
           </div>
         </div>

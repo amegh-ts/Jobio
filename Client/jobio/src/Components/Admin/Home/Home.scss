@@ -43,16 +43,17 @@
         .middle {
             height: 400px;
             width: 800px;
-            background: var(--sidebar-color);
-            border-radius: 10px;
 
-            .welcome-container{
-                .image{
+            .welcome-container {
+                background: var(--sidebar-color);
+                border-radius: 10px;
+
+                .image {
                     background: rgb(0, 255, 94);
-                width: 50px;
-                height: 50px;
-                border-radius: 50%;
-               
+                    width: 50px;
+                    height: 50px;
+                    border-radius: 50%;
+
                 }
             }
         }
