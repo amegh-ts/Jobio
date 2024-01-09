@@ -42,7 +42,7 @@ const AdminNavbar = () => {
 
     const pageComponents = {
         home: <Home />,
-        sendAlert:<SendAlert/>
+        sendAlert: <SendAlert />
     };
     return (
         <div className='admin'>
@@ -62,7 +62,7 @@ const AdminNavbar = () => {
                         <IoNotifications className="icon" />
                         <span>Alert</span>
                         <div className={`dropdown-container ${isDropdownVisible ? 'visible' : ''}`} style={{ display: isDropdownVisible ? 'block' : 'none' }}>
-                            <span className="dropdown-item">Send</span>
+                            <span className={`dropdown-item ${activePage === 'home' ? 'active' : ''}`} onClick={() => { setActivePage('home'); }}>Send</span>
                             <span className="dropdown-item">View</span>
                         </div>
                     </div>
