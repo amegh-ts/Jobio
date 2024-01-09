@@ -49,10 +49,10 @@ const Home = () => {
           <div className="posts">
             <div className="post-container">
               <div className='header'>
-                <div className='left'>
+                <div className='header-left'>
                   <div className='image'></div>
                 </div>
-                <div className='right'>
+                <div className='header-right'>
 
                 </div>
               </div>

@@ -85,10 +85,15 @@
 
             .posts{
                 .post-container{
+                    background: var(--sidebar-color);
+                    padding: 10px;
+                    border-radius: 10px;
+                    
                     .header{
-                        .left{
+                        background: red;
+                        .header-left{
                             .image{
-                                background: red;
+                                background: rgb(0, 0, 0);
                                 height: 50px;
                                 width: 50px;
                             }
