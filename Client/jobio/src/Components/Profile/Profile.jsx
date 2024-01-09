@@ -16,12 +16,14 @@ const Profile = () => {
           </div>
 
         </div>
+        
+        <div className="skills"></div>
 
         <div className="education">
-          hh
+          <h3>Education</h3>
+
         </div>
 
-        <div className="skills"></div>
       </section>
     </div>
   )
