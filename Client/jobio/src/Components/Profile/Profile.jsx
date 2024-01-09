@@ -1,3 +1,4 @@
+import './Profile.scss'
 
 const Profile = () => {
   return (
