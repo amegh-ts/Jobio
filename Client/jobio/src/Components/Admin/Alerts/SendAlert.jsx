@@ -1,5 +1,6 @@
 import { useState } from "react";
-
+import { LuBellPlus } from 'react-icons/lu';
+import './SendAlert.css'
 const SendAlert = () => {
   const [notification, setNotification] = useState('');
   const [priority, setPriority] = useState('Common Message');
@@ -14,7 +15,8 @@ const SendAlert = () => {
 
   const handleSendClick = async () => {
     try {
-      await sendNotification({ notification, priority })
+      // await sendNotification({ notification, priority })
+      console.log(notification,priority);
     } catch (error) {
       console.log(error);
     }
@@ -25,7 +27,7 @@ const SendAlert = () => {
       <div className="send-notification-main">
         <div className="send-notification-header">
           <LuBellPlus className="bell-plus-icon" />
-          <h3>Notification</h3>
+          <h3>Send Alert</h3>
         </div>
         <div className="send-notification-body">
           <div>
