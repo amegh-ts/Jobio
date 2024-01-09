@@ -9,15 +9,17 @@ const Profile = () => {
             <img src="/Images/bg.png" alt="" />
           </div>
           <div className='photo'></div>
-
           <div className='footer'>
             <h2>Name</h2>
             <h3>Highlights</h3>
+            <h5>kozhikode, kerala, India <span>Contact info</span></h5>
           </div>
 
         </div>
 
-        <div className="education"></div>
+        <div className="education">
+          hh
+        </div>
 
         <div className="skills"></div>
       </section>
