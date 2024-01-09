@@ -3,13 +3,13 @@ import './Profile.scss'
 const Profile = () => {
   return (
     <div className="Profile">
-        <div className="column">
+        <section className="column">
           <div className="profile-container"></div>
-
+hhh
           <div className="education"></div>
 
           <div className="skills"></div>
-        </div>
+        </section>
     </div>
   )
 }

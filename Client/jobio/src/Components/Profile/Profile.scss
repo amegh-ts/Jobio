@@ -1,4 +1,12 @@
 .Profile{
     width: 100%;
     background-color: red;
+    display: flex;
+    align-items: center;
+
+    section{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
 }
