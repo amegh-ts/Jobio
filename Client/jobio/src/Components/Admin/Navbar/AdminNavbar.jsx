@@ -1,94 +1,142 @@
 import { useState } from 'react';
-import './AdminNavbar.scss';
-import { DiCodeigniter } from 'react-icons/di';
-import {
-    IoPersonSharp,
-    IoHome,
-    IoLayers,
-    IoChatbubbleEllipses,
-    IoSearch,
-    IoPeople,
-    IoDocumentText,
-    IoCog,
-    IoLogOut,
-    IoNotifications,
-    IoMoonOutline,
-} from 'react-icons/io5';
+import './AdminNavbar.scss'
+import { IoPersonSharp } from "react-icons/io5";
+
+
+
 
 const AdminNavbar = () => {
-    const [isDropdownVisible, setIsDropdownVisible] = useState(false);
+    const [isSidebarClosed, setSidebarClosed] = useState(true);
+    const [activePage, setActivePage] = useState('dashboard');
 
-    const toggleDropdown = () => {
-        setIsDropdownVisible(!isDropdownVisible);
+    const toggleSidebar = () => {
+        setSidebarClosed(!isSidebarClosed);
     };
+
+    const closeSidebar = () => {
+        setSidebarClosed(true);
+    };
+
+    const handleLogout = () => {
+    };
+
+    const setActivePageToChats = () => {
+        setActivePage('chats');
+    };
+
+    const pageComponents = {
+  
+    };
+
+
 
     return (
         <div>
-            <nav className="sidebar">
-                <header>
-                    <div className="title">
-                        <DiCodeigniter className="icon logo" />
-                    </div>
-                </header>
+            <>
+                <nav className={`sidebar ${isSidebarClosed ? 'close' : ''}`}>
+                    <header>
+                        <div className="image-text">
+                            <span className="image">
+                                <img src="logo.png" alt="" onClick={toggleSidebar} />
+                            </span>
 
-                <div className="menu-bar">
-                    <div className="menu-item" onClick={toggleDropdown}>
-                        <IoHome className="icon" />
-                        <span>Home</span>
-                        <div className={`dropdown-container ${isDropdownVisible ? 'visible' : ''}`} style={{ display: isDropdownVisible ? 'block' : 'none' }}>
-                            <span className="dropdown-item">jjd</span>
-                            <span className="dropdown-item">jjd</span>
-                            <span className="dropdown-item">jjd</span>
+                            <div className="text logo-text">
+                                <span className="name">Admin</span>
+                                <span className="profession">Page</span>
+                            </div>
+                        </div>
+
+                    </header>
+
+                    <div className="menu-bar">
+                        <div className="menu">
+
+                            <ul className="menu-links">
+                                <li className={`nav-link ${activePage === 'dashboard' ? 'active' : ''}`} onClick={() => { setActivePage('dashboard'); closeSidebar(); }}>
+                                    <a href="#dashboard">
+                                        <i className='bx bx-home-alt icon' ></i>
+                                        <span className="text nav-text">Dashboard</span>
+                                    </a>
+                                </li>
+
+                                <li className={`nav-link ${activePage === 'notification' ? 'active' : ''}`} onClick={() => { setActivePage('notification'); closeSidebar(); }}>
+                                    <a href="#notification">
+                                        <i className='bx bx-bell icon'></i>
+                                        <span className="text nav-text">Notifications</span>
+                                    </a>
+                                </li>
+
+                                <li className={`nav-link ${activePage === 'allusers' ? 'active' : ''}`} onClick={() => { setActivePage('allusers'); closeSidebar(); }}>
+                                    <a href="#revenue">
+                                        <i className='bx bx-group icon' ></i>
+                                        <span className="text nav-text">Users</span>
+                                    </a>
+                                </li>
+
+                                <li className={`nav-link ${activePage === 'chats' ? 'active' : ''}`} onClick={() => { setActivePage('chats'); closeSidebar(); }}>
+                                    <a href="#chats">
+                                        <i className='bx bx-chat icon' ></i>
+                                        <span className="text nav-text">Chats</span>
+                                    </a>
+                                </li>
+
+                                <li className="nav-link" onClick={closeSidebar}>
+                                    <a href="#analytic">
+                                        <i className='bx bx-pie-chart-alt icon' ></i>
+                                        <span className="text nav-text">Analytics</span>
+                                    </a>
+                                </li>
+
+                                <li className="nav-link" onClick={closeSidebar}>
+                                    <a href="#likes">
+                                        <i className='bx bx-heart icon' ></i>
+                                        <span className="text nav-text">Likes</span>
+                                    </a>
+                                </li>
+
+                                <li className="nav-link" onClick={closeSidebar}>
+                                    <a href="#wallet">
+                                        <i className='bx bx-wallet icon' ></i>
+                                        <span className="text nav-text">Wallets</span>
+                                    </a>
+                                </li>
+
+                            </ul>
+                        </div>
+
+                        <div className="bottom-content">
+                            <li className="" onClick={handleLogout}>
+                                <a href="#logout">
+                                    <i className='bx bx-log-out icon' ></i>
+                                    <span className="text nav-text">Logout</span>
+                                </a>
+                            </li>
                         </div>
                     </div>
-                    <div className="menu-item">
-                        <IoLayers className="icon" />
-                        <span>Services</span>
-                    </div>
-                    <div className="menu-item">
-                        <IoChatbubbleEllipses className="icon" />
-                        <span>Inbox</span>
-                    </div>
-                    <div className="menu-item">
-                        <IoPeople className="icon" />
-                        <span>Chats</span>
-                    </div>
-                    <div className="menu-item">
-                        <IoDocumentText className="icon" />
-                        <span>Request</span>
-                    </div>
-                    <div className="menu-item">
-                        <IoCog className="icon" />
-                        <span>Settings</span>
-                    </div>
-                </div>
+                </nav>
 
-                <footer>
-                    <div className="logout">
-                        <IoLogOut className="icon logout-icon" />
-                    </div>
-                </footer>
-            </nav>
-
-            <section className="home">
-                <div className="navbar-container">
-                    <div className="navbar-search">
-                        <IoSearch className="icon" />
-                        <input type="text" placeholder="Search jobs, freelancers..." />
-                    </div>
-
-                    <div className="navbar-icon">
-                        <span>
-                            <IoMoonOutline />
-                            <IoNotifications />
-                        </span>
-                        <div className="profile">
-                            <IoPersonSharp />
+                <section className="home" >
+                    <>
+                        <div className='navbar-container'>
+                            <div className='navbar-header'>
+                                <h1>Unknown</h1>
+                            </div>
+                            {/* <div className='navbar-search'>
+                                <input type="text" />
+                                <IoSearch />
+                            </div> */}
+                            <div className={`navbar-icon ${activePage === 'profile' ? 'active' : ''}`} onClick={() => { setActivePage('profile'); closeSidebar(); }}>
+                                <span>
+                                    <IoPersonSharp />
+                                </span>
+                            </div>
                         </div>
+                    </>
+                    <div className={'main-body'} onClick={closeSidebar}>
+                        {pageComponents[activePage]}
                     </div>
-                </div>
-                <div className={'main-body'}></div>
-            </section>
+                </section>
+            </>
         </div>
     );
 };
