@@ -4,14 +4,12 @@ import { DiCodeigniter } from 'react-icons/di';
 import {
     IoPersonSharp,
     IoHome,
-    IoLayers,
     IoChatbubbleEllipses,
+    IoBriefcase,
     IoSearch,
     IoPeople,
-    IoDocumentText,
     IoCog,
     IoLogOut,
-    IoNotifications,
     IoMoonOutline,
 } from 'react-icons/io5';
 
@@ -52,8 +50,8 @@ const AdminNavbar = () => {
                         <span>Home</span>
                     </div>
                     <div className="menu-item" onClick={toggleDropdown} ref={dropdownRef}>
-                        <IoNotifications className="icon" />
-                        <span>Home</span>
+                        <IoChatbubbleEllipses className="icon" />
+                        <span>Inbox</span>
                         <div className={`dropdown-container ${isDropdownVisible ? 'visible' : ''}`} style={{ display: isDropdownVisible ? 'block' : 'none' }}>
                             <span className="dropdown-item">Send</span>
                             <span className="dropdown-item">View</span>
@@ -61,12 +59,12 @@ const AdminNavbar = () => {
                     </div>
 
                     <div className="menu-item">
-                        <IoPeople className="icon" />
-                        <span>Chats</span>
+                        <IoBriefcase className="icon" />
+                        <span>Jobs</span>
                     </div>
                     <div className="menu-item">
-                        <IoDocumentText className="icon" />
-                        <span>Request</span>
+                        <IoPeople className="icon" />
+                        <span>Users</span>
                     </div>
                     <div className="menu-item">
                         <IoCog className="icon" />
