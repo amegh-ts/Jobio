@@ -1,5 +1,14 @@
+
 .send-notification-main {
     padding: 20px;
+    background: #ff0000;
+    display: flex;
+    justify-content: center;
+}
+
+.container{
+    background-color: var(--sidebar-color);
+    padding: 10px;
 }
 
 .send-notification-header {

@@ -23,8 +23,9 @@ const SendAlert = () => {
     alert("Message sent successfully")
   };
   return (
-    <div>
-      <div className="send-notification-main">
+    <div className="send-notification-main">
+      <div className="container">
+        
         <div className="send-notification-header">
           <LuBellPlus className="bell-plus-icon" />
           <h3>Send Alert</h3>
