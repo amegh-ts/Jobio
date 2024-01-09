@@ -74,7 +74,7 @@
                     position: absolute;
                     top: 0;
                     left: 100%;
-                    background-color: var(--text-color);
+                    background-color: var(--body-color);
                     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
                     z-index: 1;
                     padding: 10px;
@@ -84,7 +84,7 @@
                     .dropdown-item {
                         padding: 10px;
                         display: block;
-                        color: #333;
+                        color: var(--text-color);
                         border-radius: 10px;
                         text-decoration: none;
 
