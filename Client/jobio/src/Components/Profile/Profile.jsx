@@ -5,9 +5,11 @@ const Profile = () => {
     <div className="Profile">
       <section className="column">
         <div className="profile-container">
-          <div></div>
-          <div></div>
-          <div></div>
+          <div className='header'>
+            <img src="/Images/bg.png" alt="" />
+          </div>
+          <div className='photo'></div>
+          <div className='footer'></div>
         </div>
 
         <div className="education"></div>
