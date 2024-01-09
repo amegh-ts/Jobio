@@ -16,12 +16,26 @@ const Profile = () => {
           </div>
 
         </div>
-        
-        <div className="skills"></div>
+
+        <div className="skills">
+          <h3>Skills</h3>
+          <div className='skill-container'>
+            <button className='btn'>HTML</button>
+            <button className='btn'>HTML</button>
+            <button className='btn'>HTML</button>
+            <button className='btn'>HTML</button>
+          </div>
+        </div>
 
         <div className="education">
           <h3>Education</h3>
-
+          <div className="education-container">
+            <div>
+              <h5>University of Calicut</h5>
+              <h6>Bachelor of science - CS</h6>
+              <p>2020 - 2023</p>
+            </div>
+          </div>
         </div>
 
       </section>

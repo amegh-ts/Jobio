@@ -52,15 +52,25 @@
 
         .skills{
             width: 100%;
-            max-width: 800px;
+            max-width: 760px;
             background: var(--sidebar-color);
             border-radius: 10px;
             padding: 20px;
+
+            .skill-container{
+                display: flex;
+                flex-wrap: wrap;
+                gap: 20px;
+                .btn{
+                    padding: 10px;
+                }
+            }
+            
         }
 
         .education{
             width: 100%;
-            max-width: 800px;
+            max-width: 760px;
             background: var(--sidebar-color);
             border-radius: 10px;
             padding: 20px;
