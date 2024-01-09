@@ -15,12 +15,15 @@ import {
 } from 'react-icons/io5';
 import Home from '../Home/Home';
 import SendAlert from '../Alerts/SendAlert';
+import ViewAlert from '../Alerts/ViewAlert';
 
 const AdminNavbar = () => {
     const [isDropdownVisible, setIsDropdownVisible] = useState(false);
     const dropdownRef = useRef(null);
-    const [activePage, setActivePage] = useState('home');
-
+    const [activePage, setActivePage] = useState(() => {
+        // Retrieve the active page from sessionStorage on component mount
+        return sessionStorage.getItem('activePage') || 'home';
+    });
 
     const toggleDropdown = () => {
         setIsDropdownVisible(!isDropdownVisible);
@@ -40,11 +43,17 @@ const AdminNavbar = () => {
         };
     }, []);
 
+    useEffect(() => {
+        // Save the active page to sessionStorage whenever it changes
+        sessionStorage.setItem('activePage', activePage);
+    }, [activePage]);
+
     const pageComponents = {
         home: <Home />,
         sendAlert: <SendAlert />,
-        viewAlert:<
+        viewAlert: <ViewAlert />,
     };
+
     return (
         <div className='admin'>
             <nav className="sidebar">
