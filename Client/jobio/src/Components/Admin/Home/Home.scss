@@ -83,19 +83,58 @@
                 }
             }
 
-            .posts{
-                .post-container{
+            .posts {
+                .post-container {
                     background: var(--sidebar-color);
                     padding: 10px;
                     border-radius: 10px;
-                    
-                    .header{
+
+                    .header {
                         background: red;
-                        .header-left{
-                            .image{
+                        display: flex;
+                        justify-content: space-between;
+
+                        .header-left {
+                            background: cadetblue;
+                            display: flex;
+
+                            .image {
                                 background: rgb(0, 0, 0);
-                                height: 50px;
-                                width: 50px;
+                                height: 70px;
+                                width: 70px;
+                                border-radius: 50%;
+                            }
+                        }
+                    }
+
+                    .cimage{
+                        width: 780px;
+
+                        img{
+                            width: 100%;
+                            object-fit: contain;
+                        }
+                    }
+
+                    .footer{
+                        border-top: 1px solid rgb(184, 184, 184);
+                        display: flex;
+                        padding: 20px;
+                        justify-content: space-around;
+
+                        .blocks{
+                            cursor: pointer;
+                            padding: 10px 20px;
+                            background: aqua ;
+                            border-radius: 10px;
+                            font-size: 18px;
+                            display: flex;
+                            align-items: center;
+                            gap: 10px;
+                            
+
+                            &:hover{
+                                background-color: var(--text-color);
                             }
                         }
                     }

@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import './Home.scss';
-import { IoCloseCircleOutline } from 'react-icons/io5';
+import { IoCloseCircleOutline,IoThumbsUpOutline } from 'react-icons/io5';
 
 const Home = () => {
   const [showWelcomeContainer, setShowWelcomeContainer] = useState(true);
@@ -50,15 +50,42 @@ const Home = () => {
             <div className="post-container">
               <div className='header'>
                 <div className='header-left'>
-                  <div className='image'></div>
+                  <div className='image'>
+                    <img src="" alt="pic" />
+                  </div>
+                  <div className="header-title">
+                    <h3>Name</h3>
+                    <h6>Time</h6>
+                  </div>
                 </div>
                 <div className='header-right'>
-
+                  <IoCloseCircleOutline className="icon" />
                 </div>
               </div>
-              <div></div>
-              <div></div>
-              <div></div>
+              <div className='description'>
+                <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Adipisci eligendi facere repudiandae eaque aperiam eum nisi natus. Id deserunt illum cumque, laboriosam, recusandae impedit, eos sunt labore magni maxime magnam.</p>
+              </div>
+              <div className='cimage'>
+                <img src="/Images/bg.png" alt="" />
+              </div>
+              <div className='footer'>
+                  <div className='blocks'>
+                    <IoThumbsUpOutline/>
+                    <span>Like</span>
+                  </div>
+                  <div className='blocks'>
+                    <IoThumbsUpOutline/>
+                    <span>Comment</span>
+                  </div>
+                  <div className='blocks'>
+                    <IoThumbsUpOutline/>
+                    <span>Repost</span>
+                  </div>
+                  <div className='blocks'>
+                    <IoThumbsUpOutline/>
+                    <span>Send</span>
+                  </div>
+              </div>
             </div>
           </div>
         </div>
