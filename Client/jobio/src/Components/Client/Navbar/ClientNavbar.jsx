@@ -1,5 +1,5 @@
 import { useState } from 'react';
-// import './ClientNavbar.scss';
+import './ClientNavbar.scss';
 import { DiCodeigniter } from 'react-icons/di';
 import {
     IoPersonSharp,
@@ -23,7 +23,7 @@ const ClientNavbar = () => {
     };
 
     return (
-        <div>
+        <div className='client'>
             <nav className="sidebar">
                 <header>
                     <div className="title">

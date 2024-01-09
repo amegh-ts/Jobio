@@ -1,5 +1,5 @@
-import { useEffect, useRef, useState } from 'react';
-import './AdminNavbar.scss';
+import { useState } from 'react';
+import './EmployerNavbar.scss'
 import { DiCodeigniter } from 'react-icons/di';
 import {
     IoPersonSharp,
@@ -15,30 +15,15 @@ import {
     IoMoonOutline,
 } from 'react-icons/io5';
 
-const AdminNavbar = () => {
+const EmployerNavbar = () => {
     const [isDropdownVisible, setIsDropdownVisible] = useState(false);
-    const dropdownRef = useRef(null);
 
     const toggleDropdown = () => {
         setIsDropdownVisible(!isDropdownVisible);
     };
 
-    const closeDropdown = (event) => {
-        if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
-            setIsDropdownVisible(false);
-        }
-    };
-
-    useEffect(() => {
-        document.addEventListener('click', closeDropdown);
-
-        return () => {
-            document.removeEventListener('click', closeDropdown);
-        };
-    }, []);
-
-    return (
-        <div className='admin'>
+  return (
+    <div className='employer'>
             <nav className="sidebar">
                 <header>
                     <div className="title">
@@ -105,7 +90,7 @@ const AdminNavbar = () => {
                 <div className={'main-body'}></div>
             </section>
         </div>
-    );
-};
+  )
+}
 
-export default AdminNavbar;
+export default EmployerNavbar
