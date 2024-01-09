@@ -47,6 +47,10 @@
             .welcome-container {
                 background: var(--sidebar-color);
                 border-radius: 10px;
+                display: flex;
+                flex-direction: column;
+                padding: 20px;
+                align-items: center;
 
                 .image {
                     background: rgb(0, 255, 94);

@@ -24,7 +24,13 @@ const Home = () => {
             <div>
               <h1>Welcome back Devil</h1>
             </div>
-            <div></div>
+            <div>
+              <p>You are currenty</p>
+              <div>
+                <button>Available to work</button>
+                <button>Unavailabel to work</button>
+              </div>
+            </div>
           </div>
         </div>
 
