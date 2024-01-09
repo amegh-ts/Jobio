@@ -1,4 +1,6 @@
 import './Home.scss'
+import { IoCloseCircleOutline } from "react-icons/io5";
+
 
 const Home = () => {
   return (
@@ -18,8 +20,11 @@ const Home = () => {
 
         <div className='middle'>
           <div className="welcome-container">
+            <div className='close'>
+              <IoCloseCircleOutline className='icon'/>
+            </div>
             <div className='image'>
-
+              <img src="" alt="Profile" />
             </div>
             <div className='note'>
               <h1>Welcome back Devil</h1>
