@@ -9,7 +9,11 @@ const Profile = () => {
             <img src="/Images/bg.png" alt="" />
           </div>
           <div className='photo'></div>
-          <div className='footer'></div>
+
+          <div className='footer'>
+            <h2>Name</h2>
+          </div>
+
         </div>
 
         <div className="education"></div>
