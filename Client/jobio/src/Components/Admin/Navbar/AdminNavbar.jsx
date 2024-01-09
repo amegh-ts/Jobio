@@ -47,8 +47,12 @@ const AdminNavbar = () => {
                 </header>
 
                 <div className="menu-bar">
-                    <div className="menu-item" onClick={toggleDropdown} ref={dropdownRef}>
+                    <div className="menu-item">
                         <IoHome className="icon" />
+                        <span>Home</span>
+                    </div>
+                    <div className="menu-item" onClick={toggleDropdown} ref={dropdownRef}>
+                        <IoNotifications className="icon" />
                         <span>Home</span>
                         <div className={`dropdown-container ${isDropdownVisible ? 'visible' : ''}`} style={{ display: isDropdownVisible ? 'block' : 'none' }}>
                             <span className="dropdown-item">jjd</span>
@@ -56,14 +60,7 @@ const AdminNavbar = () => {
                             <span className="dropdown-item">jjd</span>
                         </div>
                     </div>
-                    <div className="menu-item">
-                        <IoLayers className="icon" />
-                        <span>Services</span>
-                    </div>
-                    <div className="menu-item">
-                        <IoChatbubbleEllipses className="icon" />
-                        <span>Inbox</span>
-                    </div>
+
                     <div className="menu-item">
                         <IoPeople className="icon" />
                         <span>Chats</span>
@@ -95,7 +92,6 @@ const AdminNavbar = () => {
                     <div className="navbar-icon">
                         <span>
                             <IoMoonOutline />
-                            <IoNotifications />
                         </span>
                         <div className="profile">
                             <IoPersonSharp />
