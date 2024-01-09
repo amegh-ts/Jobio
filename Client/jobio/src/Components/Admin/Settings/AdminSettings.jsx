@@ -1,7 +1,7 @@
 
 const AdminSettings = () => {
   return (
-    <div>Settings</div>
+    <div>AdminSettings</div>
   )
 }
 

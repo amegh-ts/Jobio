@@ -19,6 +19,7 @@ import ViewAlert from '../Alerts/ViewAlert';
 import Chats from '../../Chats/Chats';
 import Jobs from '../Jobs/Jobs';
 import Users from '../Users/Users';
+import AdminSettings from '../Settings/AdminSettings';
 
 const AdminNavbar = () => {
     const [isDropdownVisible, setIsDropdownVisible] = useState(false);
@@ -58,7 +59,7 @@ const AdminNavbar = () => {
         chats: <Chats />,
         jobs: <Jobs />,
         users: <Users />,
-        settings:<Settings
+        settings:<AdminSettings/>
     };
 
     return (
