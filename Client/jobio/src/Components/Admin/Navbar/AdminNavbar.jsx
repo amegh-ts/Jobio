@@ -41,6 +41,7 @@ const AdminNavbar = () => {
 
     const pageComponents = {
         home: <Home />,
+        sendAlert:<Send
     };
     return (
         <div className='admin'>
