@@ -1,7 +1,6 @@
 
 .send-notification-main {
     padding: 20px;
-    background: #ff0000;
     display: flex;
     justify-content: center;
 }
@@ -9,6 +8,9 @@
 .container{
     background-color: var(--sidebar-color);
     padding: 10px;
+    border-radius: 10px;
+    width: 900px;
+    max-width: 900px;
 }
 
 .send-notification-header {
@@ -63,4 +65,6 @@ textarea {
 .send-notification-body select{
     padding: 10px;
     outline: none;
+    background-color: #eaeaea;
+    border-radius: 5px;
 }
