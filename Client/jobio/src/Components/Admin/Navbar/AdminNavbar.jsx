@@ -10,12 +10,16 @@ import {
     IoPeople,
     IoCog,
     IoLogOut,
+    IoNotifications,
     IoMoonOutline,
 } from 'react-icons/io5';
+import Home from '../Home/Home';
 
 const AdminNavbar = () => {
     const [isDropdownVisible, setIsDropdownVisible] = useState(false);
     const dropdownRef = useRef(null);
+    const [activePage, setActivePage] = useState('home');
+
 
     const toggleDropdown = () => {
         setIsDropdownVisible(!isDropdownVisible);
@@ -35,6 +39,9 @@ const AdminNavbar = () => {
         };
     }, []);
 
+    const pageComponents = {
+        home: <Home />,
+    };
     return (
         <div className='admin'>
             <nav className="sidebar">
@@ -45,17 +52,21 @@ const AdminNavbar = () => {
                 </header>
 
                 <div className="menu-bar">
-                    <div className="menu-item">
+                    <div className={`menu-item ${activePage === 'home' ? 'active' : ''}`} onClick={() => { setActivePage('home'); }}>
                         <IoHome className="icon" />
                         <span>Home</span>
                     </div>
                     <div className="menu-item" onClick={toggleDropdown} ref={dropdownRef}>
-                        <IoChatbubbleEllipses className="icon" />
-                        <span>Inbox</span>
+                        <IoNotifications className="icon" />
+                        <span>Alert</span>
                         <div className={`dropdown-container ${isDropdownVisible ? 'visible' : ''}`} style={{ display: isDropdownVisible ? 'block' : 'none' }}>
                             <span className="dropdown-item">Send</span>
                             <span className="dropdown-item">View</span>
                         </div>
+                    </div>
+                    <div className="menu-item">
+                        <IoChatbubbleEllipses className="icon" />
+                        <span>Chats</span>
                     </div>
 
                     <div className="menu-item">
@@ -95,7 +106,9 @@ const AdminNavbar = () => {
                         </div>
                     </div>
                 </div>
-                <div className={'main-body'}></div>
+                <div className={'main-body'}>
+                    {pageComponents[activePage]}
+                </div>
             </section>
         </div>
     );
