@@ -1,5 +1,4 @@
 import { useEffect, useRef, useState } from 'react';
-import {Link} from 'react-router-dom'
 import './AdminNavbar.scss';
 import { DiCodeigniter } from 'react-icons/di';
 import {
@@ -21,6 +20,7 @@ import Chats from '../../Chats/Chats';
 import Jobs from '../Jobs/Jobs';
 import Users from '../Users/Users';
 import AdminSettings from '../Settings/AdminSettings';
+import Profile from '../../Profile/Profile';
 
 const AdminNavbar = () => {
     const [isDropdownVisible, setIsDropdownVisible] = useState(false);
@@ -60,7 +60,8 @@ const AdminNavbar = () => {
         chats: <Chats />,
         jobs: <Jobs />,
         users: <Users />,
-        settings: <AdminSettings />
+        settings: <AdminSettings />,
+        profile:<Profile/>
     };
 
     return (
@@ -122,11 +123,9 @@ const AdminNavbar = () => {
                         <span>
                             <IoMoonOutline />
                         </span>
-                        <Link to={'/profile'}>
-                            <div className="profile">
+                            <div className={`profile  ${activePage === 'profile' ? 'active' : ''}`} onClick={() => { setActivePage('profile'); }}>
                                 <IoPersonSharp />
                             </div>
-                        </Link>
                     </div>
                 </div>
                 <div className={'main-body'}>
