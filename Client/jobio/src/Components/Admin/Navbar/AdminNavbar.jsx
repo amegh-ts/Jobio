@@ -18,6 +18,7 @@ import SendAlert from '../Alerts/SendAlert';
 import ViewAlert from '../Alerts/ViewAlert';
 import Chats from '../../Chats/Chats';
 import Jobs from '../Jobs/Jobs';
+import Users from '../Users/Users';
 
 const AdminNavbar = () => {
     const [isDropdownVisible, setIsDropdownVisible] = useState(false);
@@ -54,9 +55,9 @@ const AdminNavbar = () => {
         home: <Home />,
         sendAlert: <SendAlert />,
         viewAlert: <ViewAlert />,
-        chats: <Chats />,
-        jobs: <Jobs />,
-        users,
+        chats:<Chats/>,
+        jobs:<Jobs/>,
+        users: <Users/>,
         settings
     };
 
