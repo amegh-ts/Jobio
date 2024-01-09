@@ -16,6 +16,7 @@ import {
 import Home from '../Home/Home';
 import SendAlert from '../Alerts/SendAlert';
 import ViewAlert from '../Alerts/ViewAlert';
+import Chats from '../../Chats/Chats';
 
 const AdminNavbar = () => {
     const [isDropdownVisible, setIsDropdownVisible] = useState(false);
@@ -52,6 +53,7 @@ const AdminNavbar = () => {
         home: <Home />,
         sendAlert: <SendAlert />,
         viewAlert: <ViewAlert />,
+        chats:<Chats/>
     };
 
     return (
@@ -76,7 +78,7 @@ const AdminNavbar = () => {
                             <span className={`dropdown-item ${activePage === 'viewAlert' ? 'active' : ''}`} onClick={() => { setActivePage('viewAlert'); }}>View</span>
                         </div>
                     </div>
-                    <div className="menu-item">
+                    <div className={`menu-item ${activePage === 'chats' ? 'active' : ''}`} onClick={() => { setActivePage('chats'); }}>
                         <IoChatbubbleEllipses className="icon" />
                         <span>Chats</span>
                     </div>
