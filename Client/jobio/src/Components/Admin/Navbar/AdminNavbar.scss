@@ -54,7 +54,12 @@
             color: var(--text-color);
             position: relative;
             cursor: pointer;
-            /* Add cursor property for indicating clickability */
+
+            &:hover {
+                background: white;
+                color: var(--primary-color);
+                box-shadow: 1px 1px 10px rgb(177, 177, 177);
+            }
 
             span {
                 font-size: 14px;
