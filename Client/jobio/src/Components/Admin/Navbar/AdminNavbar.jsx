@@ -14,6 +14,7 @@ import {
     IoMoonOutline,
 } from 'react-icons/io5';
 import Home from '../Home/Home';
+import SendAlert from '../Alerts/SendAlert';
 
 const AdminNavbar = () => {
     const [isDropdownVisible, setIsDropdownVisible] = useState(false);
@@ -41,7 +42,7 @@ const AdminNavbar = () => {
 
     const pageComponents = {
         home: <Home />,
-        sendAlert:<Send
+        sendAlert:<SendAlert/>
     };
     return (
         <div className='admin'>
