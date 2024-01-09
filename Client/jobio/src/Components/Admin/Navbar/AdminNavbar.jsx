@@ -42,7 +42,8 @@ const AdminNavbar = () => {
 
     const pageComponents = {
         home: <Home />,
-        sendAlert: <SendAlert />
+        sendAlert: <SendAlert />,
+        viewAlert:<
     };
     return (
         <div className='admin'>
@@ -62,8 +63,8 @@ const AdminNavbar = () => {
                         <IoNotifications className="icon" />
                         <span>Alert</span>
                         <div className={`dropdown-container ${isDropdownVisible ? 'visible' : ''}`} style={{ display: isDropdownVisible ? 'block' : 'none' }}>
-                            <span className={`dropdown-item ${activePage === 'home' ? 'active' : ''}`} onClick={() => { setActivePage('home'); }}>Send</span>
-                            <span className="dropdown-item">View</span>
+                            <span className={`dropdown-item ${activePage === 'sendAlert' ? 'active' : ''}`} onClick={() => { setActivePage('sendAlert'); }}>Send</span>
+                            <span className={`dropdown-item ${activePage === 'viewAlert' ? 'active' : ''}`} onClick={() => { setActivePage('viewAlert'); }}>View</span>
                         </div>
                     </div>
                     <div className="menu-item">
