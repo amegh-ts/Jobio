@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState } from 'react';
+import {Link} from 'react-router-dom'
 import './AdminNavbar.scss';
 import { DiCodeigniter } from 'react-icons/di';
 import {
@@ -121,7 +122,7 @@ const AdminNavbar = () => {
                         <span>
                             <IoMoonOutline />
                         </span>
-                        <Link>
+                        <Link to={'/profile'}>
                             <div className="profile">
                                 <IoPersonSharp />
                             </div>
