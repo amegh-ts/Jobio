@@ -21,11 +21,10 @@ const Home = () => {
             <div className='image'>
 
             </div>
-            <div>
+            <div className='note'>
               <h1>Welcome back Devil</h1>
             </div>
-            <div>
-
+            <div className='status'>
               <button>Available to work</button>
               <button>Unavailabel to work</button>
             </div>
