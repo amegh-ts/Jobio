@@ -1,0 +1,29 @@
+.Home{
+    height: 100%;
+    background-color: rgb(232, 90, 90);
+
+    .home-main{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+        // gap: 20px;
+
+        .left{
+            height: 4000px;
+            width: 300px;
+            background-color: blue;
+        }
+
+        .middle{
+            height: 400px;
+            width: 800px;
+            background-color: blue;
+        }
+
+        .right{
+            height: 400px;
+            width: 400px;
+            background-color: blue;
+        }
+    }
+}
