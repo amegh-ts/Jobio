@@ -1,5 +1,4 @@
 .Profile {
-    background-color: red;
     display: flex;
     justify-content: center;
 
@@ -11,8 +10,8 @@
         .profile-container {
             width: 100%;
             max-width: 800px;
-            background: green;
-            padding: 10px;
+            background: var(--sidebar-color);
+            // padding: 10px;
             border-radius: 10px;
             display: flex;
             flex-direction: column;
