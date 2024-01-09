@@ -8,10 +8,10 @@ import Profile from './Components/Profile/Profile';
 function App() {
   const router = createBrowserRouter([
     {
-      path: '/',
+      path: '/indx',
       element:<Index/> ,
     }, {
-      path: '/anav',
+      path: '/',
       element:<AdminNavbar/> ,
     }, {
       path: '/cnav',

@@ -1,16 +1,14 @@
-import { FaUserCircle, FaThumbsUp, FaComment, FaShare, FaSend,} from 'react-icons/fa';
+import { FaRegUserCircle,FaRegThumbsUp, FaRegCommentDots, FaShare } from "react-icons/fa";
+import { IoSend } from "react-icons/io5";
+import './Jobs.css'
 
 const Jobs = () => {
   return (
     <div>
       <div className="body__main">
-        {/* Feed Starts */}
-        <div className="feed">
-
-          {/* Post Starts */}
           <div className="post">
             <div className="post__header">
-              <FaUserCircle className="material-icons sidebar__topAvatar" />
+              <FaRegUserCircle />
               <div className="post__info">
                 <h2>Somanath Goudar</h2>
                 <p>Job Description</p>
@@ -23,29 +21,24 @@ const Jobs = () => {
 
             <div className="feed__inputOptions">
               <div className="inputOption">
-                <FaThumbsUp style={{ color: 'gray' }} className="material-icons" />
+                <FaRegThumbsUp />
                 <h4>Like</h4>
               </div>
               <div className="inputOption">
-                <FaComment style={{ color: 'gray' }} className="material-icons" />
+                <FaRegCommentDots />
                 <h4>Comment</h4>
               </div>
               <div className="inputOption">
-                <FaShare style={{ color: 'gray' }} className="material-icons" />
+                <FaShare />
                 <h4>Share</h4>
               </div>
               <div className="inputOption">
-                <FaSend style={{ color: 'gray' }} className="material-icons" />
+                <IoSend />
                 <h4>Send</h4>
               </div>
             </div>
           </div>
-          {/* Post Ends */}
-
-          {/* Add more posts as needed */}
         </div>
-        {/* Feed Ends */}
-      </div>
     </div>
   )
 }
