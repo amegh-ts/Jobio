@@ -1,5 +1,5 @@
-import { useEffect, useRef, useState } from 'react';
-import './ClientNavbar.scss';
+import { useState } from 'react';
+// import './ClientNavbar.scss';
 import { DiCodeigniter } from 'react-icons/di';
 import {
     IoPersonSharp,
@@ -17,25 +17,11 @@ import {
 
 const ClientNavbar = () => {
     const [isDropdownVisible, setIsDropdownVisible] = useState(false);
-    const dropdownRef = useRef(null);
 
     const toggleDropdown = () => {
         setIsDropdownVisible(!isDropdownVisible);
     };
 
-    const closeDropdown = (event) => {
-        if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
-            setIsDropdownVisible(false);
-        }
-    };
-
-    useEffect(() => {
-        document.addEventListener('click', closeDropdown);
-
-        return () => {
-            document.removeEventListener('click', closeDropdown);
-        };
-    }, []);
     return (
         <div>
             <nav className="sidebar">
@@ -46,7 +32,7 @@ const ClientNavbar = () => {
                 </header>
 
                 <div className="menu-bar">
-                    <div className="menu-item" onClick={toggleDropdown} ref={dropdownRef}>
+                    <div className="menu-item" onClick={toggleDropdown}>
                         <IoHome className="icon" />
                         <span>Home</span>
                         <div className={`dropdown-container ${isDropdownVisible ? 'visible' : ''}`} style={{ display: isDropdownVisible ? 'block' : 'none' }}>

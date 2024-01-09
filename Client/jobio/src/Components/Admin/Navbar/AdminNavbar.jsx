@@ -23,7 +23,7 @@ const AdminNavbar = () => {
     };
 
     return (
-        <div>
+        <div className='admin'>
             <nav className="sidebar">
                 <header>
                     <div className="title">
