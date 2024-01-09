@@ -16,7 +16,15 @@ const Home = () => {
           </div>
         </div>
 
-        <div className='middle'></div>
+        <div className='middle'>
+          <div className="welcome-container">
+            <div className='image'>
+              
+            </div>
+            <div></div>
+            <div></div>
+          </div>
+        </div>
 
         <div className='right'>
           <h1>ads</h1>
