@@ -1,4 +1,6 @@
 import { useEffect, useState } from "react";
+import { CiBellOn } from "react-icons/ci";
+import './ViewAlert.css'
 
 const ViewAlert = () => {
   const [state, setState] = useState([]);
@@ -29,7 +31,7 @@ const ViewAlert = () => {
       <div className="notification-main">
         <div className='notification-header'>
           <CiBellOn className='bell-icon' />
-          <h3>Admin Notification</h3>
+          <h3>Alerts</h3>
         </div>
         <div className='notification-container'>
           {state &&
