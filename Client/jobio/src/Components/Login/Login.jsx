@@ -14,7 +14,6 @@ const Login = () => {
                             <input type="text" />
                             <input type="text" />
                         </form>
-
                     </div>
                 </div>
             </div>
