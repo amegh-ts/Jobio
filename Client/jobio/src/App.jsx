@@ -4,6 +4,7 @@ import AdminNavbar from './Components/Admin/Navbar/AdminNavbar';
 import Index from './Components/Index';
 import ClientNavbar from './Components/Client/Navbar/ClientNavbar';
 import Profile from './Components/Profile/Profile';
+import Login from './Components/Login/Login';
 
 function App() {
   const router = createBrowserRouter([
@@ -19,6 +20,9 @@ function App() {
     }, {
       path: '/profile',
       element:<Profile/> ,
+    }, {
+      path: '/login',
+      element:<Login/> ,
     }, 
   ]);
   return (
