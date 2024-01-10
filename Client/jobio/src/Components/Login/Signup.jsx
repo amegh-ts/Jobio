@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import './Signup.scss';
+import { signUpData } from '../ApiCalls';
 
 const Signup = () => {
     const [username, setUsername] = useState('')
@@ -12,7 +13,7 @@ const Signup = () => {
         e.preventDefault();
 
         try {
-
+            signUpData({username,dob,email,password,type})
         } catch (error) {
             console.error(error);
 
