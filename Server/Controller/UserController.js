@@ -12,4 +12,9 @@ const signUp=async(req,res)=>{
     }
 }
 
+//signin
+const signIn=async()=>{
+    
+}
+
 module.exports = { signUp };

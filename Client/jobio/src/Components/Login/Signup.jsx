@@ -11,19 +11,11 @@ const Signup = () => {
 
     const onClick = (e) => {
         e.preventDefault();
-
         try {
             signUpData({username,dob,email,password,type})
         } catch (error) {
             console.error(error);
-
         }
-
-        console.log('Username:', username);
-        console.log('Email:', email);
-        console.log('Date of Birth:', dob);
-        console.log('Type:', type);
-        console.log('Password:', password);
     };
 
     return (
