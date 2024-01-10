@@ -8,6 +8,16 @@ const Signup = () => {
     const [password, setPassword] = useState('')
     const [type, setType] = useState('')
 
+    const onClick = (e) => {
+        e.preventDefault();
+
+        console.log('Username:', username);
+        console.log('Email:', email);
+        console.log('Date of Birth:', dob);
+        console.log('Type:', type);
+        console.log('Password:', password);
+    };
+
     return (
         <div>
             <div className="Signup">
@@ -33,15 +43,15 @@ const Signup = () => {
                                 <i className='icon bx bxs-calendar bx-tada' ></i>
                                 <select name="type" id="type" value={type} onChange={(e) => setType(e.target.value)}>
                                     <option value="" disabled selected>Your Purpose</option>
-                                    <option value="Find Job">Find Job</option>
-                                    <option value="Hire">Hire</option>
+                                    <option value="employee">Find Job</option>
+                                    <option value="employer">Hire</option>
                                 </select>
                             </div>
                             <div className="input">
                                 <i className="icon bx bxs-lock bx-tada"></i>
                                 <input type="password" name="pass" placeholder="Password" value={password} onChange={(e) => setPassword(e.target.value)} />
                             </div>
-                            <button className="signup-form-btn">Sign Up</button>
+                            <button className="signup-form-btn"onClick={onClick}>Sign Up</button>
 
                             <div className="login-link">
                                 <span>Already have an account? </span>
