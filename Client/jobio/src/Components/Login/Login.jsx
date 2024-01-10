@@ -1,7 +1,7 @@
 import './Login.scss'
 
 const Login = () => {
-    
+
     return (
         <div>
             <div className="Login">
@@ -21,11 +21,9 @@ const Login = () => {
                                 <input type="text" name="email" placeholder="Email" />
                                 <input type="password" name="pass" placeholder="Password" />
                             </div>
-                            <div className="container-login-form-btn">
-                                <button className="login-form-btn">
-                                    Login
-                                </button>
-                            </div>
+                            <button className="login-form-btn">
+                                Login
+                            </button>
 
                             <div className="text-center p-t-12">
                                 <span className="txt1">Forgot </span>

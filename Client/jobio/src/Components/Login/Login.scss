@@ -53,22 +53,29 @@
             form {
                 display: flex;
                 flex-direction: column;
+                align-items: center;
+                
                 gap: 10px;
 
                 .login-form-title {
                     font-size: 24px;
                     font-weight: 700;
+                    margin-bottom: 40px;
                 }
 
                 .input {
                     display: flex;
                     flex-direction: column;
-                    align-items: center;
                     gap: 10px;
 
                     input {
                         color: #666;
                         background: #e6e6e6;
+                        padding: 10px;
+                        min-width: 280px;
+                        border-radius: 10px;
+                        outline: none;
+                        font-size: 16px;
                     }
                 }
             }
