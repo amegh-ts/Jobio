@@ -19,10 +19,11 @@ const Login = () => {
                             </span>
                             <>
                             <div className='input'>
-                                
+                            <i className='icon bx bx-envelope bx-tada' ></i>
                                 <input type="text" name="email" placeholder="Email" />
                             </div>
                             <div className='input'>
+                            <i className='icon bx bxs-lock bx-tada' ></i>
                                 <input type="password" name="pass" placeholder="Password" />
                             </div>
                             </>

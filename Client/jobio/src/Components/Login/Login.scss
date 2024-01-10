@@ -72,15 +72,24 @@
                     max-width: 280px;
                     width: 280px;
                     padding: 10px;
-                    background: red;
+                    background: #e6e6e6;
                     border-radius: 20px;
+
+                    .icon {
+                        font-size: 24px;
+                        color: #666;
+                        
+
+                    }
 
                     input {
                         color: #666;
-                        background: #e6e6e6;
-                        padding: 10px;
+                        background: transparent;
                         outline: none;
                         font-size: 16px;
+                        width: 100%;
+
+
                     }
                 }
 
