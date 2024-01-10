@@ -25,8 +25,9 @@ const Signup = () => {
                             <div className="input">
                             <i className='icon bx bxs-calendar bx-tada' ></i>
                                 <select name="type" id="type">
-                                    <option value="Find Job">Find Job</option>
-                                    <option value="Hire">Hire</option>
+                                <option value="" disabled selected>Your Purpose</option>
+                                    <option value="type">Find Job</option>
+                                    <option value="type">Hire</option>
                                 </select>
                             </div>
                             <div className="input">
