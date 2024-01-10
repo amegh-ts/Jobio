@@ -40,7 +40,9 @@
   border: 0 ;
   font-family: poppins;
 }
-
+button{
+  cursor: pointer;
+}
 body{
   background: var(--body-color);
   overflow: hidden;
