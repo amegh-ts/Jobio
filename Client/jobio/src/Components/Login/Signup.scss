@@ -1,0 +1,57 @@
+// Signup.scss
+
+.Signup {
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    padding: 15px;
+    background: #9053c7;
+    background: linear-gradient(-135deg, #c850c0, #4158d0);
+  
+    .signup-container {
+      background: var(--sidebar-color);
+      width: 960px;
+      height: 650px;
+      border-radius: 10px;
+      overflow: hidden;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-evenly;
+  
+      .container-left {
+        // Styles for the left container (image)...
+  
+        .cl-image {
+          // Styles for the image...
+        }
+      }
+  
+      .container-right {
+        // Styles for the right container (form)...
+  
+        form {
+          // Styles for the form...
+  
+          .signup-form-title {
+            // Styles for the form title...
+          }
+  
+          .input {
+            // Styles for the input fields...
+          }
+  
+          .signup-form-btn {
+            // Styles for the signup button...
+          }
+  
+          .login-link {
+            // Styles for the login link...
+          }
+        }
+      }
+    }
+  }
+  
