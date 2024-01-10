@@ -1,10 +1,10 @@
-const userController=require('../Models/UserSchema')
+const userController = require('../Models/UserSchema')
 const Crypto = require('crypto-js')
 const Jwt = require('jsonwebtoken');
 
 
 // Signup
-const signUp=async(req,res)=>{
+const signUp = async (req, res) => {
     const newUser = new userController(req.body)
     try {
         const savedUser = await newUser.save()
@@ -15,7 +15,7 @@ const signUp=async(req,res)=>{
 }
 
 //signin
-const signIn=async()=>{
+const signIn = async () => {
     try {
         const DB = await users.findOne({ email: req.body.email })
         !DB && res.status(401).json({ response: 'Please check Your Email' })
@@ -30,4 +30,4 @@ const signIn=async()=>{
     }
 }
 
-module.exports = { signUp,signIn };
+module.exports = { signUp, signIn };
