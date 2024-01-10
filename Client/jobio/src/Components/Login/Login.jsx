@@ -8,7 +8,11 @@ const Login = () => {
                     <div className="image">
                         <img src="/Images/login.png" alt="" />
                     </div>
-                <div className="container-right"></div>
+                <div className="container-right">
+                    <h3>Member Login</h3>
+                    <input type="text" />
+                    <input type="text" />
+                </div>
             </div>
         </div>
     </div>
