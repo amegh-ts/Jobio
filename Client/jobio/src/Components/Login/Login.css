@@ -12,9 +12,9 @@
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.35);
     position: relative;
     overflow: hidden;
-    width: 800px;
+    width: 1200px;
     max-width: 100%;
-    min-height: 580px;
+    min-height: 700px;
 }
 
 .container p {
@@ -107,6 +107,8 @@
 }
 
 .sign-in {
+    display: flex;
+    justify-content: center;
     left: 0;
     width: 50%;
     z-index: 2;
