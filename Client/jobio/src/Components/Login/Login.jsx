@@ -17,15 +17,12 @@ const Login = () => {
                             <span className="login-form-title">
                                 Member Login
                             </span>
-
                             <div>
                                 <input className="input" type="text" name="email" placeholder="Email" />
                             </div>
-
                             <div>
                                 <input className="input" type="password" name="pass" placeholder="Password" />
                             </div>
-
                             <div className="container-login-form-btn">
                                 <button className="login-form-btn">
                                     Login
@@ -33,19 +30,12 @@ const Login = () => {
                             </div>
 
                             <div className="text-center p-t-12">
-                                <span className="txt1">
-                                    Forgot
-                                </span>
-                                <a className="txt2" href="#">
-                                    Username / Password?
-                                </a>
+                                <span className="txt1">Forgot </span>
+                                <a className="txt2" href="#"> Password? </a>
                             </div>
 
                             <div className="text-center p-t-136">
-                                <a className="txt2" href="#">
-                                    Create your Account
-                                    <i className="fa fa-long-arrow-right m-l-5" aria-hidden="true"></i>
-                                </a>
+                                <a className="txt2" href="#">Create your Account </a>
                             </div>
                         </form>
                     </div>
