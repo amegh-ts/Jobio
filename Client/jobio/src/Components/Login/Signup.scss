@@ -1,5 +1,3 @@
-// Signup.scss
-
 .Signup {
     width: 100%;
     min-height: 100vh;
@@ -22,33 +20,87 @@
       justify-content: space-evenly;
   
       .container-left {
-        // Styles for the left container (image)...
+        display: flex;
+        align-items: center;
   
         .cl-image {
-          // Styles for the image...
+          width: 316px;
+  
+          img {
+            width: 100%;
+            transition: transform 0.2s ease-in-out;
+  
+            &:hover {
+              transform: scale(1.1);
+            }
+          }
         }
       }
   
       .container-right {
-        // Styles for the right container (form)...
+        display: flex;
+        align-items: center;
   
         form {
-          // Styles for the form...
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          gap: 10px;
   
           .signup-form-title {
-            // Styles for the form title...
+            font-size: 26px;
+            font-weight: 700;
+            margin-bottom: 40px;
+            letter-spacing: 2px;
           }
   
           .input {
-            // Styles for the input fields...
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            max-width: 280px;
+            width: 280px;
+            padding: 10px;
+            background: #e6e6e6;
+            border-radius: 20px;
+  
+            .icon {
+              font-size: 24px;
+              color: #666;
+            }
+  
+            input {
+              color: #666;
+              background: transparent;
+              outline: none;
+              font-size: 16px;
+              width: 100%;
+            }
           }
   
           .signup-form-btn {
-            // Styles for the signup button...
+            max-width: 280px;
+            width: 280px;
+            padding: 10px;
+            background: var(--primary-color);
+            border-radius: 20px;
+            font-size: 16px;
+            color: white;
+            font-weight: 500;
+            letter-spacing: 2px;
+            margin-top: 20px;
           }
   
           .login-link {
-            // Styles for the login link...
+            span {
+              font-size: 12px;
+              font-weight: 500;
+              color: var(--text-color);
+            }
+  
+            .txt {
+              color: var(--primary-color);
+            }
           }
         }
       }
