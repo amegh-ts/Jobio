@@ -49,7 +49,7 @@ const Login = () => {
   };
 
   return (
-    <div>
+    <div className='login-signup'>
       <div className={`container${isRegisterActive ? ' active' : ''}`}>
         <div className="form-container sign-up">
           <form onSubmit={handleSubmit}>
