@@ -23,6 +23,13 @@ const Signup = () => {
                                 <input type="date" name="dob" />
                             </div>
                             <div className="input">
+                            <i className='icon bx bxs-calendar bx-tada' ></i>
+                                <select name="type" id="type">
+                                    <option value="Find Job">Find Job</option>
+                                    <option value="Hire">Hire</option>
+                                </select>
+                            </div>
+                            <div className="input">
                                 <i className="icon bx bxs-lock bx-tada"></i>
                                 <input type="password" name="pass" placeholder="Password" />
                             </div>

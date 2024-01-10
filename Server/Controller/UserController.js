@@ -2,7 +2,7 @@ const userController=require('../Models/UserSchema')
 
 // Signup
 const signUp=async(req,res)=>{
-    const newUser = new users(req.body)
+    const newUser = new userController(req.body)
     try {
         const savedUser = await newUser.save()
         res.status(200).json(savedUser)
