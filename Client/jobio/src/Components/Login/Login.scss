@@ -38,7 +38,7 @@
                     width: 100%;
                     transition: transform 0.2s ease-in-out;
 
-                    &:hover{
+                    &:hover {
                         transform: scale(1.1);
 
                     }
@@ -55,9 +55,21 @@
                 flex-direction: column;
                 gap: 10px;
 
-                input {
-                    color: #666;
-                    background: #e6e6e6;
+                .login-form-title {
+                    font-size: 24px;
+                    font-weight: 700;
+                }
+
+                .input {
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+                    gap: 10px;
+
+                    input {
+                        color: #666;
+                        background: #e6e6e6;
+                    }
                 }
             }
 

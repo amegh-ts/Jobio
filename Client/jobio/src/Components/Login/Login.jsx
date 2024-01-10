@@ -17,11 +17,9 @@ const Login = () => {
                             <span className="login-form-title">
                                 Member Login
                             </span>
-                            <div>
-                                <input className="input" type="text" name="email" placeholder="Email" />
-                            </div>
-                            <div>
-                                <input className="input" type="password" name="pass" placeholder="Password" />
+                            <div className='input'>
+                                <input type="text" name="email" placeholder="Email" />
+                                <input type="password" name="pass" placeholder="Password" />
                             </div>
                             <div className="container-login-form-btn">
                                 <button className="login-form-btn">
