@@ -37,7 +37,7 @@ const Login = () => {
                             </div>
 
                             <div className="create-account">
-                                <a className="txt2" href="#">Create your Account </a>
+                                <a className="txt" href="#">Create your Account </a>
                             </div>
                         </form>
                     </div>
