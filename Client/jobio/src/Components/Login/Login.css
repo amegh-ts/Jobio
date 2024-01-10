@@ -1,6 +1,9 @@
 /****************** Login Page *******************/
 .login-signup{
-    
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
 }
 .container {
     background-color: #fff;
