@@ -67,18 +67,17 @@
 
                 .input {
                     display: flex;
-                    flex-direction: column;
                     gap: 10px;
                     max-width: 280px;
                     width: 280px;
                     padding: 10px;
                     background: red;
+                    border-radius: 20px;
 
                     input {
                         color: #666;
                         background: #e6e6e6;
                         padding: 10px;
-                        width: 100%;
                         outline: none;
                         font-size: 16px;
                     }
