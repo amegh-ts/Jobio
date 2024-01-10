@@ -5,9 +5,14 @@ const Jwt = require('jsonwebtoken');
 
 // Signup
 const signUp = async (req, res) => {
+    req.body.password = Crypto.AES.encrypt(req.body.password, process.env.Crypto_js).toString()
     const newUser = new userController(req.body)
+
+    console.log('new user',newUser);
     try {
         const savedUser = await newUser.save()
+        console.log('************');
+
         res.status(200).json(savedUser)
     } catch (error) {
         res.status(500).json(error)
