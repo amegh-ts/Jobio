@@ -11,6 +11,13 @@ const Signup = () => {
     const onClick = (e) => {
         e.preventDefault();
 
+        try {
+
+        } catch (error) {
+            console.error(error);
+
+        }
+
         console.log('Username:', username);
         console.log('Email:', email);
         console.log('Date of Birth:', dob);
@@ -51,7 +58,7 @@ const Signup = () => {
                                 <i className="icon bx bxs-lock bx-tada"></i>
                                 <input type="password" name="pass" placeholder="Password" value={password} onChange={(e) => setPassword(e.target.value)} />
                             </div>
-                            <button className="signup-form-btn"onClick={onClick}>Sign Up</button>
+                            <button className="signup-form-btn" onClick={onClick}>Sign Up</button>
 
                             <div className="login-link">
                                 <span>Already have an account? </span>
