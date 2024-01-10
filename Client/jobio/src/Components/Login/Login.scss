@@ -1,9 +1,20 @@
 .Login {
-    background-color: rgb(162, 103, 103);
+    width: 100%;  
+    min-height: 100vh;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -moz-box;
+    display: -ms-flexbox;
     display: flex;
-    align-items: center;
+    flex-wrap: wrap;
     justify-content: center;
-    height: 100vh;
+    align-items: center;
+    padding: 15px;
+    background: #9053c7;
+    background: -webkit-linear-gradient(-135deg, #c850c0, #4158d0);
+    background: -o-linear-gradient(-135deg, #c850c0, #4158d0);
+    background: -moz-linear-gradient(-135deg, #c850c0, #4158d0);
+    background: linear-gradient(-135deg, #c850c0, #4158d0);
 
     .login-container {
         background: var(--sidebar-color);
@@ -22,7 +33,6 @@
             form {
                 display: flex;
                 flex-direction: column;
-                text-align: center;
                 gap: 10px;
 
                 input {
