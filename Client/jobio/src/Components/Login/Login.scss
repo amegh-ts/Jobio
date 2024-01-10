@@ -103,6 +103,21 @@
                     color: white;
                     font-weight: 500;
                     letter-spacing: 2px;
+                    margin-top: 20px;
+                }
+
+                .forget-pass{
+                    font-size: 12px;
+                    font-weight: 500;
+                    color: var(--text-color);
+
+                    .txt{
+                        color:var(--primary-color) ;
+                    }
+                }
+
+                .create-account{
+                    
                 }
             }
 

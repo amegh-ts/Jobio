@@ -31,12 +31,12 @@ const Login = () => {
                                 Login
                             </button>
 
-                            <div className="text-center p-t-12">
-                                <span className="txt1">Forgot </span>
-                                <a className="txt2" href="#"> Password? </a>
+                            <div className="forget-pass">
+                                <span>Forgot </span>
+                                <a className="txt" href="#"> Password? </a>
                             </div>
 
-                            <div className="text-center p-t-136">
+                            <div className="create-account">
                                 <a className="txt2" href="#">Create your Account </a>
                             </div>
                         </form>
