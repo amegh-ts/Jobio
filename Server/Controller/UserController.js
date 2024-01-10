@@ -8,7 +8,7 @@ const signUp = async (req, res) => {
     req.body.password = Crypto.AES.encrypt(req.body.password, process.env.Crypto_js).toString()
     const newUser = new userController(req.body)
 
-    console.log('new user',newUser);
+    console.log('new user', newUser);
     try {
         const savedUser = await newUser.save()
         console.log('************');
@@ -20,7 +20,7 @@ const signUp = async (req, res) => {
 }
 
 //signin
-const signIn = async () => {
+const signIn = async (req, res) => {
     try {
         const DB = await users.findOne({ email: req.body.email })
         !DB && res.status(401).json({ response: 'Please check Your Email' })
