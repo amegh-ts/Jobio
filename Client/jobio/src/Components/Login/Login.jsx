@@ -17,10 +17,14 @@ const Login = () => {
                             <span className="login-form-title">
                                 Member Login
                             </span>
+                            <>
                             <div className='input'>
                                 <input type="text" name="email" placeholder="Email" />
+                            </div>
+                            <div className='input'>
                                 <input type="password" name="pass" placeholder="Password" />
                             </div>
+                            </>
                             <button className="login-form-btn">
                                 Login
                             </button>
@@ -36,8 +40,8 @@ const Login = () => {
                         </form>
                     </div>
                 </div>
-            </div>
-        </div>
+            </div >
+        </div >
     )
 }
 
