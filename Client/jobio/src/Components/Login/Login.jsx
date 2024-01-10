@@ -1,7 +1,23 @@
+import { useState } from 'react'
+import { useDispatch } from 'react-redux';
 import './Login.scss'
+import { signInData } from '../ApiCalls';
 
 const Login = () => {
+    const [email, setEmail] = useState('')
+    const [password, setPassword] = useState('')
 
+  const dispatch = useDispatch();
+
+
+  const onLogInClick = async () => {
+    try {
+      signInData({ email, password }, dispatch)
+    } catch (error) {
+      console.log(error);
+    }
+  }
+  
     return (
         <div>
             <div className="Login">
@@ -20,16 +36,14 @@ const Login = () => {
                             <>
                             <div className='input'>
                             <i className='icon bx bx-envelope bx-tada' ></i>
-                                <input type="text" name="email" placeholder="Email" />
+                                <input type="text" name="email" placeholder="Email" value={email} onChange={(e) => setEmail(e.target.value)} />
                             </div>
                             <div className='input'>
                             <i className='icon bx bxs-lock bx-tada' ></i>
-                                <input type="password" name="pass" placeholder="Password" />
+                                <input type="password" name="pass" placeholder="Password"  value={password} onChange={(e) => setPassword(e.target.value)}/>
                             </div>
                             </>
-                            <button className="login-form-btn">
-                                Login
-                            </button>
+                            <button className="login-form-btn" onClick={onLogInClick}>Login</button>
 
                             <div className="forget-pass">
                                 <span>Forgot </span>

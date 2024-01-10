@@ -22,7 +22,7 @@ const signUp = async (req, res) => {
 //signin
 const signIn = async (req, res) => {
     try {
-        const DB = await users.findOne({ email: req.body.email })
+        const DB = await userController.findOne({ email: req.body.email })
         !DB && res.status(401).json({ response: 'Please check Your Email' })
         const hashedPassword = Crypto.AES.decrypt(DB.password, process.env.Crypto_js)
         const originalPassword = hashedPassword.toString(Crypto.enc.Utf8)
