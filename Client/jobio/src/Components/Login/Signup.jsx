@@ -19,6 +19,10 @@ const Signup = () => {
                                 <input type="text" name="email" placeholder="Email" />
                             </div>
                             <div className="input">
+                            <i className='bx bxs-calendar bx-tada' ></i>
+                                <input type="date" name="dob" />
+                            </div>
+                            <div className="input">
                                 <i className="icon bx bxs-lock bx-tada"></i>
                                 <input type="password" name="pass" placeholder="Password" />
                             </div>
