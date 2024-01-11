@@ -53,6 +53,40 @@
             align-items: center;
             color: white;
             text-align: center;
+            gap: 20px;
+
+            h5{
+                font-size: 16px;
+                font-weight: 300;
+            }
+
+            h1{
+                font-size: 46px;
+            }
+
+            p{
+                font-size: 20px;
+            }
+            .overlay-button{
+                display: flex;
+                align-items: center;
+                gap: 20px;
+
+                button{
+                    background: var(--primary-color);
+                    border-radius: 10px;
+                    padding: 10px 20px;
+                    color: white;
+                    font-weight: 500;
+                    letter-spacing: 2px;
+
+                    &:hover{
+                        // transition: ;
+                        transform: scale(1.1);
+                        transition-timing-function: ease-in-out;
+                    }
+                }
+            }
         }
     }
 
@@ -154,4 +188,9 @@
             }
         }
     }
+
+    // .landing-footer{
+    //     background: linear-gradient(310deg, #141727, #3a416f);
+    //     height: 100px;
+    // }
 }
