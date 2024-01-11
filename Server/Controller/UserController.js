@@ -35,4 +35,17 @@ const signIn = async (req, res) => {
     }
 }
 
+//all users
+const allUsers=async(req,res)=>{
+    try {
+        const data = await userController.find()
+        res.status(200).json(data)
+    } catch (error) {
+        res.status(500).json(error)
+    }
+}
+
+// view profile
+// edit profile
+
 module.exports = { signUp, signIn };
