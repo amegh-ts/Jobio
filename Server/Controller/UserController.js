@@ -48,7 +48,7 @@ const allUsers = async (req, res) => {
 // view profile
 const viewProfile = async (req, res) => {
     try {
-        const id = await users.findById(req.params.id)
+        const id = await userController.findById(req.params.id)
         console.log('id=',id);
         const hashedPassword = Crypto.AES.decrypt(id.password, process.env.Crypto_js)
         const originalPassword = hashedPassword.toString(Crypto.enc.Utf8)

@@ -41,3 +41,14 @@ export const getAllUsers=async()=>{
         console.log(error);
     }
 }
+
+// view profile
+export const viewProfile = async () => {
+    try {
+        const res = await userRequest.get(`/Viewprofile/${userId}`)
+        console.log('Response Status:', res.status);
+        return res.data
+    } catch (error) {
+        console.log(error);
+    }
+}

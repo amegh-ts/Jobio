@@ -13,6 +13,6 @@ router.post('/signin', signIn)
 // all users
 router.get('/allusers',verifyToken,allUsers)
 // view profile
-router.get('/Viewprofile/:id',viewProfile,verifyTokenAndAuthorization)
+router.get('/Viewprofile/:id',verifyToken,verifyTokenAndAuthorization,viewProfile)
 
 module.exports = router
