@@ -1,8 +1,9 @@
+import './Landing.scss'
 
 const Landing = () => {
   return (
     <div className="Landing">
-        <header>
+        <header className="landing-header">
             <div className="title">
                 <h2>Jobio</h2>
             </div>
@@ -11,7 +12,9 @@ const Landing = () => {
                 <span>Register</span>
             </div>
         </header>
-        <section className="image"></section>
+        <section className="image-body">
+
+        </section>
     </div>
   )
 }
