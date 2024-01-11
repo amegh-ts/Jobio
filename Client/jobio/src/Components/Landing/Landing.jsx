@@ -25,7 +25,19 @@ const Landing = () => {
             </section>
 
             <section className='landing-body'>
-                
+                <div className="main-body">
+                    <div className="featured">
+                        <p>Featured recruiters and employers</p>
+                        <div className="featured-images">
+                            <img src="/Images/Svg/logo-coinbase.svg" alt="coinbase" />
+                            <img src="/Images/Svg/logo-nasa.svg" alt="nasa" />
+                            <img src="/Images/Svg/logo-netflix.svg" alt="netflix" />
+                            <img src="/Images/Svg/logo-pinterest.svg" alt="pinterest" />
+                            <img src="/Images/Svg/logo-spotify.svg" alt="spotify" />
+                            <img src="/Images/Svg/logo-vodafone.svg" alt="vodafone" />
+                        </div>
+                    </div>
+                </div>
             </section>
         </div>
     )
