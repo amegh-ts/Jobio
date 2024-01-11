@@ -9,8 +9,12 @@ const Landing = () => {
                     <h2>Jobio</h2>
                 </div>
                 <div className="header-links">
-                    <a href='/login'>Login</a>
-                    <a href='/signup'>Register</a>
+                    <Link to={'/login'}>
+                        <span>Login</span>
+                    </Link>
+                    <Link to={'/signup'}>
+                        <span>Register</span>
+                    </Link>
                 </div>
             </header>
             <section className="image-body">
@@ -53,7 +57,7 @@ const Landing = () => {
                                 <div className="lc-content">
                                     <h2>Job Alerts</h2>
                                     <p>It really matters and then like it really doesn’t matter. What matters is the people who are sparked by it. And the people who are like offended by it, it doesn’t matter. Because it's about motivating the doers. Because I’m here to follow my dreams and inspire other people to follow their dreams, too.</p>
-                                    <Link to={'/signup'}>
+                                    <Link to={'signup'}>
                                         <button>READ MORE</button>
                                     </Link>
                                 </div>

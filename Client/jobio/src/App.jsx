@@ -14,7 +14,7 @@ function App() {
 
   const reduxData = useSelector((state) => state.user.userInfo[0]);
   console.log('reduxdata', reduxData);
-  const token = reduxData.accessToken;
+  const token = reduxData?.accessToken;
 
   let content;
 
@@ -38,8 +38,8 @@ function App() {
       // If there's no token, redirect to login
       content = <Landing />;
     }
-  }else{
-    content=<Landing/>
+  } else {
+    content = <Landing />
   }
 
 
@@ -62,7 +62,7 @@ function App() {
       element: <Profile />,
     }, {
       path: '/login',
-      element: <Login />,
+      element: token ? content : <Login />,
     }, {
       path: '/signup',
       element: <Signup />,
