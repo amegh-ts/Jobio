@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import './Users.scss';
 import { GrGroup } from "react-icons/gr";
-import { IoSearch } from "react-icons/io5";
+import { IoSearch, IoPencil } from "react-icons/io5";
 import { getAllUsers } from '../../ApiCalls';
 
 const Users = () => {
@@ -92,9 +92,11 @@ const Users = () => {
                                     <td>{user.phone}</td>
                                     <td>{user.type}</td>
                                     <td>
-                                        <button>Edit</button>
-                                        <span> </span>
-                                        <button onClick={() => handleChatButtonClick(userId, user._id)}>Chat</button>
+                                        <div className="edit-chat">
+                                            <button><IoPencil className='bicon' /></button>
+                                            <span> </span>
+                                            <button onClick={() => handleChatButtonClick(userId, user._id)}>Chat</button>
+                                        </div>
                                     </td>
                                 </tr>
                             ))}

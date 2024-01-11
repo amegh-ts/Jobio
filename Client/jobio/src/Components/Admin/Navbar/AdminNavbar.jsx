@@ -69,9 +69,9 @@ const AdminNavbar = () => {
         jobs: <Jobs />,
         users: <Users />,
         settings: <AdminSettings />,
-        profile:<Profile/>
+        profile: <Profile />
     };
-    
+
 
     return (
         <div className='admin'>
@@ -132,9 +132,9 @@ const AdminNavbar = () => {
                         <span>
                             <IoMoonOutline />
                         </span>
-                            <div className={`profile  ${activePage === 'profile' ? 'active' : ''}`} onClick={() => { setActivePage('profile'); }}>
-                                <IoPersonSharp />
-                            </div>
+                        <div className={`profile  ${activePage === 'profile' ? 'active' : ''}`} onClick={() => { setActivePage('profile'); }}>
+                            <IoPersonSharp />
+                        </div>
                     </div>
                 </div>
                 <div className={'main-body'}>
