@@ -40,7 +40,7 @@ const Signup = () => {
                                 <input type="date" name="dob" value={dob} onChange={(e) => setDob(e.target.value)} />
                             </div>
                             <div className="input">
-                                <i className='icon bx bxs-calendar bx-tada' ></i>
+                                <i className='icon bx bx-wrench bx-tada' ></i>
                                 <select name="type" id="type" value={type} onChange={(e) => setType(e.target.value)}>
                                     <option value="" disabled selected>Your Purpose</option>
                                     <option value="employee">Find Job</option>

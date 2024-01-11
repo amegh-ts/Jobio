@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom'
 import './Landing.scss'
 
 const Landing = () => {
@@ -52,7 +53,9 @@ const Landing = () => {
                                 <div className="lc-content">
                                     <h2>Job Alerts</h2>
                                     <p>It really matters and then like it really doesn’t matter. What matters is the people who are sparked by it. And the people who are like offended by it, it doesn’t matter. Because it's about motivating the doers. Because I’m here to follow my dreams and inspire other people to follow their dreams, too.</p>
-                                    <button>READ MORE</button>
+                                    <Link to={'/signup'}>
+                                        <button>READ MORE</button>
+                                    </Link>
                                 </div>
                             </div>
 
@@ -79,7 +82,7 @@ const Landing = () => {
                             </div>
                         </div>
 
-                        
+
                     </div>
                 </div>
             </section>

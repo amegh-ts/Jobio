@@ -8,40 +8,70 @@ import Login from './Components/Login/Login';
 import Signup from './Components/Login/Signup';
 import { useSelector } from 'react-redux';
 import Landing from './Components/Landing/Landing';
+import EmployerNavbar from './Components/Employer/Navbar/EmployerNavbar';
 
 function App() {
 
   const reduxData = useSelector((state) => state.user.userInfo[0]);
   console.log('reduxdata', reduxData);
 
-  
+  let content;
+
+  if (reduxData) {
+    const token = reduxData.accessToken;
+    // console.log('The access token is', token);
+    const id = reduxData.id;
+    // console.log('The id is', id);
+    const type = reduxData.type;
+    // console.log('The type is', type);
+
+    // Token and User type check
+    if (token) {
+      if (type === 'employee') {
+        content = <ClientNavbar />;
+      } else if (type === 'admin') {
+        content = <AdminNavbar />
+      } else if (type === 'employer') {
+        content = <EmployerNavbar />
+      }
+    } else {
+      // If there's no token, redirect to login
+      content = <Login />;
+    }
+  } else {
+    // If there's no user data, redirect to login
+    content = <Landing />;
+  }
+
+
+
   const router = createBrowserRouter([
     {
-      path: '/indx',
-      element:<Index/> ,
-    }, {
       path: '/',
-      element:<AdminNavbar/> ,
+      element: content,
+    }, {
+      path: '/indx',
+      element: <Index />,
+    }, {
+      path: '/anav',
+      element: <AdminNavbar />,
     }, {
       path: '/cnav',
-      element:<ClientNavbar/> ,
+      element: <ClientNavbar />,
     }, {
       path: '/profile',
-      element:<Profile/> ,
+      element: <Profile />,
     }, {
       path: '/login',
-      element:<Login/> ,
+      element: <Login />,
     }, {
       path: '/signup',
-      element:<Signup/> ,
-    }, {
-      path: '/land',
-      element:<Landing/> ,
-    }, 
+      element: <Signup />,
+    },
   ]);
   return (
     <>
-        <RouterProvider router={router}></RouterProvider>
+      <RouterProvider router={router}></RouterProvider>
     </>
   )
 }
