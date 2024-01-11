@@ -14,11 +14,19 @@ import {
     IoNotifications,
     IoMoonOutline,
 } from 'react-icons/io5';
+import { useDispatch } from 'react-redux';
+import { logoutUser } from '../../../Redux/UserRedux';
 
 const EmployerNavbar = () => {
     const [isDropdownVisible, setIsDropdownVisible] = useState(false);
     const dropdownRef = useRef(null);
+    const dispatch = useDispatch()
 
+
+    const [activePage, setActivePage] = useState(() => {
+        // Retrieve the active page from sessionStorage on component mount
+        return sessionStorage.getItem('activePage') || 'home';
+    });
 
     const toggleDropdown = () => {
         setIsDropdownVisible(!isDropdownVisible);
@@ -37,6 +45,19 @@ const EmployerNavbar = () => {
             document.removeEventListener('click', closeDropdown);
         };
     }, []);
+
+    
+    useEffect(() => {
+        // Save the active page to sessionStorage whenever it changes
+        sessionStorage.setItem('activePage', activePage);
+    }, [activePage]);
+
+    const handleLogout = () => {
+        dispatch(logoutUser())
+        sessionStorage.clear();
+
+    };
+
 
   return (
     <div className='employer'>
@@ -81,7 +102,7 @@ const EmployerNavbar = () => {
 
                 <footer>
                     <div className="logout">
-                        <IoLogOut className="icon logout-icon" />
+                        <IoLogOut className="icon logout-icon" onClick={handleLogout}/>
                     </div>
                 </footer>
             </nav>

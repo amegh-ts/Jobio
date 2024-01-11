@@ -59,6 +59,8 @@ const AdminNavbar = () => {
 
     const handleLogout = () => {
         dispatch(logoutUser())
+        sessionStorage.clear();
+
     };
 
     const pageComponents = {

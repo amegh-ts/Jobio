@@ -46,6 +46,19 @@ const allUsers = async (req, res) => {
 }
 
 // view profile
-// edit profile
+const viewProfile = async (req, res) => {
+    try {
+        const id = await users.findById(req.params.id)
+        console.log('id=',id);
+        const hashedPassword = Crypto.AES.decrypt(id.password, process.env.Crypto_js)
+        const originalPassword = hashedPassword.toString(Crypto.enc.Utf8)
+        const { password, ...others } = id._doc
+        res.status(200).json({ ...others, originalPassword })
+    } catch (error) {
+        res.status(500).json(error)
+    }
+}
 
-module.exports = { signUp, signIn, allUsers };
+    // edit profile
+
+    module.exports = { signUp, signIn, allUsers,viewProfile };
