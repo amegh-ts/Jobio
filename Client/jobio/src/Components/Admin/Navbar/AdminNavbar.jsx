@@ -21,10 +21,14 @@ import Jobs from '../Jobs/Jobs';
 import Users from '../Users/Users';
 import AdminSettings from '../Settings/AdminSettings';
 import Profile from '../../Profile/Profile';
+import { useDispatch } from 'react-redux';
+import { logoutUser } from '../../../Redux/UserRedux';
 
 const AdminNavbar = () => {
     const [isDropdownVisible, setIsDropdownVisible] = useState(false);
     const dropdownRef = useRef(null);
+    const dispatch = useDispatch()
+
     const [activePage, setActivePage] = useState(() => {
         // Retrieve the active page from sessionStorage on component mount
         return sessionStorage.getItem('activePage') || 'home';
@@ -53,6 +57,10 @@ const AdminNavbar = () => {
         sessionStorage.setItem('activePage', activePage);
     }, [activePage]);
 
+    const handleLogout = () => {
+        dispatch(logoutUser())
+    };
+
     const pageComponents = {
         home: <Home />,
         sendAlert: <SendAlert />,
@@ -63,6 +71,7 @@ const AdminNavbar = () => {
         settings: <AdminSettings />,
         profile:<Profile/>
     };
+    
 
     return (
         <div className='admin'>
@@ -106,7 +115,7 @@ const AdminNavbar = () => {
                 </div>
 
                 <footer>
-                    <div className="logout">
+                    <div className="logout" onClick={handleLogout}>
                         <IoLogOut className="icon logout-icon" />
                     </div>
                 </footer>

@@ -14,11 +14,11 @@ function App() {
 
   const reduxData = useSelector((state) => state.user.userInfo[0]);
   console.log('reduxdata', reduxData);
+  const token = reduxData.accessToken;
 
   let content;
 
   if (reduxData) {
-    const token = reduxData.accessToken;
     // console.log('The access token is', token);
     const id = reduxData.id;
     // console.log('The id is', id);
@@ -36,11 +36,10 @@ function App() {
       }
     } else {
       // If there's no token, redirect to login
-      content = <Login />;
+      content = <Landing />;
     }
-  } else {
-    // If there's no user data, redirect to login
-    content = <Landing />;
+  }else{
+    content=<Landing/>
   }
 
 
