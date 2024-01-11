@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import './Home.scss';
-import { IoCloseCircleOutline,IoThumbsUpOutline } from 'react-icons/io5';
+import { IoCloseCircleOutline,IoThumbsUpOutline,IoEllipsisVertical } from 'react-icons/io5';
 
 const Home = () => {
   const [showWelcomeContainer, setShowWelcomeContainer] = useState(true);
@@ -59,7 +59,7 @@ const Home = () => {
                   </div>
                 </div>
                 <div className='header-right'>
-                  <IoCloseCircleOutline className="icon" />
+                  <IoEllipsisVertical className="icon" />
                 </div>
               </div>
               <div className='description'>

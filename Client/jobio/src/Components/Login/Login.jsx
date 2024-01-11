@@ -10,7 +10,8 @@ const Login = () => {
   const dispatch = useDispatch();
 
 
-  const onLogInClick = async () => {
+  const onLogInClick = async (e) => {
+    e.preventDefault();
     try {
       signInData({ email, password }, dispatch)
     } catch (error) {

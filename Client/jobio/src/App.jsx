@@ -6,8 +6,14 @@ import ClientNavbar from './Components/Client/Navbar/ClientNavbar';
 import Profile from './Components/Profile/Profile';
 import Login from './Components/Login/Login';
 import Signup from './Components/Login/Signup';
+import { useSelector } from 'react-redux';
 
 function App() {
+
+  const reduxData = useSelector((state) => state.user.userInfo[0]);
+  console.log('reduxdata', reduxData);
+
+  
   const router = createBrowserRouter([
     {
       path: '/indx',
@@ -26,6 +32,9 @@ function App() {
       element:<Login/> ,
     }, {
       path: '/signup',
+      element:<Signup/> ,
+    }, {
+      path: '/land',
       element:<Signup/> ,
     }, 
   ]);
