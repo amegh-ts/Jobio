@@ -36,7 +36,7 @@ const signIn = async (req, res) => {
 }
 
 //all users
-const allUsers=async(req,res)=>{
+const allUsers = async (req, res) => {
     try {
         const data = await userController.find()
         res.status(200).json(data)
@@ -48,4 +48,4 @@ const allUsers=async(req,res)=>{
 // view profile
 // edit profile
 
-module.exports = { signUp, signIn };
+module.exports = { signUp, signIn, allUsers };
