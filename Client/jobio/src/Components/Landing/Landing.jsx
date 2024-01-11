@@ -23,6 +23,10 @@ const Landing = () => {
                     </div>
                 </div>
             </section>
+
+            <section className='landing-body'>
+                
+            </section>
         </div>
     )
 }
