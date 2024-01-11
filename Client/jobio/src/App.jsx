@@ -7,6 +7,7 @@ import Profile from './Components/Profile/Profile';
 import Login from './Components/Login/Login';
 import Signup from './Components/Login/Signup';
 import { useSelector } from 'react-redux';
+import Landing from './Components/Landing/Landing';
 
 function App() {
 
@@ -35,7 +36,7 @@ function App() {
       element:<Signup/> ,
     }, {
       path: '/land',
-      element:<Signup/> ,
+      element:<Landing/> ,
     }, 
   ]);
   return (
