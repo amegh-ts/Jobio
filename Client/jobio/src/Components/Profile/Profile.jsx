@@ -9,6 +9,7 @@ const Profile = () => {
   const [buttonPopup, setButtonPopup] = useState(false)
   const [contactPopup, setContactPopup] = useState(false)
   const [skillPopup, setSkillPopup] = useState(false)
+  const [educationPopup, setEducationPopup] = useState(false)
 
   const [firstname, setFirstname] = useState('')
   const [lastname, setLastname] = useState('')
@@ -20,6 +21,10 @@ const Profile = () => {
   const [photo, setPhoto] = useState('')
   const [coverphoto, setCoverphoto] = useState('')
   const [about, setAbout] = useState('')
+
+  const [institute, setInstitute] = useState('')
+  const [course, setCourse] = useState('')
+  const [year, setYear] = useState('')
 
   const [selectedSkills, setSelectedSkills] = useState([]);
   const skills = [
@@ -141,7 +146,7 @@ const Profile = () => {
           <div className='middle'>
             <div className="photo"></div>
             <div className='detail-container'>
-            <h3>{data.username}</h3>
+              <h3>{data.username}</h3>
               <span className='fullname'>
                 <h2>{data.firstname}</h2><h2>{data.lastname}</h2>
               </span>
@@ -154,7 +159,6 @@ const Profile = () => {
                     <span>Email : {data.email}</span>
                   </div>
                 </div>
-
               </Popup>
             </div>
           </div>
@@ -237,7 +241,7 @@ const Profile = () => {
         </div>
 
         <div className="education">
-          <h3>Education</h3>
+          <h3>Last Education</h3>
           <div className="education-container">
             <div>
               <h5>University of Calicut</h5>
@@ -246,10 +250,20 @@ const Profile = () => {
             </div>
           </div>
           <div className='edit-container'>
-            <span className='icon'>
+            <span className='icon' onClick={() => setEducationPopup(true)}>
               <IoPencil />
             </span>
           </div>
+          <Popup trigger={educationPopup} setTrigger={setEducationPopup}>
+            <div className="educatipon-popup">
+              <h3>Contact info</h3>
+              <div className='education-form'>
+                <input type="text" placeholder='Institute Name' value={institute} onChange={(e) => setInstitute(e.target.value)} />
+                <input type="text" placeholder='Course Name' value={course} onChange={(e) => setLastname(e.target.value)} />
+                <input type="text" placeholder='Year of Completion' value={year} onChange={(e) => setUsername(e.target.value)} />
+              </div>
+            </div>
+          </Popup>
         </div>
 
       </section>
