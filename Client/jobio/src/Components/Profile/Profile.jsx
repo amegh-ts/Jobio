@@ -17,6 +17,7 @@ const Profile = () => {
   const [district, setDistrict] = useState('')
   const [photo, setPhoto] = useState('')
   const [coverphoto, setCoverphoto] = useState('')
+  const [about, setAbout] = useState('')
 
   const KeralaStates = [
     'Trivandrum',
@@ -120,7 +121,7 @@ const Profile = () => {
                 </select>
                 <input type="text" placeholder='Photo' value={photo} onChange={(e) => { setPhoto(e.target.value) }}/>
                 <input type="text" placeholder='Cover Photo' value={coverphoto} onChange={(e) => { setCoverphoto(e.target.value) }}/>
-                <textarea name="about" id="about" cols="30" rows="10" placeholder='Tell us about you'></textarea>
+                <textarea name="about" id="about" cols="30" rows="10" placeholder='Tell us about you' value={about} onChange={(e) => { setAbout(e.target.value) }}></textarea>
 
                 <button onClick={onSubmit}>SUBMIT</button>
               </div>
