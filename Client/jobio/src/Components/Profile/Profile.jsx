@@ -1,6 +1,8 @@
 import './Profile.scss'
 
 const Profile = () => {
+  const [data, setData] = useState({});
+
   return (
     <div className="Profile">
       <section className="column">
