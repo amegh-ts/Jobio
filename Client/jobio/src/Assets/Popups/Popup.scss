@@ -21,6 +21,17 @@
             position: absolute;
             top: 16px;
             right: 16px;
+                    color: var(--primary-color);
+
+            &:hover{
+                color: rgb(221, 2, 2);
+            }
+
+            .icon{
+                font-size: 28px;
+                cursor: pointer;
+                
+            }
         }
     }
 }

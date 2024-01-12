@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import './Profile.scss'
 import { viewProfile } from '../ApiCalls';
 import { IoPencil } from "react-icons/io5";
-import Popup from './Popups/Popup';
+import Popup from '../../Assets/Popups/Popup';
 
 const Profile = () => {
   const [data, setData] = useState({});
@@ -48,7 +48,10 @@ const Profile = () => {
           </div>
 
           <Popup trigger={buttonPopup} setTrigger={setButtonPopup}>
-            <h3>popup</h3>
+            <div className="profile-popup">
+            <h3>Edit Profile</h3>
+            <input type="text" placeholder='Firstname' />
+            </div>
           </Popup>
         </div>
 
