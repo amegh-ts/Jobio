@@ -105,7 +105,7 @@ const Profile = () => {
     setCoverphoto(data.coverphoto || '');
     setAbout(data.about || '');
     setSelectedSkills(data.selectedSkills || []);
-    setInstitute(data.institute||'')
+    setInstitute(data.institute || '')
 
   }, [data])
 
@@ -136,18 +136,16 @@ const Profile = () => {
     }
   };
 
-  const onTest = async () => {
-    console.log('hgcsjvghjghvf');
-    // try {
-    //   await editProfile({ institute,course,year })
-    //   alert('Successfully updated');
-    //   setButtonPopup(false);
-    //   window.location.reload();
-
-    // } catch (error) {
-    //   console.log(error);
-    //   alert("eroor")
-    // }
+  const onEducationClick = async () => {
+    console.log('hiiiiiiiiiiii');
+    try {
+      await editProfile({ institute, course, year })
+      alert('Successfully updated');
+      setEducationPopup(false);
+      window.location.reload();
+    } catch (error) {
+      console.log(error);
+    }
   }
 
 
@@ -277,7 +275,7 @@ const Profile = () => {
                 <input type="text" placeholder='Institute Name' value={institute} onChange={(e) => setInstitute(e.target.value)} />
                 <input type="text" placeholder='Course Name' value={course} onChange={(e) => setCourse(e.target.value)} />
                 <input type="text" placeholder='Year of Completion' value={year} onChange={(e) => setYear(e.target.value)} />
-                <button onSubmit={onTest}>SUBMIT</button>
+                <button onClick={onEducationClick}>SUBMIT</button>
               </div>
 
             </div>
