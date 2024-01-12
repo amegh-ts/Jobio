@@ -33,5 +33,22 @@
                 
             }
         }
+
+        .profile-popup{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 30px;
+
+            h3{
+                font-size: 26px;
+            }
+
+            .form{
+                display: flex;
+                flex-direction: column;
+                gap: 20px;
+            }
+        }
     }
 }
