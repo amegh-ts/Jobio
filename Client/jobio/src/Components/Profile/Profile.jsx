@@ -221,7 +221,10 @@ const Profile = () => {
                   </div>
                 ))}
               </div>
+              <div>
               <button onClick={handleSubmit}>Submit</button>
+
+              </div>
 
               <p>Selected Skills: {selectedSkills.join(', ')}</p>
             </div>
