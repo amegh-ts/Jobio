@@ -259,7 +259,7 @@ const Profile = () => {
         <div className="education">
           <h3>Last Education</h3>
           <div className="education-container">
-            <div>
+            <div className='content'>
               <h5>{data.institute}</h5>
               <h6>{data.course}</h6>
               <p>{data.year}</p>
