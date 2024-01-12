@@ -107,7 +107,7 @@ const Profile = () => {
     setSelectedSkills(data.selectedSkills || []);
     setInstitute(data.institute || '')
     setCourse(data.course||'')
-    
+    setYear(data.year||'')
 
   }, [data])
 
