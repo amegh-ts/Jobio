@@ -8,6 +8,16 @@ const Profile = () => {
   const [data, setData] = useState({});
   const [buttonPopup, setButtonPopup] = useState(false)
 
+  const [firstname,setFirstname]=useState('') 
+  const [lastname,setLastname]=useState('') 
+  const [username,setUsername]=useState('') 
+  const [dob,setDob]=useState('') 
+  const [phone,setPhone]=useState('') 
+  const [city,setCity]=useState('') 
+  const [district,setDistrict]=useState('') 
+  const [photo,setPhoto]=useState('') 
+  const [coverphoto,setCoverphoto]=useState('') 
+
   const KeralaStates = [
     'Trivandrum',
     'Kollam',
@@ -37,6 +47,8 @@ const Profile = () => {
     }
     fetchProfile()
   }, [])
+
+  
   return (
     <div className="Profile">
       <section className="column">
@@ -72,8 +84,10 @@ const Profile = () => {
                 <input type="text" placeholder='Lastname' />
                 <input type="text" placeholder='username' />
                 <input type="date" placeholder='dob' />
+                <input type="number" placeholder='Phone' />
                 <input type="text" placeholder='CIty' />
                 <select name="district" id="district">
+                  <option value="" disabled selected>State</option>
                   {KeralaStates.map((state, index) => (
                     <option key={index} value={state}>
                       {state}
