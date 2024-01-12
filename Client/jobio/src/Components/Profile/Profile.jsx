@@ -6,18 +6,18 @@ import { IoPencil } from "react-icons/io5";
 const Profile = () => {
   const [data, setData] = useState({});
 
-  useEffect(()=>{
+  useEffect(() => {
     async function fetchProfile() {
       try {
-        const apiData=await viewProfile();
+        const apiData = await viewProfile();
         setData(apiData)
-        console.log('api data',apiData);
+        console.log('api data', apiData);
       } catch (error) {
         console.log(error);
       }
     }
     fetchProfile()
-  },[])
+  }, [])
   return (
     <div className="Profile">
       <section className="column">
@@ -25,15 +25,24 @@ const Profile = () => {
           <div className='header'>
             <img src="/Images/bg.png" alt="" />
           </div>
-          <div className='photo'></div>
+          <div className='middle'>
+            <div className="photo"></div>
+            <div>
+              <h2>{data.firstname}</h2><span> </span><h2>{data.lastname}</h2>
+              <h2>{data.username}</h2>
+              <h5>kozhikode, kerala, India <span>Contact info</span></h5>
+            </div>
+          </div>
           <div className='footer'>
-            <h2>Name</h2>
             <h3>Highlights</h3>
-            <h5>kozhikode, kerala, India <span>Contact info</span></h5>
+            <h3>Highlights</h3>
+            <h3>Highlights</h3>
           </div>
 
-          <div className="edit-icon">
-          <IoPencil />
+          <div className='edit-container'>
+            <span className='icon'>
+              <IoPencil />
+            </span>
           </div>
         </div>
 
@@ -45,8 +54,10 @@ const Profile = () => {
             <button className='btn'>HTML</button>
             <button className='btn'>HTML</button>
           </div>
-          <div className="edit-icon">
-          <IoPencil />
+          <div className='edit-container'>
+            <span className='icon'>
+              <IoPencil />
+            </span>
           </div>
         </div>
 
@@ -59,8 +70,10 @@ const Profile = () => {
               <p>2020 - 2023</p>
             </div>
           </div>
-          <div className="edit-icon">
-          <IoPencil />
+          <div className='edit-container'>
+            <span className='icon'>
+              <IoPencil />
+            </span>
           </div>
         </div>
 

@@ -17,7 +17,6 @@
             flex-direction: column;
             justify-content: space-evenly;
             align-items: flex-start;
-            position: relative;
 
             .header {
                 height: 200px;
@@ -32,87 +31,76 @@
                 }
             }
 
-            .photo {
-                background: blue;
-                width: 150px;
-                height: 150px;
-                border-radius: 50%;
-                position: relative;
-                left: 30px;
-                bottom: 100px;
-                
+            .middle {
+                display: flex;
+                justify-content: space-between;
+                padding: 20px;
+                gap: 30px;
+
+                .photo {
+                    background: blue;
+                    width: 150px;
+                    height: 150px;
+                    border-radius: 50%;
+                    left: 30px;
+                    bottom: 100px;
+
+                }
+
             }
 
             .footer {
-                position: absolute;
+                padding: 0 30px;
                 left: 20px;
                 top: 263px;
             }
 
-            .edit-icon{
-                background-color: red;
-                padding: 8px;
+            .edit-container{
                 display: flex;
-                align-items: center;
-                font-size: 20px;
+                justify-content: flex-end;
+                width: 100%;
+                background:red ;
+
+                span{
+                    display: flex;
+                    font-size: 20px;
+                    padding: 10px;
+                    color: var(--primary-color);
+                background: var(--sidebar-color);  
+                box-shadow: 1px 1px 10px rgb(148, 148, 148);  
+                margin: 10px;
                 border-radius: 50%;
-                position: absolute;
-                left: 740px;
-                top: 210px;
+
+                }
+
             }
         }
 
-        .skills{
+        .skills {
             width: 100%;
             max-width: 760px;
             background: var(--sidebar-color);
             border-radius: 10px;
             padding: 20px;
-            position: relative;
 
-            .skill-container{
+            .skill-container {
                 display: flex;
                 flex-wrap: wrap;
                 gap: 20px;
-                .btn{
+
+                .btn {
                     padding: 10px;
                 }
             }
 
-            .edit-icon{
-                background-color: red;
-                padding: 8px;
-                display: flex;
-                align-items: center;
-                font-size: 20px;
-                border-radius: 50%;
-                position: absolute;
-                left: 740px;
-                top: 10px;
-            }
-            
         }
 
-        .education{
+        .education {
             width: 100%;
             max-width: 760px;
             background: var(--sidebar-color);
             border-radius: 10px;
             padding: 20px;
-            position: relative;
-
-
-            .edit-icon{
-                background-color: red;
-                padding: 8px;
-                display: flex;
-                align-items: center;
-                font-size: 20px;
-                border-radius: 50%;
-                position: absolute;
-                left: 740px;
-                top: 10px;
-            }
         }
     }
 }
