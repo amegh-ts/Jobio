@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import './Profile.scss'
 import { viewProfile } from '../ApiCalls';
+import { IoPencil } from "react-icons/io5";
 
 const Profile = () => {
   const [data, setData] = useState({});
@@ -31,6 +32,9 @@ const Profile = () => {
             <h5>kozhikode, kerala, India <span>Contact info</span></h5>
           </div>
 
+          <div className="edit-icon">
+          <IoPencil />
+          </div>
         </div>
 
         <div className="skills">
@@ -40,6 +44,9 @@ const Profile = () => {
             <button className='btn'>HTML</button>
             <button className='btn'>HTML</button>
             <button className='btn'>HTML</button>
+          </div>
+          <div className="edit-icon">
+          <IoPencil />
           </div>
         </div>
 
@@ -51,6 +58,9 @@ const Profile = () => {
               <h6>Bachelor of science - CS</h6>
               <p>2020 - 2023</p>
             </div>
+          </div>
+          <div className="edit-icon">
+          <IoPencil />
           </div>
         </div>
 

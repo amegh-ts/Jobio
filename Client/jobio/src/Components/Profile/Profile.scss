@@ -48,6 +48,18 @@
                 left: 20px;
                 top: 263px;
             }
+
+            .edit-icon{
+                background-color: red;
+                padding: 8px;
+                display: flex;
+                align-items: center;
+                font-size: 20px;
+                border-radius: 50%;
+                position: absolute;
+                left: 740px;
+                top: 210px;
+            }
         }
 
         .skills{
@@ -56,6 +68,7 @@
             background: var(--sidebar-color);
             border-radius: 10px;
             padding: 20px;
+            position: relative;
 
             .skill-container{
                 display: flex;
@@ -64,6 +77,18 @@
                 .btn{
                     padding: 10px;
                 }
+            }
+
+            .edit-icon{
+                background-color: red;
+                padding: 8px;
+                display: flex;
+                align-items: center;
+                font-size: 20px;
+                border-radius: 50%;
+                position: absolute;
+                left: 740px;
+                top: 10px;
             }
             
         }
@@ -74,6 +99,20 @@
             background: var(--sidebar-color);
             border-radius: 10px;
             padding: 20px;
+            position: relative;
+
+
+            .edit-icon{
+                background-color: red;
+                padding: 8px;
+                display: flex;
+                align-items: center;
+                font-size: 20px;
+                border-radius: 50%;
+                position: absolute;
+                left: 740px;
+                top: 10px;
+            }
         }
     }
 }
