@@ -52,3 +52,15 @@ export const viewProfile = async () => {
         console.log(error);
     }
 }
+
+// edit profile
+export const editProfile = async (data) => {
+    try {
+        console.log('datttttttttttttttttttttt',data);
+        const res = await publicRequest.put(`/editprofile/${userId}`, data)
+        console.log('Response Status:', res.status);
+    } catch (err) {
+        console.log(err);
+
+    }
+}

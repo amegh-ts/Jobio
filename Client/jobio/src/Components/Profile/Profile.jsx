@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import './Profile.scss'
-import { viewProfile } from '../ApiCalls';
+import { editProfile, viewProfile } from '../ApiCalls';
 import { IoPencil } from "react-icons/io5";
 import Popup from '../../Assets/Popups/Popup';
 
@@ -62,6 +62,15 @@ const Profile = () => {
 
   console.log(firstname, lastname, username, dob, phone, city, district, photo, coverphoto);
 
+  const onSubmit=async ()=>{
+    try {
+      await editProfile({firstname, lastname, username, dob, phone, city, district, photo, coverphoto})
+      alert('Successfully updated');
+    } catch (error) {
+      console.log(error);
+      alert("eroor")
+    }
+  }
 
 
   return (
@@ -113,7 +122,7 @@ const Profile = () => {
                 <input type="text" placeholder='Cover Photo' />
                 <textarea name="about" id="about" cols="30" rows="10" placeholder='Tell us about you'></textarea>
 
-                <button>SUBMIT</button>
+                <button onClick={onSubmit}>SUBMIT</button>
               </div>
             </div>
           </Popup>
