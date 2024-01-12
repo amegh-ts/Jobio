@@ -16,7 +16,7 @@ const Profile = () => {
       }
     }
     fetchProfile()
-  })
+  },[])
   return (
     <div className="Profile">
       <section className="column">
