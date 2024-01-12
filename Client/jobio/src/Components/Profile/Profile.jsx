@@ -83,8 +83,7 @@ const Profile = () => {
         const apiData = await viewProfile();
         setData(apiData)
         setDisplaySkill(apiData.selectedSkills || []);
-        setSelectedSkills(apiData.selectedSkills || []);
-        console.log('api data', apiData);
+        // console.log('api data', apiData);
       } catch (error) {
         console.log(error);
       }
@@ -105,6 +104,9 @@ const Profile = () => {
     setPhoto(data.photo || '');
     setCoverphoto(data.coverphoto || '');
     setAbout(data.about || '');
+    setSelectedSkills(data.selectedSkills || []);
+    setInstitute(data.institute||'')
+
   }, [data])
 
   // console.log(firstname, lastname, username, dob, phone, city, district, photo, coverphoto);
@@ -123,8 +125,7 @@ const Profile = () => {
   }
 
   const handleSubmit = async () => {
-    // Log the selected skills to the console (you can replace this with your desired action)
-    console.log('Selected Skills:', selectedSkills);
+    // console.log('Selected Skills:', selectedSkills);
     try {
       await editProfile({ selectedSkills })
       alert('Successfully updated');
@@ -135,7 +136,16 @@ const Profile = () => {
     }
   };
 
-  const onEdSubmit=async()
+  const onEdSubmit=async()=>{
+    try {
+      await editProfile({ institute,course,year })
+      alert('Successfully updated');
+      setButtonPopup(false);
+      window.location.reload();
+    } catch (error) {
+      console.log(error);
+    }
+  }
 
 
   return (
@@ -263,7 +273,7 @@ const Profile = () => {
                 <input type="text" placeholder='Institute Name' value={institute} onChange={(e) => setInstitute(e.target.value)} />
                 <input type="text" placeholder='Course Name' value={course} onChange={(e) => setCourse(e.target.value)} />
                 <input type="text" placeholder='Year of Completion' value={year} onChange={(e) => setYear(e.target.value)} />
-                <button onEdSubmit={onSubmit}>SUBMIT</button>
+                <button onSubmit={onEdSubmit}>SUBMIT</button>
 
               </div>
             </div>
