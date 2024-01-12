@@ -244,9 +244,9 @@ const Profile = () => {
           <h3>Last Education</h3>
           <div className="education-container">
             <div>
-              <h5>University of Calicut</h5>
-              <h6>Bachelor of science - CS</h6>
-              <p>2020 - 2023</p>
+              <h5>{data.institute}</h5>
+              <h6>{data.course}</h6>
+              <p>{data.year}</p>
             </div>
           </div>
           <div className='edit-container'>
@@ -259,8 +259,8 @@ const Profile = () => {
               <h3>Contact info</h3>
               <div className='education-form'>
                 <input type="text" placeholder='Institute Name' value={institute} onChange={(e) => setInstitute(e.target.value)} />
-                <input type="text" placeholder='Course Name' value={course} onChange={(e) => setLastname(e.target.value)} />
-                <input type="text" placeholder='Year of Completion' value={year} onChange={(e) => setUsername(e.target.value)} />
+                <input type="text" placeholder='Course Name' value={course} onChange={(e) => setCourse(e.target.value)} />
+                <input type="text" placeholder='Year of Completion' value={year} onChange={(e) => setYear(e.target.value)} />
               </div>
             </div>
           </Popup>
