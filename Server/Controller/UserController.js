@@ -60,7 +60,7 @@ const viewProfile = async (req, res) => {
 }
 
 // edit profile
-const editProfile=async(req,res)=>{
+const editProfile = async (req, res) => {
     try {
         const updateData = await userController.findByIdAndUpdate(req.params.id, { $set: req.body }, { new: true })
         res.status(200).json(updateData)
@@ -71,4 +71,4 @@ const editProfile=async(req,res)=>{
 
 
 
-module.exports = { signUp, signIn, allUsers, viewProfile,editProfile };
+module.exports = { signUp, signIn, allUsers, viewProfile, editProfile };
