@@ -49,7 +49,7 @@ const allUsers = async (req, res) => {
 const viewProfile = async (req, res) => {
     try {
         const id = await userController.findById(req.params.id)
-        console.log('id=',id);
+        console.log('id=', id);
         const hashedPassword = Crypto.AES.decrypt(id.password, process.env.Crypto_js)
         const originalPassword = hashedPassword.toString(Crypto.enc.Utf8)
         const { password, ...others } = id._doc
@@ -59,6 +59,16 @@ const viewProfile = async (req, res) => {
     }
 }
 
-    // edit profile
+// edit profile
+const editProfile=async(req,res)=>{
+    try {
+        const updateData = await userController.findByIdAndUpdate(req.params.id, { $set: req.body }, { new: true })
+        res.status(200).json(updateData)
+    } catch (error) {
+        res.status(500).json(error)
+    }
+}
 
-    module.exports = { signUp, signIn, allUsers,viewProfile };
+
+
+module.exports = { signUp, signIn, allUsers, viewProfile,editProfile };
