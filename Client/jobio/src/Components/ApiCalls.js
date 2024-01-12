@@ -59,8 +59,8 @@ export const editProfile = async (data) => {
         console.log('datttttttttttttttttttttt',data);
         const res = await userRequest.put(`/editprofile/${userId}`, data)
         console.log('Response Status:', res.status);
-    } catch (err) {
-        console.log(err);
+    } catch (error) {
+        console.log(error);
 
     }
 }
