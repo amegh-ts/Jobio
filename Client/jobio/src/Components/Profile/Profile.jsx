@@ -101,7 +101,7 @@ const Profile = () => {
                 <input type="date" placeholder='dob' value={dob} onChange={(e) => setDob(e.target.value)} />
                 <input type="number" placeholder='Phone' value={phone} onChange={(e) => setPhone(e.target.value)} />
                 <input type="text" placeholder='City' value={city} onChange={(e) => setCity(e.target.value)} />
-                <select name="district" id="district" value={district} onChange={(e)=>{setDistrict(e.target.value)}}>
+                <select name="district" id="district" value={district} onChange={(e) => { setDistrict(e.target.value) }}>
                   <option value="" disabled selected>State</option>
                   {KeralaStates.map((state, index) => (
                     <option key={index} value={state}>
@@ -113,7 +113,7 @@ const Profile = () => {
                 <input type="text" placeholder='Cover Photo' />
                 <textarea name="about" id="about" cols="30" rows="10" placeholder='Tell us about you'></textarea>
 
-                  <button>SUBMIT</button>
+                <button>SUBMIT</button>
               </div>
             </div>
           </Popup>
