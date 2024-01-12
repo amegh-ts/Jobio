@@ -78,6 +78,7 @@ const Profile = () => {
         const apiData = await viewProfile();
         setData(apiData)
         setDisplaySkill(apiData.selectedSkills || []);
+        setSelectedSkills(apiData.selectedSkills || []);
         console.log('api data', apiData);
       } catch (error) {
         console.log(error);
