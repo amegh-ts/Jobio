@@ -106,8 +106,8 @@ const Profile = () => {
     setAbout(data.about || '');
     setSelectedSkills(data.selectedSkills || []);
     setInstitute(data.institute || '')
-    setCourse(data.course||'')
-    setYear(data.year||'')
+    setCourse(data.course || '')
+    setYear(data.year || '')
 
   }, [data])
 
