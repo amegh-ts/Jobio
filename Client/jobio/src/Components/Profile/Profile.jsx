@@ -58,19 +58,11 @@ const Profile = () => {
     setDistrict(data.district || '');
     setPhoto(data.photo || '');
     setCoverphoto(data.coverphoto || '');
-  },[data])
+  }, [data])
 
-  console.log(
-    firstname,
-    lastname,
-    username,
-    dob,
-    phone,
-    city,
-    district,
-    photo,
-    coverphoto
-  );
+  console.log(firstname, lastname, username, dob, phone, city, district, photo, coverphoto);
+
+
 
   return (
     <div className="Profile">

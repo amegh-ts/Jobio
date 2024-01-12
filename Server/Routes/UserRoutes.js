@@ -1,4 +1,4 @@
-const { signUp, signIn, allUsers, viewProfile } = require('../Controller/UserController')
+const { signUp, signIn, allUsers, viewProfile, editProfile } = require('../Controller/UserController')
 const { verifyToken, verifyTokenAndAuthorization } = require('../VerifyToken');
 
 
@@ -14,5 +14,7 @@ router.post('/signin', signIn)
 router.get('/allusers',verifyToken,allUsers)
 // view profile
 router.get('/Viewprofile/:id',verifyToken,verifyTokenAndAuthorization,viewProfile)
+// edit profile
+router.put('editprofile/:id',verifyToken,verifyTokenAndAuthorization,editProfile)
 
 module.exports = router
