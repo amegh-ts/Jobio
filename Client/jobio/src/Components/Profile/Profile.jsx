@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import './Profile.scss'
 import { viewProfile } from '../ApiCalls';
 import { IoPencil } from "react-icons/io5";
+import Popup from './Popups/Popup';
 
 const Profile = () => {
   const [data, setData] = useState({});
@@ -44,6 +45,10 @@ const Profile = () => {
               <IoPencil />
             </span>
           </div>
+
+          <Popup trigger={true}>
+            <h3>popup</h3>
+          </Popup>
         </div>
 
         <div className="skills">
