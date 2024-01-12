@@ -256,7 +256,7 @@ const Profile = () => {
           </div>
           <Popup trigger={educationPopup} setTrigger={setEducationPopup}>
             <div className="educatipon-popup">
-              <h3>Contact info</h3>
+              <h3>Previous Education Details</h3>
               <div className='education-form'>
                 <input type="text" placeholder='Institute Name' value={institute} onChange={(e) => setInstitute(e.target.value)} />
                 <input type="text" placeholder='Course Name' value={course} onChange={(e) => setCourse(e.target.value)} />
