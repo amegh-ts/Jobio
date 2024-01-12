@@ -95,13 +95,13 @@ const Profile = () => {
             <div className="profile-popup">
               <h3>Edit Profile</h3>
               <div className="form">
-                <input type="text" placeholder='Firstname' />
-                <input type="text" placeholder='Lastname' />
-                <input type="text" placeholder='username' />
-                <input type="date" placeholder='dob' />
-                <input type="number" placeholder='Phone' />
-                <input type="text" placeholder='CIty' />
-                <select name="district" id="district">
+                <input type="text" placeholder='Firstname' value={firstname} onChange={(e) => setFirstname(e.target.value)} />
+                <input type="text" placeholder='Lastname' value={lastname} onChange={(e) => setLastname(e.target.value)} />
+                <input type="text" placeholder='username' value={username} onChange={(e) => setUsername(e.target.value)} />
+                <input type="date" placeholder='dob' value={dob} onChange={(e) => setDob(e.target.value)} />
+                <input type="number" placeholder='Phone' value={phone} onChange={(e) => setPhone(e.target.value)} />
+                <input type="text" placeholder='City' value={city} onChange={(e) => setCity(e.target.value)} />
+                <select name="district" id="district" value={district} onChange={(e)=>{setDistrict(e.target.value)}}>
                   <option value="" disabled selected>State</option>
                   {KeralaStates.map((state, index) => (
                     <option key={index} value={state}>
@@ -112,6 +112,8 @@ const Profile = () => {
                 <input type="text" placeholder='Photo' />
                 <input type="text" placeholder='Cover Photo' />
                 <textarea name="about" id="about" cols="30" rows="10" placeholder='Tell us about you'></textarea>
+
+                  <button>SUBMIT</button>
               </div>
             </div>
           </Popup>
