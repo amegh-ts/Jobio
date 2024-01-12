@@ -63,10 +63,12 @@ const Profile = () => {
 
   console.log(firstname, lastname, username, dob, phone, city, district, photo, coverphoto);
 
-  const onSubmit=async ()=>{
+  const onSubmit = async () => {
     try {
-      await editProfile({firstname, lastname, username, dob, phone, city, district, photo, coverphoto})
+      await editProfile({ firstname, lastname, username, dob, phone, city, district, photo, coverphoto })
       alert('Successfully updated');
+      setButtonPopup(false);
+
     } catch (error) {
       console.log(error);
       alert("eroor")
@@ -86,13 +88,14 @@ const Profile = () => {
             <div>
               <h2>{data.firstname}</h2><span> </span><h2>{data.lastname}</h2>
               <h2>{data.username}</h2>
-              <h5>kozhikode, kerala, India <span>Contact info</span></h5>
+              <h5>{data.city}, {data.district}, India <span>Contact info</span></h5>
+              <Popup>
+
+              </Popup>
             </div>
           </div>
           <div className='footer'>
-            <h3>Highlights</h3>
-            <h3>Highlights</h3>
-            <h3>Highlights</h3>
+            <h4>{data.about}</h4>
           </div>
 
           <div className='edit-container'>
@@ -119,8 +122,8 @@ const Profile = () => {
                     </option>
                   ))}
                 </select>
-                <input type="text" placeholder='Photo' value={photo} onChange={(e) => { setPhoto(e.target.value) }}/>
-                <input type="text" placeholder='Cover Photo' value={coverphoto} onChange={(e) => { setCoverphoto(e.target.value) }}/>
+                <input type="text" placeholder='Photo' value={photo} onChange={(e) => { setPhoto(e.target.value) }} />
+                <input type="text" placeholder='Cover Photo' value={coverphoto} onChange={(e) => { setCoverphoto(e.target.value) }} />
                 <textarea name="about" id="about" cols="30" rows="10" placeholder='Tell us about you' value={about} onChange={(e) => { setAbout(e.target.value) }}></textarea>
 
                 <button onClick={onSubmit}>SUBMIT</button>

@@ -15,6 +15,6 @@ router.get('/allusers',verifyToken,allUsers)
 // view profile
 router.get('/Viewprofile/:id',verifyToken,verifyTokenAndAuthorization,viewProfile)
 // edit profile
-router.put('editprofile/:id',verifyToken,verifyTokenAndAuthorization,editProfile)
+router.put('/editprofile/:id',verifyToken,verifyTokenAndAuthorization,editProfile)
 
 module.exports = router

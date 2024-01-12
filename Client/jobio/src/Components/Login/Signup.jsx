@@ -9,10 +9,12 @@ const Signup = () => {
     const [password, setPassword] = useState('')
     const [type, setType] = useState('')
 
-    const onClick = (e) => {
-        e.preventDefault();
+    const onClick = () => {
         try {
             signUpData({username,dob,email,password,type})
+            alert('Account Created Successfully. Please Loging to continue')
+            history.push('/login');
+
         } catch (error) {
             console.error(error);
         }

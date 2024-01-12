@@ -14,10 +14,10 @@ const UserSchema=new mongoose.Schema({
     photo:{type:String},
     coverphoto:{type:String},
     skills:{type:Array},
-    about:{type:Array},
-    institute:{type:Array},
-    course:{type:Array},
-    end:{type:Array},
+    about:{type:String},
+    institute:{type:String},
+    course:{type:String},
+    end:{type:String},
 
 },{timestamps:true}) //to add the date and time the value is added to DB or edited
 
