@@ -70,6 +70,7 @@ const Profile = () => {
       await editProfile({ firstname, lastname, username, dob, phone, city, district, photo, coverphoto, about })
       alert('Successfully updated');
       setButtonPopup(false);
+    window.location.reload();
 
     } catch (error) {
       console.log(error);
