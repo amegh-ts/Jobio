@@ -135,6 +135,8 @@ const Profile = () => {
     }
   };
 
+  const onEdSubmit=async()
+
 
   return (
     <div className="Profile">
@@ -261,6 +263,8 @@ const Profile = () => {
                 <input type="text" placeholder='Institute Name' value={institute} onChange={(e) => setInstitute(e.target.value)} />
                 <input type="text" placeholder='Course Name' value={course} onChange={(e) => setCourse(e.target.value)} />
                 <input type="text" placeholder='Year of Completion' value={year} onChange={(e) => setYear(e.target.value)} />
+                <button onEdSubmit={onSubmit}>SUBMIT</button>
+
               </div>
             </div>
           </Popup>
