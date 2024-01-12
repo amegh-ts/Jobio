@@ -6,7 +6,7 @@ const storedData = localStorage.getItem('persist:jobio');
 const user = storedData ? JSON.parse(JSON.parse(storedData).user) : null;
 
 const Token = user?.userInfo?.[0]?.accessToken;
-console.log(Token);
+// console.log(Token);
 
 // console.log('==========================',Token);
 

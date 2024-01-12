@@ -8,6 +8,7 @@ const Profile = () => {
   const [data, setData] = useState({});
   const [buttonPopup, setButtonPopup] = useState(false)
   const [contactPopup, setContactPopup] = useState(false)
+  const [skillPopup, setSkillPopup] = useState(false)
 
   const [firstname, setFirstname] = useState('')
   const [lastname, setLastname] = useState('')
@@ -42,7 +43,7 @@ const Profile = () => {
       try {
         const apiData = await viewProfile();
         setData(apiData)
-        console.log('api data', apiData);
+        // console.log('api data', apiData);
       } catch (error) {
         console.log(error);
       }
@@ -63,7 +64,7 @@ const Profile = () => {
     setAbout(data.about || '');
   }, [data])
 
-  console.log(firstname, lastname, username, dob, phone, city, district, photo, coverphoto);
+  // console.log(firstname, lastname, username, dob, phone, city, district, photo, coverphoto);
 
   const onSubmit = async () => {
     try {
@@ -112,7 +113,6 @@ const Profile = () => {
               <IoPencil />
             </span>
           </div>
-
           <Popup trigger={buttonPopup} setTrigger={setButtonPopup}>
             <div className="profile-popup">
               <h3>Edit Profile</h3>
@@ -124,7 +124,7 @@ const Profile = () => {
                 <input type="number" placeholder='Phone' value={phone} onChange={(e) => setPhone(e.target.value)} />
                 <input type="text" placeholder='City' value={city} onChange={(e) => setCity(e.target.value)} />
                 <select name="district" id="district" value={district} onChange={(e) => { setDistrict(e.target.value) }}>
-                  <option value="" disabled selected>State</option>
+                  <option value="" disabled defaultValue>State</option>
                   {KeralaStates.map((state, index) => (
                     <option key={index} value={state}>
                       {state}
@@ -134,7 +134,6 @@ const Profile = () => {
                 <input type="text" placeholder='Photo' value={photo} onChange={(e) => { setPhoto(e.target.value) }} />
                 <input type="text" placeholder='Cover Photo' value={coverphoto} onChange={(e) => { setCoverphoto(e.target.value) }} />
                 <textarea name="about" id="about" cols="30" rows="10" placeholder='Tell us about you' value={about} onChange={(e) => { setAbout(e.target.value) }}></textarea>
-
                 <button onClick={onSubmit}>SUBMIT</button>
               </div>
             </div>
@@ -149,11 +148,18 @@ const Profile = () => {
             <button className='btn'>HTML</button>
             <button className='btn'>HTML</button>
           </div>
-          <div className='edit-container'>
-            <span className='icon'>
+          <div className='edit-container' >
+            <span className='icon' onClick={() => setSkillPopup(true)}>
               <IoPencil />
             </span>
           </div>
+
+          <Popup trigger={skillPopup} setTrigger={setSkillPopup}>
+              <h3>Skills</h3>
+              <div className='select-skill'>
+
+              </div>
+          </Popup>
         </div>
 
         <div className="education">

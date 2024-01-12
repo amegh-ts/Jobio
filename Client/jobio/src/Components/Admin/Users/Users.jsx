@@ -13,7 +13,7 @@ const Users = () => {
         async function display() {
             try {
                 const users = await getAllUsers();
-                console.log(users);
+                // console.log(users);
                 const filteredUsers = users.filter(user => user._id !== userId);
                 setAllUsers(filteredUsers);
                 setFilteredUsers(filteredUsers);

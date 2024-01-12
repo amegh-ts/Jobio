@@ -13,7 +13,7 @@ import EmployerNavbar from './Components/Employer/Navbar/EmployerNavbar';
 function App() {
 
   const reduxData = useSelector((state) => state.user.userInfo[0]);
-  console.log('reduxdata', reduxData);
+  // console.log('reduxdata', reduxData);
   const token = reduxData?.accessToken;
 
   let content;
