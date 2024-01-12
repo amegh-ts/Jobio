@@ -67,7 +67,7 @@ const Profile = () => {
 
   const onSubmit = async () => {
     try {
-      await editProfile({ firstname, lastname, username, dob, phone, city, district, photo, coverphoto,about })
+      await editProfile({ firstname, lastname, username, dob, phone, city, district, photo, coverphoto, about })
       alert('Successfully updated');
       setButtonPopup(false);
 
@@ -90,7 +90,7 @@ const Profile = () => {
             <div>
               <h2>{data.firstname}</h2><span> </span><h2>{data.lastname}</h2>
               <h2>{data.username}</h2>
-              <h5>{data.city}, {data.district}, India : <span className='contact-info' onClick={()=>{setContactPopup(true)}}>Contact info</span></h5>
+              <h5>{data.city}, {data.district}, India : <span className='contact-info' onClick={() => { setContactPopup(true) }}>Contact info</span></h5>
               <Popup trigger={contactPopup} setTrigger={setContactPopup}>
                 <h3>Contact info</h3>
                 <div>
