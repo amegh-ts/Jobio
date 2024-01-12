@@ -21,6 +21,19 @@ const Profile = () => {
   const [coverphoto, setCoverphoto] = useState('')
   const [about, setAbout] = useState('')
 
+  const [selectedSkills, setSelectedSkills] = useState([]);
+  const skills = ['MERN', 'HTML', 'CSS', 'JavaScript', 'React', 'Node.js'];
+
+  const handleSkillChange = (skill) => {
+    // Check if the skill is already selected
+    if (selectedSkills.includes(skill)) {
+      setSelectedSkills(selectedSkills.filter((selectedSkill) => selectedSkill !== skill));
+    } else {
+      // Add the skill to the array if not already selected
+      setSelectedSkills([...selectedSkills, skill]);
+    }
+  };
+
   const KeralaStates = [
     'Trivandrum',
     'Kollam',
@@ -71,13 +84,26 @@ const Profile = () => {
       await editProfile({ firstname, lastname, username, dob, phone, city, district, photo, coverphoto, about })
       alert('Successfully updated');
       setButtonPopup(false);
-    window.location.reload();
+      window.location.reload();
 
     } catch (error) {
       console.log(error);
       alert("eroor")
     }
   }
+
+  const handleSubmit =async () => {
+    // Log the selected skills to the console (you can replace this with your desired action)
+    console.log('Selected Skills:', selectedSkills);
+    try {
+      await editProfile({selectedSkills})
+      alert('Successfully updated');
+      setButtonPopup(false);
+      window.location.reload();
+    } catch (error) {
+      console.log(error);
+    }
+  };
 
 
   return (
@@ -91,7 +117,7 @@ const Profile = () => {
             <div className="photo"></div>
             <div className='detail-container'>
               <span className='fullname'>
-              <h2>{data.firstname}</h2><h2>{data.lastname}</h2>
+                <h2>{data.firstname}</h2><h2>{data.lastname}</h2>
               </span>
               <h2>{data.username}</h2>
               <h5>{data.city}, {data.district}, India : <span className='contact-info' onClick={() => { setContactPopup(true) }}>Contact info</span></h5>
@@ -155,10 +181,24 @@ const Profile = () => {
           </div>
 
           <Popup trigger={skillPopup} setTrigger={setSkillPopup}>
-              <h3>Skills</h3>
-              <div className='select-skill'>
+            <h3>Skills</h3>
+            <div className='select-skill'>
+              {skills.map((skill) => (
+                <div key={skill}>
+                  <input
+                    type='checkbox'
+                    id={skill}
+                    checked={selectedSkills.includes(skill)}
+                    onChange={() => handleSkillChange(skill)}
+                  />
+                  <label htmlFor={skill}>{skill}</label>
+                </div>
+              ))}
+            </div>
+            <button onClick={handleSubmit}>Submit</button>
 
-              </div>
+            <p>Selected Skills: {selectedSkills.join(', ')}</p>
+
           </Popup>
         </div>
 

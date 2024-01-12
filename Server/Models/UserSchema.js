@@ -13,7 +13,7 @@ const UserSchema=new mongoose.Schema({
     district:{type:String},
     photo:{type:String},
     coverphoto:{type:String},
-    skills:{type:Array},
+    selectedSkills:{type:Array},
     about:{type:String},
     institute:{type:String},
     course:{type:String},
