@@ -76,7 +76,7 @@ const EmployerNavbar = () => {
                 </header>
 
                 <div className="menu-bar">
-                    <div className="menu-item" >
+                    <div className={`menu-item ${activePage === 'home' ? 'active' : ''}`} onClick={() => { setActivePage('home'); }}>
                         <IoHome className="icon" />
                         <span>Home</span>
                         
