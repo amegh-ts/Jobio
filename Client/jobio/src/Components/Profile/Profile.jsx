@@ -6,6 +6,7 @@ import Popup from './Popups/Popup';
 
 const Profile = () => {
   const [data, setData] = useState({});
+  const [buttonPopup,setButtonPopup]=useState(false)
 
   useEffect(() => {
     async function fetchProfile() {
@@ -41,12 +42,12 @@ const Profile = () => {
           </div>
 
           <div className='edit-container'>
-            <span className='icon'>
+            <span className='icon' onClick={()=>setButtonPopup(true)}>
               <IoPencil />
             </span>
           </div>
 
-          <Popup trigger={true}>
+          <Popup trigger={buttonPopup} setTrigger={setButtonPopup}>
             <h3>popup</h3>
           </Popup>
         </div>
