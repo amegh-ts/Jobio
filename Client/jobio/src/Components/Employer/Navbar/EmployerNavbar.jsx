@@ -16,6 +16,8 @@ import {
 } from 'react-icons/io5';
 import { useDispatch } from 'react-redux';
 import { logoutUser } from '../../../Redux/UserRedux';
+import Profile from '../../Profile/Profile';
+import Chats from '../../Chats/Chats';
 
 const EmployerNavbar = () => {
     const [isDropdownVisible, setIsDropdownVisible] = useState(false);
@@ -57,7 +59,10 @@ const EmployerNavbar = () => {
         sessionStorage.clear();
 
     };
-
+    const pageComponents = {
+        chats: <Chats />,
+        profile: <Profile />
+    };
 
   return (
     <div className='employer'>
@@ -119,12 +124,14 @@ const EmployerNavbar = () => {
                             <IoMoonOutline />
                             <IoNotifications />
                         </span>
-                        <div className="profile">
+                        <div className={`profile  ${activePage === 'profile' ? 'active' : ''}`} onClick={() => { setActivePage('profile'); }}>
                             <IoPersonSharp />
                         </div>
                     </div>
                 </div>
-                <div className={'main-body'}></div>
+                <div className={'main-body'}>
+                {pageComponents[activePage]}
+                </div>
             </section>
         </div>
   )
