@@ -149,8 +149,9 @@ const Profile = () => {
               <Popup trigger={contactPopup} setTrigger={setContactPopup}>
                 <div className="contact-popup">
                   <h3>Contact info</h3>
-                  <div>
-                    <span>Phone : </span><span>{data.phone}</span>
+                  <div className='contact-container'>
+                    <span>Phone : {data.phone}</span>
+                    <span>Email : {data.email}</span>
                   </div>
                 </div>
 

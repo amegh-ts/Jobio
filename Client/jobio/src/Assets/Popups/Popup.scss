@@ -95,6 +95,17 @@
         }
 
 
+        .contact-popup{
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+
+            .contact-container{
+                display: flex;
+                flex-direction: column;
+            }
+        }
+
         .skill-popup {
             display: flex;
             flex-direction: column;
