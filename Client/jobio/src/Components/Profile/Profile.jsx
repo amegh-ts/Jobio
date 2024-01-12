@@ -88,8 +88,10 @@ const Profile = () => {
           </div>
           <div className='middle'>
             <div className="photo"></div>
-            <div>
-              <h2>{data.firstname}</h2><span> </span><h2>{data.lastname}</h2>
+            <div className='detail-container'>
+              <span className='fullname'>
+              <h2>{data.firstname}</h2><h2>{data.lastname}</h2>
+              </span>
               <h2>{data.username}</h2>
               <h5>{data.city}, {data.district}, India : <span className='contact-info' onClick={() => { setContactPopup(true) }}>Contact info</span></h5>
               <Popup trigger={contactPopup} setTrigger={setContactPopup}>

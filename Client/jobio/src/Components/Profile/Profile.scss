@@ -47,10 +47,18 @@
 
                 }
 
-                .contact-info {
-                    color: var(--primary-color);
-                    cursor: pointer;
+                .detail-container {
+                    .contact-info {
+                        color: var(--primary-color);
+                        cursor: pointer;
+                    }
+
+                    .fullname {
+                        display: flex;
+                        gap: 10px;
+                    }
                 }
+
 
             }
 
@@ -59,7 +67,7 @@
                 left: 20px;
                 top: 263px;
 
-                p{
+                p {
                     font-size: 14px;
                     font-weight: 500;
                     color: var(--text-color);
