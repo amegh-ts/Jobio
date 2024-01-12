@@ -16,6 +16,8 @@ import {
 } from 'react-icons/io5';
 import { useDispatch } from 'react-redux';
 import { logoutUser } from '../../../Redux/UserRedux';
+import Profile from '../../Profile/Profile';
+import Chats from '../../Chats/Chats';
 
 const ClientNavbar = () => {
     const [isDropdownVisible, setIsDropdownVisible] = useState(false);
@@ -45,7 +47,7 @@ const ClientNavbar = () => {
         };
     }, []);
 
-    
+
     useEffect(() => {
         // Save the active page to sessionStorage whenever it changes
         sessionStorage.setItem('activePage', activePage);
@@ -55,6 +57,11 @@ const ClientNavbar = () => {
         dispatch(logoutUser())
         sessionStorage.clear();
 
+    };
+
+    const pageComponents = {
+        chats: <Chats />,
+        profile: <Profile />
     };
 
     return (
@@ -100,7 +107,7 @@ const ClientNavbar = () => {
 
                 <footer>
                     <div className="logout">
-                        <IoLogOut className="icon logout-icon" onClick={handleLogout}/>
+                        <IoLogOut className="icon logout-icon" onClick={handleLogout} />
                     </div>
                 </footer>
             </nav>
@@ -117,12 +124,14 @@ const ClientNavbar = () => {
                             <IoMoonOutline />
                             <IoNotifications />
                         </span>
-                        <div className="profile">
+                        <div className={`profile  ${activePage === 'profile' ? 'active' : ''}`} onClick={() => { setActivePage('profile'); }}>
                             <IoPersonSharp />
                         </div>
                     </div>
                 </div>
-                <div className={'main-body'}></div>
+                <div className={'main-body'}>
+                    {pageComponents[activePage]}
+                </div>
             </section>
         </div>
     );
