@@ -8,15 +8,15 @@ const Profile = () => {
   const [data, setData] = useState({});
   const [buttonPopup, setButtonPopup] = useState(false)
 
-  const [firstname,setFirstname]=useState('') 
-  const [lastname,setLastname]=useState('') 
-  const [username,setUsername]=useState('') 
-  const [dob,setDob]=useState('') 
-  const [phone,setPhone]=useState('') 
-  const [city,setCity]=useState('') 
-  const [district,setDistrict]=useState('') 
-  const [photo,setPhoto]=useState('') 
-  const [coverphoto,setCoverphoto]=useState('') 
+  const [firstname, setFirstname] = useState('')
+  const [lastname, setLastname] = useState('')
+  const [username, setUsername] = useState('')
+  const [dob, setDob] = useState('')
+  const [phone, setPhone] = useState('')
+  const [city, setCity] = useState('')
+  const [district, setDistrict] = useState('')
+  const [photo, setPhoto] = useState('')
+  const [coverphoto, setCoverphoto] = useState('')
 
   const KeralaStates = [
     'Trivandrum',
@@ -48,7 +48,30 @@ const Profile = () => {
     fetchProfile()
   }, [])
 
-  
+  useEffect(() => {
+    setFirstname(data.firstname || '');
+    setLastname(data.lastname || '');
+    setUsername(data.username || '');
+    setDob(data.dob || '');
+    setPhone(data.phone || '');
+    setCity(data.city || '');
+    setDistrict(data.district || '');
+    setPhoto(data.photo || '');
+    setCoverphoto(data.coverphoto || '');
+  },[data])
+
+  console.log(
+    firstname,
+    lastname,
+    username,
+    dob,
+    phone,
+    city,
+    district,
+    photo,
+    coverphoto
+  );
+
   return (
     <div className="Profile">
       <section className="column">
