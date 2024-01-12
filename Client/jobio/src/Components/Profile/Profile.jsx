@@ -118,8 +118,8 @@ const Profile = () => {
                     </option>
                   ))}
                 </select>
-                <input type="text" placeholder='Photo' />
-                <input type="text" placeholder='Cover Photo' />
+                <input type="text" placeholder='Photo' value={photo} onChange={(e) => { setPhoto(e.target.value) }}/>
+                <input type="text" placeholder='Cover Photo' value={coverphoto} onChange={(e) => { setCoverphoto(e.target.value) }}/>
                 <textarea name="about" id="about" cols="30" rows="10" placeholder='Tell us about you'></textarea>
 
                 <button onClick={onSubmit}>SUBMIT</button>
