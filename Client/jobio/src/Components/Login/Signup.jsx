@@ -1,6 +1,8 @@
 import { useState } from 'react';
 import './Signup.scss';
 import { signUpData } from '../ApiCalls';
+import { Link } from 'react-router-dom'
+
 
 const Signup = () => {
     const [username, setUsername] = useState('')
@@ -11,7 +13,7 @@ const Signup = () => {
 
     const onClick = () => {
         try {
-            signUpData({username,dob,email,password,type})
+            signUpData({ username, dob, email, password, type })
             alert('Account Created Successfully. Please Loging to continue')
             history.push('/login');
 
@@ -53,8 +55,9 @@ const Signup = () => {
                                 <i className="icon bx bxs-lock bx-tada"></i>
                                 <input type="password" name="pass" placeholder="Password" value={password} onChange={(e) => setPassword(e.target.value)} />
                             </div>
-                            <button className="signup-form-btn" onClick={onClick}>Sign Up</button>
-
+                            <Link to={'/login'}>
+                                <button className="signup-form-btn" onClick={onClick}>Sign Up</button>
+                            </Link>
                             <div className="login-link">
                                 <span>Already have an account? </span>
                                 <a className="txt" href="/login">
