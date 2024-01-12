@@ -22,7 +22,25 @@ const Profile = () => {
   const [about, setAbout] = useState('')
 
   const [selectedSkills, setSelectedSkills] = useState([]);
-  const skills = ['MERN', 'HTML', 'CSS', 'JavaScript', 'React', 'Node.js'];
+  const skills = [
+    'MERN',
+    'HTML',
+    'CSS',
+    'JavaScript',
+    'React',
+    'Node.js',
+    'Express.js',
+    'MongoDB',
+    'Python',
+    'Django',
+    'Vue.js',
+    'Angular',
+    'SASS',
+    'TypeScript',
+    'Git',
+    'Redux',
+    'GraphQL'
+  ];
 
   const handleSkillChange = (skill) => {
     // Check if the skill is already selected
@@ -51,18 +69,24 @@ const Profile = () => {
     'Kasaragod',
   ];
 
+
+  const [displaySkill, setDisplaySkill] = useState([])
+
   useEffect(() => {
     async function fetchProfile() {
       try {
         const apiData = await viewProfile();
         setData(apiData)
-        // console.log('api data', apiData);
+        setDisplaySkill(apiData.selectedSkills || []);
+        console.log('api data', apiData);
       } catch (error) {
         console.log(error);
       }
     }
     fetchProfile()
   }, [])
+
+  console.log(displaySkill);
 
   useEffect(() => {
     setFirstname(data.firstname || '');
@@ -92,11 +116,11 @@ const Profile = () => {
     }
   }
 
-  const handleSubmit =async () => {
+  const handleSubmit = async () => {
     // Log the selected skills to the console (you can replace this with your desired action)
     console.log('Selected Skills:', selectedSkills);
     try {
-      await editProfile({selectedSkills})
+      await editProfile({ selectedSkills })
       alert('Successfully updated');
       setButtonPopup(false);
       window.location.reload();
@@ -169,10 +193,11 @@ const Profile = () => {
         <div className="skills">
           <h3>Skills</h3>
           <div className='skill-container'>
-            <button className='btn'>HTML</button>
-            <button className='btn'>HTML</button>
-            <button className='btn'>HTML</button>
-            <button className='btn'>HTML</button>
+            {displaySkill.map((skill, index) => (
+              <button key={index} className='btn'>
+                {skill}
+              </button>
+            ))}
           </div>
           <div className='edit-container' >
             <span className='icon' onClick={() => setSkillPopup(true)}>
@@ -181,24 +206,25 @@ const Profile = () => {
           </div>
 
           <Popup trigger={skillPopup} setTrigger={setSkillPopup}>
-            <h3>Skills</h3>
-            <div className='select-skill'>
-              {skills.map((skill) => (
-                <div key={skill}>
-                  <input
-                    type='checkbox'
-                    id={skill}
-                    checked={selectedSkills.includes(skill)}
-                    onChange={() => handleSkillChange(skill)}
-                  />
-                  <label htmlFor={skill}>{skill}</label>
-                </div>
-              ))}
+            <div className="skill-popup">
+              <h3>Skills</h3>
+              <div className='select-skill'>
+                {skills.map((skill) => (
+                  <div key={skill}>
+                    <input
+                      type='checkbox'
+                      id={skill}
+                      checked={selectedSkills.includes(skill)}
+                      onChange={() => handleSkillChange(skill)}
+                    />
+                    <label htmlFor={skill}>{skill}</label>
+                  </div>
+                ))}
+              </div>
+              <button onClick={handleSubmit}>Submit</button>
+
+              <p>Selected Skills: {selectedSkills.join(', ')}</p>
             </div>
-            <button onClick={handleSubmit}>Submit</button>
-
-            <p>Selected Skills: {selectedSkills.join(', ')}</p>
-
           </Popup>
         </div>
 
