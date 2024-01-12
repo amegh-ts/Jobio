@@ -8,6 +8,23 @@ const Profile = () => {
   const [data, setData] = useState({});
   const [buttonPopup, setButtonPopup] = useState(false)
 
+  const KeralaStates = [
+    'Trivandrum',
+    'Kollam',
+    'Pathanamthitta',
+    'Alappuzha',
+    'Kottayam',
+    'Idukki',
+    'Ernakulam',
+    'Thrissur',
+    'Palakkad',
+    'Malappuram',
+    'Kozhikode',
+    'Wayanad',
+    'Kannur',
+    'Kasaragod',
+  ];
+
   useEffect(() => {
     async function fetchProfile() {
       try {
@@ -52,11 +69,20 @@ const Profile = () => {
               <h3>Edit Profile</h3>
               <div className="form">
                 <input type="text" placeholder='Firstname' />
-                <input type="text" placeholder='Firstname' />
-                <input type="text" placeholder='Firstname' />
-                <input type="text" placeholder='Firstname' />
-                <input type="text" placeholder='Firstname' />
-
+                <input type="text" placeholder='Lastname' />
+                <input type="text" placeholder='username' />
+                <input type="date" placeholder='dob' />
+                <input type="text" placeholder='CIty' />
+                <select name="district" id="district">
+                  {KeralaStates.map((state, index) => (
+                    <option key={index} value={state}>
+                      {state}
+                    </option>
+                  ))}
+                </select>
+                <input type="text" placeholder='Photo' />
+                <input type="text" placeholder='Cover Photo' />
+                <textarea name="about" id="about" cols="30" rows="10" placeholder='Tell us about you'></textarea>
               </div>
             </div>
           </Popup>
