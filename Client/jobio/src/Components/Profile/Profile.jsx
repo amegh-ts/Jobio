@@ -100,7 +100,8 @@ const Profile = () => {
             </div>
           </div>
           <div className='footer'>
-            <h4>{data.about}</h4>
+            <h4>Highlight</h4>
+            <p>{data.about}</p>
           </div>
 
           <div className='edit-container'>
