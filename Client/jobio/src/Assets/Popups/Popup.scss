@@ -15,14 +15,14 @@
         padding: 32px;
         width: 100%;
         max-width: 640px;
-        background: #9053c7;
-        background: linear-gradient(-135deg, #4158d0,#c850c0);
+        background: #ffffff;
+        // background: linear-gradient(-135deg, #4158d0,#c850c0);
 
         .close-btn {
             position: absolute;
             top: 16px;
             right: 16px;
-            color: white;
+            color: var(--primary-color);
 
             &:hover {
                 color: rgb(221, 2, 2);
@@ -63,7 +63,7 @@
                     box-sizing: border-box;
                     outline: none;
                     &:hover{
-                        box-shadow: 1px 1px 10px rgb(255, 255, 255);
+                    box-shadow: 1px 1px 10px var(--primary-color);
                             
                         }
                 }
@@ -86,7 +86,7 @@
                     background: var(--primary-color);
 
                     &:hover{
-                    box-shadow: 1px 1px 10px rgb(255, 255, 255);
+                    box-shadow: 1px 1px 10px var(--primary-color);
                         
                     }
                   }

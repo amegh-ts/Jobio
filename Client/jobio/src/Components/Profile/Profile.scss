@@ -46,6 +46,10 @@
                     bottom: 100px;
 
                 }
+                .contact-info{
+                    color: var(--primary-color);
+                    cursor: pointer;
+                }
 
             }
 
@@ -59,6 +63,7 @@
                 display: flex;
                 justify-content: flex-end;
                 width: 100%;
+                cursor: pointer;
 
                 span {
                     display: flex;
@@ -99,7 +104,7 @@
                 display: flex;
                 justify-content: flex-end;
                 width: 100%;
-                
+                cursor: pointer;
 
                 span {
                     display: flex;
@@ -134,6 +139,7 @@
                 display: flex;
                 justify-content: flex-end;
                 width: 100%;
+cursor: pointer;
 
                 span {
                     display: flex;

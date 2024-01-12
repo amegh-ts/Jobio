@@ -7,6 +7,7 @@ import Popup from '../../Assets/Popups/Popup';
 const Profile = () => {
   const [data, setData] = useState({});
   const [buttonPopup, setButtonPopup] = useState(false)
+  const [contactPopup, setContactPopup] = useState(false)
 
   const [firstname, setFirstname] = useState('')
   const [lastname, setLastname] = useState('')
@@ -59,13 +60,14 @@ const Profile = () => {
     setDistrict(data.district || '');
     setPhoto(data.photo || '');
     setCoverphoto(data.coverphoto || '');
+    setAbout(data.about || '');
   }, [data])
 
   console.log(firstname, lastname, username, dob, phone, city, district, photo, coverphoto);
 
   const onSubmit = async () => {
     try {
-      await editProfile({ firstname, lastname, username, dob, phone, city, district, photo, coverphoto })
+      await editProfile({ firstname, lastname, username, dob, phone, city, district, photo, coverphoto,about })
       alert('Successfully updated');
       setButtonPopup(false);
 
@@ -88,9 +90,12 @@ const Profile = () => {
             <div>
               <h2>{data.firstname}</h2><span> </span><h2>{data.lastname}</h2>
               <h2>{data.username}</h2>
-              <h5>{data.city}, {data.district}, India <span>Contact info</span></h5>
-              <Popup>
-
+              <h5>{data.city}, {data.district}, India : <span className='contact-info' onClick={()=>{setContactPopup(true)}}>Contact info</span></h5>
+              <Popup trigger={contactPopup} setTrigger={setContactPopup}>
+                <h3>Contact info</h3>
+                <div>
+                  <span>Phone : </span><span>{data.phone}</span>
+                </div>
               </Popup>
             </div>
           </div>
