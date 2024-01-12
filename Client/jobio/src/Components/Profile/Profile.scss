@@ -154,6 +154,21 @@
 
             .education-container {
                 padding: 0 20px;
+
+                .content{
+                    h5{
+                        font-size: 24px;
+                    }
+
+                    h6{
+                        font-size: 20px;
+                        font-weight: 500;
+                    }
+
+                    p{
+                        color: var(--text-color);
+                    }
+                }
             }
 
             .edit-container {

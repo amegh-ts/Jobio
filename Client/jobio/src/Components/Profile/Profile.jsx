@@ -262,7 +262,7 @@ const Profile = () => {
             <div className='content'>
               <h5>{data.institute}</h5>
               <h6>{data.course}</h6>
-              <p>{data.year}</p>
+              <p>Year of completion : {data.year}</p>
             </div>
           </div>
           <div className='edit-container'>
