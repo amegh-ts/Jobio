@@ -109,7 +109,7 @@ const Profile = () => {
 
   }, [data])
 
-  // console.log(firstname, lastname, username, dob, phone, city, district, photo, coverphoto);
+  // console.log(firstname, lastname, username, dob, phone, city, district, photo, coverphoto,institute);
 
   const onSubmit = async () => {
     try {
@@ -136,18 +136,20 @@ const Profile = () => {
     }
   };
 
-  const onEducationSubmit = async () => {
-    try {
-      await editProfile({ institute,course,year })
-      alert('Successfully updated');
-      setButtonPopup(false);
-      window.location.reload();
+  const onTest = async () => {
+    console.log('hgcsjvghjghvf');
+    // try {
+    //   await editProfile({ institute,course,year })
+    //   alert('Successfully updated');
+    //   setButtonPopup(false);
+    //   window.location.reload();
 
-    } catch (error) {
-      console.log(error);
-      alert("eroor")
-    }
+    // } catch (error) {
+    //   console.log(error);
+    //   alert("eroor")
+    // }
   }
+
 
 
   return (
@@ -269,14 +271,15 @@ const Profile = () => {
             </span>
           </div>
           <Popup trigger={educationPopup} setTrigger={setEducationPopup}>
-            <div className="educatipon-popup">
+            <div className="education-popup">
               <h3>Previous Education Details</h3>
               <div className='education-form'>
                 <input type="text" placeholder='Institute Name' value={institute} onChange={(e) => setInstitute(e.target.value)} />
                 <input type="text" placeholder='Course Name' value={course} onChange={(e) => setCourse(e.target.value)} />
                 <input type="text" placeholder='Year of Completion' value={year} onChange={(e) => setYear(e.target.value)} />
-                <button onSubmit={onEducationSubmit}>SUBMIT</button>
+                <button onSubmit={onTest}>SUBMIT</button>
               </div>
+
             </div>
           </Popup>
         </div>
