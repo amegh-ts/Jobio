@@ -147,10 +147,13 @@ const Profile = () => {
               <h2>{data.username}</h2>
               <h5>{data.city}, {data.district}, India : <span className='contact-info' onClick={() => { setContactPopup(true) }}>Contact info</span></h5>
               <Popup trigger={contactPopup} setTrigger={setContactPopup}>
-                <h3>Contact info</h3>
-                <div>
-                  <span>Phone : </span><span>{data.phone}</span>
+                <div className="contact-popup">
+                  <h3>Contact info</h3>
+                  <div>
+                    <span>Phone : </span><span>{data.phone}</span>
+                  </div>
                 </div>
+
               </Popup>
             </div>
           </div>
@@ -223,7 +226,7 @@ const Profile = () => {
                 ))}
               </div>
               <div>
-              <button onClick={handleSubmit}>Submit</button>
+                <button onClick={handleSubmit}>Submit</button>
 
               </div>
 
