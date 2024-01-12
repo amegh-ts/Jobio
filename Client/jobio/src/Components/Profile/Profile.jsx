@@ -1,8 +1,22 @@
+import { useEffect, useState } from 'react';
 import './Profile.scss'
+import { viewProfile } from '../ApiCalls';
 
 const Profile = () => {
   const [data, setData] = useState({});
 
+  useEffect(()=>{
+    async function fetchProfile() {
+      try {
+        const apiData=await viewProfile();
+        setData(apiData)
+        console.log('api data',apiData);
+      } catch (error) {
+        console.log(error);
+      }
+    }
+    fetchProfile()
+  })
   return (
     <div className="Profile">
       <section className="column">
