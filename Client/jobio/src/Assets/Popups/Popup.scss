@@ -26,7 +26,7 @@
 
             &:hover {
                 color: rgb(221, 2, 2);
-                        
+
             }
 
             .icon {
@@ -41,7 +41,7 @@
             flex-direction: column;
             align-items: center;
             gap: 30px;
-            
+
 
             h3 {
                 font-size: 26px;
@@ -62,21 +62,22 @@
                     width: 100%;
                     box-sizing: border-box;
                     outline: none;
-                    &:hover{
-                    box-shadow: 1px 1px 10px var(--primary-color);
-                            
-                        }
+
+                    &:hover {
+                        box-shadow: 1px 1px 10px var(--primary-color);
+
+                    }
                 }
 
                 select {
-                    appearance: none; 
-                  }
-              
-                  textarea {
-                    resize: vertical;
-                  }
+                    appearance: none;
+                }
 
-                  button{
+                textarea {
+                    resize: vertical;
+                }
+
+                button {
                     padding: 10px;
                     border-radius: 10px;
                     font-size: 16px;
@@ -85,22 +86,20 @@
                     color: white;
                     background: var(--primary-color);
 
-                    &:hover{
-                    box-shadow: 1px 1px 10px var(--primary-color);
-                        
+                    &:hover {
+                        box-shadow: 1px 1px 10px var(--primary-color);
+
                     }
-                  }
+                }
             }
         }
 
-        .skill-popup{
+        .skill-popup {
             display: flex;
             flex-direction: column;
             flex-wrap: wrap;
 
-.select-skill{
-    
-}
+            .select-skill {}
         }
     }
 }
