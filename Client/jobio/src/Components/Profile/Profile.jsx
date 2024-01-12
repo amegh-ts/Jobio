@@ -91,7 +91,7 @@ const Profile = () => {
     fetchProfile()
   }, [])
 
-  console.log(displaySkill);
+  // console.log(displaySkill); 
 
   useEffect(() => {
     setFirstname(data.firstname || '');
@@ -136,14 +136,16 @@ const Profile = () => {
     }
   };
 
-  const onEdSubmit=async()=>{
+  const onEducationSubmit = async () => {
     try {
       await editProfile({ institute,course,year })
       alert('Successfully updated');
       setButtonPopup(false);
       window.location.reload();
+
     } catch (error) {
       console.log(error);
+      alert("eroor")
     }
   }
 
@@ -273,8 +275,7 @@ const Profile = () => {
                 <input type="text" placeholder='Institute Name' value={institute} onChange={(e) => setInstitute(e.target.value)} />
                 <input type="text" placeholder='Course Name' value={course} onChange={(e) => setCourse(e.target.value)} />
                 <input type="text" placeholder='Year of Completion' value={year} onChange={(e) => setYear(e.target.value)} />
-                <button onSubmit={onEdSubmit}>SUBMIT</button>
-
+                <button onSubmit={onEducationSubmit}>SUBMIT</button>
               </div>
             </div>
           </Popup>
