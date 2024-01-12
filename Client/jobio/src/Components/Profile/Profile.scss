@@ -55,21 +55,20 @@
                 top: 263px;
             }
 
-            .edit-container{
+            .edit-container {
                 display: flex;
                 justify-content: flex-end;
                 width: 100%;
-                background:red ;
 
-                span{
+                span {
                     display: flex;
                     font-size: 20px;
                     padding: 10px;
                     color: var(--primary-color);
-                background: var(--sidebar-color);  
-                box-shadow: 1px 1px 10px rgb(148, 148, 148);  
-                margin: 10px;
-                border-radius: 50%;
+                    background: var(--sidebar-color);
+                    box-shadow: 1px 1px 10px rgb(148, 148, 148);
+                    margin: 10px;
+                    border-radius: 50%;
 
                 }
 
@@ -78,14 +77,18 @@
 
         .skills {
             width: 100%;
-            max-width: 760px;
+            max-width: 800px;
             background: var(--sidebar-color);
             border-radius: 10px;
-            padding: 20px;
+
+            h3{
+                padding: 10px 20px;
+                }
 
             .skill-container {
                 display: flex;
                 flex-wrap: wrap;
+                padding: 0 20px;
                 gap: 20px;
 
                 .btn {
@@ -93,14 +96,59 @@
                 }
             }
 
+            .edit-container {
+                display: flex;
+                justify-content: flex-end;
+                width: 100%;
+                
+
+                span {
+                    display: flex;
+                    font-size: 20px;
+                    padding: 10px;
+                    color: var(--primary-color);
+                    background: var(--sidebar-color);
+                    box-shadow: 1px 1px 10px rgb(148, 148, 148);
+                    margin: 10px;
+                    border-radius: 50%;
+
+                }
+
+            }
+
         }
 
         .education {
             width: 100%;
-            max-width: 760px;
+            max-width: 800px;
             background: var(--sidebar-color);
             border-radius: 10px;
-            padding: 20px;
+
+            h3{
+            padding: 10px 20px;
+            }
+
+            .education-container{
+                padding: 0 20px;
+            }
+            .edit-container {
+                display: flex;
+                justify-content: flex-end;
+                width: 100%;
+
+                span {
+                    display: flex;
+                    font-size: 20px;
+                    padding: 10px;
+                    color: var(--primary-color);
+                    background: var(--sidebar-color);
+                    box-shadow: 1px 1px 10px rgb(148, 148, 148);
+                    margin: 10px;
+                    border-radius: 50%;
+
+                }
+
+            }
         }
     }
 }
