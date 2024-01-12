@@ -46,7 +46,8 @@
                     bottom: 100px;
 
                 }
-                .contact-info{
+
+                .contact-info {
                     color: var(--primary-color);
                     cursor: pointer;
                 }
@@ -85,9 +86,9 @@
             background: var(--sidebar-color);
             border-radius: 10px;
 
-            h3{
+            h3 {
                 padding: 10px 20px;
-                }
+            }
 
             .skill-container {
                 display: flex;
@@ -128,18 +129,19 @@
             background: var(--sidebar-color);
             border-radius: 10px;
 
-            h3{
-            padding: 10px 20px;
+            h3 {
+                padding: 10px 20px;
             }
 
-            .education-container{
+            .education-container {
                 padding: 0 20px;
             }
+
             .edit-container {
                 display: flex;
                 justify-content: flex-end;
                 width: 100%;
-cursor: pointer;
+                cursor: pointer;
 
                 span {
                     display: flex;
