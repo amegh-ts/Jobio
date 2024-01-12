@@ -18,6 +18,7 @@ import { useDispatch } from 'react-redux';
 import { logoutUser } from '../../../Redux/UserRedux';
 import Profile from '../../Profile/Profile';
 import Chats from '../../Chats/Chats';
+import EmployerHome from '../Home/EmployerHome';
 
 const EmployerNavbar = () => {
     const [isDropdownVisible, setIsDropdownVisible] = useState(false);
@@ -60,6 +61,7 @@ const EmployerNavbar = () => {
 
     };
     const pageComponents = {
+        home:<EmployerHome/>,
         chats: <Chats />,
         profile: <Profile />
     };
@@ -74,18 +76,19 @@ const EmployerNavbar = () => {
                 </header>
 
                 <div className="menu-bar">
-                    <div className="menu-item" onClick={toggleDropdown} ref={dropdownRef}>
+                    <div className="menu-item" >
                         <IoHome className="icon" />
                         <span>Home</span>
+                        
+                    </div>
+                    <div className="menu-item" onClick={toggleDropdown} ref={dropdownRef}>
+                        <IoLayers className="icon" />
+                        <span>Services</span>
                         <div className={`dropdown-container ${isDropdownVisible ? 'visible' : ''}`} style={{ display: isDropdownVisible ? 'block' : 'none' }}>
                             <span className="dropdown-item">jjd</span>
                             <span className="dropdown-item">jjd</span>
                             <span className="dropdown-item">jjd</span>
                         </div>
-                    </div>
-                    <div className="menu-item">
-                        <IoLayers className="icon" />
-                        <span>Services</span>
                     </div>
                     <div className="menu-item">
                         <IoChatbubbleEllipses className="icon" />

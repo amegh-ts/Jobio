@@ -1,8 +1,8 @@
 import { useState } from 'react';
-import './Home.scss';
+import './EmployerHome.scss';
 import { IoCloseCircleOutline,IoThumbsUpOutline,IoEllipsisVertical } from 'react-icons/io5';
 
-const Home = () => {
+const EmployerHome = () => {
   const [showWelcomeContainer, setShowWelcomeContainer] = useState(true);
 
   const handleCloseWelcomeContainer = () => {
@@ -98,4 +98,4 @@ const Home = () => {
   );
 };
 
-export default Home;
+export default EmployerHome;
