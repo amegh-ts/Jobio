@@ -70,21 +70,25 @@ const editProfile = async (req, res) => {
 }
 
 // delete profile
-const deleteProfile=async(req,res)=>{
+const deleteProfile = async (req, res) => {
     try {
-        const deleteData=await userController.findByIdAndDelete(req.params.id)
+        const deleteData = await userController.findByIdAndDelete(req.params.id)
         res.status(200).json(deleteData)
     } catch (error) {
-        console.log(error);
-        res.status(500).json(err)
+        res.status(500).json(error)
     }
 }
 
 // forgot password
-const forgotPassword=async(req,res)=>{
-    
+const forgotPassword = async (req, res) => {
+    try {
+
+    } catch (error) {
+        res.status(500).json(error)
+
+    }
 }
 
 
 
-module.exports = { signUp, signIn, allUsers, viewProfile, editProfile ,deleteProfile};
+module.exports = { signUp, signIn, allUsers, viewProfile, editProfile, deleteProfile, forgotPassword };
