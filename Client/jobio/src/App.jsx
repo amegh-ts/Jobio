@@ -9,6 +9,7 @@ import Signup from './Components/Login/Signup';
 import { useSelector } from 'react-redux';
 import Landing from './Components/Landing/Landing';
 import EmployerNavbar from './Components/Employer/Navbar/EmployerNavbar';
+import ForgotPassword from './Components/Login/ForgotPassword';
 
 function App() {
 
@@ -65,6 +66,9 @@ function App() {
     }, {
       path: '/signup',
       element: <Signup />,
+    },{
+      path: '/forgotpassword',
+      element: <ForgotPassword />,
     },
   ]);
   return (
