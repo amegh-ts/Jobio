@@ -25,5 +25,13 @@ const forgotPassword = async (req, res) => {
         otp,
         otpExpiration,
     });
+    try {
+        
+    } catch (error) {
+        console.error('Error saving verification details:', error);
+        return res.status(500).json({ error: 'Error sending OTP' });
+    }
+
+
 }
 
