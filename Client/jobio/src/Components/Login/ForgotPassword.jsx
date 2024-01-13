@@ -1,3 +1,4 @@
+import './ForgotPassword.scss'
 
 const ForgotPassword = () => {
   return (
