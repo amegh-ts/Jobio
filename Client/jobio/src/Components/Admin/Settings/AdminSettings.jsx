@@ -31,11 +31,12 @@ const AdminSettings = ({ setActivePage }) => {
   ];
 
   const handleDeleteProfile = async () => {
+    console.log('deleted');
     try {
-      await deleteProfile()
-      dispatch(logoutUser())
-      sessionStorage.clear();
-      alert('Successfully deleted your account');
+      // await deleteProfile()
+      // dispatch(logoutUser())
+      // sessionStorage.clear();
+      // alert('Successfully deleted your account');
 
     } catch (error) {
       console.log(error);
@@ -71,7 +72,7 @@ const AdminSettings = ({ setActivePage }) => {
                 <p>Are you sure you want to delete your account..?</p>
               </div>
               <div className='delete-button'>
-                <button>DELETE</button>
+                <button onClick={handleDeleteProfile}>DELETE</button>
               </div>
             </div>
           </Popup>
