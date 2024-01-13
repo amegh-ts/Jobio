@@ -137,6 +137,7 @@ const ForgotPassword = () => {
 
                             <Popup trigger={resetPassPopup} setTrigger={setResetPassPopup}>
                                 <div className="resetpass-popup">
+                                    <h3>Reset Password</h3>
                                 </div>
                             </Popup>
 
