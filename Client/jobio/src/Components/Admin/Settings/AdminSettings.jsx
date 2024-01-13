@@ -2,10 +2,14 @@ import { useState } from 'react';
 import './AdminSettings.scss';
 import Popup from '../../../Assets/Popups/Popup';
 import { deleteProfile } from '../../ApiCalls';
+import { useDispatch } from 'react-redux';
+import { logoutUser } from '../../../Redux/UserRedux';
 
 const AdminSettings = ({ setActivePage }) => {
   const [hoveredOption, setHoveredOption] = useState(null);
   const [deletePopup, setDeletePopup] = useState(false);
+  const dispatch = useDispatch()
+
 
   const handleOptionHover = (description) => {
     setHoveredOption(description);
