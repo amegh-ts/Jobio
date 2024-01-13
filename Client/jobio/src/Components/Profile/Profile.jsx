@@ -5,7 +5,6 @@ import { IoPencil } from "react-icons/io5";
 import Popup from '../../Assets/Popups/Popup';
 
 const Profile = () => {
-  const [primaryColor, setPrimaryColor] = useState('');
   const [data, setData] = useState({});
   const [buttonPopup, setButtonPopup] = useState(false)
   const [contactPopup, setContactPopup] = useState(false)
@@ -26,31 +25,6 @@ const Profile = () => {
   const [institute, setInstitute] = useState('')
   const [course, setCourse] = useState('')
   const [year, setYear] = useState('')
-
-const storedData = localStorage.getItem('persist:jobio');
-const user = storedData ? JSON.parse(JSON.parse(storedData).user) : null;
-const userType = user?.userInfo?.[0]?.type;
-
-
-
-  useEffect(() => {
-    // Set primary color based on user type
-    switch (userType) {
-      case 'admin':
-        setPrimaryColor('rgb(231, 0, 0)'); // Red color
-        break;
-      case 'employer':
-        setPrimaryColor('rgb(0, 128, 0'); // Green color
-        break;
-      case 'employee':
-        setPrimaryColor('#695CFE'); // Blue color
-        break;
-      default:
-        setPrimaryColor('#695CFE'); // Default color
-    }
-    document.body.style.setProperty('--primary-color', primaryColor);
-
-  }, [primaryColor]);
 
 
 
