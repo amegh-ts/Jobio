@@ -11,7 +11,7 @@ const AdminSettings = () => {
   };
 
   const options = [
-    { title: 'Edit Profile', description: 'Edit your profile' },
+    { title: 'Edit Account', description: 'Edit your Account' },
     {
       title: 'Delete Profile',
       description: 'Delete your profile',
