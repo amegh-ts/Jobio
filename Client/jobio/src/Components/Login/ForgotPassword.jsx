@@ -1,16 +1,35 @@
-import { useState } from 'react';
+import { useRef, useState } from 'react';
 import './ForgotPassword.scss'
 import Popup from '../../Assets/Popups/Popup';
 
 const ForgotPassword = () => {
     const [email, setEmail] = useState('')
+    const [otp, setOtp] = useState(['', '', '', '', '', '']);
     const [forgotPassPopup, setForgotPassPopup] = useState(false)
+
+    const otpInputs = useRef([]);
 
 
     const onForgotPassClick = async (e) => {
         e.preventDefault();
         setForgotPassPopup(true)
     }
+
+    const onOtpInputChange = (e, index) => {
+        const value = e.target.value;
+
+        setOtp(prevOtp => {
+            const newOtp = [...prevOtp];
+            newOtp[index] = value;
+
+            return newOtp;
+        });
+
+        if (value !== '' && index < otpInputs.current.length - 1) {
+            otpInputs.current[index + 1].focus();
+        }
+    }
+
     return (
         <div>
             <div className="Forgot">
@@ -38,20 +57,18 @@ const ForgotPassword = () => {
                                 <div className="forgotpass-popup">
                                     <h3>OTP</h3>
                                     <div className='forgotpass-container'>
-                                        {/* Section 1: Prompt to enter OTP */}
                                         <div className='otp-prompt'>
-                                            <span>Enter OTP:</span>
+                                            <span>Enter the OTP you got from your email</span>
                                         </div>
-
-                                        {/* Section 2: Input boxes for OTP */}
                                         <div className='otp-input'>
-                                            {Array.from({ length: 6 }).map((_, index) => (
+                                            {otp.map((value, index) => (
                                                 <input
                                                     key={index}
                                                     type="text"
                                                     maxLength="1"
-                                                    value={otp[index] || ''}
-                                                    onChange={onOtpInputChange}
+                                                    value={value}
+                                                    onChange={(e) => onOtpInputChange(e, index)}
+                                                    ref={(input) => (otpInputs.current[index] = input)}
                                                 />
                                             ))}
                                         </div>

@@ -237,10 +237,44 @@
         .forgotpass-popup{
             display: flex;
             flex-direction: column;
+            justify-content: center;
             gap: 10px;
 
-            
+
+            .forgotpass-container{
+                display: flex;
+                align-items: center;
+                gap: 20px;
+                flex-direction: column;
+                background: var(--body-color);
+                border-radius: 10px;
+
+                padding: 100px;
+
+                .otp-prompt{
+                    span{
+                        letter-spacing: 1px;
+                        word-spacing: 1px;
+                        font-weight: 600;
+                    }
+                }
+
+                .otp-input{
+                    display: flex;
+                    flex-direction: row;
+                    justify-content: center;
+                    gap: 10px;
+
+                    input{
+                        width: 20px;
+                        height: 20px;
+                        font-size: 20px;
+                        padding: 10px;
+                    }
+                }
+            }
         }
+
 
     }
 }
