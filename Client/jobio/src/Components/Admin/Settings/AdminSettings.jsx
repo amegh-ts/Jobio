@@ -31,12 +31,12 @@ const AdminSettings = ({ setActivePage }) => {
   ];
 
   const handleDeleteProfile = async () => {
-    console.log('deleted');
+    // console.log('deleted');
     try {
-      // await deleteProfile()
-      // dispatch(logoutUser())
-      // sessionStorage.clear();
-      // alert('Successfully deleted your account');
+      await deleteProfile()
+      dispatch(logoutUser())
+      sessionStorage.clear();
+      alert('Successfully deleted your account');
 
     } catch (error) {
       console.log(error);
