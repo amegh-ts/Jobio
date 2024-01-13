@@ -26,6 +26,8 @@ const forgotPassword = async (req, res) => {
         otpExpiration,
     });
     try {
+        await verification.save();
+
         const mailOption={
             from: process.env.EMAIL,
             to: email,

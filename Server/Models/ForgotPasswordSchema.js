@@ -5,4 +5,4 @@ const ForgotPasswordSchema=new mongoose.Schema({
     otpExpiration:{type:Date,required:true}
 })
 
-module.exports=mongoose.model('Forgot',ForgotPasswordSchema)
+module.exports=mongoose.model('passwordrecovery',ForgotPasswordSchema)
