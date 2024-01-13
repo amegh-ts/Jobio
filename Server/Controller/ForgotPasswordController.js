@@ -26,7 +26,11 @@ const forgotPassword = async (req, res) => {
         otpExpiration,
     });
     try {
-        
+        const mailOption={
+            from: process.env.EMAIL,
+            to: email,
+            subject: 'Your OTP Code',
+        }
     } catch (error) {
         console.error('Error saving verification details:', error);
         return res.status(500).json({ error: 'Error sending OTP' });
