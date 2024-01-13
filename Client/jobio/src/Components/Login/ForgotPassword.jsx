@@ -32,7 +32,7 @@ const ForgotPassword = () => {
                             <button className="login-form-btn" onClick={onForgotPassClick}>Send OTP</button>
 
                             <div className="create-account">
-                                <a className="txt" href="/signup">Login</a>
+                                <a className="txt" href="/login">Login</a>
                             </div>
                         </form>
                     </div>

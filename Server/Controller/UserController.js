@@ -80,6 +80,11 @@ const deleteProfile=async(req,res)=>{
     }
 }
 
+// forgot password
+const forgotPassword=async(req,res)=>{
+    
+}
+
 
 
 module.exports = { signUp, signIn, allUsers, viewProfile, editProfile ,deleteProfile};
