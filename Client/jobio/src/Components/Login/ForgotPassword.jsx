@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import './ForgotPassword.scss'
+import Popup from '../../Assets/Popups/Popup';
 
 const ForgotPassword = () => {
     const [email, setEmail] = useState('')
@@ -30,6 +31,10 @@ const ForgotPassword = () => {
                             </div>
                             </>
                             <button className="login-form-btn" onClick={onForgotPassClick}>Send OTP</button>
+
+                            <Popup>
+                                <div className="forgotpass-popup"></div>
+                            </Popup>
 
                             <div className="create-account">
                                 <a className="txt" href="/login">Login</a>
