@@ -6,4 +6,3 @@ const ForgotPasswordSchema=new mongoose.Schema({
 })
 
 module.exports=mongoose.model('Forgot',ForgotPasswordSchema)
-
