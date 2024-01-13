@@ -24,13 +24,13 @@
                 display: flex;
                 align-items: center;
                 justify-content: center;
-                color: var(--primary-color);
+                color: var(--admin-primary-color);
                 border-radius: 15px;
                 box-shadow: 1px 1px 10px rgb(177, 177, 177);
 
 
                 .logo {
-                    color: red;
+                    color: var(--admin-primary-color);
                     font-size: 26px;
                 }
             }
@@ -59,7 +59,7 @@
 
                 &:hover {
                     background: white;
-                    color: var(--primary-color);
+                    color: var(--admin-primary-color);
                     box-shadow: 1px 1px 10px rgb(177, 177, 177);
                 }
                 
@@ -90,7 +90,7 @@
 
                         &:hover {
                             background-color: #ffffff;
-                            color: var(--primary-color);
+                            color: var(--admin-primary-color);
                             font-weight: 500;
                         }
                     }
@@ -113,7 +113,7 @@
 
                 &:hover {
                     background: white;
-                    color: var(--primary-color);
+                    color: var(--admin-primary-color);
                     box-shadow: 1px 1px 10px rgb(177, 177, 177);
                 }
 
@@ -179,7 +179,7 @@
                 margin-left: 10px;
 
                 span {
-                    color: var(--primary-color);
+                    color: var(--admin-primary-color);
                     display: flex;
                     gap: 20px;
                     align-items: center;
