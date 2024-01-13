@@ -2,41 +2,41 @@
 .Admin-settings {
     display: flex;
     padding: 10px;
-  
+
     .settings-container {
         background: var(--sidebar-color);
         padding: 10px;
         border-radius: 10px;
-      width: 95%;
-      display: flex;
-      flex-direction: column;
-      gap: 10px;
-  
-      .content-container {
-        border-top: 1px solid black;
+        width: 95%;
         display: flex;
+        flex-direction: column;
         gap: 10px;
-        padding: 10px 0;
-  
-        .content-left {
-          .left-option {
-            // padding: 8px;
+
+        .content-container {
+            border-top: 1px solid black;
             display: flex;
-            flex-direction: column;
-            gap: 5px;
-            cursor: pointer;
-            &:hover {
-              background: lightblue;
+            gap: 10px;
+            padding: 10px 0;
+
+            .content-left {
+                .left-option {
+                    // padding: 8px;
+                    display: flex;
+                    flex-direction: column;
+                    gap: 5px;
+                    cursor: pointer;
+
+                    &:hover {
+                        background: lightblue;
+                    }
+                }
             }
-          }
+
+            .content-right {
+                .description {
+                    // display: none;
+                }
+            }
         }
-  
-        .content-right {
-          .description {
-            // display: none;
-          }
-        }
-      }
     }
-  }
-  
+}
