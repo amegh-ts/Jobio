@@ -5,6 +5,18 @@ import { IoPencil } from "react-icons/io5";
 import Popup from '../../Assets/Popups/Popup';
 
 const Profile = () => {
+  const getPrimaryColor = () => {
+    switch (userType) {
+      case 'admin':
+        return 'rgb(231, 0, 0)';
+      case 'employer':
+        return 'rgb(0, 128, 0)';
+      case 'client':
+        return '#695CFE';
+      default:
+        return '#695CFE'; // Default color, adjust as needed
+    }
+  };
   const [data, setData] = useState({});
   const [buttonPopup, setButtonPopup] = useState(false)
   const [contactPopup, setContactPopup] = useState(false)
