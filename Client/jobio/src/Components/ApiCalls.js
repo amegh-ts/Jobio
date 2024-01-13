@@ -63,3 +63,13 @@ export const editProfile = async (data) => {
 
     }
 }   
+
+// delete profile
+export const deleteProfile =async()=>{
+try {
+    const res=await userRequest.delete(`/deleteprofile/${userId}`)
+    
+} catch (error) {
+    console.log(error);
+}
+}

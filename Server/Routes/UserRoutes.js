@@ -17,6 +17,6 @@ router.get('/Viewprofile/:id',verifyToken,verifyTokenAndAuthorization,viewProfil
 // edit profile
 router.put('/editprofile/:id',verifyToken,verifyTokenAndAuthorization,editProfile)
 // delete profile
-router.put('/deleteprofile/:id',verifyToken,verifyTokenAndAuthorization,deleteProfile)
+router.delete('/deleteprofile/:id',verifyToken,verifyTokenAndAuthorization,deleteProfile)
 
 module.exports = router
