@@ -62,4 +62,4 @@ export const editProfile = async (data) => {
         console.log(error);
 
     }
-}
+}   

@@ -70,7 +70,7 @@ const AdminNavbar = () => {
         chats: <Chats />,
         jobs: <Jobs />,
         users: <Users />,
-        settings: <AdminSettings />,
+        settings: <AdminSettings setActivePage={setActivePage} />,
         profile: <Profile />
     };
 

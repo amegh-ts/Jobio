@@ -2,7 +2,7 @@ import { useState } from 'react';
 import './AdminSettings.scss';
 import Popup from '../../../Assets/Popups/Popup';
 
-const AdminSettings = () => {
+const AdminSettings = ({setActivePage}) => {
   const [hoveredOption, setHoveredOption] = useState(null);
   const [deletePopup, setDeletePopup] = useState(false);
 
@@ -11,7 +11,9 @@ const AdminSettings = () => {
   };
 
   const options = [
-    { title: 'Edit Account', description: 'Edit your Account' },
+    { title: 'Edit Account', 
+    description: 'Edit your Account',
+    onClick: () => setActivePage('profile'), },
     {
       title: 'Delete Profile',
       description: 'Delete your profile',
