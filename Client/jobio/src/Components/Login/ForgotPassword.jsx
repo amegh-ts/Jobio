@@ -68,7 +68,7 @@ const ForgotPassword = () => {
         e.preventDefault();
         try {
             const response = await otpValidation({ email, formattedOtp });
-    
+
             if (response.status === 200) {
                 setResetPassPopup(true);
             } else {
@@ -78,7 +78,7 @@ const ForgotPassword = () => {
             console.log(error);
         }
     };
-    
+
 
     return (
         <div>
@@ -132,6 +132,11 @@ const ForgotPassword = () => {
                                             Resend OTP
                                         </button>
                                     </div>
+                                </div>
+                            </Popup>
+
+                            <Popup trigger={resetPassPopup} setTrigger={setResetPassPopup}>
+                                <div className="resetpass-popup">
                                 </div>
                             </Popup>
 
