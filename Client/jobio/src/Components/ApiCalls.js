@@ -68,7 +68,7 @@ export const editProfile = async (data) => {
 export const deleteProfile =async()=>{
 try {
     const res=await userRequest.delete(`/deleteprofile/${userId}`)
-    
+    console.log('Response Status:', res.status);
 } catch (error) {
     console.log(error);
 }
