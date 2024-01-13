@@ -17,7 +17,7 @@ const ForgotPassword = () => {
         try {
             if (email) {
                 setForgotPassPopup(true);
-            forgotPassword({ email })
+                forgotPassword({ email })
 
             } else {
                 setForgotPassPopup(false);
