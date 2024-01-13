@@ -1,8 +1,9 @@
 import { useState } from 'react';
 import './AdminSettings.scss';
 import Popup from '../../../Assets/Popups/Popup';
+import { deleteProfile } from '../../ApiCalls';
 
-const AdminSettings = ({setActivePage}) => {
+const AdminSettings = ({ setActivePage }) => {
   const [hoveredOption, setHoveredOption] = useState(null);
   const [deletePopup, setDeletePopup] = useState(false);
 
@@ -11,9 +12,11 @@ const AdminSettings = ({setActivePage}) => {
   };
 
   const options = [
-    { title: 'Edit Account', 
-    description: 'Edit your Account',
-    onClick: () => setActivePage('profile'), },
+    {
+      title: 'Edit Account',
+      description: 'Edit your Account',
+      onClick: () => setActivePage('profile'),
+    },
     {
       title: 'Delete Profile',
       description: 'Delete your profile',
@@ -22,6 +25,18 @@ const AdminSettings = ({setActivePage}) => {
     { title: 'Send Feedback', description: 'Send your profile' },
     // Add more options as needed
   ];
+
+  const handleDeleteProfile = async () => {
+    try {
+      await deleteProfile()
+      dispatch(logoutUser())
+      sessionStorage.clear();
+      alert('Successfully deleted your account');
+
+    } catch (error) {
+      console.log(error);
+    }
+  }
 
   return (
     <div className="Admin-settings">
