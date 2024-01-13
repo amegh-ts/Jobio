@@ -50,7 +50,7 @@ const AdminSettings = () => {
                 <p>Are you sure you want to delete your account..?</p>
               </div>
               <div className='delete-button'>
-                <button>Delete</button>
+                <button>DELETE</button>
               </div>
             </div>
           </Popup>
