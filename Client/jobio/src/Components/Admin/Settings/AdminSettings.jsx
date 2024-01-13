@@ -49,7 +49,9 @@ const AdminSettings = () => {
               <div className='message'>
                 <p>Are you sure you want to delete your account..?</p>
               </div>
-
+              <div className='delete-button'>
+                <button>Delete</button>
+              </div>
             </div>
           </Popup>
         </div>
