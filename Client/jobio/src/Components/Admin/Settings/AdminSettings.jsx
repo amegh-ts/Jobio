@@ -44,8 +44,10 @@ const AdminSettings = () => {
             <p className="description">{hoveredOption || 'Hover over left options for details'}</p>
           </div>
           <Popup trigger={deletePopup} setTrigger={setDeletePopup}>
-            <div className="delete-account-popup"></div>
+            <div className="delete-account-popup">
             <h3>Delete account</h3>
+
+            </div>
           </Popup>
         </div>
       </div>
