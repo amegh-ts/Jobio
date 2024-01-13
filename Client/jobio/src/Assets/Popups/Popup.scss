@@ -153,7 +153,7 @@
             }
         }
 
-        .education-popup{
+        .education-popup {
             display: flex;
             flex-direction: column;
             align-items: center;
@@ -164,13 +164,13 @@
                 font-size: 26px;
             }
 
-            .education-form{
+            .education-form {
                 display: flex;
                 flex-direction: column;
                 gap: 20px;
                 padding: 10px;
 
-                input{
+                input {
                     padding: 10px;
                     border: 1px solid #aaa;
                     border-radius: 10px;
@@ -201,33 +201,34 @@
             }
         }
 
-        .delete-account-popup{
+        .delete-account-popup {
             display: flex;
             flex-direction: column;
             gap: 10px;
 
-            .message{
+            .message {
                 background: var(--body-color);
                 text-align: center;
                 padding: 20px;
                 border-radius: 10px;
             }
 
-            .delete-button{
+            .delete-button {
                 display: flex;
                 justify-content: center;
 
-                button{
-                background: var(--primary-color);
-                padding: 10px 20px;
-                color: white;
-                letter-spacing: 2px;
-                font-weight: 600;
-                border-radius: 10px;
-                &:hover {
-                    box-shadow: 1px 1px 10px var(--primary-color);
+                button {
+                    background: var(--primary-color);
+                    padding: 10px 20px;
+                    color: white;
+                    letter-spacing: 2px;
+                    font-weight: 600;
+                    border-radius: 10px;
 
-                }
+                    &:hover {
+                        box-shadow: 1px 1px 10px var(--primary-color);
+
+                    }
                 }
 
             }
