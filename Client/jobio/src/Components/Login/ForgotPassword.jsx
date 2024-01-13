@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from 'react';
 import './ForgotPassword.scss';
 import Popup from '../../Assets/Popups/Popup';
-import { forgotPassword } from '../ApiCalls';
+import { forgotPassword, otpValidation } from '../ApiCalls';
 
 const ForgotPassword = () => {
     const [email, setEmail] = useState('');
@@ -66,8 +66,11 @@ const ForgotPassword = () => {
     const handleSubmitOTP = (e) => {
         // Add logic to submit OTP
         e.preventDefault();
-        console.log("Submit OTP clicked");
-        console.log(formattedOtp);
+        try {
+            otpValidation({email,formattedOtp})
+        } catch (error) {
+            console.log(error);
+        }
     };
 
     return (

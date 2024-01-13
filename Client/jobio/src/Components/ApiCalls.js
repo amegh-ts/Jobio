@@ -80,7 +80,19 @@ export const forgotPassword=async(data)=>{
     try {
         const res = await publicRequest.post('/forgotpassword', data)
         console.log('Response Status:', res.status);
-        console.log('res.data',res.data);
+        // console.log('res.data',res.data);
+    } catch (error) {
+        console.log(error);
+    }
+}
+
+// otp validation
+export const otpValidation=async(data)=>{
+    console.log('otp validation data',data);
+    try {
+        const res = await publicRequest.post('/otpvalidation', data)
+        console.log('Response Status:', res.status);
+        
     } catch (error) {
         console.log(error);
     }
