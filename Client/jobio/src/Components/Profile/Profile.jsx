@@ -27,24 +27,26 @@ const Profile = () => {
   const [course, setCourse] = useState('')
   const [year, setYear] = useState('')
 
-  useEffect(() => {
-    // Retrieve user type from localStorage
-    const userType = localStorage.getItem('userType');
-    console.log(userType);
+const storedData = localStorage.getItem('persist:jobio');
+const user = storedData ? JSON.parse(JSON.parse(storedData).user) : null;
+const userType = user?.userInfo?.[0]?.type;
 
+
+
+  useEffect(() => {
     // Set primary color based on user type
     switch (userType) {
-      case 'type1':
-        setPrimaryColor('#FF0000'); // Red color
+      case 'admin':
+        setPrimaryColor('rgb(231, 0, 0)'); // Red color
         break;
-      case 'type2':
-        setPrimaryColor('#00FF00'); // Green color
+      case 'employer':
+        setPrimaryColor('rgb(0, 128, 0'); // Green color
         break;
-      case 'type3':
-        setPrimaryColor('#0000FF'); // Blue color
+      case 'employee':
+        setPrimaryColor('#695CFE'); // Blue color
         break;
       default:
-        setPrimaryColor('#000000'); // Default color
+        setPrimaryColor('#695CFE'); // Default color
     }
   }, []);
 
