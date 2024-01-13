@@ -68,12 +68,14 @@ const ForgotPassword = () => {
         e.preventDefault();
         try {
             const response = await otpValidation({ email, formattedOtp });
+            console.log('Response:', response.status);
 
-            if (response.status === 200) {
+            if (response && response.status === 200) {
                 setResetPassPopup(true);
             } else {
                 alert('Invalid OTP. Please try again.');
             }
+
         } catch (error) {
             console.log(error);
         }

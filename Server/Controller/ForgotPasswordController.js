@@ -66,10 +66,9 @@ const forgotPassword = async (req, res) => {
 
 const otpValidation = async (req, res) => {
     console.log(req.body);
-    const { email, enteredOtp } = req.body;
+    const { email, formattedOtp } = req.body;
 
-    console.log(req.body);
-    console.log(email);
+    console.log(formattedOtp);
 
     try {
         const storedData = await mailer.findOne({ email: email });
@@ -78,7 +77,7 @@ const otpValidation = async (req, res) => {
         console.log('stored otp', storedOtp);
 
         // code for validation
-        if (enteredOtp === storedOtp) {
+        if (formattedOtp == storedOtp) {
             return res.status(200).json({ message: 'OTP is valid' });
         } else {
             return res.status(400).json({ error: 'Invalid OTP' });

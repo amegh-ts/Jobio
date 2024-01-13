@@ -191,7 +191,7 @@ const Profile = () => {
           <div className='middle'>
             <div className="photo"></div>
             <div className='detail-container'>
-              <h3>{data.username}</h3>
+              <h3>{data.username}</h3>  
               <span className='fullname'>
                 <h2>{data.firstname}</h2><h2>{data.lastname}</h2>
               </span>
