@@ -69,6 +69,16 @@ const editProfile = async (req, res) => {
     }
 }
 
+// delete profile
+const deleteProfile = async (req, res) => {
+    try {
+        const deleteData = await userController.findByIdAndDelete(req.params.id)
+        res.status(200).json(deleteData)
+    } catch (error) {
+        res.status(500).json(error)
+    }
+}
 
 
-module.exports = { signUp, signIn, allUsers, viewProfile, editProfile };
+
+module.exports = { signUp, signIn, allUsers, viewProfile, editProfile, deleteProfile };

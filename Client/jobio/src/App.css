@@ -8,6 +8,11 @@
   --body-color: #F1F2F2;
   --sidebar-color: #ffffff;
   --primary-color: #695CFE;
+
+  --admin-primary-color:rgb(231, 0, 0);
+  --employer-primary-color:rgb(0, 128, 0);
+  --client-primary-color:#695CFE;
+
   --primary-color-light: #F6F5FF;
   --toggle-color: #DDD;
   --text-color: #8b8b8b;

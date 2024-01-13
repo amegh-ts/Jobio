@@ -39,10 +39,10 @@ const Home = () => {
               <div className="note">
                 <h1>Welcome back Devil</h1>
               </div>
-              <div className="status">
+              {/* <div className="status">
                 <button>Available to work</button>
                 <button>Unavailable to work</button>
-              </div>
+              </div> */}
             </div>
           )}
 

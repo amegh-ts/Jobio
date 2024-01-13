@@ -9,7 +9,7 @@ const userId = user?.userInfo?.[0]?.id;
 
 // signup
 export const signUpData = async (data) => {
-    console.log('first check',data);
+    console.log('first check', data);
     try {
         const res = await publicRequest.post('/signup', data);
         console.log('Response Status:', res.status);
@@ -32,7 +32,7 @@ export const signInData = async (loginData, dispatch) => {
 }
 
 // all users
-export const getAllUsers=async()=>{
+export const getAllUsers = async () => {
     try {
         const res = await userRequest.get('/allusers')
         console.log('Response Status:', res.status);
@@ -61,5 +61,39 @@ export const editProfile = async (data) => {
     } catch (error) {
         console.log(error);
 
+    }
+}
+
+// delete profile
+export const deleteProfile = async () => {
+    try {
+        const res = await userRequest.delete(`/deleteprofile/${userId}`)
+        console.log('Response Status:', res.status);
+    } catch (error) {
+        console.log(error);
+    }
+}
+
+// forgot password
+export const forgotPassword=async(data)=>{
+    console.log('data check',data);
+    try {
+        const res = await publicRequest.post('/forgotpassword', data)
+        console.log('Response Status:', res.status);
+        // console.log('res.data',res.data);
+    } catch (error) {
+        console.log(error);
+    }
+}
+
+// otp validation
+export const otpValidation=async(data)=>{
+    console.log('otp validation data',data);
+    try {
+        const res = await publicRequest.post('/otpvalidation', data)
+        console.log('Response Status:', res.status);
+        
+    } catch (error) {
+        console.log(error);
     }
 }

@@ -124,8 +124,8 @@ const EmployerNavbar = () => {
 
                     <div className="navbar-icon">
                         <span>
-                            <IoMoonOutline />
-                            <IoNotifications />
+                            <IoMoonOutline className='icon'/>
+                            <IoNotifications className='icon'/>
                         </span>
                         <div className={`profile  ${activePage === 'profile' ? 'active' : ''}`} onClick={() => { setActivePage('profile'); }}>
                             <IoPersonSharp />

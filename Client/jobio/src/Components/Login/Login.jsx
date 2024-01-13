@@ -2,6 +2,8 @@ import { useState } from 'react'
 import { useDispatch } from 'react-redux';
 import './Login.scss'
 import { signInData } from '../ApiCalls';
+// import { Link } from 'react-router-dom'
+
 
 const Login = () => {
     const [email, setEmail] = useState('')
@@ -48,7 +50,7 @@ const Login = () => {
 
                             <div className="forget-pass">
                                 <span>Forgot </span>
-                                <a className="txt" href="#"> Password? </a>
+                                <a className="txt" href="/forgotpassword"> Password? </a>
                             </div>
 
                             <div className="create-account">

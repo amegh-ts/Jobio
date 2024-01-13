@@ -1,8 +1,18 @@
 {
     "cSpell.words": [
+        "anav",
+        "cnav",
+        "Codeigniter",
         "coverphoto",
+        "deleteprofile",
+        "editprofile",
         "firstname",
+        "forgotpass",
+        "forgotpassword",
         "lastname",
-        "tada"
+        "otpvalidation",
+        "resetpass",
+        "tada",
+        "Viewprofile"
     ]
 }
