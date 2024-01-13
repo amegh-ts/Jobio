@@ -7,26 +7,23 @@ const ForgotPassword = () => {
     const [email, setEmail] = useState('');
     const [otp, setOtp] = useState(['', '', '', '', '', '']);
     const [forgotPassPopup, setForgotPassPopup] = useState(false);
-    const [timer, setTimer] = useState(240);
+    const [timer, setTimer] = useState(120);
 
     const otpInputs = useRef([]);
 
     const onForgotPassClick = async (e) => {
         console.log(email);
         e.preventDefault();
-        try {
-            if (email) {
-                setForgotPassPopup(true);
+        if (email) {
+            setForgotPassPopup(true);
+            try {
                 forgotPassword({ email })
-
-            } else {
-                setForgotPassPopup(false);
-                alert('Invalid Email format')
+            } catch (error) {
+                console.log(error);
             }
-
-        } catch (error) {
-            console.log(error);
-
+        } else {
+            setForgotPassPopup(false);
+            alert('Invalid Email format')
         }
     }
 
@@ -57,13 +54,20 @@ const ForgotPassword = () => {
     const handleResendOTP = () => {
         // Add logic to resend OTP, enable the button, and reset the timer
         console.log("Resend OTP clicked");
-        setTimer(240); // Reset the timer to 4 minutes
+        setTimer(120); // Reset the timer to 2 minutes
+
+        try {
+            forgotPassword({ email })
+        } catch (error) {
+            console.log(error);
+        }
     };
 
     const handleSubmitOTP = (e) => {
         // Add logic to submit OTP
         e.preventDefault();
         console.log("Submit OTP clicked");
+        console.log(formattedOtp);
     };
 
     return (
@@ -111,11 +115,11 @@ const ForgotPassword = () => {
                                         <div className="timer">
                                             Timer: {Math.floor(timer / 60)}:{timer % 60 < 10 ? `0${timer % 60}` : timer % 60}
                                         </div>
-                                        <button className="resend-btn" onClick={handleResendOTP} disabled={timer > 0}>
-                                            Resend OTP
-                                        </button>
                                         <button className="submit-btn" onClick={handleSubmitOTP}>
                                             Submit OTP
+                                        </button>
+                                        <button className="resend-btn" onClick={handleResendOTP} disabled={timer > 0}>
+                                            Resend OTP
                                         </button>
                                     </div>
                                 </div>

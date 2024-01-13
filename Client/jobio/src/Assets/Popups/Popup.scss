@@ -270,6 +270,26 @@
                         height: 20px;
                         font-size: 20px;
                         padding: 10px;
+                        outline-color: var(--text-color);
+                    }
+                }
+
+                .timer{
+                    color: var(--text-color);
+                    font-size: 14px;
+                }
+
+                .submit-btn{
+                    background: var(--primary-color);
+                    padding: 10px 20px;
+                    color: white;
+                    letter-spacing: 2px;
+                    font-weight: 600;
+                    border-radius: 10px;
+
+                    &:hover {
+                        box-shadow: 1px 1px 10px var(--primary-color);
+
                     }
                 }
             }
