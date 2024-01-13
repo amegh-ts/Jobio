@@ -1,12 +1,10 @@
 import { useState } from 'react';
 import './AdminSettings.scss';
-import Popup from '../../Assets/Popups/Popup';
-
+import Popup from '../../../Assets/Popups/Popup';
 
 const AdminSettings = () => {
   const [hoveredOption, setHoveredOption] = useState(null);
-  const [deletePopup, setDeletePopup] = useState(false)
-
+  const [deletePopup, setDeletePopup] = useState(false);
 
   const handleOptionHover = (description) => {
     setHoveredOption(description);
@@ -14,7 +12,11 @@ const AdminSettings = () => {
 
   const options = [
     { title: 'Edit Profile', description: 'Edit your profile' },
-    { title: 'Delete Profile', description: 'Delete your profile' },
+    {
+      title: 'Delete Profile',
+      description: 'Delete your profile',
+      onClick: () => setDeletePopup(true),
+    },
     { title: 'Send Feedback', description: 'Send your profile' },
     // Add more options as needed
   ];
@@ -32,6 +34,7 @@ const AdminSettings = () => {
                 title={option.title}
                 onMouseEnter={() => handleOptionHover(option.description)}
                 onMouseLeave={() => handleOptionHover(null)}
+                onClick={option.onClick}
               >
                 {option.title}
               </div>
@@ -40,7 +43,10 @@ const AdminSettings = () => {
           <div className="content-right">
             <p className="description">{hoveredOption || 'Hover over left options for details'}</p>
           </div>
-          <Popup></Popup>
+          <Popup trigger={deletePopup} setTrigger={setDeletePopup}>
+            <div className="delete-account-popup"></div>
+            <h3>Delete account</h3>
+          </Popup>
         </div>
       </div>
     </div>
