@@ -26,7 +26,7 @@ const clearExpiredOtps = async () => {
 };
 
 // Schedule the function to run every minute (adjust as needed)
-setInterval(clearExpiredOtps, 20 * 1000);
+// setInterval(clearExpiredOtps, 20 * 1000);
 
 const forgotPassword = async (req, res) => {
     console.log(req.body);
@@ -54,7 +54,7 @@ const forgotPassword = async (req, res) => {
             text: otp,
         };
 
-        console.log("mail option", mailOption);
+        // console.log("mail option", mailOption);
         const info = await transporter.sendMail(mailOption);
         console.log('Email sent:', info);
         return res.status(200).json({ message: "OTP sent successfully", otp });
@@ -65,13 +65,20 @@ const forgotPassword = async (req, res) => {
 };
 
 const otpValidation = async (req, res) => {
-    console.log(res.data);
-    // const x = req.body;
+    console.log(req.body);
     const { email, enteredOtp } = req.body;
 
-    const storedOtp = await mailer.findOne({ email });
+    console.log(req.body);
+    console.log(email);
+
+    try {
+        const storedOtp = await mailer.findOne({ email: email });
+
+    } catch (error) {
+        console.log(error);
+    }
+
     console.log(storedOtp);
-    // console.log(x);
 
 }
 
