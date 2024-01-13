@@ -1,0 +1,12 @@
+.Admin-settings{
+    display: flex;
+    padding: 10px;
+    background: blue;
+    // justify-content: center;
+
+    .settings-container{
+        background: red;
+        width: 95%;
+        display: flex;
+    }
+}
