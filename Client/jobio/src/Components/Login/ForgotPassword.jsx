@@ -12,7 +12,19 @@ const ForgotPassword = () => {
 
     const onForgotPassClick = async (e) => {
         e.preventDefault();
-        setForgotPassPopup(true);
+        try {
+            forgotPassword({ email })
+            if (email) {
+            setForgotPassPopup(true);
+            } else{
+            setForgotPassPopup(false);
+
+            }
+
+        } catch (error) {
+            console.log(error);
+            
+        }
     }
 
     const onOtpInputChange = (e, index) => {
@@ -29,10 +41,6 @@ const ForgotPassword = () => {
     }
     const formattedOtp = otp.join('');
     console.log(formattedOtp);
-
-    const onEmailSubmit=async()=>{
-        forgotPassword({email})
-    }
 
     return (
         <div>
