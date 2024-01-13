@@ -48,7 +48,11 @@ const userType = user?.userInfo?.[0]?.type;
       default:
         setPrimaryColor('#695CFE'); // Default color
     }
-  }, []);
+    document.body.style.setProperty('--primary-color', primaryColor);
+
+  }, [primaryColor]);
+
+
 
   const [selectedSkills, setSelectedSkills] = useState([]);
   const skills = [
