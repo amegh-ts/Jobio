@@ -32,10 +32,10 @@ const forgotPassword = async (req, res) => {
     console.log(req.body);
     const { email } = req.body;
     const otp = generateOtp();
-    
+
     // Set expiration time to 2 minutes
     const otpExpiration = new Date(Date.now() + 2 * 60 * 1000);
-    
+
     console.log('-------', otp, otpExpiration, email);
 
     const verification = new mailer({
@@ -64,4 +64,9 @@ const forgotPassword = async (req, res) => {
     }
 };
 
-module.exports = { forgotPassword, clearExpiredOtps };
+const otpValidation = async (req, res) => {
+    const { email, enteredOtp } = req.body;
+
+}
+
+module.exports = { forgotPassword, clearExpiredOtps, otpValidation };
