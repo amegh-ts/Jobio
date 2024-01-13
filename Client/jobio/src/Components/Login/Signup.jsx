@@ -14,7 +14,7 @@ const Signup = () => {
     const onClick = () => {
         try {
             signUpData({ username, dob, email, password, type })
-            alert('Account Created Successfully. Please Loging to continue')
+            alert('Account Created Successfully. Please Login to continue')
             history.push('/login');
 
         } catch (error) {
