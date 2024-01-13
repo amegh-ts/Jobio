@@ -80,7 +80,6 @@ const otpValidation = async (req, res) => {
         // code for validation
         if (enteredOtp === storedOtp) {
             return res.status(200).json({ message: 'OTP is valid' });
-
         } else {
             return res.status(400).json({ error: 'Invalid OTP' });
         }
@@ -88,7 +87,6 @@ const otpValidation = async (req, res) => {
     } catch (error) {
         console.log(error);
     }
-
 }
 
 module.exports = { forgotPassword, clearExpiredOtps, otpValidation };

@@ -7,6 +7,7 @@ const ForgotPassword = () => {
     const [email, setEmail] = useState('');
     const [otp, setOtp] = useState(['', '', '', '', '', '']);
     const [forgotPassPopup, setForgotPassPopup] = useState(false);
+    const [resetPassPopup, setResetPassPopup] = useState(false);
     const [timer, setTimer] = useState(120);
 
     const otpInputs = useRef([]);
@@ -63,15 +64,21 @@ const ForgotPassword = () => {
         }
     };
 
-    const handleSubmitOTP = (e) => {
-        // Add logic to submit OTP
+    const handleSubmitOTP = async (e) => {
         e.preventDefault();
         try {
-            otpValidation({email,formattedOtp})
+            const response = await otpValidation({ email, formattedOtp });
+    
+            if (response.status === 200) {
+                setResetPassPopup(true);
+            } else {
+                alert('Invalid OTP. Please try again.');
+            }
         } catch (error) {
             console.log(error);
         }
     };
+    
 
     return (
         <div>
