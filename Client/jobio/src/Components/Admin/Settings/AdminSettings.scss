@@ -15,16 +15,22 @@
         .content-container {
             border-top: 1px solid black;
             display: flex;
+            // justify-content: space-between;
             gap: 10px;
             padding: 10px 0;
 
             .content-left {
+                background: var(--text-color);
+
                 .left-option {
                     // padding: 8px;
                     display: flex;
                     flex-direction: column;
                     gap: 5px;
                     cursor: pointer;
+                    font-size: 16px;
+                    font-weight: 500;
+
 
                     &:hover {
                         background: lightblue;
