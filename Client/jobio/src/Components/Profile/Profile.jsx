@@ -5,18 +5,7 @@ import { IoPencil } from "react-icons/io5";
 import Popup from '../../Assets/Popups/Popup';
 
 const Profile = () => {
-  const getPrimaryColor = () => {
-    switch (userType) {
-      case 'admin':
-        return 'rgb(231, 0, 0)';
-      case 'employer':
-        return 'rgb(0, 128, 0)';
-      case 'client':
-        return '#695CFE';
-      default:
-        return '#695CFE'; // Default color, adjust as needed
-    }
-  };
+  const [primaryColor, setPrimaryColor] = useState('');
   const [data, setData] = useState({});
   const [buttonPopup, setButtonPopup] = useState(false)
   const [contactPopup, setContactPopup] = useState(false)
@@ -37,6 +26,27 @@ const Profile = () => {
   const [institute, setInstitute] = useState('')
   const [course, setCourse] = useState('')
   const [year, setYear] = useState('')
+
+  useEffect(() => {
+    // Retrieve user type from localStorage
+    const userType = localStorage.getItem('userType');
+    console.log(userType);
+
+    // Set primary color based on user type
+    switch (userType) {
+      case 'type1':
+        setPrimaryColor('#FF0000'); // Red color
+        break;
+      case 'type2':
+        setPrimaryColor('#00FF00'); // Green color
+        break;
+      case 'type3':
+        setPrimaryColor('#0000FF'); // Blue color
+        break;
+      default:
+        setPrimaryColor('#000000'); // Default color
+    }
+  }, []);
 
   const [selectedSkills, setSelectedSkills] = useState([]);
   const skills = [
