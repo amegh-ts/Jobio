@@ -36,11 +36,11 @@ const AdminSettings = ({ setActivePage }) => {
       await deleteProfile()
       dispatch(logoutUser())
       sessionStorage.clear();
-      alert('Successfully deleted your account');
-
     } catch (error) {
       console.log(error);
     }
+    alert('Successfully deleted your account');
+
   }
 
   return (
