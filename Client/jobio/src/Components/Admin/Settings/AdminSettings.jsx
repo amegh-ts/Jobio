@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import { useState } from 'react';
 import './AdminSettings.scss';
 import Popup from '../../../Assets/Popups/Popup';
