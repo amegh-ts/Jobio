@@ -16,22 +16,20 @@ const ForgotPassword = () => {
 
     const onOtpInputChange = (e, index) => {
         const value = e.target.value;
-
         setOtp(prevOtp => {
             const newOtp = [...prevOtp];
             newOtp[index] = value;
 
             return newOtp;
         });
-
         if (value !== '' && index < otpInputs.current.length - 1) {
             otpInputs.current[index + 1].focus();
         }
     }
-
     const formattedOtp = otp.join('');
-
     console.log(formattedOtp);
+
+    
 
     return (
         <div>

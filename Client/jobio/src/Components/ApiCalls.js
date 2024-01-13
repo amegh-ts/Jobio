@@ -78,8 +78,10 @@ export const deleteProfile = async () => {
 export const forgotPassword=async(data)=>{
     console.log(data);
     try {
-        
+        const res = await publicRequest.post('/forgotpassword', data)
+        console.log('Response Status:', res.status);
+        console.log('res.data',res.data);
     } catch (error) {
-        
+        console.log(error);
     }
 }
