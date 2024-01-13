@@ -73,3 +73,13 @@ export const deleteProfile = async () => {
         console.log(error);
     }
 }
+
+// forgot password
+export const forgotPassword=async(data)=>{
+    console.log(data);
+    try {
+        
+    } catch (error) {
+        
+    }
+}
