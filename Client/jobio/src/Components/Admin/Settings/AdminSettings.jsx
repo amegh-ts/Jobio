@@ -45,7 +45,10 @@ const AdminSettings = () => {
           </div>
           <Popup trigger={deletePopup} setTrigger={setDeletePopup}>
             <div className="delete-account-popup">
-            <h3>Delete account</h3>
+              <h3>Delete account</h3>
+              <div className='message'>
+                <p>Are you sure you want to delete your account..?</p>
+              </div>
 
             </div>
           </Popup>
