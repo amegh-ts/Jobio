@@ -20,25 +20,37 @@
             padding: 10px 0;
 
             .content-left {
-                background: var(--text-color);
+                background: var(--body-color);
+                border-radius: 10px;
+                display: flex;
+                flex-direction: column;
+                gap: 10px;
+                padding: 10px;
 
                 .left-option {
-                    // padding: 8px;
+                    padding: 8px;
                     display: flex;
                     flex-direction: column;
                     gap: 5px;
                     cursor: pointer;
                     font-size: 16px;
                     font-weight: 500;
+                    border-radius: 10px;
 
 
                     &:hover {
-                        background: lightblue;
+                        // background: rgb(255, 255, 255);
+                        background: var(--admin-primary-color);
+                        color: white;
                     }
                 }
             }
 
             .content-right {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                width: 80%;
                 .description {
                     // display: none;
                 }
