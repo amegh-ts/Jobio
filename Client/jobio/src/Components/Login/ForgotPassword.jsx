@@ -1,6 +1,13 @@
+import { useState } from 'react';
 import './ForgotPassword.scss'
 
 const ForgotPassword = () => {
+    const [email, setEmail] = useState('')
+
+
+    const onForgotPassClick=async(e)=>{
+        e.preventDefault();
+    }
   return (
     <div>
         <div className="Forgot">
@@ -19,10 +26,10 @@ const ForgotPassword = () => {
                             <>
                             <div className='input'>
                             <i className='icon bx bx-envelope bx-tada' ></i>
-                                {/* <input type="text" name="email" placeholder="Email" value={email} onChange={(e) => setEmail(e.target.value)} /> */}
+                                <input type="text" name="email" placeholder="Email" value={email} onChange={(e) => setEmail(e.target.value)} />
                             </div>
                             </>
-                            {/* <button className="login-form-btn" onClick={onLogInClick}>Login</button> */}
+                            <button className="login-form-btn" onClick={onForgotPassClick}>Send OTP</button>
 
                             <div className="create-account">
                                 <a className="txt" href="/signup">Login</a>
