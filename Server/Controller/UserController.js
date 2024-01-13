@@ -79,16 +79,6 @@ const deleteProfile = async (req, res) => {
     }
 }
 
-// forgot password
-const forgotPassword = async (req, res) => {
-    try {
-
-    } catch (error) {
-        res.status(500).json(error)
-
-    }
-}
 
 
-
-module.exports = { signUp, signIn, allUsers, viewProfile, editProfile, deleteProfile, forgotPassword };
+module.exports = { signUp, signIn, allUsers, viewProfile, editProfile, deleteProfile };

@@ -4,10 +4,13 @@
         "cnav",
         "Codeigniter",
         "coverphoto",
+        "deleteprofile",
+        "editprofile",
         "firstname",
         "forgotpass",
         "forgotpassword",
         "lastname",
-        "tada"
+        "tada",
+        "Viewprofile"
     ]
 }

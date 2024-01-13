@@ -31,12 +31,17 @@ const forgotPassword = async (req, res) => {
             to: email,
             subject: 'Your OTP Code',
             text:otp
-        }
+        };
+
+        console.log("mail option", mailOption);
+        const info = await transporter.sendMail(mailOption);
+        console.log('Email sent:', info);
+        return res.status(200).json({ message: "OTP sent successfully", otp })
     } catch (error) {
         console.error('Error saving verification details:', error);
         return res.status(500).json({ error: 'Error sending OTP' });
     }
-
-
 }
+
+module.exports = { forgotPassword };
 

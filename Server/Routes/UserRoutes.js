@@ -1,3 +1,4 @@
+const { forgotPassword } = require('../Controller/ForgotPasswordController');
 const { signUp, signIn, allUsers, viewProfile, editProfile, deleteProfile } = require('../Controller/UserController')
 const { verifyToken, verifyTokenAndAuthorization } = require('../VerifyToken');
 
@@ -18,5 +19,7 @@ router.get('/Viewprofile/:id',verifyToken,verifyTokenAndAuthorization,viewProfil
 router.put('/editprofile/:id',verifyToken,verifyTokenAndAuthorization,editProfile)
 // delete profile
 router.delete('/deleteprofile/:id',verifyToken,verifyTokenAndAuthorization,deleteProfile)
+// forgot password
+router.post('/forgotpassword',forgotPassword)
 
 module.exports = router
