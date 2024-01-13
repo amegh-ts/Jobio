@@ -1,18 +1,17 @@
 import { useRef, useState } from 'react';
-import './ForgotPassword.scss'
+import './ForgotPassword.scss';
 import Popup from '../../Assets/Popups/Popup';
 
 const ForgotPassword = () => {
-    const [email, setEmail] = useState('')
+    const [email, setEmail] = useState('');
     const [otp, setOtp] = useState(['', '', '', '', '', '']);
-    const [forgotPassPopup, setForgotPassPopup] = useState(false)
+    const [forgotPassPopup, setForgotPassPopup] = useState(false);
 
     const otpInputs = useRef([]);
 
-
     const onForgotPassClick = async (e) => {
         e.preventDefault();
-        setForgotPassPopup(true)
+        setForgotPassPopup(true);
     }
 
     const onOtpInputChange = (e, index) => {
@@ -29,6 +28,10 @@ const ForgotPassword = () => {
             otpInputs.current[index + 1].focus();
         }
     }
+
+    const formattedOtp = otp.join('');
+
+    console.log(formattedOtp);
 
     return (
         <div>
@@ -87,4 +90,4 @@ const ForgotPassword = () => {
     )
 }
 
-export default ForgotPassword
+export default ForgotPassword;
