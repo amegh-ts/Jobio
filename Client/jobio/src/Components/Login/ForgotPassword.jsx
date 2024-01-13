@@ -1,6 +1,7 @@
 import { useRef, useState } from 'react';
 import './ForgotPassword.scss';
 import Popup from '../../Assets/Popups/Popup';
+import { forgotPassword } from '../ApiCalls';
 
 const ForgotPassword = () => {
     const [email, setEmail] = useState('');
@@ -29,7 +30,9 @@ const ForgotPassword = () => {
     const formattedOtp = otp.join('');
     console.log(formattedOtp);
 
-    
+    const onEmailSubmit=async()=>{
+        forgotPassword({email})
+    }
 
     return (
         <div>
