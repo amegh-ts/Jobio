@@ -15,9 +15,10 @@ function generateOtp() {
 }
 
 const forgotPassword = async (req, res) => {
+    console.log(req.body);
     const { email } = req.body;
     const otp = generateOtp();
-    const otpExpiration = new Date(Date.now() + 5 * 60 * 1000)
+    const otpExpiration = new Date(Date.now() + 2 * 60 * 1000)
     console.log('-------', otp, otpExpiration, email);
 
     const verification = new mailer({

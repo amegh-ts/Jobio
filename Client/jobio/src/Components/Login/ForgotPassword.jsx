@@ -1,4 +1,4 @@
-import { useRef, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import './ForgotPassword.scss';
 import Popup from '../../Assets/Popups/Popup';
 import { forgotPassword } from '../ApiCalls';
@@ -7,23 +7,26 @@ const ForgotPassword = () => {
     const [email, setEmail] = useState('');
     const [otp, setOtp] = useState(['', '', '', '', '', '']);
     const [forgotPassPopup, setForgotPassPopup] = useState(false);
+    const [timer, setTimer] = useState(240);
 
     const otpInputs = useRef([]);
 
     const onForgotPassClick = async (e) => {
+        console.log(email);
         e.preventDefault();
         try {
-            forgotPassword({ email })
             if (email) {
-            setForgotPassPopup(true);
-            } else{
-            setForgotPassPopup(false);
+                setForgotPassPopup(true);
+            forgotPassword({ email })
 
+            } else {
+                setForgotPassPopup(false);
+                alert('Invalid Email format')
             }
 
         } catch (error) {
             console.log(error);
-            
+
         }
     }
 
@@ -40,7 +43,28 @@ const ForgotPassword = () => {
         }
     }
     const formattedOtp = otp.join('');
-    console.log(formattedOtp);
+    // console.log(formattedOtp);
+
+    useEffect(() => {
+        let countdown = setInterval(() => {
+            setTimer((prevTimer) => (prevTimer > 0 ? prevTimer - 1 : 0));
+        }, 1000);
+
+        // Clear the interval when the component unmounts
+        return () => clearInterval(countdown);
+    }, []);
+
+    const handleResendOTP = () => {
+        // Add logic to resend OTP, enable the button, and reset the timer
+        console.log("Resend OTP clicked");
+        setTimer(240); // Reset the timer to 4 minutes
+    };
+
+    const handleSubmitOTP = (e) => {
+        // Add logic to submit OTP
+        e.preventDefault();
+        console.log("Submit OTP clicked");
+    };
 
     return (
         <div>
@@ -84,6 +108,15 @@ const ForgotPassword = () => {
                                                 />
                                             ))}
                                         </div>
+                                        <div className="timer">
+                                            Timer: {Math.floor(timer / 60)}:{timer % 60 < 10 ? `0${timer % 60}` : timer % 60}
+                                        </div>
+                                        <button className="resend-btn" onClick={handleResendOTP} disabled={timer > 0}>
+                                            Resend OTP
+                                        </button>
+                                        <button className="submit-btn" onClick={handleSubmitOTP}>
+                                            Submit OTP
+                                        </button>
                                     </div>
                                 </div>
                             </Popup>
