@@ -1,8 +1,12 @@
 import { useState } from 'react';
 import './AdminSettings.scss';
+import Popup from '../../Assets/Popups/Popup';
+
 
 const AdminSettings = () => {
   const [hoveredOption, setHoveredOption] = useState(null);
+  const [deletePopup, setDeletePopup] = useState(false)
+
 
   const handleOptionHover = (description) => {
     setHoveredOption(description);
@@ -11,7 +15,7 @@ const AdminSettings = () => {
   const options = [
     { title: 'Edit Profile', description: 'Edit your profile' },
     { title: 'Delete Profile', description: 'Delete your profile' },
-    { title: 'Send Feedback', description: 'Delete your profile' },
+    { title: 'Send Feedback', description: 'Send your profile' },
     // Add more options as needed
   ];
 
@@ -36,6 +40,7 @@ const AdminSettings = () => {
           <div className="content-right">
             <p className="description">{hoveredOption || 'Hover over left options for details'}</p>
           </div>
+          <Popup></Popup>
         </div>
       </div>
     </div>
