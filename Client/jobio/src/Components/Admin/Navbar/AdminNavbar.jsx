@@ -29,6 +29,10 @@ const AdminNavbar = () => {
   const [primaryColor, setPrimaryColor] = useState('');
     const dropdownRef = useRef(null);
 
+    const storedData = localStorage.getItem('persist:jobio');
+    const user = storedData ? JSON.parse(JSON.parse(storedData).user) : null;
+    const userType = user?.userInfo?.[0]?.type;
+    
     const dispatch = useDispatch()
 
     const [activePage, setActivePage] = useState(() => {
