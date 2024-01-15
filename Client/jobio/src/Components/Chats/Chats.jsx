@@ -27,8 +27,8 @@ const Chats = () => {
         fetchData();
     }, []);
 
-    const secondMembers = state.map(item => item.members[1]);
-    console.log('-------------------', secondMembers);
+    // const secondMembers = state.map(item => item.members[1]);
+    // console.log('-------------------', secondMembers);
 
     const handleUserClick = (user) => {
         setSelectedUser(user);
@@ -57,7 +57,7 @@ const Chats = () => {
                 </div>
                 <div className="chat-main">
                     {showChatBody ? (
-                        <ChatBody selectedChatId={selectedUser._id} selectedUserDetails={selectedUser}/>
+                        <ChatBody selectedChatId={selectedUser._id} selectedChatDetails={selectedUser}/>
                     ) : (
                         <img src="/Images/robot.gif" alt="" />
                     )}
