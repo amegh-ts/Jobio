@@ -2,6 +2,7 @@
 
 .chat-container {
     display: grid;
+    border-radius: 20px;
     grid-template-columns: 25% 75%;
     height: 90vh;
     background: var(--sidebar-color);
