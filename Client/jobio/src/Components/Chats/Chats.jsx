@@ -57,7 +57,7 @@ const Chats = () => {
                 </div>
                 <div className="chat-main">
                     {showChatBody ? (
-                        <ChatBody selectedChatId={selectedUser._id} selectedChatName={selectedUser.username}/>
+                        <ChatBody selectedChatId={selectedUser._id} selectedUserDetails={selectedUser}/>
                     ) : (
                         <img src="/Images/robot.gif" alt="" />
                     )}
