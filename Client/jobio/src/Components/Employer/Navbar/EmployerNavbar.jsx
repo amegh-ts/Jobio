@@ -17,8 +17,8 @@ import {
 import { useDispatch } from 'react-redux';
 import { logoutUser } from '../../../Redux/UserRedux';
 import Profile from '../../Profile/Profile';
-import Chats from '../../Chats/Chats';
 import EmployerHome from '../Home/EmployerHome';
+import Chats from '../../Chats/Chats';
 
 const EmployerNavbar = () => {
     const [isDropdownVisible, setIsDropdownVisible] = useState(false);
@@ -30,6 +30,10 @@ const EmployerNavbar = () => {
         // Retrieve the active page from sessionStorage on component mount
         return sessionStorage.getItem('activePage') || 'home';
     });
+
+    const setActivePageToChats = () => {
+        setActivePage('chats');
+    };
 
     const toggleDropdown = () => {
         setIsDropdownVisible(!isDropdownVisible);
@@ -62,7 +66,7 @@ const EmployerNavbar = () => {
     };
     const pageComponents = {
         home:<EmployerHome/>,
-        chats: <Chats />,
+        chats: <Chats setActivePageToChats={setActivePageToChats}/>,
         profile: <Profile />
     };
 
@@ -90,12 +94,8 @@ const EmployerNavbar = () => {
                             <span className="dropdown-item">jjd</span>
                         </div>
                     </div>
-                    <div className="menu-item">
+                    <div className={`menu-item ${activePage === 'chats' ? 'active' : ''}`} onClick={() => { setActivePage('chats'); }}>
                         <IoChatbubbleEllipses className="icon" />
-                        <span>Inbox</span>
-                    </div>
-                    <div className="menu-item">
-                        <IoPeople className="icon" />
                         <span>Chats</span>
                     </div>
                     <div className="menu-item">
