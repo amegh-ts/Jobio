@@ -21,6 +21,7 @@ import Chats from '../../Chats/Chats';
 
 const ClientNavbar = () => {
     const [isDropdownVisible, setIsDropdownVisible] = useState(false);
+    const [primaryColor, setPrimaryColor] = useState('');
     const dropdownRef = useRef(null);
     const dispatch = useDispatch()
 
