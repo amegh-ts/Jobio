@@ -7,7 +7,7 @@ const Jwt = require('jsonwebtoken');
 const signUp = async (req, res) => {
     req.body.password = Crypto.AES.encrypt(req.body.password, process.env.Crypto_js).toString()
     const newUser = new userController(req.body)
-    console.log('new user', newUser);
+    // console.log('new user', newUser);
     try {
         const savedUser = await newUser.save()
         res.status(200).json(savedUser)

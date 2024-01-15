@@ -29,14 +29,14 @@ const clearExpiredOtps = async () => {
 // setInterval(clearExpiredOtps, 20 * 1000);
 
 const forgotPassword = async (req, res) => {
-    console.log(req.body);
+    // console.log(req.body);
     const { email } = req.body;
     const otp = generateOtp();
 
     // Set expiration time to 2 minutes
     const otpExpiration = new Date(Date.now() + 2 * 60 * 1000);
 
-    console.log('-------', otp, otpExpiration, email);
+    // console.log('-------', otp, otpExpiration, email);
 
     const verification = new mailer({
         email,
@@ -56,7 +56,7 @@ const forgotPassword = async (req, res) => {
 
         // console.log("mail option", mailOption);
         const info = await transporter.sendMail(mailOption);
-        console.log('Email sent:', info);
+        // console.log('Email sent:', info);
         return res.status(200).json({ message: "OTP sent successfully", otp });
     } catch (error) {
         console.error('Error saving verification details:', error);
@@ -65,16 +65,16 @@ const forgotPassword = async (req, res) => {
 };
 
 const otpValidation = async (req, res) => {
-    console.log(req.body);
+    // console.log(req.body);
     const { email, formattedOtp } = req.body;
 
     console.log(formattedOtp);
 
     try {
         const storedData = await mailer.findOne({ email: email });
-        console.log('stored data', storedData);
+        // console.log('stored data', storedData);
         const storedOtp = storedData.otp;
-        console.log('stored otp', storedOtp);
+        // console.log('stored otp', storedOtp);
 
         // code for validation
         if (formattedOtp == storedOtp) {
