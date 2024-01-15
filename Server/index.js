@@ -21,6 +21,8 @@ mongoose.connect(process.env.Mongo_Key).then(() => {
 app.use(express.json())
 
 app.use('/', userRoutes)
+app.use('/', chatRoutes)
+app.use('/chat/messages', messageRoutes)
 
 
 app.listen(PORT, () => {
