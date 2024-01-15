@@ -26,7 +26,9 @@ import { logoutUser } from '../../../Redux/UserRedux';
 
 const AdminNavbar = () => {
     const [isDropdownVisible, setIsDropdownVisible] = useState(false);
+  const [primaryColor, setPrimaryColor] = useState('');
     const dropdownRef = useRef(null);
+
     const dispatch = useDispatch()
 
     const [activePage, setActivePage] = useState(() => {
@@ -47,6 +49,27 @@ const AdminNavbar = () => {
             setIsDropdownVisible(false);
         }
     };
+
+    useEffect(() => {
+        // Set primary color based on user type
+        switch (userType) {
+          case 'admin':
+            setPrimaryColor('rgb(231, 0, 0)'); // Red color
+            break;
+          case 'employer':
+            setPrimaryColor('rgb(0, 128, 0'); // Green color
+            break;
+          case 'employee':
+            setPrimaryColor('#695CFE'); // Blue color
+            break;
+          default:
+            setPrimaryColor('#695CFE'); // Default color
+        }
+        document.body.style.setProperty('--primary-color', primaryColor);
+    
+      }, [primaryColor]);
+    
+    
 
     useEffect(() => {
         document.addEventListener('click', closeDropdown);
