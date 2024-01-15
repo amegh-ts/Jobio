@@ -1,5 +1,7 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import './Chats.scss'
 import ChatBody from "./ChatBody";
+import { getAllUsers, userChats } from "../ApiCalls";
 
 const Chats = () => {
   const [state, setState] = useState([]);
@@ -7,37 +9,37 @@ const Chats = () => {
     const [selectedUser, setSelectedUser] = useState(null);
     const [showChatBody, setShowChatBody] = useState(false);
 
-    // const storedData = localStorage.getItem('persist:unknown');
-    // const user = storedData ? JSON.parse(JSON.parse(storedData).user) : null;
-    // const senderId = user?.userInfo?.[0]?.id;
+    const storedData = localStorage.getItem('persist:jobio');
+    const user = storedData ? JSON.parse(JSON.parse(storedData).user) : null;
+    const senderId = user?.userInfo?.[0]?.id;
 
-    // useEffect(() => {
-    //     async function fetchData() {
-    //         try {
-    //             const allusers = await getUsers();
-    //             setData(allusers);
-    //             const apiData = await userChats();
-    //             setState(apiData);
-    //         } catch (error) {
-    //             console.log(error);
-    //         }
-    //     }
-    //     fetchData();
-    // }, []);
+    useEffect(() => {
+        async function fetchData() {
+            try {
+                const allusers = await getAllUsers();
+                setData(allusers);
+                const apiData = await userChats();
+                setState(apiData);
+            } catch (error) {
+                console.log(error);
+            }
+        }
+        fetchData();
+    }, []);
 
-    // const secondMembers = state.map(item => item.members[1]);
-    // console.log('-------------------', secondMembers);
+    const secondMembers = state.map(item => item.members[1]);
+    console.log('-------------------', secondMembers);
 
-    // const handleUserClick = (user) => {
-    //     setSelectedUser(user);
-    //     setShowChatBody(true);
-    // };
+    const handleUserClick = (user) => {
+        setSelectedUser(user);
+        setShowChatBody(true);
+    };
   return (
     <div>
       <div className="chat-container">
             <div className="users-list">
                 <h2>Users</h2>
-                {/* {state.map((user) => {
+                {state.map((user) => {
                     const secondMemberId = user.members[1];
                     const secondMember = data.find((userData) => userData._id === secondMemberId);
 
@@ -48,10 +50,10 @@ const Chats = () => {
 
                     return (
                         <div key={user._id} className={`user-item ${selectedUser && selectedUser._id === user._id ? 'active-user' : ''}`} onClick={() => handleUserClick(user)}>
-                            <p>{displayMember ? displayMember.uname : 'Unknown User'}</p>
+                            <p>{displayMember ? displayMember.username : 'Unknown User'}</p>
                         </div>
                     );
-                })} */}
+                })}
             </div>
             <div className="chat-main">
                 {showChatBody ? (

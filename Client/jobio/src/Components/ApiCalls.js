@@ -12,6 +12,7 @@ export const signUpData = async (data) => {
     console.log('first check', data);
     try {
         const res = await publicRequest.post('/signup', data);
+        console.log('************************');
         console.log('Response Status:', res.status);
     } catch (err) {
         console.log(err);
@@ -93,6 +94,53 @@ export const otpValidation=async(data)=>{
         const res = await publicRequest.post('/otpvalidation', data)
         console.log('Response Status:', res.status);
         
+    } catch (error) {
+        console.log(error);
+    }
+}
+
+
+// <-------------------Chats-------------------> //
+export const createChat = async (data) => {
+    console.log(data);
+    try {
+        const res = await userRequest.post('/createchat', data)
+        console.log(res);
+    } catch (error) {
+        console.log(error);
+    }
+}
+
+// user chats
+export const userChats = async () => {
+    try {
+        const res = await userRequest.get(`/chats/${userId}`)
+        console.log('Response Status:', res.status);
+        return res.data
+    } catch (error) {
+        console.log(error);
+    }
+}
+
+// send message
+export const sendMessage = async (chatId, senderId, text) => {
+    try {
+        const res = await userRequest.post(`/chat/messages/`, {
+            chatId: chatId,
+            senderId: senderId,
+            text: text,
+        });
+        return res.data;
+    } catch (error) {
+        console.log(error);
+    }
+};
+
+// fetch chat b/w users
+export const viewMessages = async (chatId) => {
+    try {
+        const res = await userRequest.get(`/chat/messages/${chatId}`)
+        return res.data
     } catch (error) {
         console.log(error);
     }

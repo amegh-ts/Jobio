@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import { useEffect, useState } from 'react';
 import './Popup.scss'
 import { IoCloseCircle } from "react-icons/io5";
@@ -29,7 +30,7 @@ const Popup = (props) => {
     }
     document.body.style.setProperty('--primary-color', primaryColor);
 
-  }, [primaryColor]);
+  }, [primaryColor, userType]);
 
 
     return (props.trigger) ? (

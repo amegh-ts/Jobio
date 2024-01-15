@@ -9,6 +9,8 @@ app.use(cors())
 dotenv.config()
 
 const userRoutes = require('./Routes/UserRoutes')
+const chatRoutes = require('./Routes/ChatRoutes')
+const messageRoutes = require('./Routes/messageRoutes')
 
 
 mongoose.connect(process.env.Mongo_Key).then(() => {
@@ -19,6 +21,8 @@ mongoose.connect(process.env.Mongo_Key).then(() => {
 app.use(express.json())
 
 app.use('/', userRoutes)
+app.use('/', chatRoutes)
+app.use('/chat/messages', messageRoutes)
 
 
 app.listen(PORT, () => {
