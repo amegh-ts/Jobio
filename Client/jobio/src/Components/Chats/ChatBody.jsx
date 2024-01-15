@@ -1,26 +1,26 @@
 /* eslint-disable react/prop-types */
 import { useEffect, useState } from 'react';
-// import { sendMessage, viewMessages } from '../ApiCalls';
+import { sendMessage, viewMessages } from '../ApiCalls';
 
 const ChatBody = ({ selectedChatId }) => {
     const [messages, setMessages] = useState([]);
     const [inputMessage, setInputMessage] = useState('');
 
-    const storedData = localStorage.getItem('persist:unknown');
+    const storedData = localStorage.getItem('persist:jobio');
     const user = storedData ? JSON.parse(JSON.parse(storedData).user) : null;
     const senderId = user?.userInfo?.[0]?.id;
 
-    // useEffect(() => {
-    //     async function fetchData() {
-    //         try {
-    //             const getChat = await viewMessages(selectedChatId);
-    //             setMessages(getChat || []);
-    //         } catch (error) {
-    //             console.log(error);
-    //         }
-    //     }
-    //     fetchData();
-    // }, [selectedChatId]);
+    useEffect(() => {
+        async function fetchData() {
+            try {
+                const getChat = await viewMessages(selectedChatId);
+                setMessages(getChat || []);
+            } catch (error) {
+                console.log(error);
+            }
+        }
+        fetchData();
+    }, [selectedChatId]);
 
     const handleMessageChange = (e) => {
         setInputMessage(e.target.value);
@@ -40,7 +40,7 @@ const ChatBody = ({ selectedChatId }) => {
             ]);
 
             // Call sendMessage function with chatId, senderId, and text
-            // await sendMessage(selectedChatId, senderId, inputMessage);
+            await sendMessage(selectedChatId, senderId, inputMessage);
 
             // Clear the input field
             setInputMessage('');
