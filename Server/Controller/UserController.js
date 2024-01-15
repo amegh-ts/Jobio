@@ -9,6 +9,7 @@ const signUp = async (req, res) => {
     const newUser = new userController(req.body)
     console.log('new user', newUser);
     try {
+        console.log('*************************');
         const savedUser = await newUser.save()
         console.log('saved user',savedUser);
         res.status(200).json(savedUser)

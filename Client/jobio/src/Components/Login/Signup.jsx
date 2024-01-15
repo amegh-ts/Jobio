@@ -47,7 +47,7 @@ const Signup = () => {
                             <div className="input">
                                 <i className='icon bx bx-wrench bx-tada' ></i>
                                 <select name="type" id="type" value={type} onChange={(e) => setType(e.target.value)}>
-                                    <option value="" disabled selected>Your Purpose</option>
+                                    <option value="" disabled defaultValue>Your Purpose</option>
                                     <option value="employee">Find Job</option>
                                     <option value="employer">Hire</option>
                                 </select>
