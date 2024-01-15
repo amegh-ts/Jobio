@@ -34,6 +34,10 @@ const AdminNavbar = () => {
         return sessionStorage.getItem('activePage') || 'home';
     });
 
+    const setActivePageToChats = () => {
+        setActivePage('chats');
+    };
+
     const toggleDropdown = () => {
         setIsDropdownVisible(!isDropdownVisible);
     };
@@ -69,7 +73,7 @@ const AdminNavbar = () => {
         viewAlert: <ViewAlert />,
         chats: <Chats />,
         jobs: <Jobs />,
-        users: <Users />,
+        users: <Users setActivePageToChats={setActivePageToChats}/>,
         settings: <AdminSettings setActivePage={setActivePage} />,
         profile: <Profile />
     };
