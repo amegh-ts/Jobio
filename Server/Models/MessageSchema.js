@@ -8,4 +8,4 @@ const MessageSchema=new mongoose.Schema({
     timestamps:true
 })
 
-module.exports=mongoose.model("messages",MessageSchema)  //here 'users' is the name of the collection you are creating
+module.exports=mongoose.model("messages",MessageSchema)
