@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import './Chats.scss'
 import ChatBody from "./ChatBody";
 import { getAllUsers, userChats } from "../ApiCalls";
 
