@@ -16,7 +16,7 @@ const Signup = () => {
             signUpData({ username, dob, email, password, type })
             console.log(username, dob, email, password, type);
             alert('Account Created Successfully. Please Login to continue')
-            history.push('/login');
+            // history.push('/login');
 
         } catch (error) {
             console.error(error);
