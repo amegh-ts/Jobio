@@ -63,7 +63,7 @@ const ChatBody = ({ selectedChatId, selectedChatDetails }) => {
 
     return (
         <div className='chat-body-main'>
-            <p>Chat with {selectedChatId}</p>
+            <p>Chat id {selectedChatId}</p>
             <div className="chat-body-container">
                 {messages.length > 0 ? (
                     <ul className="message-list">
