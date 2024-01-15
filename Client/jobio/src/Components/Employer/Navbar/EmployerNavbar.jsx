@@ -7,7 +7,6 @@ import {
     IoLayers,
     IoChatbubbleEllipses,
     IoSearch,
-    IoPeople,
     IoDocumentText,
     IoCog,
     IoLogOut,
