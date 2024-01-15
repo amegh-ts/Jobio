@@ -1,9 +1,8 @@
+/* eslint-disable react/prop-types */
 import { useEffect, useState } from 'react';
 // import { sendMessage, viewMessages } from '../ApiCalls';
 
-// const ChatBody = ({ selectedChatId }) => {
-const ChatBody = () => {
-    const selectedChatId = 1
+const ChatBody = ({ selectedChatId }) => {
     const [messages, setMessages] = useState([]);
     const [inputMessage, setInputMessage] = useState('');
 
