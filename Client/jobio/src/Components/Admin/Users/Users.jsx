@@ -9,6 +9,10 @@ const Users = ({setActivePageToChats}) => {
     const [filteredUsers, setFilteredUsers] = useState([]);
     const [searchInput, setSearchInput] = useState('');
 
+    const storedData = localStorage.getItem('persist:jobio');
+    const user = storedData ? JSON.parse(JSON.parse(storedData).user) : null;
+    const userId = user?.userInfo?.[0]?.id;    
+
     useEffect(() => {
         async function display() {
             try {
@@ -33,10 +37,6 @@ const Users = ({setActivePageToChats}) => {
           console.log(error);
         }
       };
-
-    const storedData = localStorage.getItem('persist:unknown');
-    const user = storedData ? JSON.parse(JSON.parse(storedData).user) : null;
-    const userId = user?.userInfo?.[0]?.id;
 
     const handleSearchInputChange = (e) => {
         const inputValue = e.target.value;
