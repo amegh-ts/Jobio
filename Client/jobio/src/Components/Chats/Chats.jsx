@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import ChatBody from "./ChatBody";
+import { getAllUsers } from "../ApiCalls";
 
 const Chats = () => {
   const [state, setState] = useState([]);
