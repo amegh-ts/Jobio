@@ -4,7 +4,7 @@ import { GrGroup } from "react-icons/gr";
 import { IoSearch, IoPencil } from "react-icons/io5";
 import { createChat, getAllUsers } from '../../ApiCalls';
 
-const Users = () => {
+const Users = ({setActivePageToChats}) => {
     const [allUsers, setAllUsers] = useState([]);
     const [filteredUsers, setFilteredUsers] = useState([]);
     const [searchInput, setSearchInput] = useState('');
