@@ -5,4 +5,4 @@ const ChatSchema=new mongoose.Schema({
     timestamps:true,
 })
 
-module.exports=mongoose.model("chats",ChatSchema)  //here 'users' is the name of the collection you are creating
+module.exports=mongoose.model("chats",ChatSchema) 
