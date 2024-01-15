@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import './Users.scss';
 import { GrGroup } from "react-icons/gr";
 import { IoSearch, IoPencil } from "react-icons/io5";
-import { getAllUsers } from '../../ApiCalls';
+import { createChat, getAllUsers } from '../../ApiCalls';
 
 const Users = () => {
     const [allUsers, setAllUsers] = useState([]);
@@ -25,14 +25,14 @@ const Users = () => {
     }, []);
 
 
-    // const handleChatButtonClick = async (firstId, secondId) => {
-    //     try {
-    //       await createChat({ firstId, secondId });
-    //       setActivePageToChats();
-    //     } catch (error) {
-    //       console.log(error);
-    //     }
-    //   };
+    const handleChatButtonClick = async (firstId, secondId) => {
+        try {
+          await createChat({ firstId, secondId });
+          setActivePageToChats();
+        } catch (error) {
+          console.log(error);
+        }
+      };
 
     const storedData = localStorage.getItem('persist:unknown');
     const user = storedData ? JSON.parse(JSON.parse(storedData).user) : null;
