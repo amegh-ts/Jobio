@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import ChatBody from "./ChatBody";
 
 const Chats = () => {
@@ -11,19 +11,19 @@ const Chats = () => {
     const user = storedData ? JSON.parse(JSON.parse(storedData).user) : null;
     const senderId = user?.userInfo?.[0]?.id;
 
-    // useEffect(() => {
-    //     async function fetchData() {
-    //         try {
-    //             const allusers = await getUsers();
-    //             setData(allusers);
-    //             const apiData = await userChats();
-    //             setState(apiData);
-    //         } catch (error) {
-    //             console.log(error);
-    //         }
-    //     }
-    //     fetchData();
-    // }, []);
+    useEffect(() => {
+        async function fetchData() {
+            try {
+                const allusers = await getAllUsers();
+                setData(allusers);
+                const apiData = await userChats();
+                setState(apiData);
+            } catch (error) {
+                console.log(error);
+            }
+        }
+        fetchData();
+    }, []);
 
     // const secondMembers = state.map(item => item.members[1]);
     // console.log('-------------------', secondMembers);
