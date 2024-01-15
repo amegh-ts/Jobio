@@ -97,3 +97,50 @@ export const otpValidation=async(data)=>{
         console.log(error);
     }
 }
+
+
+// <-------------------Chats-------------------> //
+export const createChat = async (data) => {
+    console.log(data);
+    try {
+        const res = await userRequest.post('/createchat', data)
+        console.log(res);
+    } catch (error) {
+        console.log(error);
+    }
+}
+
+// user chats
+export const userChats = async () => {
+    try {
+        const res = await userRequest.get(`/chats/${userId}`)
+        console.log('Response Status:', res.status);
+        return res.data
+    } catch (error) {
+        console.log(error);
+    }
+}
+
+// send message
+export const sendMessage = async (chatId, senderId, text) => {
+    try {
+        const res = await userRequest.post(`/chat/messages/`, {
+            chatId: chatId,
+            senderId: senderId,
+            text: text,
+        });
+        return res.data;
+    } catch (error) {
+        console.log(error);
+    }
+};
+
+// fetch chat b/w users
+export const viewMessages = async (chatId) => {
+    try {
+        const res = await userRequest.get(`/chat/messages/${chatId}`)
+        return res.data
+    } catch (error) {
+        console.log(error);
+    }
+}
