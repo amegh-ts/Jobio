@@ -2,9 +2,11 @@
 import { useEffect, useState } from 'react';
 import { sendMessage, viewMessages } from '../ApiCalls';
 
-const ChatBody = ({ selectedChatId }) => {
+const ChatBody = ({ selectedChatId,selectedChatName }) => {
     const [messages, setMessages] = useState([]);
     const [inputMessage, setInputMessage] = useState('');
+
+    console.log('selected user',selectedChatName);
 
     const storedData = localStorage.getItem('persist:jobio');
     const user = storedData ? JSON.parse(JSON.parse(storedData).user) : null;
