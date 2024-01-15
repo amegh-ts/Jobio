@@ -14,6 +14,7 @@ const Signup = () => {
     const onClick = () => {
         try {
             signUpData({ username, dob, email, password, type })
+            console.log(username, dob, email, password, type);
             alert('Account Created Successfully. Please Login to continue')
             history.push('/login');
 
