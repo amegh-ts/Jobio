@@ -234,38 +234,37 @@
             }
         }
 
-        .forgotpass-popup{
+        .forgotpass-popup {
             display: flex;
             flex-direction: column;
             justify-content: center;
             gap: 10px;
 
 
-            .forgotpass-container{
+            .forgotpass-container {
                 display: flex;
                 align-items: center;
                 gap: 20px;
                 flex-direction: column;
                 background: var(--body-color);
                 border-radius: 10px;
-
                 padding: 100px;
 
-                .otp-prompt{
-                    span{
+                .otp-prompt {
+                    span {
                         letter-spacing: 1px;
                         word-spacing: 1px;
                         font-weight: 600;
                     }
                 }
 
-                .otp-input{
+                .otp-input {
                     display: flex;
                     flex-direction: row;
                     justify-content: center;
                     gap: 10px;
 
-                    input{
+                    input {
                         width: 20px;
                         height: 20px;
                         font-size: 20px;
@@ -274,12 +273,12 @@
                     }
                 }
 
-                .timer{
+                .timer {
                     color: var(--text-color);
                     font-size: 14px;
                 }
 
-                .submit-btn{
+                .submit-btn {
                     background: var(--primary-color);
                     padding: 10px 20px;
                     color: white;
@@ -296,5 +295,42 @@
         }
 
 
+        .resetpass-popup {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            gap: 10px;
+
+            .resetpass-container {
+                display: flex;
+                align-items: center;
+                gap: 20px;
+                flex-direction: column;
+                background: var(--body-color);
+                border-radius: 10px;
+                padding: 100px;
+
+                .resetpass-prompt {
+                    span {
+                        letter-spacing: 1px;
+                        word-spacing: 1px;
+                        font-weight: 600;
+                    }
+                }
+
+                .resetpass-input{
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: center;
+                    gap: 10px;
+
+                    input {
+                      padding: 10px;
+                      outline: none;
+                      border-radius: 10px;
+                    }
+                }
+            }
+        }
     }
 }

@@ -140,8 +140,13 @@ const ForgotPassword = () => {
                                 <div className="resetpass-popup">
                                     <h3>Reset Password</h3>
                                     <div className="resetpass-container">
-                                        <input type="password" placeholder='New Password' />
-                                        <input type="password" placeholder='Confirm Password' />
+                                        <div className="resetpass-prompt">
+                                            <span>Enter your new password</span>
+                                        </div>
+                                        <div className="resetpass-input">
+                                            <input type="password" placeholder='New Password' />
+                                            <input type="password" placeholder='Confirm Password' />
+                                        </div>
                                     </div>
                                 </div>
                             </Popup>
