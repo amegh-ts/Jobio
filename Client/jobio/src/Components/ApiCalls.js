@@ -105,7 +105,7 @@ export const otpValidation = async (data) => {
 export const changePassword=async(data)=>{
     console.log(data);
     try {
-        const res=await publicRequest.put('/changepass')
+        const res=await publicRequest.put('/changepass',data)
         console.log('Response Status:', res);
     } catch (error) {
         console.log(error);
