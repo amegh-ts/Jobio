@@ -1,5 +1,6 @@
 const nodemailer = require('nodemailer');
 const mailer = require('../Models/ForgotPasswordSchema');
+const Crypto = require('crypto-js')
 const dotenv = require('dotenv');
 
 const transporter = nodemailer.createTransport({
@@ -86,4 +87,30 @@ const otpValidation = async (req, res) => {
     }
 }
 
-module.exports = { forgotPassword, clearExpiredOtps, otpValidation };
+const changePassword = async (req, res) => {
+    const { email, password } = req.body;
+    if (!email || !password) {
+        return res.status(400).json({ error: 'Email and password are required.' });
+    }
+    try {
+        const encryptedPassword = Crypto.AES.encrypt(password, process.env.CRYPTO_KEY).toString();
+        const storedData = await mailer.findOne({ email });
+        if (storedData) {
+            const updateData = await mailer.findOneAndUpdate(
+                { email },
+                { $set: { password: encryptedPassword } },
+                { new: true }
+            );
+            return res.status(200).json(updateData);
+        } else {
+            console.log('Email verification failed');
+            return res.status(404).json({ error: 'Email not found.' });
+        }
+    } catch (error) {
+        console.error(error);
+        return res.status(500).json({ error: 'Internal Server Error' });
+    }
+};
+
+
+module.exports = { forgotPassword, clearExpiredOtps, otpValidation, changePassword };
