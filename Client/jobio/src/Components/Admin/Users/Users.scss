@@ -77,7 +77,9 @@
 
     .edit-chat {
       display: flex;
+      align-items: center;
       gap: 10px;
+      
 
       button {
         background: var(--primary-color);
@@ -85,16 +87,13 @@
         cursor: pointer;
         padding: 10px;
         color: white;
-        border-radius: 20px;
+        border-radius: 50%;
         display: flex;
         align-items: center;
+        font-size: 20px;
 
         &:hover {
           box-shadow: 0px 0px 10px var(--primary-color);
-        }
-
-        .bicon {
-          font-size: 20px;
         }
       }
     }
