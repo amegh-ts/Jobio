@@ -5,7 +5,7 @@ const Jwt = require('jsonwebtoken');
 
 const setUserState = async () => {
     try {
-        const threeDaysAgo = new Date(Date.now() - 3 * 60 * 1000);
+        const threeDaysAgo = new Date(Date.now() - 60 * 1000);
         // const threeDaysAgo = new Date(Date.now() - 3 * 24 * 60 * 60 * 1000);
 
         // Find users who are active and haven't logged in for 3 days or more
@@ -45,16 +45,15 @@ const signIn = async (req, res) => {
         const DB = await userController.findOne({ email: req.body.email });
         !DB && res.status(401).json({ response: 'Please check Your Email' });
 
-        // Check if the user is inactive and update the state to active
         if (DB.state === 'inactive') {
             await userController.findByIdAndUpdate(DB._id, { $set: { state: 'active' } });
+            console.log('Updated to active');
         }
 
         const hashedPassword = Crypto.AES.decrypt(DB.password, process.env.Crypto_js);
         const originalPassword = hashedPassword.toString(Crypto.enc.Utf8);
         originalPassword !== req.body.password && res.status(401).json({ response: "Password and Email don't match" });
 
-        // Update lastLogin on successful login
         await userController.findByIdAndUpdate(DB._id, { $set: { lastLogin: Date.now() } });
 
         const accessToken = Jwt.sign({ id: DB._id }, process.env.Jwt_Key, { expiresIn: '5d' });
@@ -64,6 +63,7 @@ const signIn = async (req, res) => {
         res.status(500).json(error);
     }
 };
+
 
 //all users
 const allUsers = async (req, res) => {
