@@ -10,11 +10,9 @@ const userId = user?.userInfo?.[0]?.id;
 // signup
 export const signUpData = async (data) => {
     const newData = { ...data, status: 'active' }
-
-    console.log('first check', data);
+    // console.log('first check', data);
     try {
         const res = await publicRequest.post('/signup', newData);
-        console.log('************************');
         console.log('Response Status:', res.status);
     } catch (err) {
         console.log(err);
