@@ -78,8 +78,8 @@ export const deleteProfile = async () => {
 
 // <-------------------forgot pass-------------------> //
 // forgot password
-export const forgotPassword=async(data)=>{
-    console.log('data check',data);
+export const forgotPassword = async (data) => {
+    console.log('data check', data);
     try {
         const res = await publicRequest.post('/forgotpassword', data)
         console.log('Response Status:', res.status);
@@ -90,13 +90,13 @@ export const forgotPassword=async(data)=>{
 }
 
 // otp validation
-export const otpValidation=async(data)=>{
-    console.log('otp validation data',data);
+export const otpValidation = async (data) => {
+    console.log('otp validation data', data);
     try {
         const res = await publicRequest.post('/otpvalidation', data)
         console.log('Response Status:', res);
-return res.data;
-        
+        return res.data;
+
     } catch (error) {
         console.log(error);
     }
