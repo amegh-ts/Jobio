@@ -102,6 +102,15 @@ export const otpValidation = async (data) => {
     }
 }
 
+export const changePassword=async(data)=>{
+    console.log(data);
+    try {
+        const res=await publicRequest.put('/')
+    } catch (error) {
+        console.log(error);
+    }
+}
+
 
 // <-------------------Chats-------------------> //
 // create chat

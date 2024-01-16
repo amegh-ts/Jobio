@@ -89,7 +89,7 @@ const ForgotPassword = () => {
         try {
             if (password) {
                 newPassword == password;
-                await editProfile({ password })
+                await editProfile({ email,password })
                 alert('Successfully Changed Password');
                 // window.location.reload();
             }
