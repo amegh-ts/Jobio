@@ -45,7 +45,6 @@ const Users = ({ setActivePageToChats }) => {
         const filtered = allUsers.filter(user =>
             user.username.toLowerCase().includes(inputValue.toLowerCase()) ||
             user.email.toLowerCase().includes(inputValue.toLowerCase()) ||
-            user.phone.includes(inputValue.toLowerCase()) ||
             user.type.toLowerCase().includes(inputValue.toLowerCase())
         );
         setFilteredUsers(filtered);
