@@ -44,7 +44,7 @@ const signIn = async (req, res) => {
     try {
         const DB = await userController.findOne({ email: req.body.email });
         !DB && res.status(401).json({ response: 'Please check Your Email' });
-
+        
         if (DB.state === 'inactive') {
             await userController.findByIdAndUpdate(DB._id, { $set: { state: 'active' } });
             console.log('Updated to active');
