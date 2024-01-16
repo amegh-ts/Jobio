@@ -67,9 +67,7 @@ const forgotPassword = async (req, res) => {
 const otpValidation = async (req, res) => {
     // console.log(req.body);
     const { email, formattedOtp } = req.body;
-
     console.log(formattedOtp);
-
     try {
         const storedData = await mailer.findOne({ email: email });
         // console.log('stored data', storedData);
