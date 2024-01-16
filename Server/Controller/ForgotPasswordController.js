@@ -94,14 +94,12 @@ const changePassword = async (req, res) => {
         return res.status(400).json({ error: 'Email and password are required.' });
     }
     try {
-        const encryptedPassword = Crypto.AES.encrypt(password, process.env.CRYPTO_KEY).toString();
+        console.log('jjjjjjjjjjjjjjjjjjjjjjj');
+        const encryptedPassword =Crypto.AES.encrypt(password, process.env.Crypto_js).toString();
+        console.log('enc pass',encryptedPassword);
         const storedData = await mailer.findOne({ email });
         if (storedData) {
-            const updateData = await mailer.findOneAndUpdate(
-                { email },
-                { $set: { password: encryptedPassword } },
-                { new: true }
-            );
+            const updateData = await mailer.findOneAndUpdate({ email },{ $set: { password: encryptedPassword } },{ new: true });
             return res.status(200).json(updateData);
         } else {
             console.log('Email verification failed');
