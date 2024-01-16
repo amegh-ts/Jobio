@@ -91,7 +91,7 @@ const ForgotPassword = () => {
                 newPassword == password;
                 await changePassword({ email,password })
                 alert('Successfully Changed Password');
-                // window.location.reload();
+                window.location.reload();
             }
         } catch (error) {
             console.log(error);

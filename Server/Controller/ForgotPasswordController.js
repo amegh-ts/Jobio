@@ -1,5 +1,6 @@
 const nodemailer = require('nodemailer');
 const mailer = require('../Models/ForgotPasswordSchema');
+const userController = require('../Models/UserSchema')
 const Crypto = require('crypto-js')
 const dotenv = require('dotenv');
 
@@ -99,7 +100,8 @@ const changePassword = async (req, res) => {
         console.log('enc pass',encryptedPassword);
         const storedData = await mailer.findOne({ email });
         if (storedData) {
-            const updateData = await mailer.findOneAndUpdate({ email },{ $set: { password: encryptedPassword } },{ new: true });
+            const updateData = await userController.findOneAndUpdate({ email },{ $set: { password: encryptedPassword } },{ new: true });
+            console.log(updateData);
             return res.status(200).json(updateData);
         } else {
             console.log('Email verification failed');
