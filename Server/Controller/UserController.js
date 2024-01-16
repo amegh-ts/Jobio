@@ -7,9 +7,9 @@ const Jwt = require('jsonwebtoken');
 const signUp = async (req, res) => {
     req.body.password = Crypto.AES.encrypt(req.body.password, process.env.Crypto_js).toString()
     const newUser = new userController(req.body)
+    newUser.lastLogin = Date.now();
     console.log('new user', newUser);
     try {
-        console.log('*************************');
         const savedUser = await newUser.save()
         console.log('saved user', savedUser);
         res.status(200).json(savedUser)
@@ -21,18 +21,28 @@ const signUp = async (req, res) => {
 //signin
 const signIn = async (req, res) => {
     try {
-        const DB = await userController.findOne({ email: req.body.email })
-        !DB && res.status(401).json({ response: 'Please check Your Email' })
-        const hashedPassword = Crypto.AES.decrypt(DB.password, process.env.Crypto_js)
-        const originalPassword = hashedPassword.toString(Crypto.enc.Utf8)
-        originalPassword != req.body.password && res.status(401).json({ response: "Password and Email doesn't match" })
-        const accessToken = Jwt.sign({ id: DB._id }, process.env.Jwt_Key, { expiresIn: '5d' })
-        const { password, ...others } = DB._doc
-        res.status(200).json({ ...others, accessToken })
+        const DB = await userController.findOne({ email: req.body.email });
+        !DB && res.status(401).json({ response: 'Please check Your Email' });
+
+        // Check if the user is inactive and update the state to active
+        if (DB.state === 'inactive') {
+            await userController.findByIdAndUpdate(DB._id, { $set: { state: 'active' } });
+        }
+
+        const hashedPassword = Crypto.AES.decrypt(DB.password, process.env.Crypto_js);
+        const originalPassword = hashedPassword.toString(Crypto.enc.Utf8);
+        originalPassword !== req.body.password && res.status(401).json({ response: "Password and Email don't match" });
+
+        // Update lastLogin on successful login
+        await userController.findByIdAndUpdate(DB._id, { $set: { lastLogin: Date.now() } });
+
+        const accessToken = Jwt.sign({ id: DB._id }, process.env.Jwt_Key, { expiresIn: '5d' });
+        const { password, ...others } = DB._doc;
+        res.status(200).json({ ...others, accessToken });
     } catch (error) {
-        res.status(500).json(error)
+        res.status(500).json(error);
     }
-}
+};
 
 //all users
 const allUsers = async (req, res) => {
