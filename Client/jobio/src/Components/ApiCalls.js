@@ -24,8 +24,8 @@ export const signInData = async (loginData, dispatch) => {
     try {
         const res = await publicRequest.post('/signin', loginData)
         console.log('Response Status:', res.status);
-        const { _id: id, accessToken, type,state } = res.data;
-        const userData = { id, accessToken, type,state };
+        const { _id: id, accessToken, type, state } = res.data;
+        const userData = { id, accessToken, type, state };
         dispatch(loginUser(userData))
     } catch (error) {
         console.log(error);
@@ -102,10 +102,10 @@ export const otpValidation = async (data) => {
     }
 }
 
-export const changePassword=async(data)=>{
+export const changePassword = async (data) => {
     console.log(data);
     try {
-        const res=await publicRequest.put('/changepass',data)
+        const res = await publicRequest.put('/changepass', data)
         console.log('Response Status:', res);
     } catch (error) {
         console.log(error);
