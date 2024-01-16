@@ -5,8 +5,7 @@ const Jwt = require('jsonwebtoken');
 
 const setUserState = async () => {
     try {
-        const threeDaysAgo = new Date(Date.now() - 1 * 60 * 1000);
-        // const threeDaysAgo = new Date(Date.now() - 3 * 24 * 60 * 60 * 1000);
+        const threeDaysAgo = new Date(Date.now() - 3 * 24 * 60 * 60 * 1000);
 
         // Find users who are active and haven't logged in for 3 days or more
         const inactiveUsers = await userController.updateMany(
@@ -20,7 +19,7 @@ const setUserState = async () => {
 };
 
 // Run the function every 3 mins (adjust as needed)
-setInterval(setUserState, 20 * 1000);
+setInterval(setUserState, 60 * 60 * 1000);
 
 
 
@@ -47,11 +46,11 @@ const signIn = async (req, res) => {
 
         console.log(DB.state);
         if (DB.state == 'inactive') {
-          const dataone=  await userController.findByIdAndUpdate(DB._id, { $set: {state:'active'}  },{new:true});
-            console.log('Updated to active',dataone);
+            const dataone = await userController.findByIdAndUpdate(DB._id, { $set: { state: 'active' } }, { new: true });
+            console.log('Updated to active', dataone);
         }
 
-        const updatedata=await userController.findById(DB._id)
+        const updatedata = await userController.findById(DB._id)
         const hashedPassword = Crypto.AES.decrypt(DB.password, process.env.Crypto_js);
         const originalPassword = hashedPassword.toString(Crypto.enc.Utf8);
         originalPassword !== req.body.password && res.status(401).json({ response: "Password and Email don't match" });
@@ -60,7 +59,7 @@ const signIn = async (req, res) => {
 
         const accessToken = Jwt.sign({ id: DB._id }, process.env.Jwt_Key, { expiresIn: '5d' });
         const { password, ...others } = updatedata._doc;
-       
+
         res.status(200).json({ ...others, accessToken });
     } catch (error) {
         res.status(500).json(error);
