@@ -1,17 +1,18 @@
+/* eslint-disable react/prop-types */
 import { useEffect, useState } from 'react';
 import './Users.scss';
 import { GrGroup } from "react-icons/gr";
 import { IoSearch, IoPencil } from "react-icons/io5";
 import { createChat, getAllUsers } from '../../ApiCalls';
 
-const Users = ({setActivePageToChats}) => {
+const Users = ({ setActivePageToChats }) => {
     const [allUsers, setAllUsers] = useState([]);
     const [filteredUsers, setFilteredUsers] = useState([]);
     const [searchInput, setSearchInput] = useState('');
 
     const storedData = localStorage.getItem('persist:jobio');
     const user = storedData ? JSON.parse(JSON.parse(storedData).user) : null;
-    const userId = user?.userInfo?.[0]?.id;    
+    const userId = user?.userInfo?.[0]?.id;
 
     useEffect(() => {
         async function display() {
@@ -31,12 +32,12 @@ const Users = ({setActivePageToChats}) => {
 
     const handleChatButtonClick = async (firstId, secondId) => {
         try {
-          await createChat({ firstId, secondId });
-          setActivePageToChats();
+            await createChat({ firstId, secondId });
+            setActivePageToChats();
         } catch (error) {
-          console.log(error);
+            console.log(error);
         }
-      };
+    };
 
     const handleSearchInputChange = (e) => {
         const inputValue = e.target.value;

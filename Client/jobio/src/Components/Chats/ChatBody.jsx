@@ -68,10 +68,7 @@ const ChatBody = ({ selectedChatId, selectedChatDetails }) => {
                 {messages.length > 0 ? (
                     <ul className="message-list">
                         {messages.map((msg) => (
-                            <li
-                                key={msg._id}
-                                className={`message ${msg.senderId === senderId ? 'sender-message' : 'receiver-message'}`}
-                            >
+                            <li key={msg._id} className={`message ${msg.senderId === senderId ? 'sender-message' : 'receiver-message'}`}>
                                 <div className="message-bubble">{msg.text}</div>
                             </li>
                         ))}
