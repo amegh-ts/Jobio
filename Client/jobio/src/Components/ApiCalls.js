@@ -9,7 +9,7 @@ const userId = user?.userInfo?.[0]?.id;
 
 // signup
 export const signUpData = async (data) => {
-    const newData = { ...data, status: 'active' }
+    const newData = { ...data, state: 'active' }
     // console.log('first check', data);
     try {
         const res = await publicRequest.post('/signup', newData);
@@ -24,8 +24,8 @@ export const signInData = async (loginData, dispatch) => {
     try {
         const res = await publicRequest.post('/signin', loginData)
         console.log('Response Status:', res.status);
-        const { _id: id, accessToken, type } = res.data;
-        const userData = { id, accessToken, type };
+        const { _id: id, accessToken, type,state } = res.data;
+        const userData = { id, accessToken, type,state };
         dispatch(loginUser(userData))
     } catch (error) {
         console.log(error);
