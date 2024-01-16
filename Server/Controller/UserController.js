@@ -5,7 +5,7 @@ const Jwt = require('jsonwebtoken');
 
 const setUserState = async () => {
     try {
-        const threeDaysAgo = new Date(Date.now() - 60 * 1000);
+        const threeDaysAgo = new Date(Date.now() - 2 * 60 * 1000);
         // const threeDaysAgo = new Date(Date.now() - 3 * 24 * 60 * 60 * 1000);
 
         // Find users who are active and haven't logged in for 3 days or more
@@ -13,14 +13,14 @@ const setUserState = async () => {
             { state: 'active', lastLogin: { $lt: threeDaysAgo } }, { $set: { state: 'inactive' } }
         );
 
-        console.log(`${inactiveUsers.nModified} user(s) updated to inactive state.`);
+        console.log(`user(s) updated to inactive state.`);
     } catch (error) {
         console.error('Error updating user states:', error);
     }
 };
 
-// Run the function every 20 seconds (adjust as needed)
-setInterval(setUserState, 20 * 1000);
+// Run the function every 3 mins (adjust as needed)
+setInterval(setUserState, 3 * 60 * 1000);
 
 
 
@@ -44,7 +44,8 @@ const signIn = async (req, res) => {
     try {
         const DB = await userController.findOne({ email: req.body.email });
         !DB && res.status(401).json({ response: 'Please check Your Email' });
-        
+
+        console.log(DB.state);
         if (DB.state === 'inactive') {
             await userController.findByIdAndUpdate(DB._id, { $set: { state: 'active' } });
             console.log('Updated to active');
