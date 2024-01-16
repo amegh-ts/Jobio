@@ -48,7 +48,6 @@ const ForgotPassword = () => {
             setTimer((prevTimer) => (prevTimer > 0 ? prevTimer - 1 : 0));
         }, 1000);
 
-        // Clear the interval when the component unmounts
         return () => clearInterval(countdown);
     }, []);
 
@@ -68,10 +67,10 @@ const ForgotPassword = () => {
         e.preventDefault();
         try {
             const response = await otpValidation({ email, formattedOtp });
-            console.log('Response:', response.status);
-
-            if (response && response.status === 200) {
+            console.log('Response:', response);
+            if (response && response == true) {
                 setResetPassPopup(true);
+
             } else {
                 alert('Invalid OTP. Please try again.');
             }
@@ -140,6 +139,10 @@ const ForgotPassword = () => {
                             <Popup trigger={resetPassPopup} setTrigger={setResetPassPopup}>
                                 <div className="resetpass-popup">
                                     <h3>Reset Password</h3>
+                                    <div className="resetpass-container">
+                                        <input type="password" placeholder='New Password' />
+                                        <input type="password" placeholder='Confirm Password' />
+                                    </div>
                                 </div>
                             </Popup>
 

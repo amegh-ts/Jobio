@@ -92,7 +92,8 @@ export const otpValidation=async(data)=>{
     console.log('otp validation data',data);
     try {
         const res = await publicRequest.post('/otpvalidation', data)
-        console.log('Response Status:', res.status);
+        console.log('Response Status:', res);
+return res.data;
         
     } catch (error) {
         console.log(error);

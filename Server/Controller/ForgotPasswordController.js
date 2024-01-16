@@ -26,7 +26,7 @@ const clearExpiredOtps = async () => {
 };
 
 // Schedule the function to run every minute (adjust as needed)
-// setInterval(clearExpiredOtps, 20 * 1000);
+setInterval(clearExpiredOtps, 20 * 1000);
 
 const forgotPassword = async (req, res) => {
     // console.log(req.body);
@@ -78,9 +78,9 @@ const otpValidation = async (req, res) => {
 
         // code for validation
         if (formattedOtp == storedOtp) {
-            return res.status(200).json({ message: 'OTP is valid' });
+            return res.status(200).json(true);
         } else {
-            return res.status(400).json({ error: 'Invalid OTP' });
+            return res.status(400).json(false);
         }
 
     } catch (error) {
