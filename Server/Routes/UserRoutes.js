@@ -1,4 +1,4 @@
-const { forgotPassword, otpValidation } = require('../Controller/ForgotPasswordController');
+const { forgotPassword, otpValidation, changePassword } = require('../Controller/ForgotPasswordController');
 const { signUp, signIn, allUsers, viewProfile, editProfile, deleteProfile } = require('../Controller/UserController')
 const { verifyToken, verifyTokenAndAuthorization } = require('../VerifyToken');
 
@@ -23,5 +23,7 @@ router.delete('/deleteprofile/:id',verifyToken,verifyTokenAndAuthorization,delet
 router.post('/forgotpassword',forgotPassword)
 // otp validation
 router.post('/otpvalidation',otpValidation)
+// change pass
+router.put('/changepass',changePassword)
 
 module.exports = router
