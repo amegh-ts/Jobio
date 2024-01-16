@@ -5,7 +5,7 @@ const Jwt = require('jsonwebtoken');
 
 const setUserState = async () => {
     try {
-        const threeDaysAgo = new Date(Date.now() -   1*60 * 1000);
+        const threeDaysAgo = new Date(Date.now() - 1 * 60 * 1000);
         // const threeDaysAgo = new Date(Date.now() - 3 * 24 * 60 * 60 * 1000);
 
         // Find users who are active and haven't logged in for 3 days or more
@@ -20,7 +20,7 @@ const setUserState = async () => {
 };
 
 // Run the function every 3 mins (adjust as needed)
-setInterval(setUserState,  20 * 1000);
+setInterval(setUserState, 20 * 1000);
 
 
 
