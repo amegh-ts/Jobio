@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from 'react';
 import './ForgotPassword.scss';
 import Popup from '../../Assets/Popups/Popup';
-import { forgotPassword, otpValidation } from '../ApiCalls';
+import { editProfile, forgotPassword, otpValidation } from '../ApiCalls';
 
 const ForgotPassword = () => {
     const [email, setEmail] = useState('');
@@ -9,6 +9,10 @@ const ForgotPassword = () => {
     const [forgotPassPopup, setForgotPassPopup] = useState(false);
     const [resetPassPopup, setResetPassPopup] = useState(false);
     const [timer, setTimer] = useState(120);
+    const [newPassword, setNewPassword] = useState('');
+    const [password, setPassword] = useState('');
+
+    // console.log({newPassword,confirmPassword});
 
     const otpInputs = useRef([]);
 
@@ -80,6 +84,20 @@ const ForgotPassword = () => {
         }
     };
 
+    const handleNewPass = async (e) => {
+        e.preventDefault();
+        try {
+            if (password) {
+                newPassword == password;
+                await editProfile({ password })
+                alert('Successfully Changed Password');
+                // window.location.reload();
+            }
+        } catch (error) {
+            console.log(error);
+        }
+    }
+
 
     return (
         <div>
@@ -144,8 +162,9 @@ const ForgotPassword = () => {
                                             <span>Enter your new password</span>
                                         </div>
                                         <div className="resetpass-input">
-                                            <input type="password" placeholder='New Password' />
-                                            <input type="password" placeholder='Confirm Password' />
+                                            <input type="password" placeholder='New Password' value={newPassword} onChange={(e) => setNewPassword(e.target.value)} />
+                                            <input type="password" placeholder='Confirm Password' value={password} onChange={(e) => setPassword(e.target.value)} />
+                                            <button onClick={handleNewPass}>SUBMIT</button>
                                         </div>
                                     </div>
                                 </div>
