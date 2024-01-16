@@ -27,7 +27,8 @@ export const signInData = async (loginData, dispatch) => {
         const { _id: id, accessToken, type, state } = res.data;
         const userData = { id, accessToken, type, state };
         console.log('user dataaa',userData);
-        dispatch(loginUser(userData))
+        console.log('where is id',id);
+        dispatch(loginUser())
     } catch (error) {
         console.log(error);
     }

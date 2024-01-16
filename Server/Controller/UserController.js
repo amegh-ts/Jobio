@@ -46,11 +46,12 @@ const signIn = async (req, res) => {
         !DB && res.status(401).json({ response: 'Please check Your Email' });
 
         console.log(DB.state);
-        if (DB.state === 'inactive') {
-            await userController.findByIdAndUpdate(DB._id, { $set: { state: 'active' } });
-            console.log('Updated to active');
+        if (DB.state == 'inactive') {
+          const dataone=  await userController.findByIdAndUpdate(DB._id, { $set: {state:'active'}  },{new:true});
+            console.log('Updated to active',dataone);
         }
 
+        const updatedata=await userController.findById(DB._id)
         const hashedPassword = Crypto.AES.decrypt(DB.password, process.env.Crypto_js);
         const originalPassword = hashedPassword.toString(Crypto.enc.Utf8);
         originalPassword !== req.body.password && res.status(401).json({ response: "Password and Email don't match" });
@@ -58,7 +59,8 @@ const signIn = async (req, res) => {
         await userController.findByIdAndUpdate(DB._id, { $set: { lastLogin: Date.now() } });
 
         const accessToken = Jwt.sign({ id: DB._id }, process.env.Jwt_Key, { expiresIn: '5d' });
-        const { password, ...others } = DB._doc;
+        const { password, ...others } = updatedata._doc;
+       
         res.status(200).json({ ...others, accessToken });
     } catch (error) {
         res.status(500).json(error);
