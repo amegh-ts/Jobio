@@ -95,11 +95,8 @@ const Users = ({ setActivePageToChats }) => {
                                     <td>
                                         <div className="edit-chat">
                                             <button><IoPencil className='bicon' /></button>
-                                            <button><IoChatbubbles className='bicon' /></button>
-                                            <span> </span>
-
-                                            <button onClick={() => handleChatButtonClick(userId, user._id)}>Chat</button>
-                                        </div>
+                                            <button onClick={() => handleChatButtonClick(userId, user._id)}><IoChatbubbles className='bicon' /></button>
+                                            </div>
                                     </td>
                                 </tr>
                             ))}
