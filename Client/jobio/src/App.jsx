@@ -25,19 +25,22 @@ function App() {
     console.log('The state is', state);
     const type = reduxData.type;
     // console.log('The type is', type);
-
-    // Token and User type check
-    if (token) {
-      if (type === 'employee') {
-        content = <ClientNavbar />;
-      } else if (type === 'admin') {
-        content = <AdminNavbar />
-      } else if (type === 'employer') {
-        content = <EmployerNavbar />
-      }
+    if (type == 'banned') {
+      alert('You are Banned')
     } else {
-      // If there's no token, redirect to login
-      content = <Landing />;
+      // Token and User type check
+      if (token) {
+        if (type === 'employee') {
+          content = <ClientNavbar />;
+        } else if (type === 'admin') {
+          content = <AdminNavbar />
+        } else if (type === 'employer') {
+          content = <EmployerNavbar />
+        }
+      } else {
+        // If there's no token, redirect to login
+        content = <Landing />;
+      }
     }
   } else {
     content = <Landing />
@@ -66,7 +69,7 @@ function App() {
     }, {
       path: '/signup',
       element: <Signup />,
-    },{
+    }, {
       path: '/forgotpassword',
       element: <ForgotPassword />,
     },
