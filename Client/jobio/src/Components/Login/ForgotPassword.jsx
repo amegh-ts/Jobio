@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from 'react';
 import './ForgotPassword.scss';
 import Popup from '../../Assets/Popups/Popup';
-import { editProfile, forgotPassword, otpValidation } from '../ApiCalls';
+import { changePassword, forgotPassword, otpValidation } from '../ApiCalls';
 
 const ForgotPassword = () => {
     const [email, setEmail] = useState('');
@@ -89,7 +89,7 @@ const ForgotPassword = () => {
         try {
             if (password) {
                 newPassword == password;
-                await editProfile({ email,password })
+                await changePassword({ email,password })
                 alert('Successfully Changed Password');
                 // window.location.reload();
             }
