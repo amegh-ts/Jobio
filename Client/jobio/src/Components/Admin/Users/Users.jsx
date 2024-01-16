@@ -2,7 +2,7 @@
 import { useEffect, useState } from 'react';
 import './Users.scss';
 import { GrGroup } from "react-icons/gr";
-import { IoSearch, IoPencil } from "react-icons/io5";
+import { IoSearch, IoPencil, IoChatbubbles } from "react-icons/io5";
 import { createChat, getAllUsers } from '../../ApiCalls';
 
 const Users = ({ setActivePageToChats }) => {
@@ -95,7 +95,9 @@ const Users = ({ setActivePageToChats }) => {
                                     <td>
                                         <div className="edit-chat">
                                             <button><IoPencil className='bicon' /></button>
+                                            <button><IoChatbubbles className='bicon' /></button>
                                             <span> </span>
+
                                             <button onClick={() => handleChatButtonClick(userId, user._id)}>Chat</button>
                                         </div>
                                     </td>
