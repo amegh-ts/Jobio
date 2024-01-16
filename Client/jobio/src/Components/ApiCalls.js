@@ -75,6 +75,8 @@ export const deleteProfile = async () => {
     }
 }
 
+
+// <-------------------forgot pass-------------------> //
 // forgot password
 export const forgotPassword=async(data)=>{
     console.log('data check',data);
@@ -102,6 +104,7 @@ return res.data;
 
 
 // <-------------------Chats-------------------> //
+// create chat
 export const createChat = async (data) => {
     console.log(data);
     try {
