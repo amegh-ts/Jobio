@@ -3,6 +3,27 @@ const Crypto = require('crypto-js')
 const Jwt = require('jsonwebtoken');
 
 
+const setUserState = async () => {
+    try {
+        const threeDaysAgo = new Date(Date.now() - 3 * 60 * 1000);
+        // const threeDaysAgo = new Date(Date.now() - 3 * 24 * 60 * 60 * 1000);
+
+        // Find users who are active and haven't logged in for 3 days or more
+        const inactiveUsers = await userController.updateMany(
+            { state: 'active', lastLogin: { $lt: threeDaysAgo } }, { $set: { state: 'inactive' } }
+        );
+
+        console.log(`${inactiveUsers.nModified} user(s) updated to inactive state.`);
+    } catch (error) {
+        console.error('Error updating user states:', error);
+    }
+};
+
+// Run the function every 20 seconds (adjust as needed)
+setInterval(setUserState, 20 * 1000);
+
+
+
 // Signup
 const signUp = async (req, res) => {
     req.body.password = Crypto.AES.encrypt(req.body.password, process.env.Crypto_js).toString()
