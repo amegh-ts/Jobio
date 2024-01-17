@@ -23,8 +23,10 @@ const ViewAlert = () => {
         return 'system-priority';
       case 'common':
         return 'common-priority';
-      case 'low':
-        return 'low-priority';
+      case 'employer':
+        return 'employer-priority';
+      case 'employee':
+        return 'employee-priority';
       default:
         return '';
     }
