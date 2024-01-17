@@ -11,23 +11,23 @@ router.post('/signup', signUp)
 //signin
 router.post('/signin', signIn)
 // all users
-router.get('/allusers',verifyToken,allUsers)
+router.get('/allusers', verifyToken, allUsers)
 // view profile
-router.get('/Viewprofile/:id',verifyToken,verifyTokenAndAuthorization,viewProfile)
+router.get('/Viewprofile/:id', verifyToken, verifyTokenAndAuthorization, viewProfile)
 // edit profile
-router.put('/editprofile/:id',verifyToken,verifyTokenAndAuthorization,editProfile)
+router.put('/editprofile/:id', verifyToken, verifyTokenAndAuthorization, editProfile)
 // delete profile
-router.delete('/deleteprofile/:id',verifyToken,verifyTokenAndAuthorization,deleteProfile)
+router.delete('/deleteprofile/:id', verifyToken, verifyTokenAndAuthorization, deleteProfile)
 // forgot password
-router.post('/forgotpassword',forgotPassword)
+router.post('/forgotpassword', forgotPassword)
 // otp validation
-router.post('/otpvalidation',otpValidation)
+router.post('/otpvalidation', otpValidation)
 // change pass
-router.put('/changepass',changePassword)
+router.put('/changepass', changePassword)
 
 // send alert
-router.post('/sendalert',verifyToken,verifyTokenAndAuthorization,sendAlert)
+router.post('/sendalert', verifyToken, verifyTokenAndAuthorization, sendAlert)
 // get alert
-router.get('/getalert',verifyToken,verifyTokenAndAuthorization,getAlert)
+router.get('/getalert', verifyToken, verifyTokenAndAuthorization, getAlert)
 
 module.exports = router
