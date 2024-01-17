@@ -8,16 +8,19 @@ const setUserState = async () => {
         const threeDaysAgo = new Date(Date.now() - 3 * 24 * 60 * 60 * 1000);
 
         const inactiveUsers = await userController.updateMany(
-            { state: 'active', lastLogin: { $lt: threeDaysAgo } }, { $set: { state: 'inactive' } }, { new: true }
+            { state: 'active', lastLogin: { $lt: threeDaysAgo } },
+            { $set: { state: 'inactive' } },
+            { new: true }
         );
 
-        console.log(`user(s) updated to inactive state.`);
+        console.log(`${inactiveUsers.nModified} user(s) updated to inactive state.`);
     } catch (error) {
         console.error('Error updating user states:', error);
     }
 };
 
 setInterval(setUserState, 60 * 60 * 1000);
+
 
 
 
