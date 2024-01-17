@@ -10,7 +10,9 @@ import { IoPersonOutline } from "react-icons/io5";
 const Home = () => {
   const [userList, setUserList] = useState([]);
   const [totalUser, setTotalUser] = useState([]);
-
+  const [admins, setAdmin] = useState(0)
+  const [employer, setEmployer] = useState(0)
+  const [employee, setEmployee] = useState(0)
 
   useEffect(() => {
     async function display() {
@@ -18,13 +20,23 @@ const Home = () => {
         const users = await getAllUsers();
         console.log(users);
         setUserList(users);
+
         setTotalUser(users.length)
+        const admins = users.filter(user => user.type === 'admin');
+        setAdmin(admins.length);
+        const employer = users.filter(user => user.type === 'employer');
+        setEmployer(employer.length);
+        const employee = users.filter(user => user.type === 'employee');
+        setEmployee(employee.length);
+
       } catch (error) {
         console.log(error);
       }
     }
     display()
   }, []);
+
+  console.log(totalUser);
 
   const userCountByDay = userList.reduce((countByDay, user) => {
     const date = user.createdAt.split('T')[0];
@@ -74,23 +86,30 @@ const Home = () => {
               <i>
                 <IoPersonOutline />
               </i>
-              <p>Clients</p>
-              <span>{clients}</span>
+              <p>Employee</p>
+              <span>{employee}</span>
             </div>
             <div className="admin-dash-card b-card3">
               <i>
                 <IoPersonOutline />
               </i>
-              <p>Total Users</p>
-              <span>{state}</span>
+              <p>Employer</p>
+              <span>{employer}</span>
             </div>
             <div className="admin-dash-card b-card4">
               <i>
                 <IoPersonOutline />
               </i>
+              <p>Total Users</p>
+              <span>{totalUser}</span>
+            </div>
+            {/* <div className="admin-dash-card b-card4">
+              <i>
+                <IoPersonOutline />
+              </i>
               <p>Maximum Users</p>
               <span>200</span>
-            </div>
+            </div> */}
           </div>
         </div>
       </div>
