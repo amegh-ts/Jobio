@@ -48,6 +48,9 @@ const ViewAlert = () => {
                   <h6>  {new Date(alert.createdAt).toLocaleString()}</h6>
                   <p>{alert.alert}</p>
                 </div>
+                <div>
+                  gg
+                </div>
               </div>
             ))}
         </div>
