@@ -1,14 +1,15 @@
 import { useEffect, useState } from "react";
 import { CiBellOn } from "react-icons/ci";
 import './ViewAlert.css'
+import { getAlert } from "../../ApiCalls";
 
 const ViewAlert = () => {
   const [state, setState] = useState([]);
 
   useEffect(() => {
     async function display() {
-      // const notifications = await getNotification();
-      // setState(notifications);
+      const notifications = await getAlert();
+      setState(notifications);
     }
     display()
 
