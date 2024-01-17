@@ -4,6 +4,8 @@ import './Home.scss';
 import { LineChart } from '@mui/x-charts/LineChart';
 import { getAllUsers } from '../../ApiCalls';
 import { IoPersonOutline } from "react-icons/io5";
+import { FaCrown,FaUserTie,FaUser,FaPeopleGroup } from "react-icons/fa6";
+
 
 
 
@@ -75,35 +77,35 @@ const Home = () => {
             />
           </div>
           <div className="htr">
-            <div className="admin-dash-card b-card1">
+            <div className="htr-card card1">
               <i>
-                <IoPersonOutline />
+              <FaCrown />
               </i>
               <p>Admins</p>
               <span>{admins}</span>
             </div>
-            <div className="admin-dash-card b-card2">
+            <div className="htr-card card2">
               <i>
-                <IoPersonOutline />
-              </i>
-              <p>Employee</p>
-              <span>{employee}</span>
-            </div>
-            <div className="admin-dash-card b-card3">
-              <i>
-                <IoPersonOutline />
+                <FaUserTie />
               </i>
               <p>Employer</p>
               <span>{employer}</span>
             </div>
-            <div className="admin-dash-card b-card4">
+            <div className="htr-card card3">
               <i>
-                <IoPersonOutline />
+                <FaUser />
+              </i>
+              <p>Employee</p>
+              <span>{employee}</span>
+            </div>
+            <div className="htr-card card4">
+              <i>
+                <FaPeopleGroup />
               </i>
               <p>Total Users</p>
               <span>{totalUser}</span>
             </div>
-            {/* <div className="admin-dash-card b-card4">
+            {/* <div className="htr-card card4">
               <i>
                 <IoPersonOutline />
               </i>
