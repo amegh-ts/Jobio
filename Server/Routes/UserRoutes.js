@@ -26,7 +26,7 @@ router.post('/otpvalidation', otpValidation)
 router.put('/changepass', changePassword)
 
 // send alert
-router.post('/sendalert', verifyToken, verifyTokenAndAuthorization, sendAlert)
+router.post('/sendalert', verifyToken, sendAlert)
 // get alert
 router.get('/getalert', verifyToken, verifyTokenAndAuthorization, getAlert)
 
