@@ -1,17 +1,20 @@
-
 .send-notification-main {
     padding: 20px;
     display: flex;
     justify-content: center;
 }
 
-.container{
+.container {
     background-color: var(--sidebar-color);
     padding: 10px;
     border-radius: 10px;
     width: 900px;
     max-width: 900px;
+    box-shadow: 1px 1px 10px rgb(166, 166, 166);
+
 }
+
+
 
 .send-notification-header {
     display: flex;
@@ -57,13 +60,16 @@ textarea {
     border-radius: 10px;
     font-size: 18px;
     color: white;
+    margin-bottom: 10px;
+
 }
 
 .send-notification-body button:hover {
     cursor: pointer;
+    box-shadow: 1px 1px 10px var(--primary-color);
 }
 
-.send-notification-body select{
+.send-notification-body select {
     padding: 10px;
     outline: none;
     background-color: #eaeaea;
