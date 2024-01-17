@@ -19,10 +19,10 @@ const ViewAlert = () => {
 
   const getPriorityColor = (priority) => {
     switch (priority) {
-      case 'high':
-        return 'high-priority';
-      case 'medium':
-        return 'medium-priority';
+      case 'system':
+        return 'system-priority';
+      case 'common':
+        return 'common-priority';
       case 'low':
         return 'low-priority';
       default:
