@@ -46,7 +46,7 @@ const Users = ({ setActivePageToChats }) => {
         const filtered = allUsers.filter(user =>
             user.username.toLowerCase().includes(inputValue.toLowerCase()) ||
             user.email.toLowerCase().includes(inputValue.toLowerCase()) ||
-            user.state.toLowerCase().includes(inputValue.toLowerCase()) ||
+            // user.state.toLowerCase().includes(inputValue.toLowerCase()) ||
             user.type.toLowerCase().includes(inputValue.toLowerCase())
         );
         setFilteredUsers(filtered);
@@ -54,15 +54,15 @@ const Users = ({ setActivePageToChats }) => {
 
     const handleFilterClick = () => {
         setFilterStatus(filterStatus === 'active' ? 'banned' : 'active');
-        
-        // Update filteredUsers based on the new filterStatus
-        const filtered = allUsers.filter(user =>
-            filterStatus === 'banned' ? user.isBanned : true
-        );
+
+        const filtered = allUsers.filter(user => {
+            return filterStatus === 'banned' ? user.state === 'banned' : true;
+        });
         setFilteredUsers(filtered);
+
     };
-    
-    
+
+
 
     return (
         <div>
@@ -83,8 +83,9 @@ const Users = ({ setActivePageToChats }) => {
                             <IoSearch />
                         </div>
                         <div className={`all-user-filter ${filterStatus === 'banned' ? 'active' : ''}`} onClick={handleFilterClick}>
-                            <FaFilter style={{ color: filterStatus === 'banned' ? 'green' : 'inherit' }} />
+                            <FaFilter style={{ color: filterStatus === 'active' ? 'green' : 'red' }} />
                         </div>
+
                     </div>
                 </div>
                 <div className="table-container">
