@@ -7,10 +7,8 @@ const router = require('express').Router()
 
 // Signup
 router.post('/signup', signUp)
-
 //signin
 router.post('/signin', signIn)
-
 // all users
 router.get('/allusers',verifyToken,allUsers)
 // view profile
