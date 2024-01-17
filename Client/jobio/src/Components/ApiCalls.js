@@ -113,6 +113,19 @@ export const changePassword = async (data) => {
 }
 
 
+// <-------------------Alerts-------------------> //
+// send alert
+export const sendAlert=async(data)=>{
+    try {
+        const newData = { ...data, user: 'Admin' }
+        const res = await userRequest.post('/sendalert', newData)
+        console.log('Response Status:', res.status);
+    } catch (error) {
+        console.log(error);
+    }
+}
+
+
 // <-------------------Chats-------------------> //
 // create chat
 export const createChat = async (data) => {
