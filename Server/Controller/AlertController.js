@@ -9,3 +9,7 @@ const sendAlert = async (req, res) => {
         res.status(500).json(error)
     }
 }
+
+const getAlert=async(req,res)=>{
+    
+}
