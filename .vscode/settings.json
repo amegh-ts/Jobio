@@ -12,12 +12,14 @@
         "firstname",
         "forgotpass",
         "forgotpassword",
+        "getalert",
         "jobio",
         "lastname",
         "Otps",
         "otpvalidation",
         "Repost",
         "resetpass",
+        "sendalert",
         "tada",
         "Viewprofile"
     ]
