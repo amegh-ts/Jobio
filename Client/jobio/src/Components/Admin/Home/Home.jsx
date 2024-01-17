@@ -16,6 +16,12 @@ const Home = () => {
   const [employer, setEmployer] = useState(0)
   const [employee, setEmployee] = useState(0)
 
+  const [active, setActive] = useState(0)
+  const [inactive, setInactive] = useState(0)
+  const [banned, setBanned] = useState(0)
+
+
+
   useEffect(() => {
     async function display() {
       try {
@@ -30,6 +36,14 @@ const Home = () => {
         setEmployer(employer.length);
         const employee = users.filter(user => user.type === 'employee');
         setEmployee(employee.length);
+
+        const active=users.filter(user=>user.state==='active')
+        setActive(active.length)
+        const inactive=users.filter(user=>user.state==='inactive')
+        setInactive(inactive.length)
+        const banned=users.filter(user=>user.state==='banned')
+        setBanned(banned.length)
+        
 
       } catch (error) {
         console.log(error);
@@ -51,9 +65,10 @@ const Home = () => {
 
 
   const data = [
-    { id: 0, value: admins, label: 'Admins' ,color:'#00000'},
-    { id: 1, value: 1, label: 'series B' },
-    { id: 2, value: 20, label: 'series C' },
+    { id: 0, value: totalUser, label: 'Total' ,color:'#767676'},
+    { id: 1, value: active, label: 'Active' ,color:'#008000'},
+    { id: 2, value: inactive, label: 'Inactive', color:'#695cfe' },
+    { id: 3, value: banned, label: 'Banned' ,color:'#ff0000'},
   ];
 
 
@@ -124,7 +139,14 @@ const Home = () => {
               <PieChart
                 series={[
                   {
-                    data,
+                    data,innerRadius: 30,
+                    outerRadius: 100,
+                    paddingAngle: 5,
+                    cornerRadius: 5,
+                    startAngle: 0,
+                    endAngle: 360,
+                    // cx: 150,
+                    // cy: 150,
                     highlightScope: { faded: 'global', highlighted: 'item' },
                     faded: { innerRadius: 30, additionalRadius: -30, color: 'gray' },
                   },
