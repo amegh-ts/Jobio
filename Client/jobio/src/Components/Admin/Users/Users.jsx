@@ -3,6 +3,7 @@ import { useEffect, useState } from 'react';
 import './Users.scss';
 import { GrGroup } from "react-icons/gr";
 import { IoSearch, IoPencil, IoChatbubbles } from "react-icons/io5";
+import { FaFilter } from "react-icons/fa";
 import { createChat, getAllUsers } from '../../ApiCalls';
 
 const Users = ({ setActivePageToChats }) => {
@@ -58,14 +59,19 @@ const Users = ({ setActivePageToChats }) => {
                         <GrGroup className='users-icon' />
                         <h3>Users</h3>
                     </div>
-                    <div className='all-users-input'>
-                        <input
-                            type="text"
-                            value={searchInput}
-                            onChange={handleSearchInputChange}
-                            placeholder="Search"
-                        />
-                        <IoSearch />
+                    <div className='all-user-utils'>
+                        <div className='all-users-input'>
+                            <input
+                                type="text"
+                                value={searchInput}
+                                onChange={handleSearchInputChange}
+                                placeholder="Search"
+                            />
+                            <IoSearch />
+                        </div>
+                        <div className="all-user-filter">
+                            <FaFilter />
+                        </div>
                     </div>
                 </div>
                 <div className="table-container">
@@ -98,7 +104,7 @@ const Users = ({ setActivePageToChats }) => {
                                         <div className="edit-chat">
                                             <button><IoPencil className='bicon' /></button>
                                             <button onClick={() => handleChatButtonClick(userId, user._id)}><IoChatbubbles className='bicon' /></button>
-                                            </div>
+                                        </div>
                                     </td>
                                 </tr>
                             ))}
