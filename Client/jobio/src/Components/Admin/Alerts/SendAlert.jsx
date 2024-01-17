@@ -5,7 +5,7 @@ import { sendAlert } from "../../ApiCalls";
 
 const SendAlert = () => {
   const [alertMessage, setAlertMessage] = useState('');
-  const [priority, setPriority] = useState('Common Message');
+  const [priority, setPriority] = useState('common');
 
   const handleTextareaChange = (event) => {
     setAlertMessage(event.target.value);

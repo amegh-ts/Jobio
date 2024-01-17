@@ -117,7 +117,7 @@ export const changePassword = async (data) => {
 // send alert
 export const sendAlert = async (data) => {
     console.log('dataaaaaaaaaa',data);
-    const newData = { ...data, user: 'Admin' }
+    const newData = { ...data, user: 'Admin' ,userId:userId}
     try {
         const res = await userRequest.post('/sendalert', newData)
         console.log('new data', newData);
