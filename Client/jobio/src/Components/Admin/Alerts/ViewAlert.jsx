@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { CiBellOn } from "react-icons/ci";
-import { IoTrash } from "react-icons/io5";
+import { IoTrashOutline } from "react-icons/io5";
 // import './ViewAlert.css'
 import './ViewAlerts.scss'
 import { getAlert } from "../../ApiCalls";
@@ -49,8 +49,8 @@ const ViewAlert = () => {
                   <h6>  {new Date(alert.createdAt).toLocaleString()}</h6>
                   <p>{alert.alert}</p>
                 </div>
-                <div>
-                  <IoTrash />
+                <div className="delete-notification">
+                  <IoTrashOutline />
                 </div>
               </div>
             ))}
