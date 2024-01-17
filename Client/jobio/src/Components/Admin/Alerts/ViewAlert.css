@@ -1,14 +1,16 @@
 .notification-main {
     padding: 20px;
-background: var(--sidebar-color);    
+    background: var(--sidebar-color);
 }
 
 .notification-header {
     display: flex;
     align-items: center;
     position: fixed;
+    /* background: rgb(186, 186, 186); */
     background: var(--sidebar-color);
     width: 100%;
+    padding: 10px 0;
 }
 
 .notification-header h3 {
@@ -26,7 +28,7 @@ background: var(--sidebar-color);
     flex-direction: column;
     gap: 10px;
     overflow: auto;
-    
+
 }
 
 .notification-box {
@@ -63,9 +65,11 @@ background: var(--sidebar-color);
 .common-priority {
     --priority-color: rgb(141, 141, 141);
 }
+
 .employer-priority {
     --priority-color: rgb(0, 128, 0);
 }
+
 .employee-priority {
     --priority-color: #695CFE;
 }
