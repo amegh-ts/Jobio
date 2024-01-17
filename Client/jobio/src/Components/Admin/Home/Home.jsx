@@ -115,7 +115,7 @@ const Home = () => {
             </div>
             <div className="hml-card card2">
 
-</div>
+            </div>
           </div>
           <div className="hmr"></div>
         </div>
