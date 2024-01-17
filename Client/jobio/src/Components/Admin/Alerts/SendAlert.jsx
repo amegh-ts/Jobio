@@ -3,11 +3,11 @@ import { LuBellPlus } from 'react-icons/lu';
 import './SendAlert.css'
 import { sendAlert } from "../../ApiCalls";
 const SendAlert = () => {
-  const [notification, setNotification] = useState('');
+  const [alert, setAlert] = useState('');
   const [priority, setPriority] = useState('Common Message');
 
   const handleTextareaChange = (event) => {
-    setNotification(event.target.value);
+    setAlert(event.target.value);
   };
 
   const handlePriorityChange = (event) => {
@@ -16,8 +16,8 @@ const SendAlert = () => {
 
   const handleSendClick = async () => {
     try {
-      await sendAlert({ notification, priority })
-      console.log(notification,priority);
+      await sendAlert({ alert, priority })
+      console.log(alert,priority);
     } catch (error) {
       console.log(error);
     }
@@ -41,7 +41,7 @@ const SendAlert = () => {
             </select>
           </div>
           <div>
-            <textarea name="notification" cols="30" rows="10" value={notification} onChange={handleTextareaChange} ></textarea>
+            <textarea name="notification" cols="30" rows="10" value={alert} onChange={handleTextareaChange} ></textarea>
           </div>
           <div>
             <button onClick={handleSendClick}>Send</button>

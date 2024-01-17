@@ -2,6 +2,7 @@ const alert = require('../Models/AlertSchema')
 
 const sendAlert = async (req, res) => {
     const newAlert = new alert(req.body)
+    console.log(newAlert);
     try {
         const saveAlert = await newAlert.save()
         res.status(200).json(saveAlert)

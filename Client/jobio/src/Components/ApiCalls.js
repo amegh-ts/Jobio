@@ -116,9 +116,10 @@ export const changePassword = async (data) => {
 // <-------------------Alerts-------------------> //
 // send alert
 export const sendAlert=async(data)=>{
+    const newData = { ...data, user: 'Admin' }
     try {
-        const newData = { ...data, user: 'Admin' }
-        const res = await userRequest.post('/sendalert', newData)
+        const res = await userRequest.post(`/sendalert/${userId}`, newData)
+        console.log('new data',newData);
         console.log('Response Status:', res.status);
     } catch (error) {
         console.log(error);
