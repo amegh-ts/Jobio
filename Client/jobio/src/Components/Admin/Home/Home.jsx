@@ -77,40 +77,33 @@ const Home = () => {
           </div>
           <div className="htr">
             <div className="htr-card card1">
-              <span>
-                <FaCrown />
+              <span className='htr-icon'>
+                <FaCrown className='icon'/>
               </span>
               <h2>{admins}</h2>
               <p>Admins</p>
             </div>
             <div className="htr-card card2">
-              <span>
-                <FaUserTie />
+              <span className='htr-icon'>
+                <FaUserTie className='icon'/>
               </span>
               <h2>{employer}</h2>
               <p>Employer</p>
             </div>
             <div className="htr-card card3">
-              <span>
-                <FaUser />
+              <span className='htr-icon'>
+                <FaUser className='icon'/>
               </span>
               <h2h2h>{employee}</h2h2h>
               <p>Employee</p>
             </div>
             <div className="htr-card card4">
-              <span>
-                <FaPeopleGroup />
+              <span className='htr-icon'>
+                <FaPeopleGroup className='icon'/>
               </span>
               <h2h>{totalUser}</h2h>
               <p>Total Users</p>
             </div>
-            {/* <div className="htr-card card4">
-              <i>
-                <IoPersonOutline />
-              </i>
-              <p>Maximum Users</p>
-              <span>200</span>
-            </div> */}
           </div>
         </div>
       </div>

@@ -45,7 +45,16 @@
                     justify-content: center;
                     align-items: center;
 
+                    .htr-icon{
+                        background: red;
+                        display: flex;
+                        padding: 10px;
+                        border-radius: 50%;
 
+                        .icon{
+                            font-size: 26px;
+                        }
+                    }
                 }
 
                 .card1,
