@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { CiBellOn } from "react-icons/ci";
+import { IoTrash } from "react-icons/io5";
 // import './ViewAlert.css'
 import './ViewAlerts.scss'
 import { getAlert } from "../../ApiCalls";
@@ -49,7 +50,7 @@ const ViewAlert = () => {
                   <p>{alert.alert}</p>
                 </div>
                 <div>
-                  gg
+                  <IoTrash />
                 </div>
               </div>
             ))}
