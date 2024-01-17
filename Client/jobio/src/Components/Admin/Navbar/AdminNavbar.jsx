@@ -32,6 +32,7 @@ const AdminNavbar = () => {
     const storedData = localStorage.getItem('persist:jobio');
     const user = storedData ? JSON.parse(JSON.parse(storedData).user) : null;
     const userType = user?.userInfo?.[0]?.type;
+    const userId = user?.userInfo?.[0]?.id;
 
     const dispatch = useDispatch()
 
@@ -95,7 +96,7 @@ const AdminNavbar = () => {
     };
 
     const pageComponents = {
-        home: <Home />,
+        home: <Home userId={userId} />,
         sendAlert: <SendAlert />,
         viewAlert: <ViewAlert />,
         chats: <Chats />,

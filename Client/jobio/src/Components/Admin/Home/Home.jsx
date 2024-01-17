@@ -1,8 +1,30 @@
+/* eslint-disable react/prop-types */
+import { useEffect, useState } from 'react';
 import './Home.scss';
 import { LineChart } from '@mui/x-charts/LineChart';
+import { getAllUsers } from '../../ApiCalls';
 
 
-const Home = () => {
+const Home = ({userId}) => {
+  const [allUsers, setAllUsers] = useState([]);
+  const [filteredUsers, setFilteredUsers] = useState([]);
+
+  useEffect(() => {
+    async function display() {
+      try {
+        const users = await getAllUsers();
+        // console.log(users);
+        const filteredUsers = users.filter(user => user._id !== userId);
+        setAllUsers(filteredUsers);
+        setFilteredUsers(filteredUsers);
+      } catch (error) {
+        console.log(error);
+      }
+    }
+    display();
+  }, []);
+
+
   const uData = [4000, 3000, 2000, 2780, 1890, 2390, 3490];
   const xLabels = [
     'Page A',
