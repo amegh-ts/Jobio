@@ -132,6 +132,7 @@ const Home = () => {
         <div className="home-middle">
           <div className="hml">
             <div className="hml-card card1">
+            <h2>Ban Logs</h2>
               
             </div>
             <div className="hml-card card2">
@@ -157,7 +158,6 @@ const Home = () => {
               />
             </div>
           </div>
-          <div className="hmr"></div>
         </div>
       </div>
     </div>
