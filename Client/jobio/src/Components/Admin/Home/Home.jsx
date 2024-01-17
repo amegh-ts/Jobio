@@ -94,14 +94,14 @@ const Home = () => {
               <span className='htr-icon'>
                 <FaUser className='icon'/>
               </span>
-              <h2h2h>{employee}</h2h2h>
+              <h2>{employee}</h2>
               <p>Employee</p>
             </div>
             <div className="htr-card card4">
               <span className='htr-icon'>
                 <FaPeopleGroup className='icon'/>
               </span>
-              <h2h>{totalUser}</h2h>
+              <h2>{totalUser}</h2>
               <p>Total Users</p>
             </div>
           </div>

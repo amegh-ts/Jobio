@@ -41,19 +41,27 @@
                     height: 60%;
                     width: 100%;
                     display: flex;
+                    gap: 5px;
                     flex-direction: column;
                     justify-content: center;
                     align-items: center;
 
-                    .htr-icon{
-                        background: red;
+                    .htr-icon {
                         display: flex;
                         padding: 10px;
                         border-radius: 50%;
 
-                        .icon{
+                        .icon {
                             font-size: 26px;
                         }
+                    }
+
+                    h2 {
+                        font-size: 30px;
+                    }
+
+                    p {
+                        color: var(--text-color);
                     }
                 }
 
@@ -64,6 +72,14 @@
 
                 .card4 {
                     border-left: 1px solid rgb(185, 185, 185);
+                }
+
+                .card1 {
+                    .htr-icon {
+                        .icon {
+                            color: red;
+                        }
+                    }
                 }
             }
         }
