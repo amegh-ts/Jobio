@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { CiBellOn } from "react-icons/ci";
-import './ViewAlert.css'
+// import './ViewAlert.css'
+import './ViewAlerts.scss'
 import { getAlert } from "../../ApiCalls";
 
 const ViewAlert = () => {
@@ -32,7 +33,7 @@ const ViewAlert = () => {
     }
   };
   return (
-    <div>
+    <div className="Alerts">
       <div className="notification-main">
         <div className='notification-header'>
           <CiBellOn className='bell-icon' />

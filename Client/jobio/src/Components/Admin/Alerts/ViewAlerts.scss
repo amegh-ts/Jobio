@@ -1,0 +1,41 @@
+.Alerts {
+    padding: 20px;
+    background: var(--sidebar-color);
+
+    .notification-main {
+        .notification-header {
+            display: flex;
+            align-items: center;
+            background: red;
+            gap: 5px;
+
+            h3 {
+                font-weight: var(--h3-font-weight);
+                font-size: var(--h3-font-size);
+            }
+
+            .bell-icon {
+                font-size: var(--icon-size);
+            }
+        }
+
+        .notification-container {
+            display: flex;
+            justify-content: flex-start;
+            flex-direction: column;
+
+            .notification-box {
+                background: var(--body-color);
+                padding: 10px;
+                display: flex;
+                align-items: center;
+                justify-content: flex-start;
+                gap: 20px;
+                flex-wrap: wrap;
+                padding-left: 100px;
+                border-left: solid 3px var(--priority-color);
+                box-shadow: 0 4px 4px rgba(0, 0, 0, 0.35);
+            }
+        }
+    }
+}
