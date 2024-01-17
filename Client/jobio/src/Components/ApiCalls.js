@@ -125,6 +125,17 @@ export const sendAlert=async(data)=>{
     }
 }
 
+//get alert
+export const getAlert = async () => {
+    try {
+        const res = await userRequest.get('/getalert')
+        console.log('Response Status:', res.status);
+        return res.data
+    } catch (error) {
+        console.log(error);
+    }
+}
+
 
 // <-------------------Chats-------------------> //
 // create chat
