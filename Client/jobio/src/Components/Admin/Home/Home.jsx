@@ -47,16 +47,27 @@ const Home = () => {
               width={500}
               max-width={500}
               height={300}
-              series={[{ data: uData, label: 'Growth', area: true, showMark: true ,color: '#fdb462'}]}
+              series={[{ type: 'line',data: uData, label: 'Growth',area:'true', showMark: true ,color: 'rgba(98, 179, 98, 0.685)'}]}
               xAxis={[{ scaleType: 'point', data: xLabels }]}
               sx={{
                 '.MuiLineElement-root': {
-                  display: 'none',
+                  stroke: 'rgb(16, 118, 16)',
+                  strokeWidth: 2,
+                },
+                '.MuiMarkElement-root': {
+                  scale: '0.6',
+                  fill: '#fff',
+                  strokeWidth: 2,
                 },
               }}
             />
           </div>
-          <div className="htr">rr</div>
+          <div className="htr">
+            <div className="htr-children"></div>
+            <div className="htr-children"></div>
+            <div className="htr-children"></div>
+            <div className="htr-children"></div>
+          </div>
         </div>
       </div>
     </div>
