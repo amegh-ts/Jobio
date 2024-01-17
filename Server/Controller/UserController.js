@@ -7,9 +7,8 @@ const setUserState = async () => {
     try {
         const threeDaysAgo = new Date(Date.now() - 3 * 24 * 60 * 60 * 1000);
 
-        // Find users who are active and haven't logged in for 3 days or more
         const inactiveUsers = await userController.updateMany(
-            { state: 'active', lastLogin: { $lt: threeDaysAgo } }, { $set: { state: 'inactive' } }
+            { state: 'active', lastLogin: { $lt: threeDaysAgo } }, { $set: { state: 'inactive' } }, { new: true }
         );
 
         console.log(`user(s) updated to inactive state.`);
@@ -18,7 +17,6 @@ const setUserState = async () => {
     }
 };
 
-// Run the function every 3 mins (adjust as needed)
 setInterval(setUserState, 60 * 60 * 1000);
 
 
