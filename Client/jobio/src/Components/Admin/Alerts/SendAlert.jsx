@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { LuBellPlus } from 'react-icons/lu';
 import './SendAlert.css'
+import { sendAlert } from "../../ApiCalls";
 const SendAlert = () => {
   const [notification, setNotification] = useState('');
   const [priority, setPriority] = useState('Common Message');
@@ -15,7 +16,7 @@ const SendAlert = () => {
 
   const handleSendClick = async () => {
     try {
-      // await sendNotification({ notification, priority })
+      await sendAlert({ notification, priority })
       console.log(notification,priority);
     } catch (error) {
       console.log(error);
@@ -33,10 +34,8 @@ const SendAlert = () => {
         <div className="send-notification-body">
           <div>
             <select value={priority} onChange={handlePriorityChange}>
-              <option value="not-so-much">Common Message</option>
-              <option value="low">Low Priority</option>
-              <option value="medium">Medium Priority</option>
-              <option value="high">High Priority</option>
+              <option value="common">Common</option>
+              <option value="system">System</option>
             </select>
           </div>
           <div>
