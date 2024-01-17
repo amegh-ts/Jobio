@@ -36,6 +36,8 @@ const SendAlert = () => {
             <select value={priority} onChange={handlePriorityChange}>
               <option value="common">Common</option>
               <option value="system">System</option>
+              <option value="employer">Employer</option>
+              <option value="employee">Employee</option>
             </select>
           </div>
           <div>
