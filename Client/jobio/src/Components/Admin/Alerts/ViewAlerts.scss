@@ -37,7 +37,7 @@
                 border-left: solid 3px var(--priority-color);
                 box-shadow: 0 4px 4px rgba(0, 0, 0, 0.35);
 
-                &:hover{
+                &:hover {
                     box-shadow: 1px 1px 10px var(--priority-color);
                 }
 
@@ -48,29 +48,43 @@
                         letter-spacing: 3px;
                     }
 
-                    p{
+                    p {
                         font-size: 16px;
                     }
                 }
-                .delete-notification{
+
+                .delete-notification {
                     display: flex;
                     align-items: center;
+                    border-radius: 50%;
+                    padding: 5px;
+                    cursor: pointer;
+
+                    .nt-icon {
+                        font-size: 24px;
+                    }
+
+                    &:hover {
+                        color: red;
+                        box-shadow: 0 0 10px var(--text-color);
+                    }
                 }
             }
         }
     }
+
     .system-priority {
         --priority-color: rgb(231, 0, 0);
     }
-    
+
     .common-priority {
         --priority-color: rgb(141, 141, 141);
     }
-    
+
     .employer-priority {
         --priority-color: rgb(0, 128, 0);
     }
-    
+
     .employee-priority {
         --priority-color: #695CFE;
     }

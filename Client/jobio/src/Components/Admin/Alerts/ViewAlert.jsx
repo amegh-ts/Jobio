@@ -50,7 +50,7 @@ const ViewAlert = () => {
                   <p>{alert.alert}</p>
                 </div>
                 <div className="delete-notification">
-                  <IoTrashOutline />
+                  <IoTrashOutline className="nt-icon"/>
                 </div>
               </div>
             ))}
