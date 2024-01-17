@@ -1,5 +1,5 @@
 /* eslint-disable react/prop-types */
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import './Users.scss';
 import { GrGroup } from "react-icons/gr";
 import { IoSearch, IoPencil, IoChatbubbles } from "react-icons/io5";
@@ -7,6 +7,8 @@ import { FaFilter } from "react-icons/fa";
 import { createChat, getAllUsers } from '../../ApiCalls';
 
 const Users = ({ setActivePageToChats }) => {
+    const [isDropdownVisible, setIsDropdownVisible] = useState(false);
+    const dropdownRef = useRef(null);
     const [allUsers, setAllUsers] = useState([]);
     const [filteredUsers, setFilteredUsers] = useState([]);
     const [searchInput, setSearchInput] = useState('');
@@ -14,6 +16,16 @@ const Users = ({ setActivePageToChats }) => {
     const storedData = localStorage.getItem('persist:jobio');
     const user = storedData ? JSON.parse(JSON.parse(storedData).user) : null;
     const userId = user?.userInfo?.[0]?.id;
+
+    const toggleDropdown = () => {
+        setIsDropdownVisible(!isDropdownVisible);
+    };
+
+    const closeDropdown = (event) => {
+        if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
+            setIsDropdownVisible(false);
+        }
+    };
 
     useEffect(() => {
         async function display() {
@@ -69,8 +81,12 @@ const Users = ({ setActivePageToChats }) => {
                             />
                             <IoSearch />
                         </div>
-                        <div className="all-user-filter">
+                        <div className="all-user-filter" onClick={toggleDropdown} ref={dropdownRef}>
                             <FaFilter />
+                            <div className={`dropdown-container ${isDropdownVisible ? 'visible' : ''}`} style={{ display: isDropdownVisible ? 'block' : 'none' }}>
+                            <span className='dropdown-item'>Send</span>
+                            <span className='dropdown-item' >View</span>
+                        </div>
                         </div>
                     </div>
                 </div>

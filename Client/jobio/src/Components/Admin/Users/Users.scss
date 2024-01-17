@@ -47,6 +47,43 @@
 
       .all-user-filter {
         font-size: 20px;
+        display: flex;
+        padding: 10px;
+        border-radius: 50%;
+        cursor: pointer;
+        box-shadow: 0 0 10px rgb(215, 215, 215);
+
+        &:hover{
+          color: var(--primary-color);
+        }
+
+        .dropdown-container {
+          display: none;
+          width: 100px;
+          position: absolute;
+          top: 18%;
+          right: 5%;
+          background-color: var(--body-color);
+          box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+          z-index: 1;
+          padding: 10px;
+          border-radius: 10px;
+          margin-left: 20px;
+
+          .dropdown-item {
+            padding: 10px;
+            display: block;
+            color: var(--text-color);
+            border-radius: 10px;
+            text-decoration: none;
+
+            &:hover {
+              background-color: #ffffff;
+              color: var(--admin-primary-color);
+              font-weight: 500;
+            }
+          }
+        }
       }
     }
   }
