@@ -59,8 +59,7 @@ const Home = () => {
           <div className="htl">
             <LineChart
               width={500}
-              max-width={500}
-              height={300}
+              height={250}
               series={[{ type: 'line', data: uData, label: 'Growth', area: 'true', showMark: true, color: 'rgba(98, 179, 98, 0.685)' }]}
               xAxis={[{ scaleType: 'point', data: xLabels }]}
               sx={{
@@ -78,31 +77,31 @@ const Home = () => {
           </div>
           <div className="htr">
             <div className="htr-card card1">
-              <i>
+              <span>
                 <FaCrown />
-              </i>
-              <span>{admins}</span>
+              </span>
+              <h2>{admins}</h2>
               <p>Admins</p>
             </div>
             <div className="htr-card card2">
-              <i>
+              <span>
                 <FaUserTie />
-              </i>
-              <span>{employer}</span>
+              </span>
+              <h2>{employer}</h2>
               <p>Employer</p>
             </div>
             <div className="htr-card card3">
-              <i>
+              <span>
                 <FaUser />
-              </i>
-              <span>{employee}</span>
+              </span>
+              <h2h2h>{employee}</h2h2h>
               <p>Employee</p>
             </div>
             <div className="htr-card card4">
-              <i>
+              <span>
                 <FaPeopleGroup />
-              </i>
-              <span>{totalUser}</span>
+              </span>
+              <h2h>{totalUser}</h2h>
               <p>Total Users</p>
             </div>
             {/* <div className="htr-card card4">
