@@ -4,7 +4,7 @@ import './Home.scss';
 import { LineChart } from '@mui/x-charts/LineChart';
 import { getAllUsers } from '../../ApiCalls';
 import { IoPersonOutline } from "react-icons/io5";
-import { FaCrown,FaUserTie,FaUser,FaPeopleGroup } from "react-icons/fa6";
+import { FaCrown, FaUserTie, FaUser, FaPeopleGroup } from "react-icons/fa6";
 
 
 
@@ -79,31 +79,31 @@ const Home = () => {
           <div className="htr">
             <div className="htr-card card1">
               <i>
-              <FaCrown />
+                <FaCrown />
               </i>
-              <p>Admins</p>
               <span>{admins}</span>
+              <p>Admins</p>
             </div>
             <div className="htr-card card2">
               <i>
                 <FaUserTie />
               </i>
-              <p>Employer</p>
               <span>{employer}</span>
+              <p>Employer</p>
             </div>
             <div className="htr-card card3">
               <i>
                 <FaUser />
               </i>
-              <p>Employee</p>
               <span>{employee}</span>
+              <p>Employee</p>
             </div>
             <div className="htr-card card4">
               <i>
                 <FaPeopleGroup />
               </i>
-              <p>Total Users</p>
               <span>{totalUser}</span>
+              <p>Total Users</p>
             </div>
             {/* <div className="htr-card card4">
               <i>
