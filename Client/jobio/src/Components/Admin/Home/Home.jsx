@@ -3,10 +3,13 @@ import { useEffect, useState } from 'react';
 import './Home.scss';
 import { LineChart } from '@mui/x-charts/LineChart';
 import { getAllUsers } from '../../ApiCalls';
+import { IoPersonOutline } from "react-icons/io5";
+
 
 
 const Home = () => {
   const [userList, setUserList] = useState([]);
+  const [totalUser, setTotalUser] = useState([]);
 
 
   useEffect(() => {
@@ -15,25 +18,22 @@ const Home = () => {
         const users = await getAllUsers();
         console.log(users);
         setUserList(users);
+        setTotalUser(users.length)
       } catch (error) {
         console.log(error);
       }
     }
-    display();
+    display()
   }, []);
 
-  // const xLabels = userList.map(user => user.createdAt);
-  // const uData = Array.from({ length: xLabels.length }, (_, index) => index);
+  const userCountByDay = userList.reduce((countByDay, user) => {
+    const date = user.createdAt.split('T')[0];
+    countByDay[date] = (countByDay[date] || 0) + 1;
+    return countByDay;
+  }, {});
 
-    // Assuming userList contains objects with 'createdAt' property
-    const userCountByDay = userList.reduce((countByDay, user) => {
-      const date = user.createdAt.split('T')[0]; // Assuming createdAt is a full date-time string
-      countByDay[date] = (countByDay[date] || 0) + 1;
-      return countByDay;
-    }, {});
-  
-    const xLabels = Object.keys(userCountByDay);
-    const uData = xLabels.map((date) => userCountByDay[date]);
+  const xLabels = Object.keys(userCountByDay);
+  const uData = xLabels.map((date) => userCountByDay[date]);
 
 
 
@@ -47,7 +47,7 @@ const Home = () => {
               width={500}
               max-width={500}
               height={300}
-              series={[{ type: 'line',data: uData, label: 'Growth',area:'true', showMark: true ,color: 'rgba(98, 179, 98, 0.685)'}]}
+              series={[{ type: 'line', data: uData, label: 'Growth', area: 'true', showMark: true, color: 'rgba(98, 179, 98, 0.685)' }]}
               xAxis={[{ scaleType: 'point', data: xLabels }]}
               sx={{
                 '.MuiLineElement-root': {
@@ -63,10 +63,34 @@ const Home = () => {
             />
           </div>
           <div className="htr">
-            <div className="htr-children"></div>
-            <div className="htr-children"></div>
-            <div className="htr-children"></div>
-            <div className="htr-children"></div>
+            <div className="admin-dash-card b-card1">
+              <i>
+                <IoPersonOutline />
+              </i>
+              <p>Admins</p>
+              <span>{admins}</span>
+            </div>
+            <div className="admin-dash-card b-card2">
+              <i>
+                <IoPersonOutline />
+              </i>
+              <p>Clients</p>
+              <span>{clients}</span>
+            </div>
+            <div className="admin-dash-card b-card3">
+              <i>
+                <IoPersonOutline />
+              </i>
+              <p>Total Users</p>
+              <span>{state}</span>
+            </div>
+            <div className="admin-dash-card b-card4">
+              <i>
+                <IoPersonOutline />
+              </i>
+              <p>Maximum Users</p>
+              <span>200</span>
+            </div>
           </div>
         </div>
       </div>
