@@ -106,6 +106,19 @@ const Home = () => {
             </div>
           </div>
         </div>
+
+
+        <div className="home-middle">
+          <div className="hml">
+            <div className="hml-card card1">
+
+            </div>
+            <div className="hml-card card2">
+
+</div>
+          </div>
+          <div className="hmr"></div>
+        </div>
       </div>
     </div>
   );
