@@ -17,7 +17,6 @@ mongoose.connect(process.env.Mongo_Key).then(() => {
     console.log('Database Connected');
 })
 
-
 app.use(express.json())
 
 app.use('/', userRoutes)

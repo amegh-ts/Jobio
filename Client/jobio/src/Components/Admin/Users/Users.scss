@@ -8,35 +8,46 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-  }
 
-  .all-users-title {
-    display: flex;
-    align-items: center;
-  }
+    .all-users-title {
+      display: flex;
+      align-items: center;
 
-  .al-users-header h3 {
-    font-weight: var(--h3-font-weight);
-    font-size: var(--h3-font-size);
-  }
+      .users-icon {
+        font-size: var(--icon-size);
+        margin-right: 10px;
+      }
 
-  .users-icon {
-    font-size: var(--icon-size);
-    margin-right: 10px;
-  }
+      h3 {
+        font-weight: var(--h3-font-weight);
+        font-size: var(--h3-font-size);
+      }
+    }
 
-  .all-users-input {
-    padding: 10px;
-    background-color: var(--body-color);
-    display: flex;
-    border-radius: 10px;
+    .all-user-utils {
+      display: flex;
+      align-items: center;
+      gap: 20px;
 
-    input {
-      background-color: var(--body-color);
-      border: none;
-      outline: none;
-      max-width: 300px;
-      width: 250px;
+      .all-users-input {
+        padding: 10px;
+        background-color: var(--body-color);
+        display: flex;
+        align-items: center;
+        border-radius: 10px;
+
+        input {
+          background-color: var(--body-color);
+          border: none;
+          outline: none;
+          max-width: 300px;
+          width: 250px;
+        }
+      }
+
+      .all-user-filter {
+        font-size: 20px;
+      }
     }
   }
 
@@ -77,7 +88,9 @@
 
     .edit-chat {
       display: flex;
+      align-items: center;
       gap: 10px;
+
 
       button {
         background: var(--primary-color);
@@ -85,16 +98,14 @@
         cursor: pointer;
         padding: 10px;
         color: white;
-        border-radius: 20px;
+        border-radius: 50%;
         display: flex;
         align-items: center;
+        font-size: 20px;
 
         &:hover {
           box-shadow: 0px 0px 10px var(--primary-color);
-        }
-
-        .bicon {
-          font-size: 20px;
+          transform: scale(1.1);
         }
       }
     }

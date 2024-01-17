@@ -6,43 +6,48 @@ import ClientNavbar from './Components/Client/Navbar/ClientNavbar';
 import Profile from './Components/Profile/Profile';
 import Login from './Components/Login/Login';
 import Signup from './Components/Login/Signup';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import Landing from './Components/Landing/Landing';
 import EmployerNavbar from './Components/Employer/Navbar/EmployerNavbar';
 import ForgotPassword from './Components/Login/ForgotPassword';
+import { logoutUser } from './Redux/UserRedux';
 
 function App() {
 
   const reduxData = useSelector((state) => state.user.userInfo[0]);
   // console.log('reduxdata', reduxData);
   const token = reduxData?.accessToken;
+  const dispatch = useDispatch()
 
   let content;
 
   if (reduxData) {
-    // console.log('The access token is', token);
-    const id = reduxData.id;
-    // console.log('The id is', id);
+    const state = reduxData.state;
     const type = reduxData.type;
-    // console.log('The type is', type);
-
-    // Token and User type check
-    if (token) {
-      if (type === 'employee') {
-        content = <ClientNavbar />;
-      } else if (type === 'admin') {
-        content = <AdminNavbar />
-      } else if (type === 'employer') {
-        content = <EmployerNavbar />
-      }
+    console.log('The state is', state);
+    console.log('The type is', type);
+  
+    if (state === 'banned') {
+      alert('You are Banned');
+      dispatch(logoutUser())
+        sessionStorage.clear();
     } else {
-      // If there's no token, redirect to login
-      content = <Landing />;
+      if (token) {
+        if (type === 'employee') {
+          content = <ClientNavbar />;
+        } else if (type === 'admin') {
+          content = <AdminNavbar />;
+        } else if (type === 'employer') {
+          content = <EmployerNavbar />;
+        }
+      } else {
+        content = <Landing />;
+      }
     }
   } else {
-    content = <Landing />
+    content = <Landing />;
   }
-
+  
 
   const router = createBrowserRouter([
     {
@@ -66,7 +71,7 @@ function App() {
     }, {
       path: '/signup',
       element: <Signup />,
-    },{
+    }, {
       path: '/forgotpassword',
       element: <ForgotPassword />,
     },

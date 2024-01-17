@@ -1,5 +1,7 @@
 const nodemailer = require('nodemailer');
 const mailer = require('../Models/ForgotPasswordSchema');
+const userController = require('../Models/UserSchema')
+const Crypto = require('crypto-js')
 const dotenv = require('dotenv');
 
 const transporter = nodemailer.createTransport({
@@ -26,7 +28,7 @@ const clearExpiredOtps = async () => {
 };
 
 // Schedule the function to run every minute (adjust as needed)
-// setInterval(clearExpiredOtps, 20 * 1000);
+setInterval(clearExpiredOtps, 20 * 1000);
 
 const forgotPassword = async (req, res) => {
     // console.log(req.body);
@@ -67,9 +69,7 @@ const forgotPassword = async (req, res) => {
 const otpValidation = async (req, res) => {
     // console.log(req.body);
     const { email, formattedOtp } = req.body;
-
     console.log(formattedOtp);
-
     try {
         const storedData = await mailer.findOne({ email: email });
         // console.log('stored data', storedData);
@@ -78,9 +78,9 @@ const otpValidation = async (req, res) => {
 
         // code for validation
         if (formattedOtp == storedOtp) {
-            return res.status(200).json({ message: 'OTP is valid' });
+            return res.status(200).json(true);
         } else {
-            return res.status(400).json({ error: 'Invalid OTP' });
+            return res.status(400).json(false);
         }
 
     } catch (error) {
@@ -88,4 +88,30 @@ const otpValidation = async (req, res) => {
     }
 }
 
-module.exports = { forgotPassword, clearExpiredOtps, otpValidation };
+const changePassword = async (req, res) => {
+    const { email, password } = req.body;
+    console.log(req.body);
+    if (!email || !password) {
+        return res.status(400).json({ error: 'Email and password are required.' });
+    }
+    try {
+        console.log('jjjjjjjjjjjjjjjjjjjjjjj');
+        const encryptedPassword =Crypto.AES.encrypt(password, process.env.Crypto_js).toString();
+        console.log('enc pass',encryptedPassword);
+        const storedData = await mailer.findOne({ email });
+        if (storedData) {
+            const updateData = await userController.findOneAndUpdate({ email },{ $set: { password: encryptedPassword } },{ new: true });
+            console.log(updateData);
+            return res.status(200).json(updateData);
+        } else {
+            console.log('Email verification failed');
+            return res.status(404).json({ error: 'Email not found.' });
+        }
+    } catch (error) {
+        console.error(error);
+        return res.status(500).json({ error: 'Internal Server Error' });
+    }
+};
+
+
+module.exports = { forgotPassword, clearExpiredOtps, otpValidation, changePassword };

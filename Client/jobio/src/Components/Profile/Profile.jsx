@@ -168,7 +168,6 @@ const Profile = () => {
   };
 
   const onEducationClick = async () => {
-    console.log('hiiiiiiiiiiii');
     try {
       await editProfile({ institute, course, year })
       alert('Successfully updated');

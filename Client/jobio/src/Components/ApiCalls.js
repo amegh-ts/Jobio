@@ -9,10 +9,10 @@ const userId = user?.userInfo?.[0]?.id;
 
 // signup
 export const signUpData = async (data) => {
-    console.log('first check', data);
+    const newData = { ...data, state: 'active' }
+    // console.log('first check', data);
     try {
-        const res = await publicRequest.post('/signup', data);
-        console.log('************************');
+        const res = await publicRequest.post('/signup', newData);
         console.log('Response Status:', res.status);
     } catch (err) {
         console.log(err);
@@ -24,8 +24,8 @@ export const signInData = async (loginData, dispatch) => {
     try {
         const res = await publicRequest.post('/signin', loginData)
         console.log('Response Status:', res.status);
-        const { _id: id, accessToken, type } = res.data;
-        const userData = { id, accessToken, type };
+        const { _id: id, accessToken, type, state } = res.data;
+        const userData = { id, accessToken, type, state };
         dispatch(loginUser(userData))
     } catch (error) {
         console.log(error);
@@ -75,9 +75,11 @@ export const deleteProfile = async () => {
     }
 }
 
+
+// <-------------------forgot pass-------------------> //
 // forgot password
-export const forgotPassword=async(data)=>{
-    console.log('data check',data);
+export const forgotPassword = async (data) => {
+    console.log('data check', data);
     try {
         const res = await publicRequest.post('/forgotpassword', data)
         console.log('Response Status:', res.status);
@@ -88,12 +90,49 @@ export const forgotPassword=async(data)=>{
 }
 
 // otp validation
-export const otpValidation=async(data)=>{
-    console.log('otp validation data',data);
+export const otpValidation = async (data) => {
+    console.log('otp validation data', data);
     try {
         const res = await publicRequest.post('/otpvalidation', data)
+        console.log('Response Status:', res);
+        return res.data;
+
+    } catch (error) {
+        console.log(error);
+    }
+}
+
+export const changePassword = async (data) => {
+    console.log(data);
+    try {
+        const res = await publicRequest.put('/changepass', data)
+        console.log('Response Status:', res);
+    } catch (error) {
+        console.log(error);
+    }
+}
+
+
+// <-------------------Alerts-------------------> //
+// send alert
+export const sendAlert = async (data) => {
+    console.log('dataaaaaaaaaa',data);
+    const newData = { ...data, user: 'Admin' ,userId:userId}
+    try {
+        const res = await userRequest.post('/sendalert', newData)
+        console.log('new data', newData);
         console.log('Response Status:', res.status);
-        
+    } catch (error) {
+        console.log(error);
+    }
+}
+
+//get alert
+export const getAlert = async () => {
+    try {
+        const res = await userRequest.get('/getalert')
+        console.log('Response Status:', res.status);
+        return res.data
     } catch (error) {
         console.log(error);
     }
@@ -101,6 +140,7 @@ export const otpValidation=async(data)=>{
 
 
 // <-------------------Chats-------------------> //
+// create chat
 export const createChat = async (data) => {
     console.log(data);
     try {

@@ -1,12 +1,14 @@
 import { useState } from "react";
 import { LuBellPlus } from 'react-icons/lu';
 import './SendAlert.css'
+import { sendAlert } from "../../ApiCalls";
+
 const SendAlert = () => {
-  const [notification, setNotification] = useState('');
-  const [priority, setPriority] = useState('Common Message');
+  const [alertMessage, setAlertMessage] = useState('');
+  const [priority, setPriority] = useState('common');
 
   const handleTextareaChange = (event) => {
-    setNotification(event.target.value);
+    setAlertMessage(event.target.value);
   };
 
   const handlePriorityChange = (event) => {
@@ -15,17 +17,18 @@ const SendAlert = () => {
 
   const handleSendClick = async () => {
     try {
-      // await sendNotification({ notification, priority })
-      console.log(notification,priority);
+      await sendAlert({ alert: alertMessage, priority });
+      console.log(alertMessage, priority);
+      window.alert("Message sent successfully");
+      window.location.reload();
     } catch (error) {
       console.log(error);
     }
-    alert("Message sent successfully")
   };
+
   return (
     <div className="send-notification-main">
       <div className="container">
-        
         <div className="send-notification-header">
           <LuBellPlus className="bell-plus-icon" />
           <h3>Send Alert</h3>
@@ -33,14 +36,14 @@ const SendAlert = () => {
         <div className="send-notification-body">
           <div>
             <select value={priority} onChange={handlePriorityChange}>
-              <option value="not-so-much">Common Message</option>
-              <option value="low">Low Priority</option>
-              <option value="medium">Medium Priority</option>
-              <option value="high">High Priority</option>
+              <option value="common">Common</option>
+              <option value="system">System</option>
+              <option value="employer">Employer</option>
+              <option value="employee">Employee</option>
             </select>
           </div>
           <div>
-            <textarea name="notification" cols="30" rows="10" value={notification} onChange={handleTextareaChange} ></textarea>
+            <textarea name="notification" cols="30" rows="10" value={alertMessage} onChange={handleTextareaChange}></textarea>
           </div>
           <div>
             <button onClick={handleSendClick}>Send</button>
@@ -48,7 +51,7 @@ const SendAlert = () => {
         </div>
       </div>
     </div>
-  )
+  );
 }
 
-export default SendAlert
+export default SendAlert;

@@ -1,10 +1,10 @@
-/* Chat.scss */
-
 .chat-container {
     display: grid;
+    border-radius: 20px;
     grid-template-columns: 25% 75%;
-    height: 90vh;
-    background: var(--sidebar-color);
+    height: 88vh;
+    background: var(--sidebar-color); 
+    overflow: hidden;
     
   }
   
@@ -12,7 +12,8 @@
     flex: 1;
     padding: 20px;
     border-right: 1px solid #ccc;
-    overflow-y: auto;
+    overflow-y: scroll;
+    
   }
   
   .user-item {
@@ -60,6 +61,7 @@
     min-width: 100%;
     overflow-y: auto;
     height: 100%;
+    flex: 1
   }
   
   .message-list {

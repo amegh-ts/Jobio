@@ -1,0 +1,93 @@
+.Alerts {
+    padding: 20px;
+    background: var(--sidebar-color);
+
+    .notification-main {
+        .notification-header {
+            padding: 10px 0;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+
+            h3 {
+                font-weight: var(--h3-font-weight);
+                font-size: var(--h3-font-size);
+            }
+
+            .bell-icon {
+                font-size: var(--icon-size);
+            }
+        }
+
+        .notification-container {
+            display: flex;
+            justify-content: flex-start;
+            flex-direction: column;
+            gap: 13px;
+
+            .notification-box {
+                background: var(--body-color);
+                padding: 10px;
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                gap: 20px;
+                flex-wrap: wrap;
+                padding-left: 100px;
+                border-left: solid 3px var(--priority-color);
+                box-shadow: 0 4px 4px rgba(0, 0, 0, 0.35);
+
+                &:hover {
+                    box-shadow: 1px 1px 10px var(--priority-color);
+                }
+
+                .ntb-content {
+                    h6 {
+                        color: var(--text-color);
+                        font-weight: 400;
+                        letter-spacing: 3px;
+                    }
+
+                    p {
+                        font-size: 16px;
+                    }
+                }
+
+                .delete-notification {
+                    display: flex;
+                    align-items: center;
+                    border-radius: 50%;
+                    padding: 5px;
+                    cursor: pointer;
+                    color: var(--text-color);
+
+
+                    .nt-icon {
+                        font-size: 24px;
+                    }
+
+                    &:hover {
+                        color: rgb(208, 0, 0);
+                        box-shadow: 0 0 10px var(--text-color);
+                    }
+                }
+            }
+        }
+    }
+
+    .system-priority {
+        --priority-color: rgb(231, 0, 0);
+    }
+
+    .common-priority {
+        --priority-color: rgb(141, 141, 141);
+    }
+
+    .employer-priority {
+        --priority-color: rgb(0, 128, 0);
+    }
+
+    .employee-priority {
+        --priority-color: #695CFE;
+    }
+}

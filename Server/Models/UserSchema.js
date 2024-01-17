@@ -18,6 +18,8 @@ const UserSchema=new mongoose.Schema({
     institute:{type:String},
     course:{type:String},
     year:{type:String},
+    state:{type:String},
+    lastLogin:{type:String},
 
 },{timestamps:true}) //to add the date and time the value is added to DB or edited
 

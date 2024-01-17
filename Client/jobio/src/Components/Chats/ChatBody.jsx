@@ -1,27 +1,28 @@
+/* eslint-disable react/prop-types */
 import { useEffect, useState } from 'react';
-// import { sendMessage, viewMessages } from '../ApiCalls';
+import { sendMessage, viewMessages } from '../ApiCalls';
 
-// const ChatBody = ({ selectedChatId }) => {
-const ChatBody = () => {
-    const selectedChatId = 1
+const ChatBody = ({ selectedChatId, selectedChatDetails }) => {
     const [messages, setMessages] = useState([]);
     const [inputMessage, setInputMessage] = useState('');
 
-    const storedData = localStorage.getItem('persist:unknown');
+    console.log('selected user', selectedChatDetails);
+
+    const storedData = localStorage.getItem('persist:jobio');
     const user = storedData ? JSON.parse(JSON.parse(storedData).user) : null;
     const senderId = user?.userInfo?.[0]?.id;
 
-    // useEffect(() => {
-    //     async function fetchData() {
-    //         try {
-    //             const getChat = await viewMessages(selectedChatId);
-    //             setMessages(getChat || []);
-    //         } catch (error) {
-    //             console.log(error);
-    //         }
-    //     }
-    //     fetchData();
-    // }, [selectedChatId]);
+    useEffect(() => {
+        async function fetchData() {
+            try {
+                const getChat = await viewMessages(selectedChatId);
+                setMessages(getChat || []);
+            } catch (error) {
+                console.log(error);
+            }
+        }
+        fetchData();
+    }, [selectedChatId]);
 
     const handleMessageChange = (e) => {
         setInputMessage(e.target.value);
@@ -41,7 +42,7 @@ const ChatBody = () => {
             ]);
 
             // Call sendMessage function with chatId, senderId, and text
-            // await sendMessage(selectedChatId, senderId, inputMessage);
+            await sendMessage(selectedChatId, senderId, inputMessage);
 
             // Clear the input field
             setInputMessage('');
@@ -57,17 +58,17 @@ const ChatBody = () => {
         }
     };
 
+
+
+
     return (
         <div className='chat-body-main'>
-            <p>Chat with {selectedChatId}</p>
+            <p>Chat id {selectedChatId}</p>
             <div className="chat-body-container">
                 {messages.length > 0 ? (
                     <ul className="message-list">
                         {messages.map((msg) => (
-                            <li
-                                key={msg._id}
-                                className={`message ${msg.senderId === senderId ? 'sender-message' : 'receiver-message'}`}
-                            >
+                            <li key={msg._id} className={`message ${msg.senderId === senderId ? 'sender-message' : 'receiver-message'}`}>
                                 <div className="message-bubble">{msg.text}</div>
                             </li>
                         ))}

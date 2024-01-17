@@ -1,7 +1,10 @@
 {
     "cSpell.words": [
         "anav",
+        "bicon",
+        "changepass",
         "Chatbubble",
+        "Chatbubbles",
         "cimage",
         "cnav",
         "Codeigniter",
@@ -11,11 +14,14 @@
         "firstname",
         "forgotpass",
         "forgotpassword",
+        "getalert",
         "jobio",
         "lastname",
+        "Otps",
         "otpvalidation",
         "Repost",
         "resetpass",
+        "sendalert",
         "tada",
         "Viewprofile"
     ]
