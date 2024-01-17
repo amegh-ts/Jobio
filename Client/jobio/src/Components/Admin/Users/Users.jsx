@@ -84,9 +84,9 @@ const Users = ({ setActivePageToChats }) => {
                         <div className="all-user-filter" onClick={toggleDropdown} ref={dropdownRef}>
                             <FaFilter />
                             <div className={`dropdown-container ${isDropdownVisible ? 'visible' : ''}`} style={{ display: isDropdownVisible ? 'block' : 'none' }}>
-                            <span className='dropdown-item'>Send</span>
-                            <span className='dropdown-item' >View</span>
-                        </div>
+                                <span className='dropdown-item'>Send</span>
+                                <span className='dropdown-item' >View</span>
+                            </div>
                         </div>
                     </div>
                 </div>
