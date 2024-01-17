@@ -88,6 +88,48 @@
                         }
                     }
                 }
+                .card2 {
+                    .htr-icon {
+                        background: rgb(204, 253, 204);
+
+                        &:hover {
+                            box-shadow: 0 0 10px rgb(176, 176, 176);
+
+                        }
+
+                        .icon {
+                            color: green;
+                        }
+                    }
+                }
+                .card3 {
+                    .htr-icon {
+                        background: #cec9ff;
+
+                        &:hover {
+                            box-shadow: 0 0 10px rgb(176, 176, 176);
+
+                        }
+
+                        .icon {
+                            color: #695CFE;
+                        }
+                    }
+                }
+                .card4 {
+                    .htr-icon {
+                        background: rgb(218, 218, 218);
+
+                        &:hover {
+                            box-shadow: 0 0 10px rgb(176, 176, 176);
+
+                        }
+
+                        .icon {
+                            color: rgb(118, 118, 118);
+                        }
+                    }
+                }
             }
         }
     }
