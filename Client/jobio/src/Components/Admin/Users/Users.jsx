@@ -18,7 +18,6 @@ const Users = ({ setActivePageToChats }) => {
         async function display() {
             try {
                 const users = await getAllUsers();
-                // console.log(users);
                 const filteredUsers = users.filter(user => user._id !== userId);
                 setAllUsers(filteredUsers);
                 setFilteredUsers(filteredUsers);
@@ -45,6 +44,7 @@ const Users = ({ setActivePageToChats }) => {
         const filtered = allUsers.filter(user =>
             user.username.toLowerCase().includes(inputValue.toLowerCase()) ||
             user.email.toLowerCase().includes(inputValue.toLowerCase()) ||
+            user.state.toLowerCase().includes(inputValue.toLowerCase()) ||
             user.type.toLowerCase().includes(inputValue.toLowerCase())
         );
         setFilteredUsers(filtered);
@@ -75,6 +75,7 @@ const Users = ({ setActivePageToChats }) => {
                                 <th>Image</th>
                                 <th>Username</th>
                                 <th>Email</th>
+                                <th>State</th>
                                 <th>Phone</th>
                                 <th>Type</th>
                                 <th>Action</th>
@@ -90,6 +91,7 @@ const Users = ({ setActivePageToChats }) => {
                                     </td>
                                     <td>{user.username}</td>
                                     <td>{user.email}</td>
+                                    <td>{user.state}</td>
                                     <td>{user.phone}</td>
                                     <td>{user.type}</td>
                                     <td>
