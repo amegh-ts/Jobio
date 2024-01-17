@@ -5,18 +5,16 @@ import { LineChart } from '@mui/x-charts/LineChart';
 import { getAllUsers } from '../../ApiCalls';
 
 
-const Home = ({userId}) => {
-  const [allUsers, setAllUsers] = useState([]);
-  const [filteredUsers, setFilteredUsers] = useState([]);
+const Home = () => {
+  const [userList, setUserList] = useState([]);
+
 
   useEffect(() => {
     async function display() {
       try {
         const users = await getAllUsers();
-        // console.log(users);
-        const filteredUsers = users.filter(user => user._id !== userId);
-        setAllUsers(filteredUsers);
-        setFilteredUsers(filteredUsers);
+        console.log(users);
+        setUserList(users);
       } catch (error) {
         console.log(error);
       }
@@ -24,17 +22,28 @@ const Home = ({userId}) => {
     display();
   }, []);
 
+  // const xLabels = userList.map(user => user.createdAt);
+  const xLabels = userList.map(user => {
+    const createdAtDate = new Date(user.createdAt);
+    return isNaN(createdAtDate) ? '' : createdAtDate.toLocaleDateString();
+  });
+  
+  const uData = Array.from({ length: xLabels.length }, (_, index) => index);
+  // console.log(x);
+  // console.log(date);
+  
 
-  const uData = [4000, 3000, 2000, 2780, 1890, 2390, 3490];
-  const xLabels = [
-    'Page A',
-    'Page B',
-    'Page C',
-    'Page D',
-    'Page E',
-    'Page F',
-    'Page G',
-  ];
+
+  // const uData = [0, 1, 2, 3, 4, 5, 6];
+  // const xLabels = [
+  //   'Page A',
+  //   'Page B',
+  //   'Page C',
+  //   'Page D',
+  //   'Page E',
+  //   'Page F',
+  //   'Page G',
+  // ];
 
 
 
