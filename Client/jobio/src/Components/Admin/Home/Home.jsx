@@ -78,28 +78,28 @@ const Home = () => {
           <div className="htr">
             <div className="htr-card card1">
               <span className='htr-icon'>
-                <FaCrown className='icon'/>
+                <FaCrown className='icon' />
               </span>
               <h2>{admins}</h2>
               <p>Admins</p>
             </div>
             <div className="htr-card card2">
               <span className='htr-icon'>
-                <FaUserTie className='icon'/>
+                <FaUserTie className='icon' />
               </span>
               <h2>{employer}</h2>
               <p>Employer</p>
             </div>
             <div className="htr-card card3">
               <span className='htr-icon'>
-                <FaUser className='icon'/>
+                <FaUser className='icon' />
               </span>
               <h2>{employee}</h2>
               <p>Employee</p>
             </div>
             <div className="htr-card card4">
               <span className='htr-icon'>
-                <FaPeopleGroup className='icon'/>
+                <FaPeopleGroup className='icon' />
               </span>
               <h2>{totalUser}</h2>
               <p>Total Users</p>
