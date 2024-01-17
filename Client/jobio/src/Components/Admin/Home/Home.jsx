@@ -23,40 +23,31 @@ const Home = () => {
   }, []);
 
   // const xLabels = userList.map(user => user.createdAt);
-  const xLabels = userList.map(user => {
-    const createdAtDate = new Date(user.createdAt);
-    return isNaN(createdAtDate) ? '' : createdAtDate.toLocaleDateString();
-  });
-  
-  const uData = Array.from({ length: xLabels.length }, (_, index) => index);
-  // console.log(x);
-  // console.log(date);
-  
+  // const uData = Array.from({ length: xLabels.length }, (_, index) => index);
 
-
-  // const uData = [0, 1, 2, 3, 4, 5, 6];
-  // const xLabels = [
-  //   'Page A',
-  //   'Page B',
-  //   'Page C',
-  //   'Page D',
-  //   'Page E',
-  //   'Page F',
-  //   'Page G',
-  // ];
+    // Assuming userList contains objects with 'createdAt' property
+    const userCountByDay = userList.reduce((countByDay, user) => {
+      const date = user.createdAt.split('T')[0]; // Assuming createdAt is a full date-time string
+      countByDay[date] = (countByDay[date] || 0) + 1;
+      return countByDay;
+    }, {});
+  
+    const xLabels = Object.keys(userCountByDay);
+    const uData = xLabels.map((date) => userCountByDay[date]);
 
 
 
   return (
-    <div className="Home">
+    <div className="AHome">
       <h3>Dashboard</h3>
       <div className="home-main">
         <div className="home-top">
           <div className="htl">
             <LineChart
               width={500}
+              max-width={500}
               height={300}
-              series={[{ data: uData, label: 'uv', area: true, showMark: false }]}
+              series={[{ data: uData, label: 'Growth', area: true, showMark: true ,color: '#fdb462'}]}
               xAxis={[{ scaleType: 'point', data: xLabels }]}
               sx={{
                 '.MuiLineElement-root': {
