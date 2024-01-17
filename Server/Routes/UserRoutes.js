@@ -28,6 +28,6 @@ router.put('/changepass', changePassword)
 // send alert
 router.post('/sendalert', verifyToken, sendAlert)
 // get alert
-router.get('/getalert', verifyToken, verifyTokenAndAuthorization, getAlert)
+router.get('/getalert', verifyToken, getAlert)
 
 module.exports = router

@@ -119,7 +119,7 @@ export const sendAlert = async (data) => {
     console.log('dataaaaaaaaaa',data);
     const newData = { ...data, user: 'Admin' }
     try {
-        const res = await publicRequest.post('/sendalert', newData)
+        const res = await userRequest.post('/sendalert', newData)
         console.log('new data', newData);
         console.log('Response Status:', res.status);
     } catch (error) {

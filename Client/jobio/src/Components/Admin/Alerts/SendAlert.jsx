@@ -2,12 +2,13 @@ import { useState } from "react";
 import { LuBellPlus } from 'react-icons/lu';
 import './SendAlert.css'
 import { sendAlert } from "../../ApiCalls";
+
 const SendAlert = () => {
-  const [alert, setAlert] = useState('');
+  const [alertMessage, setAlertMessage] = useState('');
   const [priority, setPriority] = useState('Common Message');
 
   const handleTextareaChange = (event) => {
-    setAlert(event.target.value);
+    setAlertMessage(event.target.value);
   };
 
   const handlePriorityChange = (event) => {
@@ -16,17 +17,18 @@ const SendAlert = () => {
 
   const handleSendClick = async () => {
     try {
-      await sendAlert({ alert, priority })
-      console.log(alert,priority);
+      await sendAlert({ alert: alertMessage, priority });
+      console.log(alertMessage, priority);
+      window.alert("Message sent successfully");
+      window.location.reload();
     } catch (error) {
       console.log(error);
     }
-    alert("Message sent successfully")
   };
+
   return (
     <div className="send-notification-main">
       <div className="container">
-        
         <div className="send-notification-header">
           <LuBellPlus className="bell-plus-icon" />
           <h3>Send Alert</h3>
@@ -41,7 +43,7 @@ const SendAlert = () => {
             </select>
           </div>
           <div>
-            <textarea name="notification" cols="30" rows="10" value={alert} onChange={handleTextareaChange} ></textarea>
+            <textarea name="notification" cols="30" rows="10" value={alertMessage} onChange={handleTextareaChange}></textarea>
           </div>
           <div>
             <button onClick={handleSendClick}>Send</button>
@@ -49,7 +51,7 @@ const SendAlert = () => {
         </div>
       </div>
     </div>
-  )
+  );
 }
 
-export default SendAlert
+export default SendAlert;
