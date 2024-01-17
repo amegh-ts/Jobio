@@ -8,12 +8,14 @@ const ViewAlert = () => {
 
   useEffect(() => {
     async function display() {
-      const notifications = await getAlert();
-      setState(notifications);
+      const alert = await getAlert();
+      setState(alert);
     }
     display()
 
   }, [])
+
+  const reversedState = [...state].reverse();
 
   const getPriorityColor = (priority) => {
     switch (priority) {
@@ -35,13 +37,13 @@ const ViewAlert = () => {
           <h3>Alerts</h3>
         </div>
         <div className='notification-container'>
-          {state &&
-            state.map((notification) => (
-              <div className={`notification-box ${getPriorityColor(notification.priority)}`} key={notification._id}>
+          {reversedState &&
+            reversedState.map((alert) => (
+              <div className={`notification-box ${getPriorityColor(alert.priority)}`} key={alert._id}>
                 <div className="ntb-content">
                   {/* <h5>{notification.user}</h5> */}
-                  <h6>  {new Date(notification.createdAt).toLocaleString()}</h6>
-                  <p>{notification.notification}</p>
+                  <h6>  {new Date(alert.createdAt).toLocaleString()}</h6>
+                  <p>{alert.alert}</p>
                 </div>
               </div>
             ))}
