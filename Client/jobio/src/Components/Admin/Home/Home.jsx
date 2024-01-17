@@ -51,8 +51,8 @@ const Home = () => {
 
 
   const data = [
-    { id: 0, value: 10, label: 'series A' },
-    { id: 1, value: 15, label: 'series B' },
+    { id: 0, value: admins, label: 'Admins' ,color:'#00000'},
+    { id: 1, value: 1, label: 'series B' },
     { id: 2, value: 20, label: 'series C' },
   ];
 
@@ -117,6 +117,10 @@ const Home = () => {
         <div className="home-middle">
           <div className="hml">
             <div className="hml-card card1">
+              
+            </div>
+            <div className="hml-card card2">
+            <h2>Users</h2>
               <PieChart
                 series={[
                   {
@@ -125,11 +129,10 @@ const Home = () => {
                     faded: { innerRadius: 30, additionalRadius: -30, color: 'gray' },
                   },
                 ]}
+                slotProps={{ legend: { hidden: false } }}
+
                 height={200}
               />
-            </div>
-            <div className="hml-card card2">
-
             </div>
           </div>
           <div className="hmr"></div>

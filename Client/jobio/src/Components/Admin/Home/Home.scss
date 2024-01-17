@@ -15,10 +15,12 @@
         .home-top {
             display: flex;
             padding: 10px;
+        flex-wrap: wrap;
+
             gap: 20px;
 
             .htl {
-                min-width: 300px;
+                min-width: 400px;
                 min-height: 250px;
                 max-height: 250px;
                 background: var(--sidebar-color);
@@ -145,11 +147,21 @@
                 gap: 10px;
 
                 .hml-card {
-                    min-width: 223px;
                     min-height: 280px;
                     background: var(--sidebar-color);
                     border-radius: 20px;
                     padding: 10px;
+                    display: flex;
+                    flex-direction: column;
+                }
+                .card1{
+                    min-width: 900px;
+                    display: flex;
+                    flex: 1;
+                }
+                .card2{
+                    min-width: 340px;
+
                 }
             }
         }
