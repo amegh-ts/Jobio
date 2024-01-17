@@ -7,25 +7,14 @@ import { FaFilter } from "react-icons/fa";
 import { createChat, getAllUsers } from '../../ApiCalls';
 
 const Users = ({ setActivePageToChats }) => {
-    const [isDropdownVisible, setIsDropdownVisible] = useState(false);
-    const dropdownRef = useRef(null);
     const [allUsers, setAllUsers] = useState([]);
     const [filteredUsers, setFilteredUsers] = useState([]);
     const [searchInput, setSearchInput] = useState('');
+    const [filterStatus, setFilterStatus] = useState('active'); // 'all' or 'banned'
 
     const storedData = localStorage.getItem('persist:jobio');
     const user = storedData ? JSON.parse(JSON.parse(storedData).user) : null;
     const userId = user?.userInfo?.[0]?.id;
-
-    const toggleDropdown = () => {
-        setIsDropdownVisible(!isDropdownVisible);
-    };
-
-    const closeDropdown = (event) => {
-        if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
-            setIsDropdownVisible(false);
-        }
-    };
 
     useEffect(() => {
         async function display() {
@@ -63,6 +52,18 @@ const Users = ({ setActivePageToChats }) => {
         setFilteredUsers(filtered);
     };
 
+    const handleFilterClick = () => {
+        setFilterStatus(filterStatus === 'active' ? 'banned' : 'active');
+        
+        // Update filteredUsers based on the new filterStatus
+        const filtered = allUsers.filter(user =>
+            filterStatus === 'banned' ? user.isBanned : true
+        );
+        setFilteredUsers(filtered);
+    };
+    
+    
+
     return (
         <div>
             <div className="all-users-main">
@@ -81,12 +82,8 @@ const Users = ({ setActivePageToChats }) => {
                             />
                             <IoSearch />
                         </div>
-                        <div className="all-user-filter" onClick={toggleDropdown} ref={dropdownRef}>
-                            <FaFilter />
-                            <div className={`dropdown-container ${isDropdownVisible ? 'visible' : ''}`} style={{ display: isDropdownVisible ? 'block' : 'none' }}>
-                                <span className='dropdown-item'>Send</span>
-                                <span className='dropdown-item' >View</span>
-                            </div>
+                        <div className={`all-user-filter ${filterStatus === 'banned' ? 'active' : ''}`} onClick={handleFilterClick}>
+                            <FaFilter style={{ color: filterStatus === 'banned' ? 'green' : 'inherit' }} />
                         </div>
                     </div>
                 </div>
