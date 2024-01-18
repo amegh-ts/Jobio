@@ -138,8 +138,16 @@ export const getAlert = async () => {
     }
 }
 
-
-
+// delete alert
+export const deleteAlert=async(data)=>{
+    console.log(data);
+    try {
+        const res=await userRequest.delete('/deletealert',data)
+        console.log('Response Status:', res.status);
+    } catch (error) {
+        console.log(error);
+    }
+}
 
 
 

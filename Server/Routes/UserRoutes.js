@@ -30,6 +30,6 @@ router.post('/sendalert', verifyToken, sendAlert)
 // get alert
 router.get('/getalert', verifyToken, getAlert)
 // delete alert
-router.delete('deletealert',verifyToken, deleteAlert)
+router.delete('/deletealert',verifyToken, deleteAlert)
 
 module.exports = router
