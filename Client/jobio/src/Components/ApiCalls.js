@@ -170,14 +170,17 @@ export const banUser = async (id, data) => {
 export const banLog = async (data) => {
     console.log(data);
     try {
-        const res=await userRequest.post('/banlog',data)
+        const res = await userRequest.post('/banlog', data)
         console.log('Response Status:', res.status);
     } catch (error) {
         console.log(error);
     }
-
 }
 
+// fetch ban logs
+export const fetchBanLogs = async () => {
+
+}
 
 
 
