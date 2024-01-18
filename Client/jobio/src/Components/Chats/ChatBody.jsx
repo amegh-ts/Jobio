@@ -1,31 +1,7 @@
-// import { useEffect, useState } from 'react';
-// import { sendMessage, viewMessages } from '../ApiCalls';
+import { useEffect, useState } from 'react';
+import { sendMessage, viewMessages } from '../ApiCalls';
 
-// const ChatBody = ({ selectedChatId, selectedChatDetails }) => {
-//     const [messages, setMessages] = useState([]);
-//     const [inputMessage, setInputMessage] = useState('');
 
-//     console.log('selected user', selectedChatDetails);
-
-//     const storedData = localStorage.getItem('persist:jobio');
-//     const user = storedData ? JSON.parse(JSON.parse(storedData).user) : null;
-//     const senderId = user?.userInfo?.[0]?.id;
-
-//     useEffect(() => {
-//         async function fetchData() {
-//             try {
-//                 const getChat = await viewMessages(selectedChatId);
-//                 setMessages(getChat || []);
-//             } catch (error) {
-//                 console.log(error);
-//             }
-//         }
-//         fetchData();
-//     }, [selectedChatId]);
-
-//     const handleMessageChange = (e) => {
-//         setInputMessage(e.target.value);
-//     };
 
 //     const handleSendMessage = async () => {
 //         if (inputMessage.trim() === '') {
@@ -95,6 +71,32 @@
 
 
 const ChatBody = () => {
+
+    const [messages, setMessages] = useState([]);
+    const [inputMessage, setInputMessage] = useState('');
+
+    console.log('selected user', selectedChatDetails);
+
+    const storedData = localStorage.getItem('persist:jobio');
+    const user = storedData ? JSON.parse(JSON.parse(storedData).user) : null;
+    const senderId = user?.userInfo?.[0]?.id;
+
+    useEffect(() => {
+        async function fetchData() {
+            try {
+                const getChat = await viewMessages(selectedChatId);
+                setMessages(getChat || []);
+            } catch (error) {
+                console.log(error);
+            }
+        }
+        fetchData();
+    }, [selectedChatId]);
+
+    const handleMessageChange = (e) => {
+        setInputMessage(e.target.value);
+    };
+
     return (
         <div className="cmblr-container"><div className="cmbr-header">
             <p>Chat with ramu</p>
