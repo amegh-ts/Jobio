@@ -1,11 +1,13 @@
 .all-users-main {
-  background: var(--sidebar-color);
   border-radius: 10px;
   min-height: 85vh;
   padding: 20px;
 
   .al-users-header {
+    background: var(--sidebar-color);
+    padding: 10px;
     display: flex;
+    border-radius: 10px;
     align-items: center;
     justify-content: space-between;
   }
@@ -41,7 +43,9 @@
   }
 
   .table-container {
-    overflow-x: auto;
+    overflow-y: auto;
+    height: 720px;
+
   }
 
   .all-users-table {
@@ -79,7 +83,7 @@
       display: flex;
       align-items: center;
       gap: 10px;
-      
+
 
       button {
         background: var(--primary-color);
