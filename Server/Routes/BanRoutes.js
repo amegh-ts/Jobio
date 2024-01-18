@@ -1,4 +1,4 @@
-const { fetchUser, banUser, banLog } = require('../Controller/BanController')
+const { fetchUser, banUser, banLog, getBanLogs } = require('../Controller/BanController')
 
 const router = require('express').Router()
 
@@ -8,5 +8,7 @@ router.get('/fetchuser/:id',fetchUser)
 router.post('/banuser/:id',banUser)
 // ban logs
 router.post('/banlog',banLog)
+// ban data
+router.get('/getbanlogs',getBanLogs)
 
 module.exports = router
