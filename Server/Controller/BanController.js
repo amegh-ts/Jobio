@@ -24,11 +24,8 @@ const banUser = async (req, res) => {
 
 // ban log
 const banLog = async (req, res) => {
-    console.log(req.body);
     const banData = new banController(req.body)
-
     try {
-        console.log('ban data', banData);
         await banData.save()
         res.status(200).json(banData)
 
@@ -37,5 +34,15 @@ const banLog = async (req, res) => {
     }
 }
 
+const getBanLogs = async (req, res) => {
+    try {
+        const banData = await banController.find();
+        console.log('bandata----------?',banData);
+        res.status(200).json(banData)
+    } catch (error) {
+        res.status(500).json(error)
+    }
+}
 
-module.exports = { fetchUser, banUser, banLog }
+
+module.exports = { fetchUser, banUser, banLog ,getBanLogs}
