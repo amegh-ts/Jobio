@@ -13,6 +13,7 @@ const Users = ({ setActivePageToChats }) => {
     const [searchInput, setSearchInput] = useState('');
     const [banPopup, setBanPopup] = useState(false)
     const [Ids, setIds] = useState({})
+    const [reason, setReason] = useState('')
     // const [banState, setBanState] = useState('');
 
     const storedData = localStorage.getItem('persist:jobio');
@@ -66,14 +67,15 @@ const Users = ({ setActivePageToChats }) => {
         }
     }
 
+    
     const handleBanUser = async () => {
         console.log(userId);
 
         const newState = data.state === 'banned' ? 'inactive' : 'banned';
         try {
             await banUser(Ids.userId, { state: newState })
-            await banLog(Ids.AdminId,Ids.userId)
-            window.location.reload();
+            await banLog({ bannedBy: Ids.AdminId, banned: Ids.userId, state: newState, reason: reason })
+            // window.location.reload();
         } catch (error) {
             console.log(error);
         }
@@ -135,7 +137,12 @@ const Users = ({ setActivePageToChats }) => {
                                                     <h3>{data.state === 'banned' ? 'Unban' : 'Ban'}</h3>
                                                     <div className="ban-popup-container">
                                                         <div className="container-prompt">
-                                                            <h2>Do you want to {data.state === 'banned' ? 'unban' : 'ban'} {data.username}</h2>
+                                                            <div>
+                                                                <h2>Do you want to {data.state === 'banned' ? 'unban' : 'ban'} {data.username}</h2>
+                                                            </div>
+                                                            <div>
+                                                                <textarea name="reason" id="" cols="30" rows="10" placeholder='Mention the reason'value={reason} onChange={(e) => { setReason(e.target.value) }}></textarea>
+                                                            </div>
                                                             {/* <h3>{Ids.AdminId}</h3>
                                                             <h3>{Ids.userId}</h3> */}
                                                             <h2></h2>

@@ -25,9 +25,17 @@ const banUser = async (req, res) => {
 }
 
 // ban log
-const banLog=async(req,res)=>{
-    
+const banLog = async (req, res) => {
+    console.log(req.body);
+    try {
+        const banData = await new userController(req.body)
+        console.log('ban data', banData);
+        res.status(200).json(banData)
+
+    } catch (error) {
+        res.status(500).json(error)
+    }
 }
 
 
-module.exports = { fetchUser,banUser }
+module.exports = { fetchUser, banUser, banLog }
