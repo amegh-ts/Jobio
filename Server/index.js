@@ -11,6 +11,7 @@ dotenv.config()
 const userRoutes = require('./Routes/UserRoutes')
 const chatRoutes = require('./Routes/ChatRoutes')
 const messageRoutes = require('./Routes/messageRoutes')
+const banRoutes = require('./Routes/BanRoutes')
 
 
 mongoose.connect(process.env.Mongo_Key).then(() => {
@@ -22,6 +23,7 @@ app.use(express.json())
 app.use('/', userRoutes)
 app.use('/', chatRoutes)
 app.use('/chat/messages', messageRoutes)
+app.use('/',banRoutes)
 
 
 app.listen(PORT, () => {
