@@ -143,7 +143,9 @@ const Home = () => {
         <div className="home-middle">
           <div className="hml">
             <div className="hml-card card1">
+              <div className="hml-eader">
               <h2>Ban Logs</h2>
+              </div>
               <div className="ban-log">
                 <p>Recent log</p>
                 <div className="log-container">
