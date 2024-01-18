@@ -28,7 +28,7 @@ const clearExpiredOtps = async () => {
 };
 
 // Schedule the function to run every minute (adjust as needed)
-setInterval(clearExpiredOtps, 20 * 1000);
+setInterval(clearExpiredOtps, 1 * 60 * 1000);
 
 const forgotPassword = async (req, res) => {
     // console.log(req.body);
@@ -96,11 +96,11 @@ const changePassword = async (req, res) => {
     }
     try {
         console.log('jjjjjjjjjjjjjjjjjjjjjjj');
-        const encryptedPassword =Crypto.AES.encrypt(password, process.env.Crypto_js).toString();
-        console.log('enc pass',encryptedPassword);
+        const encryptedPassword = Crypto.AES.encrypt(password, process.env.Crypto_js).toString();
+        console.log('enc pass', encryptedPassword);
         const storedData = await mailer.findOne({ email });
         if (storedData) {
-            const updateData = await userController.findOneAndUpdate({ email },{ $set: { password: encryptedPassword } },{ new: true });
+            const updateData = await userController.findOneAndUpdate({ email }, { $set: { password: encryptedPassword } }, { new: true });
             console.log(updateData);
             return res.status(200).json(updateData);
         } else {

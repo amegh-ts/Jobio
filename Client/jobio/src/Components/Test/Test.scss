@@ -1,0 +1,94 @@
+.Test-main {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    padding: 60px;
+
+    .test-chat {
+        // background: rgb(200, 200, 200);
+        height: 90%;
+        // flex: 1; 
+        border-radius: 10px;
+        gap: 10px;
+        display: flex;
+        flex-direction: column;
+
+        .tc-header {
+            padding: 10px;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgb(175, 175, 175);
+        }
+
+        .tc-body {
+            display: flex;
+            gap: 10px;
+            max-height: 800px;
+
+            .tcb-left {
+                padding: 10px;
+                border-radius: 10px;
+                background: white;
+                box-shadow: 0 0 10px rgb(175, 175, 175);
+                width: 25%;
+                height: 90%;
+                display: flex;
+                flex-direction: column;
+                gap: 10px;
+
+                .tcbl-header {
+                    background: teal;
+                    padding: 10px;
+                    display: flex;
+                    justify-content: space-between;
+                }
+
+                .tcbl-user-container {
+                    display: flex;
+                    flex-direction: column;
+                    gap: 10px;
+                    overflow-y: auto;
+                    max-height: 100%;
+
+                    .tcblu-cards {
+                        background: rgb(242, 255, 0);
+
+                    }
+                }
+            }
+
+            .tcb-right {
+                padding: 10px;
+                border-radius: 10px;
+                background: white;
+                width: 75%;
+                box-shadow: 0 0 10px rgb(175, 175, 175);
+                height: 90%;
+                display: flex;
+                flex-direction: column;
+                gap: 10px;
+
+
+                .tcbr-header {
+                    background: green;
+                    padding: 10px 0;
+                    display: flex;
+
+                }
+
+                .tcb-message {
+                    display: flex;
+                    flex-direction: column;
+                    overflow-y: auto;
+                    max-height: 100%;
+                    gap: 10px;
+
+                    .tcbm-cards{
+                        background: rgb(242, 255, 0);
+
+                    }
+                }
+            }
+        }
+    }
+}

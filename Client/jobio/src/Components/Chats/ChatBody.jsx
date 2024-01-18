@@ -1,8 +1,10 @@
 /* eslint-disable react/prop-types */
 import { useEffect, useState } from 'react';
 import { sendMessage, viewMessages } from '../ApiCalls';
+import { IoSend } from "react-icons/io5";
 
 const ChatBody = ({ selectedChatId, selectedChatDetails }) => {
+
     const [messages, setMessages] = useState([]);
     const [inputMessage, setInputMessage] = useState('');
 
@@ -59,12 +61,12 @@ const ChatBody = ({ selectedChatId, selectedChatDetails }) => {
     };
 
 
-
-
     return (
-        <div className='chat-body-main'>
-            <p>Chat id {selectedChatId}</p>
-            <div className="chat-body-container">
+        <div className="cmblr-container">
+            <div className="cmbr-header">
+                <p>Chat id {selectedChatId}</p>
+            </div>
+            <div className="cmbr-message">
                 {messages.length > 0 ? (
                     <ul className="message-list">
                         {messages.map((msg) => (
@@ -77,18 +79,18 @@ const ChatBody = ({ selectedChatId, selectedChatDetails }) => {
                     <p>No Conversation yet...</p>
                 )}
             </div>
-            <div className="input-container">
-                <input
+            <div className="cmbl-input">
+            <input
                     type="text"
                     placeholder="Type your message..."
                     value={inputMessage}
                     onChange={handleMessageChange}
                     onKeyPress={handleKeyPress}
                 />
-                <button onClick={handleSendMessage}>Send</button>
+                <button onClick={handleSendMessage}><IoSend /></button>
             </div>
         </div>
-    );
-};
+    )
+}
 
-export default ChatBody;
+export default ChatBody

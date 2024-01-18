@@ -1,9 +1,14 @@
 .Alerts {
     padding: 20px;
-    background: var(--sidebar-color);
 
     .notification-main {
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+
         .notification-header {
+            background: var(--sidebar-color);
+            border-radius: 10px;
             padding: 10px 0;
             display: flex;
             align-items: center;
@@ -22,55 +27,68 @@
         .notification-container {
             display: flex;
             justify-content: flex-start;
+            height: 700px;
+            overflow-y: auto;
             flex-direction: column;
             gap: 13px;
 
             .notification-box {
-                background: var(--body-color);
+            background: var(--sidebar-color);
+
                 padding: 10px;
                 display: flex;
                 align-items: center;
-                justify-content: space-between;
                 gap: 20px;
-                flex-wrap: wrap;
-                padding-left: 100px;
-                border-left: solid 3px var(--priority-color);
-                box-shadow: 0 4px 4px rgba(0, 0, 0, 0.35);
+                // padding-left: 100px;
+                border: 1px solid rgb(216, 216, 216);
+                border-left: solid 8px var(--priority-color);
+                border-radius: 10px;
 
-                &:hover {
-                    box-shadow: 1px 1px 10px var(--priority-color);
-                }
-
-                .ntb-content {
-                    h6 {
-                        color: var(--text-color);
-                        font-weight: 400;
-                        letter-spacing: 3px;
-                    }
-
-                    p {
-                        font-size: 16px;
-                    }
-                }
-
-                .delete-notification {
+                .ntb-left {
                     display: flex;
                     align-items: center;
-                    border-radius: 50%;
-                    padding: 5px;
-                    cursor: pointer;
-                    color: var(--text-color);
+                    font-size: 26px;
+                    margin: 0 15px;
+                }
 
+                .ntb-right {
+                    display: flex;
+                    align-items: center;
+                    justify-content: space-between;
+                    flex: 1;
 
-                    .nt-icon {
-                        font-size: 24px;
+                    .ntb-content {
+                        h6 {
+                            color: var(--text-color);
+                            font-weight: 400;
+                            letter-spacing: 3px;
+                        }
+
+                        p {
+                            font-size: 16px;
+                        }
                     }
 
-                    &:hover {
-                        color: rgb(208, 0, 0);
-                        box-shadow: 0 0 10px var(--text-color);
+                    .delete-notification {
+                        display: flex;
+                        align-items: center;
+                        border-radius: 50%;
+                        padding: 5px;
+                        cursor: pointer;
+                        color: var(--text-color);
+
+
+                        .nt-icon {
+                            font-size: 24px;
+                        }
+
+                        &:hover {
+                            color: rgb(208, 0, 0);
+                            box-shadow: 0 0 10px var(--text-color);
+                        }
                     }
                 }
+
             }
         }
     }

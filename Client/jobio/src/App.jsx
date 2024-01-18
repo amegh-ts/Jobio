@@ -11,6 +11,7 @@ import Landing from './Components/Landing/Landing';
 import EmployerNavbar from './Components/Employer/Navbar/EmployerNavbar';
 import ForgotPassword from './Components/Login/ForgotPassword';
 import { logoutUser } from './Redux/UserRedux';
+import Test from './Components/Test/Test';
 
 function App() {
 
@@ -24,8 +25,7 @@ function App() {
   if (reduxData) {
     const state = reduxData.state;
     const type = reduxData.type;
-    console.log('The state is', state);
-    console.log('The type is', type);
+
   
     if (state === 'banned') {
       alert('You are Banned');
@@ -74,6 +74,9 @@ function App() {
     }, {
       path: '/forgotpassword',
       element: <ForgotPassword />,
+    },{
+      path: '/test',
+      element: <Test />,
     },
   ]);
   return (

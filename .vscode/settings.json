@@ -6,9 +6,14 @@
         "Chatbubble",
         "Chatbubbles",
         "cimage",
+        "cmbl",
+        "cmblh",
+        "cmblr",
+        "cmbr",
         "cnav",
         "Codeigniter",
         "coverphoto",
+        "dataone",
         "deleteprofile",
         "editprofile",
         "firstname",
@@ -23,6 +28,8 @@
         "resetpass",
         "sendalert",
         "tada",
+        "unban",
+        "updatedata",
         "Viewprofile"
     ]
 }

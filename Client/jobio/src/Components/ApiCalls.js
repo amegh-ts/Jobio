@@ -116,11 +116,9 @@ export const changePassword = async (data) => {
 // <-------------------Alerts-------------------> //
 // send alert
 export const sendAlert = async (data) => {
-    console.log('dataaaaaaaaaa',data);
-    const newData = { ...data, user: 'Admin' ,userId:userId}
+    const newData = { ...data, user: 'Admin', userId: userId }
     try {
         const res = await userRequest.post('/sendalert', newData)
-        console.log('new data', newData);
         console.log('Response Status:', res.status);
     } catch (error) {
         console.log(error);
@@ -138,8 +136,16 @@ export const getAlert = async () => {
     }
 }
 
-
-
+// delete alert
+export const deleteAlert=async(data)=>{
+    console.log(data);
+    try {
+        const res=await userRequest.delete('/deletealert',{data})
+        console.log('Response Status:', res.status);
+    } catch (error) {
+        console.log(error);
+    }
+}
 
 
 
@@ -147,9 +153,9 @@ export const getAlert = async () => {
 
 // <-------------------ban-------------------> //
 // fetch user
-export const fetchUser=async(id)=>{
+export const fetchUser = async (id) => {
     try {
-        const res=await userRequest.get(`/fetchuser/${id}`)
+        const res = await userRequest.get(`/fetchuser/${id}`)
         return res.data;
     } catch (error) {
         console.log(error);
@@ -157,19 +163,36 @@ export const fetchUser=async(id)=>{
 }
 
 // ban user
-export const banUser=async(id,data)=>{
-    console.log('state id',id);
-    console.log('state data',data);
+export const banUser = async (id, data) => {
     try {
-        const res=await userRequest.post(`/banuser/${id}`,data);
+        const res = await userRequest.post(`/banuser/${id}`, data);
         console.log('Response Status:', res.status);
-
     } catch (error) {
         console.log(error);
     }
 }
 
+// ban logs
+export const banLog = async (data) => {
+    console.log(data);
+    try {
+        const res = await userRequest.post('/banlog', data)
+        console.log('Response Status:', res.status);
+    } catch (error) {
+        console.log(error);
+    }
+}
 
+// fetch ban logs
+export const fetchBanLogs = async () => {
+    try {
+        const res = await userRequest.get('/getbanlogs')
+        console.log('Response Status:', res.status);
+        return res.data
+    } catch (error) {
+        console.log(error);
+    }
+}
 
 
 

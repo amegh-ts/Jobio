@@ -1,5 +1,6 @@
 const alert = require('../Models/AlertSchema')
 
+// send alert
 const sendAlert = async (req, res) => {
     const newAlert = new alert(req.body)
     console.log(newAlert);
@@ -11,6 +12,7 @@ const sendAlert = async (req, res) => {
     }
 }
 
+// get alert
 const getAlert = async (req, res) => {
     try {
         const data = await alert.find()
@@ -20,4 +22,15 @@ const getAlert = async (req, res) => {
     }
 }
 
-module.exports = { sendAlert, getAlert };
+// delete alert
+const deleteAlert=async(req,res)=>{
+    console.log(req.body);
+    try {
+        const deleteData=await alert.findByIdAndDelete(req.body.id)
+        res.status(200).json(deleteData)
+    } catch (error) {
+        res.status(500).json(error)
+    }
+}
+
+module.exports = { sendAlert, getAlert,deleteAlert };
