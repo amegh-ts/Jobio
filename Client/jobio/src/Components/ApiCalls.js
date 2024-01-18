@@ -161,7 +161,6 @@ export const banUser = async (id, data) => {
     try {
         const res = await userRequest.post(`/banuser/${id}`, data);
         console.log('Response Status:', res.status);
-
     } catch (error) {
         console.log(error);
     }
@@ -171,7 +170,8 @@ export const banUser = async (id, data) => {
 export const banLog = async (data) => {
     console.log(data);
     try {
-        // const res=await
+        const res=await userRequest.post('/banlog',data)
+        console.log('Response Status:', res.status);
     } catch (error) {
         console.log(error);
     }
