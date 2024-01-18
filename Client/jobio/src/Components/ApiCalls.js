@@ -116,11 +116,9 @@ export const changePassword = async (data) => {
 // <-------------------Alerts-------------------> //
 // send alert
 export const sendAlert = async (data) => {
-    console.log('dataaaaaaaaaa', data);
     const newData = { ...data, user: 'Admin', userId: userId }
     try {
         const res = await userRequest.post('/sendalert', newData)
-        console.log('new data', newData);
         console.log('Response Status:', res.status);
     } catch (error) {
         console.log(error);
@@ -142,7 +140,7 @@ export const getAlert = async () => {
 export const deleteAlert=async(data)=>{
     console.log(data);
     try {
-        const res=await userRequest.delete('/deletealert',data)
+        const res=await userRequest.delete('/deletealert',{data})
         console.log('Response Status:', res.status);
     } catch (error) {
         console.log(error);
