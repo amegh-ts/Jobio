@@ -13,7 +13,7 @@ const Users = ({ setActivePageToChats }) => {
     const [searchInput, setSearchInput] = useState('');
     const [banPopup, setBanPopup] = useState(false)
     const [Ids, setIds] = useState({})
-    const [reason, setReason] = useState('')
+    const [reason, setReason] = useState('Not Mentioned')
     // const [banState, setBanState] = useState('');
 
     const storedData = localStorage.getItem('persist:jobio');
@@ -57,9 +57,9 @@ const Users = ({ setActivePageToChats }) => {
         setFilteredUsers(filtered);
     };
 
-    const handleBanButtonClick = async (AdminId, userId) => {
+    const handleBanButtonClick = async (AdminId, userId,username) => {
         setBanPopup(true);
-        setIds({ AdminId, userId })
+        setIds({ AdminId, userId,username })
         try {
             const apiData = await fetchUser(userId)
             setData(apiData)
@@ -76,6 +76,10 @@ const Users = ({ setActivePageToChats }) => {
         try {
             await banUser(Ids.userId, { state: newState })
             await banLog({ bannedBy: Ids.AdminId, banned: Ids.userId, state: newState, reason: reason })
+            const alertMessage = {
+                alert: `${Ids.username} status set to ${newState} in the server`,priority:'system'
+            };
+            await sendAlert(alertMessage)
             window.location.reload();
         } catch (error) {
             console.log(error);
@@ -131,7 +135,7 @@ const Users = ({ setActivePageToChats }) => {
                                         <div className="edit-chat">
                                             <button><IoPencil className='bicon' /></button>
                                             <button onClick={() => handleChatButtonClick(userId, user._id)}><IoChatbubbles className='bicon' /></button>
-                                            <button onClick={() => handleBanButtonClick(userId, user._id)}><IoBan /></button>
+                                            <button onClick={() => handleBanButtonClick(userId, user._id,user.username)}><IoBan /></button>
 
                                             <Popup trigger={banPopup} setTrigger={setBanPopup} key={user._id}>
                                                 <div className="ban-popup">
