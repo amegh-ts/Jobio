@@ -1,6 +1,7 @@
 /* eslint-disable react/prop-types */
 import { useEffect, useState } from 'react';
 import { sendMessage, viewMessages } from '../ApiCalls';
+import { IoSend } from "react-icons/io5";
 
 const ChatBody = ({ selectedChatId, selectedChatDetails }) => {
 
@@ -86,7 +87,7 @@ const ChatBody = ({ selectedChatId, selectedChatDetails }) => {
                     onChange={handleMessageChange}
                     onKeyPress={handleKeyPress}
                 />
-                <button onClick={handleSendMessage}>Send</button>
+                <button onClick={handleSendMessage}><IoSend /></button>
             </div>
         </div>
     )
