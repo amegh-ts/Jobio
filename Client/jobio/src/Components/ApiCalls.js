@@ -168,7 +168,14 @@ export const banUser = async (id, data) => {
 }
 
 // ban logs
-export const banLog = async () => {
+export const banLog = async (id, id2) => {
+    console.log(id);
+    console.log(id2);
+    try {
+        // const res=await
+    } catch (error) {
+        console.log(error);
+    }
 
 }
 

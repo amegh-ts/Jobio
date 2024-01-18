@@ -3,7 +3,7 @@ import { useEffect, useState } from 'react';
 import './Users.scss';
 import { GrGroup } from "react-icons/gr";
 import { IoSearch, IoPencil, IoChatbubbles, IoBan } from "react-icons/io5";
-import { banUser, createChat, fetchUser, getAllUsers } from '../../ApiCalls';
+import { banLog, banUser, createChat, fetchUser, getAllUsers } from '../../ApiCalls';
 import Popup from '../../../Assets/Popups/Popup';
 
 const Users = ({ setActivePageToChats }) => {
@@ -72,6 +72,7 @@ const Users = ({ setActivePageToChats }) => {
         const newState = data.state === 'banned' ? 'inactive' : 'banned';
         try {
             await banUser(Ids.userId, { state: newState })
+            await banLog(Ids.AdminId,Ids.userId)
             window.location.reload();
         } catch (error) {
             console.log(error);
