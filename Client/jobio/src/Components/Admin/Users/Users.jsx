@@ -138,9 +138,11 @@ const Users = ({ setActivePageToChats }) => {
                                                             <h3>{Ids.userId}</h3>
                                                             <h2></h2>
                                                         </div>
-                                                        <button onClick={() => handleBanUser(userId, user._id)}>
-                                                            {banState === 'banned' ? 'Unban' : 'Ban'}
-                                                        </button>
+                                                        <div className="container-button">
+                                                            <button onClick={() => handleBanUser(userId, user._id)}>
+                                                                {banState === 'banned' ? 'Unban' : 'Ban'}
+                                                            </button>
+                                                        </div>
                                                     </div>
                                                 </div>
                                             </Popup>
