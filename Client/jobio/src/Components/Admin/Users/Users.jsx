@@ -2,7 +2,7 @@
 import { useEffect, useState } from 'react';
 import './Users.scss';
 import { GrGroup } from "react-icons/gr";
-import { IoSearch, IoPencil, IoChatbubbles } from "react-icons/io5";
+import { IoSearch, IoPencil, IoChatbubbles, IoBan } from "react-icons/io5";
 import { createChat, getAllUsers } from '../../ApiCalls';
 import Popup from '../../../Assets/Popups/Popup';
 
@@ -10,7 +10,8 @@ const Users = ({ setActivePageToChats }) => {
     const [allUsers, setAllUsers] = useState([]);
     const [filteredUsers, setFilteredUsers] = useState([]);
     const [searchInput, setSearchInput] = useState('');
-    const [banPopup, setBanPopup]=useState(false)
+    const [banPopup, setBanPopup] = useState(false)
+    const[Ids,setIds]=useState({})
 
     const storedData = localStorage.getItem('persist:jobio');
     const user = storedData ? JSON.parse(JSON.parse(storedData).user) : null;
@@ -51,6 +52,12 @@ const Users = ({ setActivePageToChats }) => {
         );
         setFilteredUsers(filtered);
     };
+
+    const handleBanButtonClick = (AdminId,userId) => {
+        console.log(AdminId,userId);
+        setBanPopup(true);
+        setIds({AdminId,userId})
+    }
 
     return (
         <div>
@@ -96,14 +103,24 @@ const Users = ({ setActivePageToChats }) => {
                                     <td>{user.state}</td>
                                     <td>{user.phone}</td>
                                     <td>{user.type}</td>
+                                    <td>{user._id}</td>
                                     <td>
-                                        <div className="edit-chat">
+                                        <div className="edit-chat" key={index}>
                                             <button><IoPencil className='bicon' /></button>
                                             <button onClick={() => handleChatButtonClick(userId, user._id)}><IoChatbubbles className='bicon' /></button>
-                                            <button></button>
-                                            
-                                            <Popup>
+                                            <button onClick={()=>handleBanButtonClick(userId,user._id)}><IoBan /></button>
 
+                                            <Popup trigger={banPopup} setTrigger={setBanPopup} key={user._id}>
+                                                <div className="ban-popup" >
+                                                    <h3>Ban</h3>
+                                                    <div className="ban-popup-container">
+                                                        <div className="container-prompt" key={user._id}>
+                                                            
+                                                            <h3>{Ids.AdminId}</h3>
+                                                            <h3>{Ids.userId}</h3>
+                                                        </div>
+                                                    </div>
+                                                </div>
                                             </Popup>
                                         </div>
                                     </td>
