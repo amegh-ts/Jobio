@@ -4,11 +4,13 @@ import './Users.scss';
 import { GrGroup } from "react-icons/gr";
 import { IoSearch, IoPencil, IoChatbubbles } from "react-icons/io5";
 import { createChat, getAllUsers } from '../../ApiCalls';
+import Popup from '../../../Assets/Popups/Popup';
 
 const Users = ({ setActivePageToChats }) => {
     const [allUsers, setAllUsers] = useState([]);
     const [filteredUsers, setFilteredUsers] = useState([]);
     const [searchInput, setSearchInput] = useState('');
+    const [banPopup, setBanPopup]=useState(false)
 
     const storedData = localStorage.getItem('persist:jobio');
     const user = storedData ? JSON.parse(JSON.parse(storedData).user) : null;
@@ -75,6 +77,7 @@ const Users = ({ setActivePageToChats }) => {
                                 <th>Image</th>
                                 <th>Username</th>
                                 <th>Email</th>
+                                <th>State</th>
                                 <th>Phone</th>
                                 <th>Type</th>
                                 <th>Action</th>
@@ -90,13 +93,19 @@ const Users = ({ setActivePageToChats }) => {
                                     </td>
                                     <td>{user.username}</td>
                                     <td>{user.email}</td>
+                                    <td>{user.state}</td>
                                     <td>{user.phone}</td>
                                     <td>{user.type}</td>
                                     <td>
                                         <div className="edit-chat">
                                             <button><IoPencil className='bicon' /></button>
                                             <button onClick={() => handleChatButtonClick(userId, user._id)}><IoChatbubbles className='bicon' /></button>
-                                            </div>
+                                            <button></button>
+                                            
+                                            <Popup>
+
+                                            </Popup>
+                                        </div>
                                     </td>
                                 </tr>
                             ))}
