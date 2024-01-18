@@ -139,6 +139,17 @@ export const getAlert = async () => {
 }
 
 
+// <-------------------ban-------------------> //
+// fetch user
+export const fetchUser=async(data)=>{
+    console.log('idsssss',data);
+    // try {
+        
+    // } catch (error) {
+    //     console.log(error);
+    // }
+}
+
 // <-------------------Chats-------------------> //
 // create chat
 export const createChat = async (data) => {
