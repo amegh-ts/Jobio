@@ -318,25 +318,52 @@
                     }
                 }
 
-                .resetpass-input{
+                .resetpass-input {
                     display: flex;
                     flex-direction: column;
                     justify-content: center;
                     gap: 10px;
 
                     input {
-                      padding: 10px;
-                      outline: none;
-                      border-radius: 10px;
+                        padding: 10px;
+                        outline: none;
+                        border-radius: 10px;
                     }
                 }
             }
         }
 
-        .ban-popup{
-            .ban-popup-container{
-                .container-prompt{
-                    
+        .ban-popup {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+
+            .ban-popup-container {
+                display: flex;
+                flex-direction: column;
+                gap: 10px;
+
+                .container-prompt {
+                    padding: 20px;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    border-radius: 10px;
+                    box-shadow: 0 0 10px rgb(230, 230, 230);
+
+                }
+
+                .container-button {
+                    display: flex;
+                    justify-content: center;
+                    button {
+                        display: flex;
+                        justify-content: center;
+                        border-radius: 10px;
+                        padding: 10px;
+                        width: 100px;
+                    }
+
                 }
             }
         }

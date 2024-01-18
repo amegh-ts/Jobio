@@ -133,14 +133,14 @@ const Users = ({ setActivePageToChats }) => {
                                                     <h3>{data.state === 'banned' ? 'Unban' : 'Ban'}</h3>
                                                     <div className="ban-popup-container">
                                                         <div className="container-prompt">
-                                                            <span>Do you want to {data.state === 'banned' ? 'unban' : 'ban'} {data.username}</span>
-                                                            <h3>{Ids.AdminId}</h3>
-                                                            <h3>{Ids.userId}</h3>
+                                                            <h2>Do you want to {data.state === 'banned' ? 'unban' : 'ban'} {data.username}</h2>
+                                                            {/* <h3>{Ids.AdminId}</h3>
+                                                            <h3>{Ids.userId}</h3> */}
                                                             <h2></h2>
                                                         </div>
                                                         <div className="container-button">
                                                             <button onClick={() => handleBanUser(userId, user._id)}>
-                                                                {banState === 'banned' ? 'Unban' : 'Ban'}
+                                                                {data.state === 'banned' ? 'Unban' : 'Ban'}
                                                             </button>
                                                         </div>
                                                     </div>
