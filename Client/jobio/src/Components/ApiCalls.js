@@ -158,8 +158,6 @@ export const fetchUser = async (id) => {
 
 // ban user
 export const banUser = async (id, data) => {
-    console.log('state id', id);
-    console.log('state data', data);
     try {
         const res = await userRequest.post(`/banuser/${id}`, data);
         console.log('Response Status:', res.status);
