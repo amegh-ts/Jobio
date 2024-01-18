@@ -20,7 +20,7 @@ const Home = () => {
   const [inactive, setInactive] = useState(0);
   const [banned, setBanned] = useState(0);
 
-  const [banLogs,setBanLogs]=useState([]);
+  const [recenrBanLog, setRecentBanLog] = useState({});
 
 
 
@@ -28,11 +28,9 @@ const Home = () => {
     async function display() {
       try {
         const users = await getAllUsers();
-        const logs=await fetchBanLogs()
+        const logs = await fetchBanLogs()
         setUserList(users);
-        setBanLogs(logs);
-        console.log(banLogs);
-        
+
         setTotalUser(users.length)
         const admins = users.filter(user => user.type === 'admin');
         setAdmin(admins.length);
@@ -41,13 +39,22 @@ const Home = () => {
         const employee = users.filter(user => user.type === 'employee');
         setEmployee(employee.length);
 
-        const active=users.filter(user=>user.state==='active')
+        const active = users.filter(user => user.state === 'active')
         setActive(active.length)
-        const inactive=users.filter(user=>user.state==='inactive')
+        const inactive = users.filter(user => user.state === 'inactive')
         setInactive(inactive.length)
-        const banned=users.filter(user=>user.state==='banned')
+        const banned = users.filter(user => user.state === 'banned')
         setBanned(banned.length)
-        
+
+        if (logs.length > 0) {
+          const mostRecentLog = logs.reduce((prev, current) =>
+            new Date(prev.timestamp) > new Date(current.timestamp) ? prev : current
+          );
+
+          setRecentBanLog(mostRecentLog)
+        } else {
+          console.log('No ban logs available.');
+        }
 
       } catch (error) {
         console.log(error);
@@ -56,7 +63,7 @@ const Home = () => {
     display()
   }, []);
 
-  console.log(totalUser);
+  console.log(recenrBanLog);
 
   const userCountByDay = userList.reduce((countByDay, user) => {
     const date = user.createdAt.split('T')[0];
@@ -69,10 +76,10 @@ const Home = () => {
 
 
   const data = [
-    { id: 0, value: totalUser, label: 'Total' ,color:'#767676'},
-    { id: 1, value: active, label: 'Active' ,color:'#008000'},
-    { id: 2, value: inactive, label: 'Inactive', color:'#695cfe' },
-    { id: 3, value: banned, label: 'Banned' ,color:'#ff0000'},
+    { id: 0, value: totalUser, label: 'Total', color: '#767676' },
+    { id: 1, value: active, label: 'Active', color: '#008000' },
+    { id: 2, value: inactive, label: 'Inactive', color: '#695cfe' },
+    { id: 3, value: banned, label: 'Banned', color: '#ff0000' },
   ];
 
 
@@ -136,15 +143,21 @@ const Home = () => {
         <div className="home-middle">
           <div className="hml">
             <div className="hml-card card1">
-            <h2>Ban Logs</h2>
-              
+              <h2>Ban Logs</h2>
+              <div className="ban-log">
+                <p>Ban of user by user</p>
+                <span>{recenrBanLog.bannedBy}</span>
+                <span>{recenrBanLog.banned}</span>
+                <span>{recenrBanLog.state}</span>
+                <span>{recenrBanLog.reason}</span>
+              </div>
             </div>
             <div className="hml-card card2">
-            <h2>Users</h2>
+              <h2>Users</h2>
               <PieChart
                 series={[
                   {
-                    data,innerRadius: 30,
+                    data, innerRadius: 30,
                     outerRadius: 100,
                     paddingAngle: 5,
                     cornerRadius: 5,
