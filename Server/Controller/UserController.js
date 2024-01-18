@@ -58,7 +58,7 @@ const signIn = async (req, res) => {
 
         await userController.findByIdAndUpdate(DB._id, { $set: { lastLogin: Date.now() } });
 
-        const accessToken = Jwt.sign({ id: DB._id }, process.env.Jwt_Key, { expiresIn: '5d' });
+        const accessToken = Jwt.sign({ id: DB._id }, process.env.Jwt_Key, { expiresIn: '1d' });
         const { password, ...others } = updatedata._doc;
 
         res.status(200).json({ ...others, accessToken });
