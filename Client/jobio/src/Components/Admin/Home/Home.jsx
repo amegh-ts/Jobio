@@ -3,7 +3,7 @@ import { useEffect, useState } from 'react';
 import './Home.scss';
 import { LineChart } from '@mui/x-charts/LineChart';
 import { PieChart } from '@mui/x-charts/PieChart';
-import { getAllUsers } from '../../ApiCalls';
+import { fetchBanLogs, getAllUsers } from '../../ApiCalls';
 import { FaCrown, FaUserTie, FaUser, FaPeopleGroup } from "react-icons/fa6";
 
 
@@ -28,9 +28,11 @@ const Home = () => {
     async function display() {
       try {
         const users = await getAllUsers();
-        console.log(users);
+        const logs=await fetchBanLogs()
         setUserList(users);
-
+        setBanLogs(logs);
+        console.log(banLogs);
+        
         setTotalUser(users.length)
         const admins = users.filter(user => user.type === 'admin');
         setAdmin(admins.length);
