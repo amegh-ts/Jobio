@@ -13,7 +13,7 @@ const Users = ({ setActivePageToChats }) => {
     const [searchInput, setSearchInput] = useState('');
     const [banPopup, setBanPopup] = useState(false)
     const [Ids, setIds] = useState({})
-    const [banState, setBanState] = useState('');
+    // const [banState, setBanState] = useState('');
 
     const storedData = localStorage.getItem('persist:jobio');
     const user = storedData ? JSON.parse(JSON.parse(storedData).user) : null;
@@ -69,14 +69,14 @@ const Users = ({ setActivePageToChats }) => {
     const handleBanUser = async () => {
         console.log(userId);
 
-        const newState = banState === 'banned' ? 'inactive' : 'banned';
+        const newState = data.state === 'banned' ? 'inactive' : 'banned';
         try {
             await banUser(Ids.userId, { state: newState })
             window.location.reload();
         } catch (error) {
             console.log(error);
         }
-        setBanState(newState);
+        // setBanState(newState);
     }
 
     return (
