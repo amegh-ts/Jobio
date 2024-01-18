@@ -3,7 +3,7 @@ import { useEffect, useState } from 'react';
 import './Users.scss';
 import { GrGroup } from "react-icons/gr";
 import { IoSearch, IoPencil, IoChatbubbles, IoBan } from "react-icons/io5";
-import { createChat, fetchUser, getAllUsers } from '../../ApiCalls';
+import { banUser, createChat, fetchUser, getAllUsers } from '../../ApiCalls';
 import Popup from '../../../Assets/Popups/Popup';
 
 const Users = ({ setActivePageToChats }) => {
@@ -13,6 +13,7 @@ const Users = ({ setActivePageToChats }) => {
     const [searchInput, setSearchInput] = useState('');
     const [banPopup, setBanPopup] = useState(false)
     const [Ids, setIds] = useState({})
+    const [banState, setBanState] = useState('');
 
     const storedData = localStorage.getItem('persist:jobio');
     const user = storedData ? JSON.parse(JSON.parse(storedData).user) : null;
@@ -64,6 +65,20 @@ const Users = ({ setActivePageToChats }) => {
             console.log(error);
         }
     }
+
+    const handleBanUser = async () => {
+        console.log(userId);
+
+        const newState = banState === 'banned' ? 'inactive' : 'banned';
+        try {
+            await banUser(Ids.userId, { state: newState })
+        } catch (error) {
+            console.log(error);
+        }
+        setBanState(newState);
+    }
+
+    console.log('changed state', banState);
 
     return (
         <div>
@@ -124,16 +139,16 @@ const Users = ({ setActivePageToChats }) => {
                                                             <h3>{Ids.AdminId}</h3>
                                                             <h3>{Ids.userId}</h3>
                                                             <h2></h2>
-                                                            <button
-                                                                style={{
-                                                                    backgroundColor: data.state === 'banned' ? 'green' : 'red',
-                                                                    color: 'white', // You can adjust text color based on your design
-                                                                }}
-                                                                // onClick={handleBanUnban}
-                                                            >
-                                                                {data.state === 'banned' ? 'Unban' : 'Ban'}
-                                                            </button>
                                                         </div>
+                                                        <button
+                                                            style={{
+                                                                backgroundColor: data.state === 'banned' ? 'green' : 'red',
+                                                                color: 'white',
+                                                            }}
+                                                            onClick={() => handleBanUser(userId, user._id)}
+                                                        >
+                                                            {banState === 'banned' ? 'Unban' : 'Ban'}
+                                                        </button>
                                                     </div>
                                                 </div>
                                             </Popup>

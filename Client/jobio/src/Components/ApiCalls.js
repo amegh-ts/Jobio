@@ -139,17 +139,43 @@ export const getAlert = async () => {
 }
 
 
+
+
+
+
+
+
 // <-------------------ban-------------------> //
 // fetch user
-export const fetchUser=async(data)=>{
-    console.log('idsssss',data);
+export const fetchUser=async(id)=>{
     try {
-        const res=await userRequest.get(`/fetchuser/${data}`)
+        const res=await userRequest.get(`/fetchuser/${id}`)
         return res.data;
     } catch (error) {
         console.log(error);
     }
 }
+
+// ban user
+export const banUser=async(id,data)=>{
+    console.log('state id',id);
+    console.log('state data',data);
+    try {
+        const res=await userRequest.post(`/banuser/${id}`,data);
+        console.log('Response Status:', res.status);
+
+    } catch (error) {
+        console.log(error);
+    }
+}
+
+
+
+
+
+
+
+
 
 // <-------------------Chats-------------------> //
 // create chat
