@@ -1,4 +1,4 @@
-const { sendAlert, getAlert } = require('../Controller/AlertController');
+const { sendAlert, getAlert, deleteAlert } = require('../Controller/AlertController');
 const { forgotPassword, otpValidation, changePassword } = require('../Controller/ForgotPasswordController');
 const { signUp, signIn, allUsers, viewProfile, editProfile, deleteProfile } = require('../Controller/UserController')
 const { verifyToken, verifyTokenAndAuthorization } = require('../VerifyToken');
@@ -29,5 +29,7 @@ router.put('/changepass', changePassword)
 router.post('/sendalert', verifyToken, sendAlert)
 // get alert
 router.get('/getalert', verifyToken, getAlert)
+// delete alert
+router.delete('deletealert',verifyToken, deleteAlert)
 
 module.exports = router
