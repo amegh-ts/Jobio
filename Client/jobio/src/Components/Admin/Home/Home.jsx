@@ -5,7 +5,7 @@ import { LineChart } from '@mui/x-charts/LineChart';
 import { PieChart } from '@mui/x-charts/PieChart';
 import { fetchBanLogs, getAllUsers } from '../../ApiCalls';
 import { FaCrown, FaUserTie, FaUser, FaPeopleGroup } from "react-icons/fa6";
-import { ChartContainer, BarPlot } from '@mui/x-charts';
+// import { ChartContainer, BarPlot } from '@mui/x-charts';
 
 
 
@@ -83,16 +83,16 @@ const Home = () => {
     { id: 3, value: banned, label: 'Banned', color: '#ff0000' },
   ];
 
-  const buData = [4000, 3000, 2000, 2780, 1890, 2390, 3490];
-  const bxLabels = [
-    'Page A',
-    'Page B',
-    'Page C',
-    'Page D',
-    'Page E',
-    'Page F',
-    'Page G',
-  ];
+  // const buData = [4000, 3000, 2000, 2780, 1890, 2390, 3490];
+  // const bxLabels = [
+  //   'Page A',
+  //   'Page B',
+  //   'Page C',
+  //   'Page D',
+  //   'Page E',
+  //   'Page F',
+  //   'Page G',
+  // ];
 
   return (
     <div className="AHome">
@@ -154,7 +154,7 @@ const Home = () => {
         <div className="home-middle">
           <div className="hml">
             <div className="hml-card card1">
-              <div className="hml-eader">
+              <div className="hml-header">
                 <h2>Ban Logs</h2>
               </div>
               <div className="ban-log">
@@ -205,14 +205,14 @@ const Home = () => {
             </div>
           </div>
           <div className="hmr">
-            <ChartContainer
+            {/* <ChartContainer
               width={500}
               height={300}
-              series={[{ data: uData, label: 'uv', type: 'bar' }]}
-              xAxis={[{ scaleType: 'band', data: xLabels }]}
+              series={[{ data: buData, label: 'uv', type: 'bar' }]}
+              xAxis={[{ scaleType: 'band', data: bxLabels }]}
             >
               <BarPlot />
-            </ChartContainer>
+            </ChartContainer> */}
           </div>
         </div>
       </div>
