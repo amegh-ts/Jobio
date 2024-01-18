@@ -11,7 +11,7 @@ const Users = ({ setActivePageToChats }) => {
     const [filteredUsers, setFilteredUsers] = useState([]);
     const [searchInput, setSearchInput] = useState('');
     const [banPopup, setBanPopup] = useState(false)
-    const[Ids,setIds]=useState({})
+    const [Ids, setIds] = useState({})
 
     const storedData = localStorage.getItem('persist:jobio');
     const user = storedData ? JSON.parse(JSON.parse(storedData).user) : null;
@@ -53,11 +53,16 @@ const Users = ({ setActivePageToChats }) => {
         setFilteredUsers(filtered);
     };
 
-    const handleBanButtonClick = async (AdminId,userId) => {
-        console.log(AdminId,userId);
+    const handleBanButtonClick = (AdminId, userId) => {
+        console.log(AdminId, userId);
         setBanPopup(true);
-        setIds({AdminId,userId})
-        await fetchUser(userId)
+        setIds({ AdminId, userId })
+        try {
+            fetchUser({ userId })
+
+        } catch (error) {
+            console.log(error);
+        }
     }
 
     return (
@@ -109,7 +114,7 @@ const Users = ({ setActivePageToChats }) => {
                                         <div className="edit-chat">
                                             <button><IoPencil className='bicon' /></button>
                                             <button onClick={() => handleChatButtonClick(userId, user._id)}><IoChatbubbles className='bicon' /></button>
-                                            <button onClick={()=>handleBanButtonClick(userId,user._id)}><IoBan /></button>
+                                            <button onClick={() => handleBanButtonClick(userId, user._id)}><IoBan /></button>
 
                                             <Popup trigger={banPopup} setTrigger={setBanPopup} key={user._id}>
                                                 <div className="ban-popup" >
