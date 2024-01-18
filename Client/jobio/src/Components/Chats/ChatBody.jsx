@@ -1,40 +1,6 @@
+/* eslint-disable react/prop-types */
 import { useEffect, useState } from 'react';
 import { sendMessage, viewMessages } from '../ApiCalls';
-
-
-//     return (
-//         <div className='chat-body-main'>
-//             <p></p>
-//             <div className="chat-body-container">
-//                 {messages.length > 0 ? (
-//                     <ul className="message-list">
-//                         {messages.map((msg) => (
-//                             <li key={msg._id} className={`message ${msg.senderId === senderId ? 'sender-message' : 'receiver-message'}`}>
-//                                 <div className="message-bubble">{msg.text}</div>
-//                             </li>
-//                         ))}
-//                     </ul>
-//                 ) : (
-//                     <p>No Conversation yet...</p>
-//                 )}
-//             </div>
-//             <div className="input-container">
-//                 <input
-//                     type="text"
-//                     placeholder="Type your message..."
-//                     value={inputMessage}
-//                     onChange={handleMessageChange}
-//                     onKeyPress={handleKeyPress}
-//                 />
-//                 <button onClick={handleSendMessage}>Send</button>
-//             </div>
-//         </div>
-//     );
-// };
-
-// export default ChatBody;
-
-
 
 const ChatBody = ({ selectedChatId, selectedChatDetails }) => {
 

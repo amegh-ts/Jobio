@@ -1,140 +1,3 @@
-// .chat-container {
-//     display: grid;
-//     border-radius: 20px;
-//     grid-template-columns: 25% 75%;
-//     height: 88vh;
-//     background: var(--sidebar-color); 
-//     // overflow: hidden;
-
-//   }
-
-//   .users-list {
-//     flex: 1;
-//     padding: 20px;
-//     border-right: 1px solid #ccc;
-//     overflow-y: scroll;
-
-//   }
-
-//   .user-item {
-//     margin-bottom: 10px;
-//     cursor: pointer;
-//     padding: 10px;
-//     background-color: #f0f0f0;
-//     border-radius: 5px;
-
-//     p {
-//       font-size: 16px;
-//     }
-
-//     &:hover {
-//       background-color: #e0e0e0;
-//     }
-
-//     &.active-user {
-//       background-color: var(--primary-color);
-//       color: white;
-//     }
-//   }
-
-//   .chat-main {
-//     flex: 3;
-//     padding: 20px;
-//     display: flex;
-//     justify-content: center;
-//     align-items: center;
-
-//     img {
-//       width: auto;
-//       height: auto;
-//     }
-//   }
-
-//   .chat-body-main {
-//     width: 100%;
-//     height: 100%;
-//     display: flex;
-//     flex-direction: column;
-//   }
-
-//   .chat-body-container {
-//     min-width: 100%;
-//     overflow-y: auto;
-//     height: 100%;
-//     flex: 1
-//   }
-
-//   .message-list {
-//     list-style: none;
-//     margin: 0;
-//     padding: 10px;
-//     overflow-y: auto;
-//     font-size: 16px;
-//   }
-
-//   .message {
-//     margin-bottom: 10px;
-//     overflow: hidden;
-//   }
-
-//   .sender-message {
-//     text-align: right;
-
-//     .message-bubble {
-//       background-color: var(--primary-color);
-//       color: #fff;
-//       border-radius: 10px 10px 0 10px;
-//       float: right;
-//     }
-//   }
-
-//   .receiver-message {
-//     text-align: left;
-
-//     .message-bubble {
-//       background-color: #ddd;
-//       color: #333;
-//       border-radius: 10px 10px 10px 0;
-//       float: left;
-//     }
-//   }
-
-//   .message-bubble {
-//     padding: 10px;
-//     max-width: 70%;
-//     word-wrap: break-word;
-//   }
-
-//   .input-container {
-//     display: flex;
-//     justify-content: space-between;
-//     align-items: center;
-//     padding: 10px;
-//     background-color: #fff;
-//     border-top: 1px solid #ccc;
-
-//     input {
-//       flex: 1;
-//       padding: 8px;
-//       margin-right: 10px;
-//       border: 1px solid #ccc;
-//       border-radius: 3px;
-//     }
-
-//     button {
-//       padding: 8px 15px;
-//       background-color: var(--primary-color);
-//       color: #fff;
-//       border: none;
-//       border-radius: 3px;
-//     }
-//   }
-
-
-
-
-
-
 .Chat {
   overflow: hidden;
   height: 99%;
@@ -291,6 +154,22 @@
           padding: 10px;
           background-color: #fff;
           border-top: 1px solid #ccc;
+
+          input {
+            flex: 1;
+            padding: 8px;
+            margin-right: 10px;
+            border: 1px solid #ccc;
+            border-radius: 3px;
+          }
+
+          button {
+            padding: 8px 15px;
+            background-color: var(--primary-color);
+            color: #fff;
+            border: none;
+            border-radius: 3px;
+          }
         }
 
 
