@@ -193,6 +193,19 @@
           .cmbl-card {
             background: rgb(242, 255, 0);
 
+            p {
+              font-size: 16px;
+            }
+
+            &:hover {
+              background-color: #e0e0e0;
+            }
+
+            &.active-user {
+              background-color: var(--primary-color);
+              color: white;
+            }
+
           }
         }
       }
@@ -207,30 +220,35 @@
         flex-direction: column;
         gap: 10px;
 
-        .cmblr-container{
+        img {
+                width: 800px;
+              }
+
+        .cmblr-container {
           height: 100%;
+
           .cmbr-header {
             background: green;
             padding: 10px 0;
             display: flex;
           }
-  
+
           .cmbr-message {
             display: flex;
             flex-direction: column;
             overflow-y: auto;
             max-height: 100%;
             gap: 10px;
-  
+
             .cmbl-card {
               background: rgb(242, 255, 0);
-  
+
             }
-          } 
+          }
         }
 
 
-        
+
       }
     }
   }
