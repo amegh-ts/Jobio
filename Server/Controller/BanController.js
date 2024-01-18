@@ -12,7 +12,7 @@ const fetchUser = async (req, res) => {
     }
 }
 
-// ban/unban user
+// ban/ unban user
 const banUser = async (req, res) => {
     try {
         const updateData = await userController.findByIdAndUpdate(req.params.id, { $set: req.body }, { new: true })
