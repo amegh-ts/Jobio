@@ -185,15 +185,18 @@
             padding: 8px;
             margin-right: 10px;
             border: 1px solid #ccc;
-            border-radius: 3px;
+            border-radius: 10px;
+            outline: none;
           }
 
           button {
-            padding: 8px 15px;
+            padding: 10px;
             background-color: var(--primary-color);
             color: #fff;
             border: none;
-            border-radius: 3px;
+            border-radius: 50%;
+            display: flex;
+            font-size: 22px;
           }
         }
 
