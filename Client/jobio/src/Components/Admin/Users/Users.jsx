@@ -55,13 +55,11 @@ const Users = ({ setActivePageToChats }) => {
     };
 
     const handleBanButtonClick = async (AdminId, userId) => {
-        console.log(AdminId, userId);
         setBanPopup(true);
         setIds({ AdminId, userId })
         try {
             const apiData = await fetchUser(userId)
             setData(apiData)
-            console.log('ban api data', apiData);
         } catch (error) {
             console.log(error);
         }
@@ -111,7 +109,6 @@ const Users = ({ setActivePageToChats }) => {
                                     <td>{user.state}</td>
                                     <td>{user.phone}</td>
                                     <td>{user.type}</td>
-                                    <td>{user._id}</td>
                                     <td>
                                         <div className="edit-chat">
                                             <button><IoPencil className='bicon' /></button>
@@ -119,17 +116,28 @@ const Users = ({ setActivePageToChats }) => {
                                             <button onClick={() => handleBanButtonClick(userId, user._id)}><IoBan /></button>
 
                                             <Popup trigger={banPopup} setTrigger={setBanPopup} key={user._id}>
-                                                <div className="ban-popup" >
-                                                    <h3>Ban</h3>
+                                                <div className="ban-popup">
+                                                    <h3>{data.state === 'banned' ? 'Unban' : 'Ban'}</h3>
                                                     <div className="ban-popup-container">
                                                         <div className="container-prompt">
-                                                            <span>Dou you want to ban {Ids.userId}</span>
+                                                            <span>Do you want to {data.state === 'banned' ? 'unban' : 'ban'} {data.username}</span>
                                                             <h3>{Ids.AdminId}</h3>
                                                             <h3>{Ids.userId}</h3>
+                                                            <h2></h2>
+                                                            <button
+                                                                style={{
+                                                                    backgroundColor: data.state === 'banned' ? 'green' : 'red',
+                                                                    color: 'white', // You can adjust text color based on your design
+                                                                }}
+                                                                // onClick={handleBanUnban}
+                                                            >
+                                                                {data.state === 'banned' ? 'Unban' : 'Ban'}
+                                                            </button>
                                                         </div>
                                                     </div>
                                                 </div>
                                             </Popup>
+
                                         </div>
                                     </td>
                                 </tr>
