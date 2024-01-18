@@ -1,14 +1,10 @@
 import { useEffect, useState } from 'react';
 import { sendMessage, viewMessages } from '../ApiCalls';
 
-// const ChatBody = () => {
-
-
-
 
 //     return (
 //         <div className='chat-body-main'>
-//             <p>Chat id {selectedChatId}</p>
+//             <p></p>
 //             <div className="chat-body-container">
 //                 {messages.length > 0 ? (
 //                     <ul className="message-list">
@@ -99,9 +95,10 @@ const ChatBody = ({ selectedChatId, selectedChatDetails }) => {
 
 
     return (
-        <div className="cmblr-container"><div className="cmbr-header">
-            <p>Chat with ramu</p>
-        </div>
+        <div className="cmblr-container">
+            <div className="cmbr-header">
+                <p>Chat id {selectedChatId}</p>
+            </div>
             <div className="cmbr-message">
                 <div className="cmbl-card"><h1>abc test</h1></div>
                 <div className="cmbl-card"><h1>abc test</h1></div>
@@ -126,7 +123,11 @@ const ChatBody = ({ selectedChatId, selectedChatDetails }) => {
                 <div className="cmbl-card"><h1>abc test</h1></div>
                 <div className="cmbl-card"><h1>abc test</h1></div>
                 <div className="cmbl-card"><h1>abc test</h1></div>
-            </div></div>
+            </div>
+            <div className="cmbl-input">
+                <input type="text" />
+            </div>
+        </div>
     )
 }
 
