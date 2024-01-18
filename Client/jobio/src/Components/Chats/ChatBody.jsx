@@ -2,40 +2,6 @@ import { useEffect, useState } from 'react';
 import { sendMessage, viewMessages } from '../ApiCalls';
 
 
-
-//     const handleSendMessage = async () => {
-//         if (inputMessage.trim() === '') {
-//             // Don't send empty messages
-//             return;
-//         }
-
-//         try {
-//             // Update the local message list with the new message
-//             setMessages((prevMessages) => [
-//                 ...prevMessages,
-//                 { _id: Date.now(), senderId, text: inputMessage },
-//             ]);
-
-//             // Call sendMessage function with chatId, senderId, and text
-//             await sendMessage(selectedChatId, senderId, inputMessage);
-
-//             // Clear the input field
-//             setInputMessage('');
-//         } catch (error) {
-//             // Handle the error (e.g., show an error message)
-//             console.error('Error sending message:', error);
-//         }
-//     };
-
-//     const handleKeyPress = (e) => {
-//         if (e.key === 'Enter') {
-//             handleSendMessage();
-//         }
-//     };
-
-
-
-
 //     return (
 //         <div className='chat-body-main'>
 //             <p>Chat id {selectedChatId}</p>
@@ -95,6 +61,36 @@ const ChatBody = () => {
 
     const handleMessageChange = (e) => {
         setInputMessage(e.target.value);
+    };
+
+    const handleSendMessage = async () => {
+        if (inputMessage.trim() === '') {
+            // Don't send empty messages
+            return;
+        }
+
+        try {
+            // Update the local message list with the new message
+            setMessages((prevMessages) => [
+                ...prevMessages,
+                { _id: Date.now(), senderId, text: inputMessage },
+            ]);
+
+            // Call sendMessage function with chatId, senderId, and text
+            await sendMessage(selectedChatId, senderId, inputMessage);
+
+            // Clear the input field
+            setInputMessage('');
+        } catch (error) {
+            // Handle the error (e.g., show an error message)
+            console.error('Error sending message:', error);
+        }
+    };
+
+    const handleKeyPress = (e) => {
+        if (e.key === 'Enter') {
+            handleSendMessage();
+        }
     };
 
     return (
