@@ -105,7 +105,7 @@ const Users = ({ setActivePageToChats }) => {
                                     <td>{user.type}</td>
                                     <td>{user._id}</td>
                                     <td>
-                                        <div className="edit-chat" key={index}>
+                                        <div className="edit-chat">
                                             <button><IoPencil className='bicon' /></button>
                                             <button onClick={() => handleChatButtonClick(userId, user._id)}><IoChatbubbles className='bicon' /></button>
                                             <button onClick={()=>handleBanButtonClick(userId,user._id)}><IoBan /></button>
@@ -114,8 +114,8 @@ const Users = ({ setActivePageToChats }) => {
                                                 <div className="ban-popup" >
                                                     <h3>Ban</h3>
                                                     <div className="ban-popup-container">
-                                                        <div className="container-prompt" key={user._id}>
-                                                            
+                                                        <div className="container-prompt">
+                                                            <span>Dou you want to ban {Ids.userId}</span>
                                                             <h3>{Ids.AdminId}</h3>
                                                             <h3>{Ids.userId}</h3>
                                                         </div>
