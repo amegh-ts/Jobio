@@ -3,7 +3,7 @@ import { useEffect, useState } from 'react';
 import './Users.scss';
 import { GrGroup } from "react-icons/gr";
 import { IoSearch, IoPencil, IoChatbubbles, IoBan } from "react-icons/io5";
-import { createChat, getAllUsers } from '../../ApiCalls';
+import { createChat, fetchUser, getAllUsers } from '../../ApiCalls';
 import Popup from '../../../Assets/Popups/Popup';
 
 const Users = ({ setActivePageToChats }) => {
@@ -53,10 +53,11 @@ const Users = ({ setActivePageToChats }) => {
         setFilteredUsers(filtered);
     };
 
-    const handleBanButtonClick = (AdminId,userId) => {
+    const handleBanButtonClick = async (AdminId,userId) => {
         console.log(AdminId,userId);
         setBanPopup(true);
         setIds({AdminId,userId})
+        await fetchUser(userId)
     }
 
     return (
