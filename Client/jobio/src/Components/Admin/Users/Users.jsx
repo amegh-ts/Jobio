@@ -3,7 +3,7 @@ import { useEffect, useState } from 'react';
 import './Users.scss';
 import { GrGroup } from "react-icons/gr";
 import { IoSearch, IoPencil, IoChatbubbles, IoBan } from "react-icons/io5";
-import { banLog, banUser, createChat, fetchUser, getAllUsers } from '../../ApiCalls';
+import { banLog, banUser, createChat, fetchUser, getAllUsers, sendAlert } from '../../ApiCalls';
 import Popup from '../../../Assets/Popups/Popup';
 
 const Users = ({ setActivePageToChats }) => {
