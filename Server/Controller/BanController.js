@@ -1,3 +1,4 @@
+const banController = require('../Models/BanSchema')
 const userController = require('../Models/UserSchema')
 
 
@@ -13,11 +14,8 @@ const fetchUser = async (req, res) => {
 
 // ban/unban user
 const banUser = async (req, res) => {
-    console.log(req.body);
-    console.log(req.params.id);
     try {
         const updateData = await userController.findByIdAndUpdate(req.params.id, { $set: req.body }, { new: true })
-        console.log('successsss');
         res.status(200).json(updateData)
     } catch (error) {
         res.status(500).json(error)
@@ -27,9 +25,11 @@ const banUser = async (req, res) => {
 // ban log
 const banLog = async (req, res) => {
     console.log(req.body);
+    const banData = new banController(req.body)
+
     try {
-        const banData = await new userController(req.body)
         console.log('ban data', banData);
+        await banData.save()
         res.status(200).json(banData)
 
     } catch (error) {
