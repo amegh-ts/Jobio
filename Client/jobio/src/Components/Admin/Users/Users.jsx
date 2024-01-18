@@ -75,7 +75,7 @@ const Users = ({ setActivePageToChats }) => {
         try {
             await banUser(Ids.userId, { state: newState })
             await banLog({ bannedBy: Ids.AdminId, banned: Ids.userId, state: newState, reason: reason })
-            // window.location.reload();
+            window.location.reload();
         } catch (error) {
             console.log(error);
         }
