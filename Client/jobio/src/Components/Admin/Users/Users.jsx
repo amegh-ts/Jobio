@@ -53,13 +53,12 @@ const Users = ({ setActivePageToChats }) => {
         setFilteredUsers(filtered);
     };
 
-    const handleBanButtonClick = (AdminId, userId) => {
+    const handleBanButtonClick = async (AdminId, userId) => {
         console.log(AdminId, userId);
         setBanPopup(true);
         setIds({ AdminId, userId })
         try {
-            fetchUser({ userId })
-
+            await fetchUser({ userId })
         } catch (error) {
             console.log(error);
         }
