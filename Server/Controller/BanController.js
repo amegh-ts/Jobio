@@ -28,7 +28,6 @@ const banLog = async (req, res) => {
     try {
         await banData.save()
         res.status(200).json(banData)
-
     } catch (error) {
         res.status(500).json(error)
     }
@@ -37,7 +36,6 @@ const banLog = async (req, res) => {
 const getBanLogs = async (req, res) => {
     try {
         const banData = await banController.find();
-        console.log('bandata----------?',banData);
         res.status(200).json(banData)
     } catch (error) {
         res.status(500).json(error)
