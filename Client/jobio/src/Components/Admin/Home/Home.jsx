@@ -12,13 +12,15 @@ import { FaCrown, FaUserTie, FaUser, FaPeopleGroup } from "react-icons/fa6";
 const Home = () => {
   const [userList, setUserList] = useState([]);
   const [totalUser, setTotalUser] = useState([]);
-  const [admins, setAdmin] = useState(0)
-  const [employer, setEmployer] = useState(0)
-  const [employee, setEmployee] = useState(0)
+  const [admins, setAdmin] = useState(0);
+  const [employer, setEmployer] = useState(0);
+  const [employee, setEmployee] = useState(0);
 
-  const [active, setActive] = useState(0)
-  const [inactive, setInactive] = useState(0)
-  const [banned, setBanned] = useState(0)
+  const [active, setActive] = useState(0);
+  const [inactive, setInactive] = useState(0);
+  const [banned, setBanned] = useState(0);
+
+  const [banLogs,setBanLogs]=useState([]);
 
 
 
