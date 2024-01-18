@@ -7,6 +7,7 @@ import { createChat, fetchUser, getAllUsers } from '../../ApiCalls';
 import Popup from '../../../Assets/Popups/Popup';
 
 const Users = ({ setActivePageToChats }) => {
+    const [data, setData] = useState({});
     const [allUsers, setAllUsers] = useState([]);
     const [filteredUsers, setFilteredUsers] = useState([]);
     const [searchInput, setSearchInput] = useState('');
@@ -58,7 +59,9 @@ const Users = ({ setActivePageToChats }) => {
         setBanPopup(true);
         setIds({ AdminId, userId })
         try {
-            await fetchUser(userId)
+            const apiData = await fetchUser(userId)
+            setData(apiData)
+            console.log('ban api data', apiData);
         } catch (error) {
             console.log(error);
         }

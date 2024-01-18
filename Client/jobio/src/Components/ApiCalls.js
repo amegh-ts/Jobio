@@ -145,7 +145,7 @@ export const fetchUser=async(data)=>{
     console.log('idsssss',data);
     try {
         const res=await userRequest.get(`/fetchuser/${data}`)
-        console.log('res.daaata',res.data);
+        return res.data;
     } catch (error) {
         console.log(error);
     }
