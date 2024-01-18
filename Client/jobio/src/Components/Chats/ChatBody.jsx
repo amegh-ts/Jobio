@@ -1,6 +1,10 @@
 import { useEffect, useState } from 'react';
 import { sendMessage, viewMessages } from '../ApiCalls';
 
+// const ChatBody = () => {
+
+
+
 
 //     return (
 //         <div className='chat-body-main'>
@@ -36,7 +40,7 @@ import { sendMessage, viewMessages } from '../ApiCalls';
 
 
 
-const ChatBody = () => {
+const ChatBody = ({ selectedChatId, selectedChatDetails }) => {
 
     const [messages, setMessages] = useState([]);
     const [inputMessage, setInputMessage] = useState('');
@@ -92,6 +96,7 @@ const ChatBody = () => {
             handleSendMessage();
         }
     };
+
 
     return (
         <div className="cmblr-container"><div className="cmbr-header">
