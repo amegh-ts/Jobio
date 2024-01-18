@@ -116,8 +116,8 @@ export const changePassword = async (data) => {
 // <-------------------Alerts-------------------> //
 // send alert
 export const sendAlert = async (data) => {
-    console.log('dataaaaaaaaaa',data);
-    const newData = { ...data, user: 'Admin' ,userId:userId}
+    console.log('dataaaaaaaaaa', data);
+    const newData = { ...data, user: 'Admin', userId: userId }
     try {
         const res = await userRequest.post('/sendalert', newData)
         console.log('new data', newData);
@@ -147,9 +147,9 @@ export const getAlert = async () => {
 
 // <-------------------ban-------------------> //
 // fetch user
-export const fetchUser=async(id)=>{
+export const fetchUser = async (id) => {
     try {
-        const res=await userRequest.get(`/fetchuser/${id}`)
+        const res = await userRequest.get(`/fetchuser/${id}`)
         return res.data;
     } catch (error) {
         console.log(error);
@@ -157,11 +157,11 @@ export const fetchUser=async(id)=>{
 }
 
 // ban user
-export const banUser=async(id,data)=>{
-    console.log('state id',id);
-    console.log('state data',data);
+export const banUser = async (id, data) => {
+    console.log('state id', id);
+    console.log('state data', data);
     try {
-        const res=await userRequest.post(`/banuser/${id}`,data);
+        const res = await userRequest.post(`/banuser/${id}`, data);
         console.log('Response Status:', res.status);
 
     } catch (error) {
@@ -169,6 +169,10 @@ export const banUser=async(id,data)=>{
     }
 }
 
+// ban logs
+export const banLog = async () => {
+
+}
 
 
 

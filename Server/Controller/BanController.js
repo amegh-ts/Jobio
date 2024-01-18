@@ -24,5 +24,10 @@ const banUser = async (req, res) => {
     }
 }
 
+// ban log
+const banLog=async(req,res)=>{
+    
+}
+
 
 module.exports = { fetchUser,banUser }
