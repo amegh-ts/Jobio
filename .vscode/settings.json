@@ -13,6 +13,7 @@
         "cnav",
         "Codeigniter",
         "coverphoto",
+        "dataone",
         "deleteprofile",
         "editprofile",
         "firstname",
@@ -28,6 +29,7 @@
         "sendalert",
         "tada",
         "unban",
+        "updatedata",
         "Viewprofile"
     ]
 }
