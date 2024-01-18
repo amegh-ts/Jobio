@@ -144,24 +144,63 @@
 
             .hml {
                 display: flex;
+                flex-wrap: wrap;
                 gap: 10px;
 
                 .hml-card {
-                    min-height: 280px;
+                    max-height: 280px;
                     background: var(--sidebar-color);
                     border-radius: 20px;
                     padding: 10px;
-                    display: flex;
-                    flex-direction: column;
+
                 }
 
                 .card1 {
-                    // max-width: 900px;
+                    min-width: 900px;
                     display: flex;
+                    flex-direction: column;
                     flex: 1;
+
+                    .ban-log {
+                        display: flex;
+                        flex-direction: column;
+                        justify-content: center;
+                        height: 100%;
+
+                        .log-container {
+                            background: #f9f9ff;
+                            border: 1px dotted rgb(217, 217, 217);
+                            border-radius: 10px;
+                            height: 100px;
+                            padding: 10px;
+                            display: flex;
+                            justify-content: center;
+                            flex-direction: column;
+
+                            .lc-top {
+                                display: flex;
+                                justify-content: space-between;
+                                .lc-date {
+                                    h5 {
+                                        color: var(--text-color);
+                                    }
+                                }
+
+                                .lc-users {
+                                    display: flex;
+                                    gap: 5px;
+                                }
+                            }
+
+
+                        }
+
+                    }
                 }
 
                 .card2 {
+                    display: flex;
+                    flex-direction: column;
                     min-width: 340px;
 
                 }

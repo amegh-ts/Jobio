@@ -145,11 +145,27 @@ const Home = () => {
             <div className="hml-card card1">
               <h2>Ban Logs</h2>
               <div className="ban-log">
-                <p>Ban of user by user</p>
-                <span>{recenrBanLog.bannedBy}</span>
-                <span>{recenrBanLog.banned}</span>
-                <span>{recenrBanLog.state}</span>
-                <span>{recenrBanLog.reason}</span>
+                <p>Recent log</p>
+                <div className="log-container">
+                  <div className='lc-top'>
+                    <div className="lc-users">
+                      <p>Ban of </p><h4>{recenrBanLog.banned}</h4><p>by </p><h4>{recenrBanLog.bannedBy}</h4>
+                    </div>
+                    <div className="lc-date">
+                      <h5>
+                        {recenrBanLog.createdAt ? new Date(recenrBanLog.createdAt).toLocaleString() : 'N/A'}
+                      </h5>
+                    </div>
+                  </div>
+                  <div className="lc-content">
+                    <span>
+                      <p>Reason : {recenrBanLog.reason}</p>
+                    </span>
+                    <span>
+                      <p>Current status : {recenrBanLog.state}</p>
+                    </span>
+                  </div>
+                </div>
               </div>
             </div>
             <div className="hml-card card2">
