@@ -78,8 +78,6 @@ const Users = ({ setActivePageToChats }) => {
         setBanState(newState);
     }
 
-    console.log('changed state', banState);
-
     return (
         <div>
             <div className="all-users-main">
@@ -140,13 +138,7 @@ const Users = ({ setActivePageToChats }) => {
                                                             <h3>{Ids.userId}</h3>
                                                             <h2></h2>
                                                         </div>
-                                                        <button
-                                                            style={{
-                                                                backgroundColor: data.state === 'banned' ? 'green' : 'red',
-                                                                color: 'white',
-                                                            }}
-                                                            onClick={() => handleBanUser(userId, user._id)}
-                                                        >
+                                                        <button onClick={() => handleBanUser(userId, user._id)}>
                                                             {banState === 'banned' ? 'Unban' : 'Ban'}
                                                         </button>
                                                     </div>
