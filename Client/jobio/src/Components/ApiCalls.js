@@ -179,7 +179,13 @@ export const banLog = async (data) => {
 
 // fetch ban logs
 export const fetchBanLogs = async () => {
-
+    try {
+        const res = await userRequest.get('/getbanlogs')
+        console.log('Response Status:', res.status);
+        return res.data
+    } catch (error) {
+        console.log(error);
+    }
 }
 
 
