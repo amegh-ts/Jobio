@@ -4,3 +4,5 @@ const router = require('express').Router()
 
 // fetch user
 router.get('/fetchuser',fetchUser)
+
+module.exports = router
