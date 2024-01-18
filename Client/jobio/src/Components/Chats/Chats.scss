@@ -221,8 +221,8 @@
         gap: 10px;
 
         img {
-                width: 800px;
-              }
+          width: 800px;
+        }
 
         .cmblr-container {
           height: 100%;
@@ -237,16 +237,61 @@
             display: flex;
             flex-direction: column;
             overflow-y: auto;
-            max-height: 100%;
+            max-height: 85%;
             gap: 10px;
 
-            .cmbl-card {
-              background: rgb(242, 255, 0);
 
+            .message-list {
+              list-style: none;
+              margin: 0;
+              padding: 10px;
+              overflow-y: auto;
+              font-size: 16px;
+            }
+
+            .message {
+              margin-bottom: 10px;
+              overflow: hidden;
+            }
+
+            .sender-message {
+              text-align: right;
+
+              .message-bubble {
+                background-color: var(--primary-color);
+                color: #fff;
+                border-radius: 10px 10px 0 10px;
+                float: right;
+              }
+            }
+
+            .receiver-message {
+              text-align: left;
+
+              .message-bubble {
+                background-color: #ddd;
+                color: #333;
+                border-radius: 10px 10px 10px 0;
+                float: left;
+              }
+            }
+
+            .message-bubble {
+              padding: 10px;
+              max-width: 70%;
+              word-wrap: break-word;
             }
           }
         }
 
+        .cmbl-input {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          padding: 10px;
+          background-color: #fff;
+          border-top: 1px solid #ccc;
+        }
 
 
       }

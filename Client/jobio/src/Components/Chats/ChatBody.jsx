@@ -100,32 +100,27 @@ const ChatBody = ({ selectedChatId, selectedChatDetails }) => {
                 <p>Chat id {selectedChatId}</p>
             </div>
             <div className="cmbr-message">
-                <div className="cmbl-card"><h1>abc test</h1></div>
-                <div className="cmbl-card"><h1>abc test</h1></div>
-                <div className="cmbl-card"><h1>abc test</h1></div>
-                <div className="cmbl-card"><h1>abc test</h1></div>
-                <div className="cmbl-card"><h1>abc test</h1></div>
-                <div className="cmbl-card"><h1>abc test</h1></div>
-                <div className="cmbl-card"><h1>abc test</h1></div>
-                <div className="cmbl-card"><h1>abc test</h1></div>
-                <div className="cmbl-card"><h1>abc test</h1></div>
-                <div className="cmbl-card"><h1>abc test</h1></div>
-                <div className="cmbl-card"><h1>abc test</h1></div>
-                <div className="cmbl-card"><h1>abc test</h1></div>
-                <div className="cmbl-card"><h1>abc test</h1></div>
-                <div className="cmbl-card"><h1>abc test</h1></div>
-                <div className="cmbl-card"><h1>abc test</h1></div>
-                <div className="cmbl-card"><h1>abc test</h1></div>
-                <div className="cmbl-card"><h1>abc test</h1></div>
-                <div className="cmbl-card"><h1>abc test</h1></div>
-                <div className="cmbl-card"><h1>abc test</h1></div>
-                <div className="cmbl-card"><h1>abc test</h1></div>
-                <div className="cmbl-card"><h1>abc test</h1></div>
-                <div className="cmbl-card"><h1>abc test</h1></div>
-                <div className="cmbl-card"><h1>abc test</h1></div>
+                {messages.length > 0 ? (
+                    <ul className="message-list">
+                        {messages.map((msg) => (
+                            <li key={msg._id} className={`message ${msg.senderId === senderId ? 'sender-message' : 'receiver-message'}`}>
+                                <div className="message-bubble">{msg.text}</div>
+                            </li>
+                        ))}
+                    </ul>
+                ) : (
+                    <p>No Conversation yet...</p>
+                )}
             </div>
             <div className="cmbl-input">
-                <input type="text" />
+            <input
+                    type="text"
+                    placeholder="Type your message..."
+                    value={inputMessage}
+                    onChange={handleMessageChange}
+                    onKeyPress={handleKeyPress}
+                />
+                <button onClick={handleSendMessage}>Send</button>
             </div>
         </div>
     )
