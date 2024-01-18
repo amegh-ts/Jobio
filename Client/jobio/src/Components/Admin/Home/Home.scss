@@ -52,6 +52,11 @@
                         border-radius: 50%;
                         cursor: pointer;
 
+                        &:hover {
+                            box-shadow: 0 0 10px rgb(176, 176, 176);
+                            transform: scale(1.1);
+                        }
+
                         .icon {
                             font-size: 26px;
                         }
@@ -79,11 +84,6 @@
                     .htr-icon {
                         background: rgb(253, 203, 203);
 
-                        &:hover {
-                            box-shadow: 0 0 10px rgb(176, 176, 176);
-
-                        }
-
                         .icon {
                             color: rgb(255, 0, 0);
                         }
@@ -93,11 +93,6 @@
                 .card2 {
                     .htr-icon {
                         background: rgb(204, 253, 204);
-
-                        &:hover {
-                            box-shadow: 0 0 10px rgb(176, 176, 176);
-
-                        }
 
                         .icon {
                             color: rgb(0, 128, 0);
@@ -109,11 +104,6 @@
                     .htr-icon {
                         background: #cec9ff;
 
-                        &:hover {
-                            box-shadow: 0 0 10px rgb(176, 176, 176);
-
-                        }
-
                         .icon {
                             color: #695cfe;
                         }
@@ -123,11 +113,6 @@
                 .card4 {
                     .htr-icon {
                         background: rgb(218, 218, 218);
-
-                        &:hover {
-                            box-shadow: 0 0 10px rgb(176, 176, 176);
-
-                        }
 
                         .icon {
                             color: rgb(118, 118, 118);
@@ -139,6 +124,7 @@
 
         .home-middle {
             display: flex;
+            flex-wrap: wrap;
             padding: 10px;
             gap: 20px;
 
@@ -159,7 +145,7 @@
                     min-width: 900px;
                     display: flex;
                     flex-direction: column;
-                    flex: 1;
+                    // flex: 1;
 
                     .ban-log {
                         display: flex;
@@ -180,6 +166,7 @@
                             .lc-top {
                                 display: flex;
                                 justify-content: space-between;
+
                                 .lc-date {
                                     h5 {
                                         color: var(--text-color);
@@ -204,6 +191,11 @@
                     min-width: 340px;
 
                 }
+            }
+            .hmr{
+                flex: 1;
+                background: var(--sidebar-color);
+                border-radius: 10px;
             }
         }
     }
