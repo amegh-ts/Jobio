@@ -139,6 +139,10 @@
                     border-radius: 20px;
                     padding: 10px;
 
+                    .hml-header{
+                        display: flex;
+                        justify-content: space-between;
+                    }
                 }
 
                 .card1 {

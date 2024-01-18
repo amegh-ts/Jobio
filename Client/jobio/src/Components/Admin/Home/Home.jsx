@@ -156,6 +156,7 @@ const Home = () => {
             <div className="hml-card card1">
               <div className="hml-header">
                 <h2>Ban Logs</h2>
+                <button>Full logs</button>
               </div>
               <div className="ban-log">
                 <p>Recent log</p>
