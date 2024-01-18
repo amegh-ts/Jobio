@@ -58,7 +58,7 @@ const Users = ({ setActivePageToChats }) => {
         setBanPopup(true);
         setIds({ AdminId, userId })
         try {
-            await fetchUser({ _id:userId })
+            await fetchUser(userId)
         } catch (error) {
             console.log(error);
         }

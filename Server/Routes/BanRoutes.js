@@ -3,6 +3,6 @@ const { fetchUser } = require('../Controller/BanController')
 const router = require('express').Router()
 
 // fetch user
-router.get('/fetchuser',fetchUser)
+router.get('/fetchuser/:id',fetchUser)
 
 module.exports = router
