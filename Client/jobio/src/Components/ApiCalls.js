@@ -143,11 +143,12 @@ export const getAlert = async () => {
 // fetch user
 export const fetchUser=async(data)=>{
     console.log('idsssss',data);
-    // try {
-        
-    // } catch (error) {
-    //     console.log(error);
-    // }
+    try {
+        const res=await userRequest.get('/fetchuser',data)
+        console.log('res.daaata',res.data);
+    } catch (error) {
+        console.log(error);
+    }
 }
 
 // <-------------------Chats-------------------> //
