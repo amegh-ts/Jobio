@@ -36,25 +36,38 @@
         gap: 10px;
 
         .cmbl-header {
-          background: teal;
+          box-shadow: 0 0 10px rgb(175, 175, 175);
+          border-radius: 10px;
           padding: 10px;
           display: flex;
           justify-content: space-between;
+          align-items: center;
 
           .cmblh-search {
             display: flex;
+
+            input{
+              background: rgb(219, 219, 219);
+              padding: 10px;
+              border-radius: 10px;
+              font-size: 14px;
+              outline: none;
+            }
           }
         }
 
         .cmbl-users {
           display: flex;
+          padding: 10px;
           flex-direction: column;
           gap: 10px;
           overflow-y: auto;
           max-height: 100%;
 
           .cmbl-card {
-            background: rgb(242, 255, 0);
+            padding: 10px;
+            box-shadow: 0 0 10px rgb(206, 206, 206);
+            border-radius: 10px;
 
             p {
               font-size: 16px;
@@ -91,8 +104,9 @@
           height: 100%;
 
           .cmbr-header {
-            background: green;
-            padding: 10px 0;
+            box-shadow: 0 0 10px rgb(210, 210, 210);
+            padding: 10px;
+            border-radius: 10px;
             display: flex;
           }
 
@@ -101,6 +115,7 @@
             flex-direction: column;
             overflow-y: auto;
             max-height: 85%;
+            height: 100%;
             gap: 10px;
 
 
