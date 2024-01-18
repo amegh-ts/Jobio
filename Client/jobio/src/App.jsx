@@ -24,8 +24,7 @@ function App() {
   if (reduxData) {
     const state = reduxData.state;
     const type = reduxData.type;
-    console.log('The state is', state);
-    console.log('The type is', type);
+
   
     if (state === 'banned') {
       alert('You are Banned');
