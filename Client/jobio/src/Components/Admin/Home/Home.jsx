@@ -23,6 +23,7 @@ const Home = () => {
   const [banned, setBanned] = useState(0);
   const [banLogpopup, setBanLogpopup] = useState(false)
 
+  const [banLogs, setBanLogs] = useState([]);
   const [recenrBanLog, setRecentBanLog] = useState({});
 
 
@@ -33,6 +34,8 @@ const Home = () => {
         const users = await getAllUsers();
         const logs = await fetchBanLogs()
         setUserList(users);
+        setBanLogs(logs)
+
 
         setTotalUser(users.length)
         const admins = users.filter(user => user.type === 'admin');
@@ -48,6 +51,7 @@ const Home = () => {
         setInactive(inactive.length)
         const banned = users.filter(user => user.state === 'banned')
         setBanned(banned.length)
+
 
         if (logs.length > 0) {
           const mostRecentLog = logs.reduce((prev, current) =>
@@ -66,7 +70,8 @@ const Home = () => {
     display()
   }, []);
 
-  console.log(recenrBanLog);
+  console.log(banLogs);
+
 
   const userCountByDay = userList.reduce((countByDay, user) => {
     const date = user.createdAt.split('T')[0];
@@ -162,12 +167,19 @@ const Home = () => {
             <div className="hml-card card1">
               <div className="hml-header">
                 <h2>Ban Logs</h2>
-                <button onClick={()=>{setBanLogpopup(true)}}>Full logs</button>
+                <button onClick={() => { setBanLogpopup(true) }}>Full logs</button>
 
                 <Popup trigger={banLogpopup} setTrigger={setBanLogpopup}>
-                <div className="banlog-popup">
-                  jhsjdhjsh
-                </div>
+                  <div className="banlog-popup">
+                    <div className="blp-header">
+                      <h4>Full logs</h4>
+                    </div>
+                    <div className="blp-boady">
+                      <div className="blpb-container">
+                        
+                      </div>
+                    </div>
+                  </div>
                 </Popup>
 
               </div>
