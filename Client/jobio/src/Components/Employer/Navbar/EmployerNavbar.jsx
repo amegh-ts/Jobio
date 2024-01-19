@@ -87,7 +87,7 @@ const EmployerNavbar = () => {
     const handleLogout = () => {
         dispatch(logoutUser())
         sessionStorage.clear();
-
+        window.location.reload();
     };
     const pageComponents = {
         home:<EmployerHome userId={userId}/>,
