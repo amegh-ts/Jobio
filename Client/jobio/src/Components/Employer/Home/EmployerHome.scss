@@ -92,6 +92,9 @@
                     background: var(--sidebar-color);
                     padding: 10px;
                     border-radius: 10px;
+                    display: flex;
+                    flex-direction: column;
+                    gap: 10px;
 
                     .header {
                         display: flex;
@@ -115,6 +118,12 @@
                                 font-size: 26px;
                             }
                         }
+                    }
+
+                    .description {
+                        display: flex;
+                        flex-direction: column;
+
                     }
 
                     .cimage {
@@ -145,7 +154,7 @@
                             align-items: center;
                             gap: 10px;
 
-                            span{
+                            span {
                                 font-weight: 500;
                             }
 
