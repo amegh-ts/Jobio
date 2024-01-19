@@ -1,5 +1,6 @@
-.Home {
+.EHome {
     height: 100%;
+    overflow: hidden;
 
     .home-main {
         padding: 20px;
@@ -11,15 +12,19 @@
         .left {
             border-radius: 10px;
             height: 300px;
-            width: 300px;
+            max-width: 300px;
+            width: 100%;
             background: var(--sidebar-color);
             position: relative;
 
-
             .header {
+                height: 85px;
+
                 img {
+                    height: 85px;
                     width: 100%;
                     border-radius: 10px;
+                    object-fit: cover;
                 }
             }
 
@@ -31,6 +36,12 @@
                 position: relative;
                 left: 20px;
                 bottom: 40px;
+
+                img {
+                    width: 50px;
+                    height: 50px;
+                    border-radius: 50%;
+                }
             }
 
             .footer {
@@ -41,11 +52,88 @@
         }
 
         .middle {
-            height: 400px;
+            height: 780px;
             width: 800px;
             display: flex;
             flex-direction: column;
             gap: 10px;
+            padding: 10px;
+            overflow-y: auto;
+
+            &::-webkit-scrollbar {
+                width: 5px;
+            }
+
+            .add-post-container {
+                background: var(--sidebar-color);
+                border-radius: 10px;
+                max-width: 760px;
+                display: flex;
+                flex-direction: column;
+                padding: 20px;
+                align-items: center;
+
+                .apc-header {
+                    display: flex;
+                    align-items: center;
+                    gap: 10px;
+                    flex-direction: column;
+
+                    section {
+                        display: flex;
+                        gap: 10px;
+                        align-items: center;
+
+                        .image {
+                            display: flex;
+                            height: 40px;
+                            width: 40px;
+                            border-radius: 50%;
+                            background: var(--primary-color);
+
+                            img {
+                                height: 40px;
+                                width: 40px;
+                                border-radius: 50%;
+                            }
+                        }
+
+                        .add-post {
+                            button {
+                                padding: 10px;
+                                border: 1px solid rgb(225, 225, 225);
+                                background: transparent;
+                                border-radius: 20px;
+                                width: 400px;
+                                text-align: left;
+                                cursor: pointer;
+
+                                &:hover {
+                                    background: rgb(231, 231, 231);
+                                }
+                            }
+                        }
+                    }
+
+                    .add-post-buttons {
+                        display: flex;
+                        gap: 10px;
+
+                        button {
+                            padding: 10px;
+                            background: transparent;
+                            border: 1px solid rgb(204, 204, 204);
+                            width: 160px;
+                            border-radius: 10px;
+
+                            &:hover {
+                                background: rgb(231, 231, 231);
+                                color: var(--primary-color);
+                            }
+                        }
+                    }
+                }
+            }
 
             .welcome-container {
                 background: var(--sidebar-color);
@@ -56,8 +144,9 @@
                 align-items: center;
 
                 .close {
-                    position: relative;
-                    left: 360px;
+                    display: flex;
+                    width: 100%;
+                    justify-content: flex-end;
 
                     .icon {
                         font-size: 26px;
@@ -80,17 +169,26 @@
                     align-items: center;
 
                     img {
-                        width: 100%;
-                        object-fit: contain;
+                        width: 150px;
+                        height: 150px;
+                        border-radius: 50%;
+                        object-fit: cover;
                     }
                 }
             }
 
             .posts {
+                display: flex;
+                flex-direction: column;
+                gap: 10px;
+
                 .post-container {
                     background: var(--sidebar-color);
                     padding: 10px;
                     border-radius: 10px;
+                    display: flex;
+                    flex-direction: column;
+                    gap: 10px;
 
                     .header {
                         display: flex;
@@ -100,12 +198,19 @@
 
                         .header-left {
                             display: flex;
+                            gap: 10px;
 
                             .image {
                                 background: rgb(0, 0, 0);
                                 height: 70px;
                                 width: 70px;
                                 border-radius: 50%;
+                            }
+
+                            .header-title {
+                                display: flex;
+                                flex-direction: column;
+                                justify-content: center;
                             }
                         }
 
@@ -116,11 +221,23 @@
                         }
                     }
 
+                    .description {
+                        overflow: hidden;
+                        max-height: 200px;
+                        padding: 5px 30px;
+                        p{
+                            display: block; /* This ensures that each paragraph is displayed in a new line */
+                            margin: 0;
+                        }
+                    }
+
                     .cimage {
-                        width: 780px;
+                        width: 100%;
+                        display: flex;
+                        justify-content: center;
 
                         img {
-                            width: 100%;
+                            width: 600px;
                             object-fit: contain;
                         }
                     }
@@ -144,10 +261,9 @@
                             align-items: center;
                             gap: 10px;
 
-                            span{
+                            span {
                                 font-weight: 500;
                             }
-
 
                             &:hover {
                                 background-color: whitesmoke;
@@ -164,7 +280,6 @@
             width: 400px;
             background: var(--sidebar-color);
             border-radius: 10px;
-
         }
     }
 }

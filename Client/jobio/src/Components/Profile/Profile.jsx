@@ -10,6 +10,7 @@ const Profile = () => {
   const [contactPopup, setContactPopup] = useState(false)
   const [skillPopup, setSkillPopup] = useState(false)
   const [educationPopup, setEducationPopup] = useState(false)
+  const [coverPopup, setCoverPopup] = useState(false)
 
   const [firstname, setFirstname] = useState('')
   const [lastname, setLastname] = useState('')
@@ -130,8 +131,8 @@ const Profile = () => {
     setPhone(data.phone || '');
     setCity(data.city || '');
     setDistrict(data.district || '');
-    setPhoto(data.photo || '');
-    setCoverphoto(data.coverphoto || '');
+    // setPhoto(data.photo || '');
+    // setCoverphoto(data.coverphoto || '');
     setAbout(data.about || '');
     setSelectedSkills(data.selectedSkills || []);
     setInstitute(data.institute || '')
@@ -141,6 +142,32 @@ const Profile = () => {
   }, [data])
 
   // console.log(firstname, lastname, username, dob, phone, city, district, photo, coverphoto,institute);
+  const convertProfileToBase64 = async (e) => {
+    // console.log(e);
+    var reader = new FileReader();
+    reader.readAsDataURL(e.target.files[0]);
+    reader.onload = () => {
+      // console.log(reader.result);
+      setPhoto(reader.result)
+    }
+    reader.onerror = error => {
+      console.log('Error ', error);
+    }
+  }
+
+  const convertCoverToBase64 = async (e) => {
+    // console.log(e);
+    var reader = new FileReader();
+    reader.readAsDataURL(e.target.files[0]);
+    reader.onload = () => {
+      // console.log(reader.result);
+      setCoverphoto(reader.result)
+    }
+    reader.onerror = error => {
+      console.log('Error ', error);
+    }
+  }
+
 
   const onSubmit = async () => {
     try {
@@ -148,7 +175,6 @@ const Profile = () => {
       alert('Successfully updated');
       setButtonPopup(false);
       window.location.reload();
-
     } catch (error) {
       console.log(error);
       alert("eroor")
@@ -185,12 +211,33 @@ const Profile = () => {
       <section className="column">
         <div className="profile-container">
           <div className='header'>
-            <img src="/Images/bg.png" alt="" />
+            <div className='image'>
+              <img src={ !data.coverphoto || data.coverphoto === '' || data.coverphoto === null ? '/Images/banner.png' : data.coverphoto } alt="" width={100} height={100} />            
+                </div>
+            <div className='edit-container'>
+              <span className='icon' onClick={() => setCoverPopup(true)}>
+                <IoPencil />
+              </span>
+              <Popup trigger={coverPopup} setTrigger={setCoverPopup}>
+                <div className="profile-popup">
+                  <h3>Edit Cover Photo</h3>
+                  <div className="form">
+                    <input type="file" placeholder='Photo' accept='image/*' onChange={convertCoverToBase64} />
+                    {coverphoto == '' || coverphoto == null ? '' : <img src={coverphoto} alt="" width={100} height={100} />}
+                    <button onClick={onSubmit}>SUBMIT</button>
+                  </div>
+                </div>
+              </Popup>
+
+            </div>
           </div>
           <div className='middle'>
-            <div className="photo"></div>
+            <div className="photo">
+              {/* <img src={data.photo === '' || data.photo === null ? '/Images/user.png' : data.photo} alt="" width={100} height={100} /> */}
+              <img src={ !data.photo || data.photo === '' || data.photo === null ? '/Images/user.png' : data.photo } alt="" width={100} height={100} />            
+            </div>
             <div className='detail-container'>
-              <h3>{data.username}</h3>  
+              <h3>{data.username}</h3>
               <span className='fullname'>
                 <h2>{data.firstname}</h2><h2>{data.lastname}</h2>
               </span>
@@ -220,6 +267,7 @@ const Profile = () => {
             <div className="profile-popup">
               <h3>Edit Profile</h3>
               <div className="form">
+                {photo == '' || photo == null ? '' : <img src={photo} alt="" />}
                 <input type="text" placeholder='Firstname' value={firstname} onChange={(e) => setFirstname(e.target.value)} />
                 <input type="text" placeholder='Lastname' value={lastname} onChange={(e) => setLastname(e.target.value)} />
                 <input type="text" placeholder='username' value={username} onChange={(e) => setUsername(e.target.value)} />
@@ -234,8 +282,7 @@ const Profile = () => {
                     </option>
                   ))}
                 </select>
-                <input type="text" placeholder='Photo' value={photo} onChange={(e) => { setPhoto(e.target.value) }} />
-                <input type="text" placeholder='Cover Photo' value={coverphoto} onChange={(e) => { setCoverphoto(e.target.value) }} />
+                <input type="file" placeholder='Photo' accept='image/*' onChange={convertProfileToBase64} />
                 <textarea name="about" id="about" cols="30" rows="10" placeholder='Tell us about you' value={about} onChange={(e) => { setAbout(e.target.value) }}></textarea>
                 <button onClick={onSubmit}>SUBMIT</button>
               </div>

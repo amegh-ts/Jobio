@@ -43,9 +43,9 @@ const Chats = () => {
                     <div className="cmb-left">
                         <div className="cmbl-header">
                             <span><h2>Users</h2></span>
-                            <div className="cmblh-search">
+                            {/* <div className="cmblh-search">
                                 <input type="text" placeholder="search" />
-                            </div>
+                            </div> */}
                         </div>
 
                         <div className="cmbl-users">

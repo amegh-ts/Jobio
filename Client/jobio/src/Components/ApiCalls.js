@@ -137,10 +137,10 @@ export const getAlert = async () => {
 }
 
 // delete alert
-export const deleteAlert=async(data)=>{
+export const deleteAlert = async (data) => {
     console.log(data);
     try {
-        const res=await userRequest.delete('/deletealert',{data})
+        const res = await userRequest.delete('/deletealert', { data })
         console.log('Response Status:', res.status);
     } catch (error) {
         console.log(error);
@@ -196,10 +196,6 @@ export const fetchBanLogs = async () => {
 
 
 
-
-
-
-
 // <-------------------Chats-------------------> //
 // create chat
 export const createChat = async (data) => {
@@ -241,6 +237,31 @@ export const sendMessage = async (chatId, senderId, text) => {
 export const viewMessages = async (chatId) => {
     try {
         const res = await userRequest.get(`/chat/messages/${chatId}`)
+        return res.data
+    } catch (error) {
+        console.log(error);
+    }
+}
+
+
+// <-------------------feeds-------------------> //
+// create feed
+export const createFeed = async (data) => {
+    const newData = { ...data, likes: 0, report: 0 }
+    console.log('dataaa', newData);
+    try {
+        const res = await userRequest.post('/createfeed', newData);
+        console.log('Response Status:', res.status);
+    } catch (err) {
+        console.log(err);
+    }
+}
+
+// all feeds
+export const allFeeds=async ()=>{
+    try {
+        const res = await userRequest.get('/allfeeds')
+        console.log('Response Status:', res.status);
         return res.data
     } catch (error) {
         console.log(error);

@@ -123,7 +123,7 @@ const Users = ({ setActivePageToChats }) => {
                                 <tr key={index}>
                                     <td>
                                         <div className="user-cards-img">
-                                            <img src='/Images/p1.png' alt="" />
+                                            <img src={user.photo} alt="" />
                                         </div>
                                     </td>
                                     <td>{user.username}</td>

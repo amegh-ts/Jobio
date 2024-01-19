@@ -5,6 +5,7 @@ import { LineChart } from '@mui/x-charts/LineChart';
 import { PieChart } from '@mui/x-charts/PieChart';
 import { fetchBanLogs, getAllUsers } from '../../ApiCalls';
 import { FaCrown, FaUserTie, FaUser, FaPeopleGroup } from "react-icons/fa6";
+import Popup from '../../../Assets/Popups/Popup';
 // import { ChartContainer, BarPlot } from '@mui/x-charts';
 
 
@@ -20,7 +21,9 @@ const Home = () => {
   const [active, setActive] = useState(0);
   const [inactive, setInactive] = useState(0);
   const [banned, setBanned] = useState(0);
+  const [banLogpopup, setBanLogpopup] = useState(false)
 
+  const [banLogs, setBanLogs] = useState([]);
   const [recenrBanLog, setRecentBanLog] = useState({});
 
 
@@ -31,6 +34,8 @@ const Home = () => {
         const users = await getAllUsers();
         const logs = await fetchBanLogs()
         setUserList(users);
+        setBanLogs(logs)
+
 
         setTotalUser(users.length)
         const admins = users.filter(user => user.type === 'admin');
@@ -46,6 +51,7 @@ const Home = () => {
         setInactive(inactive.length)
         const banned = users.filter(user => user.state === 'banned')
         setBanned(banned.length)
+
 
         if (logs.length > 0) {
           const mostRecentLog = logs.reduce((prev, current) =>
@@ -64,16 +70,29 @@ const Home = () => {
     display()
   }, []);
 
-  console.log(recenrBanLog);
+  // console.log(banLogs);
+
+
+  // const userCountByDay = userList.reduce((countByDay, user) => {
+  //   const date = user.createdAt.split('T')[0];
+  //   countByDay[date] = (countByDay[date] || 0) + 1;
+  //   return countByDay;
+  // }, {});
 
   const userCountByDay = userList.reduce((countByDay, user) => {
-    const date = user.createdAt.split('T')[0];
-    countByDay[date] = (countByDay[date] || 0) + 1;
+    const dateParts = user.createdAt.split('T')[0].split('-');
+    const monthDay = `${dateParts[2]}-${dateParts[1]}`;
+    countByDay[monthDay] = (countByDay[monthDay] || 0) + 1;
     return countByDay;
-  }, {});
+}, {});
 
-  const xLabels = Object.keys(userCountByDay);
-  const uData = xLabels.map((date) => userCountByDay[date]);
+  // const xLabels = Object.keys(userCountByDay);
+  // const uData = xLabels.map((date) => userCountByDay[date]);
+
+  const recentXLabels = Object.keys(userCountByDay).slice(-6);
+const recentUData = recentXLabels.map((date) => userCountByDay[date]);
+
+  // Limit to the most recent 7 days
 
 
   const data = [
@@ -103,8 +122,8 @@ const Home = () => {
             <LineChart
               width={500}
               height={250}
-              series={[{ type: 'line', data: uData, label: 'Growth', area: 'true', showMark: true, color: 'rgba(98, 179, 98, 0.685)' }]}
-              xAxis={[{ scaleType: 'point', data: xLabels }]}
+              series={[{ type: 'line', data: recentUData, label: 'Growth', area: 'true', showMark: true, color: 'rgba(98, 179, 98, 0.685)' }]}
+              xAxis={[{ scaleType: 'point', data: recentXLabels }]}
               sx={{
                 '.MuiLineElement-root': {
                   stroke: 'rgb(16, 118, 16)',
@@ -156,7 +175,27 @@ const Home = () => {
             <div className="hml-card card1">
               <div className="hml-header">
                 <h2>Ban Logs</h2>
-                <button>Full logs</button>
+                <button onClick={() => { setBanLogpopup(true) }}>Full logs</button>
+
+                <Popup trigger={banLogpopup} setTrigger={setBanLogpopup}>
+                  <div className="banlog-popup">
+                    <div className="blp-header">
+                      <h4>Full logs</h4>
+                    </div>
+                    <div className="blp-body">
+                      <div className="blpb-container">
+                        {banLogs.map((log, index) => (
+                          <div key={index} className="log-item">
+                            {/* <p>{index + 1}</p> */}
+                            <div className='log-info'>INFO - [{log.createdAt ? new Date(log.createdAt).toLocaleString() : 'N/A'}] :  <span>{log._id} </span> </div>
+                            <div className="log-content">User {log.banned} state set to {log.state} by {log.bannedBy}</div>
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+                  </div>
+                </Popup>
+
               </div>
               <div className="ban-log">
                 <p>Recent log</p>
