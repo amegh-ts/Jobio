@@ -68,7 +68,7 @@ const EmployerHome = () => {
                   <h3>Create New feed</h3>
                 </div>
                 <div className="add-feed-container">
-                  <textarea name="" id="" cols="30" rows="10"></textarea>
+                  <textarea name="" id="" ></textarea>
                 </div>
               </div>
             </Popup>
