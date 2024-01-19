@@ -1,5 +1,6 @@
 .EHome {
     height: 100%;
+    overflow: hidden;
 
     .home-main {
         padding: 20px;
@@ -42,11 +43,26 @@
         }
 
         .middle {
-            height: 400px;
+            height: 780px;
             width: 800px;
             display: flex;
             flex-direction: column;
             gap: 10px;
+            padding: 10px;
+            overflow-y: auto;
+
+            &::-webkit-scrollbar {
+                width: 5px;
+            }
+
+            .add-post-container {
+                background: var(--sidebar-color);
+                border-radius: 10px;
+                display: flex;
+                flex-direction: column;
+                padding: 20px;
+                align-items: center;
+            }
 
             .welcome-container {
                 background: var(--sidebar-color);
@@ -88,6 +104,10 @@
             }
 
             .posts {
+                display: flex;
+                flex-direction: column;
+                gap: 10px;
+
                 .post-container {
                     background: var(--sidebar-color);
                     padding: 10px;

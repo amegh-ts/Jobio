@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import './EmployerHome.scss';
-import { IoCloseCircleOutline,IoThumbsUpOutline,IoEllipsisVertical } from 'react-icons/io5';
+import { IoCloseCircleOutline, IoThumbsUpOutline, IoEllipsisVertical } from 'react-icons/io5';
 import { viewProfile } from '../../ApiCalls';
 
 const EmployerHome = () => {
@@ -37,12 +37,20 @@ const EmployerHome = () => {
             <h3>{data.about}</h3>
             <h5>{data.city}, {data.district} </h5>
             <h5>Contact info</h5>
-          <button>Add post</button>
+            <button>Add post</button>
 
           </div>
         </div>
 
         <div className="middle">
+
+          <div className="add-post-container">
+            <div className="apc-header">
+              <div className="image">
+                <img src="" alt="Profile" />
+              </div>
+            </div>
+          </div>
           {showWelcomeContainer && (
             <div className="welcome-container">
               <div className="close" onClick={handleCloseWelcomeContainer}>
@@ -85,24 +93,67 @@ const EmployerHome = () => {
                 <img src="/Images/bg.png" alt="" />
               </div>
               <div className='footer'>
-                  <div className='blocks'>
-                    <IoThumbsUpOutline/>
-                    <span>Like</span>
-                  </div>
-                  <div className='blocks'>
-                    <IoThumbsUpOutline/>
-                    <span>Comment</span>
-                  </div>
-                  <div className='blocks'>
-                    <IoThumbsUpOutline/>
-                    <span>Repost</span>
-                  </div>
-                  <div className='blocks'>
-                    <IoThumbsUpOutline/>
-                    <span>Send</span>
-                  </div>
+                <div className='blocks'>
+                  <IoThumbsUpOutline />
+                  <span>Like</span>
+                </div>
+                <div className='blocks'>
+                  <IoThumbsUpOutline />
+                  <span>Comment</span>
+                </div>
+                <div className='blocks'>
+                  <IoThumbsUpOutline />
+                  <span>Repost</span>
+                </div>
+                <div className='blocks'>
+                  <IoThumbsUpOutline />
+                  <span>Send</span>
+                </div>
               </div>
             </div>
+
+            <div className="post-container">
+              <div className='header'>
+                <div className='header-left'>
+                  <div className='image'>
+                    <img src="" alt="pic" />
+                  </div>
+                  <div className="header-title">
+                    <h3>Name</h3>
+                    <h6>Time</h6>
+                  </div>
+                </div>
+                <div className='header-right'>
+                  <IoEllipsisVertical className="icon" />
+                </div>
+              </div>
+              <div className='description'>
+                <h4>Headline</h4>
+                <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Adipisci eligendi facere repudiandae eaque aperiam eum nisi natus. Id deserunt illum cumque, laboriosam, recusandae impedit, eos sunt labore magni maxime magnam.</p>
+              </div>
+              <div className='cimage'>
+                <img src="/Images/bg.png" alt="" />
+              </div>
+              <div className='footer'>
+                <div className='blocks'>
+                  <IoThumbsUpOutline />
+                  <span>Like</span>
+                </div>
+                <div className='blocks'>
+                  <IoThumbsUpOutline />
+                  <span>Comment</span>
+                </div>
+                <div className='blocks'>
+                  <IoThumbsUpOutline />
+                  <span>Repost</span>
+                </div>
+                <div className='blocks'>
+                  <IoThumbsUpOutline />
+                  <span>Send</span>
+                </div>
+              </div>
+            </div>
+
           </div>
         </div>
 
