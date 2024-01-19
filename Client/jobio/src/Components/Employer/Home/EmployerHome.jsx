@@ -67,6 +67,9 @@ const EmployerHome = () => {
                 <div className="afp-header">
                   <h3>Create New feed</h3>
                 </div>
+                <div className="add-feed-container">
+                  <textarea name="" id="" cols="30" rows="10"></textarea>
+                </div>
               </div>
             </Popup>
           </div>
