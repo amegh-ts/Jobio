@@ -89,7 +89,7 @@ const ForgotPassword = () => {
         try {
             if (password) {
                 newPassword == password;
-                await changePassword({ email,password })
+                await changePassword({ email, password })
                 alert('Successfully Changed Password');
                 window.location.reload();
             }
@@ -114,13 +114,19 @@ const ForgotPassword = () => {
                             <span className="login-form-title">
                                 Forgot Password?
                             </span>
-                            <>
-                                <div className='input'>
-                                    <i className='icon bx bx-envelope bx-tada' ></i>
-                                    <input type="text" name="email" placeholder="Email" value={email} onChange={(e) => setEmail(e.target.value)} />
+                            <div className='lgic'>
+                                <p>Enter your registered email ID <br /> to reset the password</p>
+                                <div className="lgi-container">
+                                    <div className='input'>
+                                        <i className='icon bx bx-envelope bx-tada' ></i>
+                                        <input type="text" name="email" placeholder="Email" value={email} onChange={(e) => setEmail(e.target.value)} />
+                                    </div>
+                                    <button className="login-form-btn" onClick={onForgotPassClick}>Send OTP</button>
+                                    <div className="create-account">
+                                        <a className="txt" href="/login">Login</a>
+                                    </div>
                                 </div>
-                            </>
-                            <button className="login-form-btn" onClick={onForgotPassClick}>Send OTP</button>
+                            </div>
 
                             <Popup trigger={forgotPassPopup} setTrigger={setForgotPassPopup}>
                                 <div className="forgotpass-popup">
@@ -170,9 +176,7 @@ const ForgotPassword = () => {
                                 </div>
                             </Popup>
 
-                            <div className="create-account">
-                                <a className="txt" href="/login">Login</a>
-                            </div>
+
                         </form>
                     </div>
                 </div>

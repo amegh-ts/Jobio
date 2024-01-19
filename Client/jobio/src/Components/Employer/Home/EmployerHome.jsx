@@ -1,13 +1,27 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import './EmployerHome.scss';
 import { IoCloseCircleOutline,IoThumbsUpOutline,IoEllipsisVertical } from 'react-icons/io5';
+import { viewProfile } from '../../ApiCalls';
 
 const EmployerHome = () => {
   const [showWelcomeContainer, setShowWelcomeContainer] = useState(true);
+  const [data, setData] = useState({});
 
   const handleCloseWelcomeContainer = () => {
     setShowWelcomeContainer(false);
   };
+
+  useEffect(() => {
+    async function fetchProfile() {
+      try {
+        const apiData = await viewProfile();
+        setData(apiData)
+      } catch (error) {
+        console.log(error);
+      }
+    }
+    fetchProfile()
+  }, [])
 
 
   return (
@@ -19,7 +33,7 @@ const EmployerHome = () => {
           </div>
           <div className="photo"></div>
           <div className="footer">
-            <h2>Name</h2>
+            <h2>{data.username}</h2>
             <h3>Highlights</h3>
             <h5>
               kozhikode, kerala, India <span>Contact info</span>
@@ -37,11 +51,11 @@ const EmployerHome = () => {
                 <img src="" alt="Profile" />
               </div>
               <div className="note">
-                <h1>Welcome back Devil</h1>
+                <h1>Welcome back {data.username}</h1>
               </div>
               <div className="status">
-                <button>Available to work</button>
-                <button>Unavailable to work</button>
+                {/* <button>Available to work</button>
+                <button>Unavailable to work</button> */}
               </div>
             </div>
           )}
