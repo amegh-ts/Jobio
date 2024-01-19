@@ -212,9 +212,8 @@ const Profile = () => {
         <div className="profile-container">
           <div className='header'>
             <div className='image'>
-              <img src={data.coverphoto === '' || data.photo === null ? '/Images/banner.png' : data.coverphoto} alt="" width={100} height={100} />
-
-            </div>
+              <img src={ !data.coverphoto || data.coverphoto === '' || data.coverphoto === null ? '/Images/banner.png' : data.coverphoto } alt="" width={100} height={100} />            
+                </div>
             <div className='edit-container'>
               <span className='icon' onClick={() => setCoverPopup(true)}>
                 <IoPencil />
@@ -234,8 +233,8 @@ const Profile = () => {
           </div>
           <div className='middle'>
             <div className="photo">
-              <img src={data.photo === '' || data.photo === null ? '/Images/user.png' : data.photo} alt="" width={100} height={100} />
-
+              {/* <img src={data.photo === '' || data.photo === null ? '/Images/user.png' : data.photo} alt="" width={100} height={100} /> */}
+              <img src={ !data.photo || data.photo === '' || data.photo === null ? '/Images/user.png' : data.photo } alt="" width={100} height={100} />            
             </div>
             <div className='detail-container'>
               <h3>{data.username}</h3>
