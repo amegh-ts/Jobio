@@ -6,6 +6,7 @@ const FeedSchema=new mongoose.Schema({
     description:{type:String,required:true},
     likes:{type:Number,required:true},
     report:{type:Number,required:true},
+    username:{type:String,required:true}
 },{
     timestamps:true
 })

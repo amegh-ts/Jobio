@@ -12,7 +12,7 @@ const EmployerHome = ({ userId }) => {
 
   const [feedContent, setFeedContent] = useState('');
   const [file, setFile] = useState('');
-  const [allFeed,setAllFeed]=useState([])
+  const [allFeed, setAllFeed] = useState([])
 
 
   const handleCloseWelcomeContainer = () => {
@@ -24,7 +24,7 @@ const EmployerHome = ({ userId }) => {
       try {
         const apiData = await viewProfile();
         setData(apiData)
-        const allfeedData=await allFeeds()
+        const allfeedData = await allFeeds()
         setAllFeed(allfeedData)
       } catch (error) {
         console.log(error);
@@ -50,9 +50,13 @@ const EmployerHome = ({ userId }) => {
   }
 
   const onSendClick = async () => {
-    await createFeed({senderId:userId,description:feedContent,image:file})
-    window.location.reload();
-    alert("Feed created successfully")
+    try {
+      await createFeed({ senderId: userId, description: feedContent, image: file, username: data.username })
+      window.location.reload();
+      alert("Feed created successfully")
+    } catch (error) {
+      console.log(error);
+    }
   }
 
 
