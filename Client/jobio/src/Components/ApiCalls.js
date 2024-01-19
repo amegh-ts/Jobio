@@ -247,5 +247,5 @@ export const viewMessages = async (chatId) => {
 // <-------------------feeds-------------------> //
 // create feed
 export const createFeed = async (data) => {
-    console.log(data);
+    console.log('dataaa',data);
 }
