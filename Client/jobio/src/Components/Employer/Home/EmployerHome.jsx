@@ -52,7 +52,7 @@ const EmployerHome = ({ userId }) => {
 
   const onSendClick = async () => {
     try {
-      await createFeed({ senderId: userId, description: feedContent, image: file, username: data.username })
+      await createFeed({ senderId: userId, description: feedContent, image: file, username: data.username, photo: data.photo })
       window.location.reload();
       alert("Feed created successfully")
     } catch (error) {
@@ -66,9 +66,11 @@ const EmployerHome = ({ userId }) => {
       <div className="home-main">
         <div className="left">
           <div className="header">
-            <img src="/Images/bg.png" alt="" />
+            <img src={data.coverphoto} alt="" />
           </div>
-          <div className="photo"></div>
+          <div className="photo">
+            <img src={data.photo} alt="" />
+          </div>
           <div className="footer">
             <h2>{data.username}</h2>
             <h3>{data.about}</h3>
@@ -85,7 +87,7 @@ const EmployerHome = ({ userId }) => {
             <div className="apc-header">
               <section>
                 <div className="image">
-                  <img src="" alt="" />
+                  <img src={data.photo} alt="" />
                 </div>
                 <div className="add-post">
                   <button onClick={() => { setAddFeedPopup(true) }}>add post</button>
@@ -121,7 +123,7 @@ const EmployerHome = ({ userId }) => {
                 <IoCloseCircleOutline className="icon" />
               </div>
               <div className="image">
-                <img src="" alt="Profile" />
+                <img src={data.photo} alt="Profile" />
               </div>
               <div className="note">
                 <h1>Welcome back {data.username}</h1>

@@ -21,6 +21,35 @@
             .header {
                 height: 200px;
                 width: 800px;
+                position: relative;
+                
+                .image{
+                    img{
+                        height: 200px;
+                        width: 800px;
+                    }
+                }
+
+                .edit-container {
+                    display: flex;
+                    justify-content: flex-end;
+                    width: 100%;
+                    position: absolute;
+                    bottom: 10px;
+
+                    span {
+                        display: flex;
+                        font-size: 20px;
+                        padding: 10px;
+                        color: var(--primary-color);
+                        background: var(--sidebar-color);
+                        box-shadow: 1px 1px 10px rgb(148, 148, 148);
+                        margin: 10px;
+                        border-radius: 50%;
+                        cursor: pointer;
+
+                    }
+                }
 
                 img {
                     // height: 200px;
@@ -44,6 +73,15 @@
                     border-radius: 50%;
                     left: 30px;
                     bottom: 100px;
+                    object-fit: contain;
+
+                    img {
+                        width: 150px;
+                        height: 150px;
+                        object-fit: cover;
+                        border-radius: 50%;
+
+                    }
 
                 }
 
@@ -53,10 +91,11 @@
                         cursor: pointer;
                     }
 
-                    h3{
+                    h3 {
                         font-size: 16px;
                         color: var(--text-color);
                     }
+
                     .fullname {
                         display: flex;
                         gap: 10px;
@@ -92,7 +131,7 @@
                     box-shadow: 1px 1px 10px rgb(148, 148, 148);
                     margin: 10px;
                     border-radius: 50%;
-                cursor: pointer;
+                    cursor: pointer;
 
                 }
             }
@@ -155,17 +194,17 @@
             .education-container {
                 padding: 0 20px;
 
-                .content{
-                    h5{
+                .content {
+                    h5 {
                         font-size: 24px;
                     }
 
-                    h6{
+                    h6 {
                         font-size: 20px;
                         font-weight: 500;
                     }
 
-                    p{
+                    p {
                         color: var(--text-color);
                     }
                 }
@@ -183,7 +222,7 @@
                     color: var(--primary-color);
                     background: var(--sidebar-color);
                     box-shadow: 1px 1px 10px rgb(148, 148, 148);
-                    margin:     10px;
+                    margin: 10px;
                     border-radius: 50%;
                     cursor: pointer;
 

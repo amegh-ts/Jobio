@@ -18,9 +18,13 @@
             position: relative;
 
             .header {
+                height: 85px;
+
                 img {
+                    height: 85px;
                     width: 100%;
                     border-radius: 10px;
+                    object-fit: cover;
                 }
             }
 
@@ -32,6 +36,12 @@
                 position: relative;
                 left: 20px;
                 bottom: 40px;
+
+                img {
+                    width: 50px;
+                    height: 50px;
+                    border-radius: 50%;
+                }
             }
 
             .footer {
@@ -80,10 +90,15 @@
                             width: 40px;
                             border-radius: 50%;
                             background: var(--primary-color);
+
+                            img {
+                                height: 40px;
+                                width: 40px;
+                                border-radius: 50%;
+                            }
                         }
 
                         .add-post {
-
                             button {
                                 padding: 10px;
                                 border: 1px solid rgb(225, 225, 225);
@@ -98,28 +113,25 @@
                                 }
                             }
                         }
-
                     }
 
-                    .add-post-buttons{
+                    .add-post-buttons {
                         display: flex;
                         gap: 10px;
 
-                        button{
+                        button {
                             padding: 10px;
                             background: transparent;
                             border: 1px solid rgb(204, 204, 204);
                             width: 160px;
                             border-radius: 10px;
 
-                            &:hover{
+                            &:hover {
                                 background: rgb(231, 231, 231);
                                 color: var(--primary-color);
                             }
                         }
                     }
-
-
                 }
             }
 
@@ -157,8 +169,10 @@
                     align-items: center;
 
                     img {
-                        width: 100%;
-                        object-fit: contain;
+                        width: 150px;
+                        height: 150px;
+                        border-radius: 50%;
+                        object-fit: cover;
                     }
                 }
             }
@@ -192,7 +206,8 @@
                                 width: 70px;
                                 border-radius: 50%;
                             }
-                            .header-title{
+
+                            .header-title {
                                 display: flex;
                                 flex-direction: column;
                                 justify-content: center;

@@ -10,6 +10,7 @@ const Profile = () => {
   const [contactPopup, setContactPopup] = useState(false)
   const [skillPopup, setSkillPopup] = useState(false)
   const [educationPopup, setEducationPopup] = useState(false)
+  const [coverPopup, setCoverPopup] = useState(false)
 
   const [firstname, setFirstname] = useState('')
   const [lastname, setLastname] = useState('')
@@ -210,14 +211,32 @@ const Profile = () => {
       <section className="column">
         <div className="profile-container">
           <div className='header'>
-            <img src="/Images/bg.png" alt="" />
+            <div className='image'>
+              <img src={data.coverphoto} alt="" />
+            </div>
+            <div className='edit-container'>
+              <span className='icon' onClick={() => setCoverPopup(true)}>
+                <IoPencil />
+              </span>
+              <Popup trigger={coverPopup} setTrigger={setCoverPopup}>
+                <div className="profile-popup">
+                  <h3>Edit Cover Photo</h3>
+                  <div className="form">
+                    <input type="file" placeholder='Photo' accept='image/*' onChange={convertCoverToBase64} />
+                    {coverphoto == '' || coverphoto == null ? '' : <img src={coverphoto} alt="" width={100} height={100} />}
+                    <button onClick={onSubmit}>SUBMIT</button>
+                  </div>
+                </div>
+              </Popup>
+
+            </div>
           </div>
           <div className='middle'>
             <div className="photo">
               <img src={data.photo} alt="" />
             </div>
             <div className='detail-container'>
-              <h3>{data.username}</h3>  
+              <h3>{data.username}</h3>
               <span className='fullname'>
                 <h2>{data.firstname}</h2><h2>{data.lastname}</h2>
               </span>
@@ -247,6 +266,7 @@ const Profile = () => {
             <div className="profile-popup">
               <h3>Edit Profile</h3>
               <div className="form">
+                {photo == '' || photo == null ? '' : <img src={photo} alt="" />}
                 <input type="text" placeholder='Firstname' value={firstname} onChange={(e) => setFirstname(e.target.value)} />
                 <input type="text" placeholder='Lastname' value={lastname} onChange={(e) => setLastname(e.target.value)} />
                 <input type="text" placeholder='username' value={username} onChange={(e) => setUsername(e.target.value)} />
@@ -261,7 +281,7 @@ const Profile = () => {
                     </option>
                   ))}
                 </select>
-                <input type="file" placeholder='Photo'  accept='image/*' onChange={convertProfileToBase64}/>
+                <input type="file" placeholder='Photo' accept='image/*' onChange={convertProfileToBase64} />
                 <textarea name="about" id="about" cols="30" rows="10" placeholder='Tell us about you' value={about} onChange={(e) => { setAbout(e.target.value) }}></textarea>
                 <button onClick={onSubmit}>SUBMIT</button>
               </div>
