@@ -375,7 +375,7 @@
             flex-direction: column;
             gap: 10px;
             height: 800px;
-        
+
 
             .blp-header {
                 h4 {
@@ -401,7 +401,7 @@
                         box-shadow: 0 0 10px rgb(214, 214, 214);
                         padding: 10px;
                         border-radius: 10px;
-                        
+
 
 
                         .log-info {
@@ -412,6 +412,23 @@
                             font-size: 13px;
                         }
                     }
+                }
+            }
+        }
+
+        .add-feed-popup{
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+
+            .afp-header{
+                font-size: 16px;
+            }
+
+            .add-feed-container{
+                textarea{
+                    background: transparent;
+                    outline: none;
                 }
             }
         }
