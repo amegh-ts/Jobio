@@ -141,6 +141,32 @@ const Profile = () => {
   }, [data])
 
   // console.log(firstname, lastname, username, dob, phone, city, district, photo, coverphoto,institute);
+  const convertProfileToBase64 = async (e) => {
+    // console.log(e);
+    var reader = new FileReader();
+    reader.readAsDataURL(e.target.files[0]);
+    reader.onload = () => {
+      // console.log(reader.result);
+      setPhoto(reader.result)
+    }
+    reader.onerror = error => {
+      console.log('Error ', error);
+    }
+  }
+
+  const convertCoverToBase64 = async (e) => {
+    // console.log(e);
+    var reader = new FileReader();
+    reader.readAsDataURL(e.target.files[0]);
+    reader.onload = () => {
+      // console.log(reader.result);
+      setCoverphoto(reader.result)
+    }
+    reader.onerror = error => {
+      console.log('Error ', error);
+    }
+  }
+
 
   const onSubmit = async () => {
     try {
@@ -233,8 +259,8 @@ const Profile = () => {
                     </option>
                   ))}
                 </select>
-                <input type="text" placeholder='Photo' value={photo} onChange={(e) => { setPhoto(e.target.value) }} />
-                <input type="text" placeholder='Cover Photo' value={coverphoto} onChange={(e) => { setCoverphoto(e.target.value) }} />
+                <input type="file" placeholder='Photo'  />
+                <input type="file" placeholder='Cover Photo'  />
                 <textarea name="about" id="about" cols="30" rows="10" placeholder='Tell us about you' value={about} onChange={(e) => { setAbout(e.target.value) }}></textarea>
                 <button onClick={onSubmit}>SUBMIT</button>
               </div>
