@@ -9,6 +9,7 @@ const EmployerHome = ({ userId }) => {
   const [showWelcomeContainer, setShowWelcomeContainer] = useState(true);
   const [data, setData] = useState({});
   const [addFeedPopup, setAddFeedPopup] = useState(false)
+
   const [feedContent, setFeedContent] = useState('');
   const [file, setFile] = useState(null);
 
@@ -30,8 +31,12 @@ const EmployerHome = ({ userId }) => {
   }, [])
 
 
-  const onSendClick = async () => {
+  const convertToBase64 = async (e) => {
+    console.log(e);
+  }
 
+  const onSendClick = async () => {
+    console.log(feedContent);
   }
 
 
@@ -81,8 +86,8 @@ const EmployerHome = ({ userId }) => {
                 </div>
 
                 <div className="afp-footer">
-                  <input type="file" name="" id="" value={file} onChange={(e) => setFile(e.target.value)} />
-                  <button><IoSend /></button>
+                  <input type="file" name="" id="" accept='image/*' onChange={convertToBase64} />
+                  <button onClick={onSendClick}><IoSend /></button>
                 </div>
               </div>
             </Popup>
