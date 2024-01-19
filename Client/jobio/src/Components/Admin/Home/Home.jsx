@@ -5,6 +5,7 @@ import { LineChart } from '@mui/x-charts/LineChart';
 import { PieChart } from '@mui/x-charts/PieChart';
 import { fetchBanLogs, getAllUsers } from '../../ApiCalls';
 import { FaCrown, FaUserTie, FaUser, FaPeopleGroup } from "react-icons/fa6";
+import Popup from '../../../Assets/Popups/Popup';
 // import { ChartContainer, BarPlot } from '@mui/x-charts';
 
 
@@ -20,6 +21,7 @@ const Home = () => {
   const [active, setActive] = useState(0);
   const [inactive, setInactive] = useState(0);
   const [banned, setBanned] = useState(0);
+  const [banLogpopup, setBanLogpopup] = useState(false)
 
   const [recenrBanLog, setRecentBanLog] = useState({});
 
@@ -75,6 +77,10 @@ const Home = () => {
   const xLabels = Object.keys(userCountByDay);
   const uData = xLabels.map((date) => userCountByDay[date]);
 
+  // Limit to the most recent 7 days
+  const recentXLabels = xLabels.slice(-7);
+  const recentUData = uData.slice(-7);
+
 
   const data = [
     { id: 0, value: totalUser, label: 'Total', color: '#767676' },
@@ -103,8 +109,8 @@ const Home = () => {
             <LineChart
               width={500}
               height={250}
-              series={[{ type: 'line', data: uData, label: 'Growth', area: 'true', showMark: true, color: 'rgba(98, 179, 98, 0.685)' }]}
-              xAxis={[{ scaleType: 'point', data: xLabels }]}
+              series={[{ type: 'line', data: recentUData, label: 'Growth', area: 'true', showMark: true, color: 'rgba(98, 179, 98, 0.685)' }]}
+              xAxis={[{ scaleType: 'point', data: recentXLabels }]}
               sx={{
                 '.MuiLineElement-root': {
                   stroke: 'rgb(16, 118, 16)',
@@ -156,7 +162,12 @@ const Home = () => {
             <div className="hml-card card1">
               <div className="hml-header">
                 <h2>Ban Logs</h2>
-                <button>Full logs</button>
+                <button onClick={()=>{setBanLogpopup(true)}}>Full logs</button>
+
+                <Popup trigger={banLogpopup} setTrigger={setBanLogpopup}>
+
+                </Popup>
+
               </div>
               <div className="ban-log">
                 <p>Recent log</p>
