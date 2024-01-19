@@ -144,7 +144,7 @@ const EmployerHome = ({ userId }) => {
                         <img src="" alt="pic" />
                       </div>
                       <div className="header-title">
-                        <h3>Name</h3>
+                        <h3>{feeds.username}</h3>
                         <h6>Time</h6>
                       </div>
                     </div>
