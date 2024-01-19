@@ -425,10 +425,34 @@
                 font-size: 16px;
             }
 
-            .add-feed-container {
+            .afp-container {
+                display: flex;
+                flex-direction: column;
+                gap: 10px;
+
                 textarea {
                     background: transparent;
                     outline: none;
+                }
+
+                
+            }
+            .afp-footer{
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+
+                button{
+                    display: flex   ;
+                    padding: 10px;
+                    color: var(--primary-color);
+                    font-size: 26px;
+                    border-radius: 50%;
+                    background: transparent;
+
+                    &:hover{
+                        box-shadow: 0 0 10px rgb(201, 201, 201);
+                    }
                 }
 
                 input[type="file"] {
@@ -461,9 +485,7 @@
                     content: "Upload File";
                 }
 
-                /* ------- From Step 1 ------- */
 
-                /* file upload button */
                 input[type="file"]::file-selector-button {
                     border-radius: 4px;
                     padding: 0 16px;

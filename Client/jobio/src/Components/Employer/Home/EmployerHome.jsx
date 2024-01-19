@@ -1,13 +1,17 @@
+/* eslint-disable react/prop-types */
 import { useEffect, useState } from 'react';
 import './EmployerHome.scss';
-import { IoCloseCircleOutline, IoThumbsUpOutline, IoEllipsisVertical } from 'react-icons/io5';
-import { viewProfile } from '../../ApiCalls';
+import { IoCloseCircleOutline, IoThumbsUpOutline, IoEllipsisVertical, IoSend } from 'react-icons/io5';
+import { createFeed, viewProfile } from '../../ApiCalls';
 import Popup from '../../../Assets/Popups/Popup';
 
-const EmployerHome = () => {
+const EmployerHome = ({ userId }) => {
   const [showWelcomeContainer, setShowWelcomeContainer] = useState(true);
   const [data, setData] = useState({});
   const [addFeedPopup, setAddFeedPopup] = useState(false)
+  const [feedContent, setFeedContent] = useState('');
+  const [file, setFile] = useState(null);
+  const [binaryFile, setBinaryFile] = useState(null);
 
   const handleCloseWelcomeContainer = () => {
     setShowWelcomeContainer(false);
@@ -25,6 +29,47 @@ const EmployerHome = () => {
     fetchProfile()
   }, [])
 
+
+  const handleFileChange = (e) => {
+    const selectedFile = e.target.files[0];
+    setFile(selectedFile);
+  };
+
+  const handleFormSubmit = async () => {
+    // Convert file to binary (you may use FileReader API or other methods)
+    if (file) {
+      const reader = new FileReader();
+      reader.onloadend = () => {
+        const binaryData = reader.result;
+        // console.log('File Binary Data:', binaryData);
+
+        // Add the binary data to state or perform any other actions
+        setBinaryFile(binaryData);
+      };
+      reader.readAsBinaryString(file);
+    }
+
+    await createFeed(feedContent, binaryFile)
+
+  };
+  // console.log('Feed Content:', feedContent);
+  // console.log('File:', binaryFile);
+
+
+  // Function to log image link and name
+  const logImageLinkAndName = () => {
+    if (binaryFile) {
+      // Create a Blob from the binary data
+      const blob = new Blob([binaryFile], { type: file.type });
+
+      // Generate a data URL for the Blob
+      const imageUrl = URL.createObjectURL(blob);
+
+      // Log image link and name
+      console.log('Image Link:', imageUrl);
+      console.log('Image Name:', file.name);
+    }
+  };
 
   return (
     <div className="EHome">
@@ -67,9 +112,19 @@ const EmployerHome = () => {
                 <div className="afp-header">
                   <h3>Create New feed</h3>
                 </div>
-                <div className="add-feed-container">
-                  <textarea name="" id="" ></textarea>
-                  <input type="file" name="" id="" />
+                <div className="afp-container">
+                  {/* Textarea for feed content */}
+                  <textarea
+                    value={feedContent}
+                    onChange={(e) => setFeedContent(e.target.value)}
+                  ></textarea>
+                </div>
+                <div className="afp-footer">
+                  {/* File input for selecting a file */}
+                  <input type="file" onChange={handleFileChange} />
+                  {/* Button to submit the form */}
+                  <button onClick={() => { handleFormSubmit(); logImageLinkAndName(); }}><IoSend /></button>
+                  {/* <button onClick={handleFormSubmit}><IoSend /></button> */}
                 </div>
               </div>
             </Popup>

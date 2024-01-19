@@ -57,6 +57,7 @@
             .add-post-container {
                 background: var(--sidebar-color);
                 border-radius: 10px;
+                max-width: 760px;
                 display: flex;
                 flex-direction: column;
                 padding: 20px;
@@ -73,33 +74,52 @@
                         gap: 10px;
                         align-items: center;
 
+                        .image {
+                            display: flex;
+                            height: 40px;
+                            width: 40px;
+                            border-radius: 50%;
+                            background: var(--primary-color);
+                        }
+
+                        .add-post {
+
+                            button {
+                                padding: 10px;
+                                border: 1px solid rgb(225, 225, 225);
+                                background: transparent;
+                                border-radius: 20px;
+                                width: 400px;
+                                text-align: left;
+                                cursor: pointer;
+
+                                &:hover {
+                                    background: rgb(231, 231, 231);
+                                }
+                            }
+                        }
 
                     }
 
-                    .image {
+                    .add-post-buttons{
                         display: flex;
-                        height: 40px;
-                        width: 40px;
-                        border-radius: 50%;
-                        background: var(--primary-color);
-                    }
+                        gap: 10px;
 
-                    .add-post {
-
-                        button {
+                        button{
                             padding: 10px;
-                            border: 1px solid rgb(225, 225, 225);
                             background: transparent;
-                            border-radius: 20px;
-                            width: 400px;
-                            text-align: left;
-                            cursor: pointer;
+                            border: 1px solid rgb(204, 204, 204);
+                            width: 160px;
+                            border-radius: 10px;
 
-                            &:hover {
+                            &:hover{
                                 background: rgb(231, 231, 231);
+                                color: var(--primary-color);
                             }
                         }
                     }
+
+
                 }
             }
 

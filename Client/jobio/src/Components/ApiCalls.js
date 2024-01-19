@@ -137,10 +137,10 @@ export const getAlert = async () => {
 }
 
 // delete alert
-export const deleteAlert=async(data)=>{
+export const deleteAlert = async (data) => {
     console.log(data);
     try {
-        const res=await userRequest.delete('/deletealert',{data})
+        const res = await userRequest.delete('/deletealert', { data })
         console.log('Response Status:', res.status);
     } catch (error) {
         console.log(error);
@@ -196,10 +196,6 @@ export const fetchBanLogs = async () => {
 
 
 
-
-
-
-
 // <-------------------Chats-------------------> //
 // create chat
 export const createChat = async (data) => {
@@ -245,4 +241,11 @@ export const viewMessages = async (chatId) => {
     } catch (error) {
         console.log(error);
     }
+}
+
+
+// <-------------------feeds-------------------> //
+// create feed
+export const createFeed = async (data) => {
+    console.log(data);
 }
