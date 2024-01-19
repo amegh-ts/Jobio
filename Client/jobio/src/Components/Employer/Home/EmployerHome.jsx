@@ -37,6 +37,8 @@ const EmployerHome = () => {
             <h3>{data.about}</h3>
             <h5>{data.city}, {data.district} </h5>
             <h5>Contact info</h5>
+          <button>Add post</button>
+
           </div>
         </div>
 
@@ -76,6 +78,7 @@ const EmployerHome = () => {
                 </div>
               </div>
               <div className='description'>
+                <h4>Headline</h4>
                 <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Adipisci eligendi facere repudiandae eaque aperiam eum nisi natus. Id deserunt illum cumque, laboriosam, recusandae impedit, eos sunt labore magni maxime magnam.</p>
               </div>
               <div className='cimage'>
