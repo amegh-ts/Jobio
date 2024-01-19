@@ -148,7 +148,6 @@ const Profile = () => {
       alert('Successfully updated');
       setButtonPopup(false);
       window.location.reload();
-
     } catch (error) {
       console.log(error);
       alert("eroor")

@@ -45,8 +45,9 @@ const EmployerHome = ({ userId }) => {
   }
 
   const onSendClick = async () => {
-    // console.log(feedContent,file);
     await createFeed({senderId:userId,description:feedContent,image:file})
+    window.location.reload();
+    alert("Feed created successfully")
   }
 
 
