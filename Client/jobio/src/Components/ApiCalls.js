@@ -256,3 +256,14 @@ export const createFeed = async (data) => {
         console.log(err);
     }
 }
+
+// all feeds
+export const allFeeds=async ()=>{
+    try {
+        const res = await userRequest.get('/allfeeds')
+        console.log('Response Status:', res.status);
+        return res.data
+    } catch (error) {
+        console.log(error);
+    }
+}
