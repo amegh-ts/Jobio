@@ -357,6 +357,7 @@
                 .container-button {
                     display: flex;
                     justify-content: center;
+
                     button {
                         display: flex;
                         justify-content: center;
@@ -366,6 +367,23 @@
                     }
 
                 }
+            }
+        }
+
+        .banlog-popup {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+
+            .blp-header {
+                h4 {
+                    letter-spacing: 2px;
+                }
+            }
+
+            .blp-body{
+            background: red;
+            padding: 10px;
             }
         }
     }

@@ -174,11 +174,11 @@ const Home = () => {
                     <div className="blp-header">
                       <h4>Full logs</h4>
                     </div>
-                    <div className="blp-boady">
+                    <div className="blp-body">
                       <div className="blpb-container">
                         {banLogs.map((log, index) => (
                           <div key={index} className="log-item">
-                            <p>Log {index + 1}:</p>
+                            <div>{index + 1} : [{log.createdAt ? new Date(log.createdAt).toLocaleString() : 'N/A'}]</div>
                             <div>User: {log._id}</div>
                           </div>
                         ))}
