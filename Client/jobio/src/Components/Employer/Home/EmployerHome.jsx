@@ -47,7 +47,10 @@ const EmployerHome = () => {
           <div className="add-post-container">
             <div className="apc-header">
               <div className="image">
-                <img src="" alt="Profile" />
+                <img src="" alt="" />
+              </div>
+              <div className="add-post">
+                <button>add post</button>
               </div>
             </div>
           </div>

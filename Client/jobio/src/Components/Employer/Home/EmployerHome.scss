@@ -17,7 +17,6 @@
             background: var(--sidebar-color);
             position: relative;
 
-
             .header {
                 img {
                     width: 100%;
@@ -62,6 +61,36 @@
                 flex-direction: column;
                 padding: 20px;
                 align-items: center;
+
+                .apc-header {
+                    display: flex;
+                    align-items: center;
+                    gap: 10px;
+
+                    .image {
+                        display: flex;
+                        height: 40px;
+                        width: 40px;
+                        border-radius: 50%;
+                        background: var(--primary-color);
+                    }
+
+                    .add-post {
+                        button {
+                            padding: 10px;
+                            border: 1px solid rgb(225, 225, 225);
+                            background: transparent;
+                            border-radius: 20px;
+                            width: 400px;
+                            text-align: left;
+                            cursor: pointer;
+
+                            &:hover {
+                                background: rgb(231, 231, 231);
+                            }
+                        }
+                    }
+                }
             }
 
             .welcome-container {
@@ -143,7 +172,6 @@
                     .description {
                         display: flex;
                         flex-direction: column;
-
                     }
 
                     .cimage {
@@ -178,7 +206,6 @@
                                 font-weight: 500;
                             }
 
-
                             &:hover {
                                 background-color: whitesmoke;
                                 border-radius: 10px;
@@ -194,7 +221,6 @@
             width: 400px;
             background: var(--sidebar-color);
             border-radius: 10px;
-
         }
     }
 }
