@@ -33,7 +33,6 @@ const EmployerHome = ({ userId }) => {
     fetchProfile()
   }, [])
 
-  console.log(allFeed);
   const reversedState = [...allFeed].reverse();
 
 
