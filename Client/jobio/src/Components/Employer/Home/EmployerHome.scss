@@ -66,6 +66,15 @@
                     display: flex;
                     align-items: center;
                     gap: 10px;
+                    flex-direction: column;
+
+                    section {
+                        display: flex;
+                        gap: 10px;
+                        align-items: center;
+
+
+                    }
 
                     .image {
                         display: flex;
@@ -76,6 +85,7 @@
                     }
 
                     .add-post {
+
                         button {
                             padding: 10px;
                             border: 1px solid rgb(225, 225, 225);

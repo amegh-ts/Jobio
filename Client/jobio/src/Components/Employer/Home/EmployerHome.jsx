@@ -46,11 +46,19 @@ const EmployerHome = () => {
 
           <div className="add-post-container">
             <div className="apc-header">
-              <div className="image">
-                <img src="" alt="" />
-              </div>
-              <div className="add-post">
-                <button>add post</button>
+              <section>
+                <div className="image">
+                  <img src="" alt="" />
+                </div>
+                <div className="add-post">
+                  <button>add post</button>
+                </div>
+              </section>
+
+              <div className="add-post-buttons">
+                <button>Media</button>
+                <button></button>
+                <button>Write Article</button>
               </div>
             </div>
           </div>
