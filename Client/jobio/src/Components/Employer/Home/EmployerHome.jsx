@@ -35,9 +35,7 @@ const EmployerHome = () => {
           <div className="footer">
             <h2>{data.username}</h2>
             <h3>{data.about}</h3>
-            <h5>
-              kozhikode, kerala, India 
-            </h5>
+            <h5>{data.city}, {data.district} </h5>
             <h5>Contact info</h5>
           </div>
         </div>
