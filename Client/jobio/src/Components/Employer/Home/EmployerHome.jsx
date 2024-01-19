@@ -2,7 +2,7 @@
 import { useEffect, useState } from 'react';
 import './EmployerHome.scss';
 import { IoCloseCircleOutline, IoThumbsUpOutline, IoEllipsisVertical, IoSend } from 'react-icons/io5';
-import { viewProfile } from '../../ApiCalls';
+import { createFeed, viewProfile } from '../../ApiCalls';
 import Popup from '../../../Assets/Popups/Popup';
 
 const EmployerHome = ({ userId }) => {
@@ -11,7 +11,7 @@ const EmployerHome = ({ userId }) => {
   const [addFeedPopup, setAddFeedPopup] = useState(false)
 
   const [feedContent, setFeedContent] = useState('');
-  const [file, setFile] = useState(null);
+  const [file, setFile] = useState('');
 
 
   const handleCloseWelcomeContainer = () => {
@@ -32,11 +32,21 @@ const EmployerHome = ({ userId }) => {
 
 
   const convertToBase64 = async (e) => {
-    console.log(e);
+    // console.log(e);
+    var reader = new FileReader();
+    reader.readAsDataURL(e.target.files[0]);
+    reader.onload = () => {
+      // console.log(reader.result);
+      setFile(reader.result)
+    }
+    reader.onerror = error => {
+      console.log('Error ', error);
+    }
   }
 
   const onSendClick = async () => {
-    console.log(feedContent);
+    // console.log(feedContent,file);
+    await createFeed({senderId:userId,description:feedContent,image:file})
   }
 
 
@@ -87,6 +97,7 @@ const EmployerHome = ({ userId }) => {
 
                 <div className="afp-footer">
                   <input type="file" name="" id="" accept='image/*' onChange={convertToBase64} />
+                  {file == '' || file == null ? '' : <img src={file} alt="" width={100} height={100} />}
                   <button onClick={onSendClick}><IoSend /></button>
                 </div>
               </div>
