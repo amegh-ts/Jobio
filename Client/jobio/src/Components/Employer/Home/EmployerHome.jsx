@@ -69,6 +69,7 @@ const EmployerHome = () => {
                 </div>
                 <div className="add-feed-container">
                   <textarea name="" id="" ></textarea>
+                  <input type="file" name="" id="" />
                 </div>
               </div>
             </Popup>
