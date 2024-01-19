@@ -213,7 +213,9 @@ const Profile = () => {
             <img src="/Images/bg.png" alt="" />
           </div>
           <div className='middle'>
-            <div className="photo"></div>
+            <div className="photo">
+              <img src={data.photo} alt="" />
+            </div>
             <div className='detail-container'>
               <h3>{data.username}</h3>  
               <span className='fullname'>
@@ -259,8 +261,7 @@ const Profile = () => {
                     </option>
                   ))}
                 </select>
-                <input type="file" placeholder='Photo'  />
-                <input type="file" placeholder='Cover Photo'  />
+                <input type="file" placeholder='Photo'  accept='image/*' onChange={convertProfileToBase64}/>
                 <textarea name="about" id="about" cols="30" rows="10" placeholder='Tell us about you' value={about} onChange={(e) => { setAbout(e.target.value) }}></textarea>
                 <button onClick={onSubmit}>SUBMIT</button>
               </div>
