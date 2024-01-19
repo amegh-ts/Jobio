@@ -2,7 +2,7 @@
 import { useEffect, useState } from 'react';
 import './EmployerHome.scss';
 import { IoCloseCircleOutline, IoThumbsUpOutline, IoEllipsisVertical, IoSend } from 'react-icons/io5';
-import { createFeed, viewProfile } from '../../ApiCalls';
+import { allFeeds, createFeed, viewProfile } from '../../ApiCalls';
 import Popup from '../../../Assets/Popups/Popup';
 
 const EmployerHome = ({ userId }) => {
@@ -12,6 +12,7 @@ const EmployerHome = ({ userId }) => {
 
   const [feedContent, setFeedContent] = useState('');
   const [file, setFile] = useState('');
+  const [allFeed,setAllFeed]=useState([])
 
 
   const handleCloseWelcomeContainer = () => {
@@ -23,12 +24,16 @@ const EmployerHome = ({ userId }) => {
       try {
         const apiData = await viewProfile();
         setData(apiData)
+        const allfeedData=await allFeeds()
+        setAllFeed(allfeedData)
       } catch (error) {
         console.log(error);
       }
     }
     fetchProfile()
   }, [])
+
+  console.log(allFeed);
 
 
   const convertToBase64 = async (e) => {
