@@ -2,7 +2,6 @@ const FeedSchema = require('../Models/FeedSchema')
 
 // create feed
 const AddFeed = async (req, res) => {
-    console.log(req.body);
     const feedData = new FeedSchema(req.body)
     try {
         await feedData.save();
