@@ -52,12 +52,13 @@ const EmployerHome = ({ userId }) => {
 
   const onSendClick = async () => {
     try {
-      await createFeed({ senderId: userId, description: feedContent, image: file, username: data.username, photo: data.photo })
       window.location.reload();
+      await createFeed({ senderId: userId, description: feedContent, image: file, username: data.username })
       alert("Feed created successfully")
     } catch (error) {
       console.log(error);
     }
+
   }
 
 
@@ -154,8 +155,8 @@ const EmployerHome = ({ userId }) => {
                     </div>
                   </div>
                   <div className='description'>
-                    <h4>Headline</h4>
-                    <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Adipisci eligendi facere repudiandae eaque aperiam eum nisi natus. Id deserunt illum cumque, laboriosam, recusandae impedit, eos sunt labore magni maxime magnam.</p>
+                    <p>{feeds.description}</p>
+
                   </div>
                   <div className='cimage'>
                     <img src={feeds.image} alt="" />

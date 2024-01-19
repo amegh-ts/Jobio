@@ -222,8 +222,13 @@
                     }
 
                     .description {
-                        display: flex;
-                        flex-direction: column;
+                        overflow: hidden;
+                        max-height: 200px;
+                        padding: 5px 30px;
+                        p{
+                            display: block; /* This ensures that each paragraph is displayed in a new line */
+                            margin: 0;
+                        }
                     }
 
                     .cimage {

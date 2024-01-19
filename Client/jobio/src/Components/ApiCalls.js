@@ -248,7 +248,7 @@ export const viewMessages = async (chatId) => {
 // create feed
 export const createFeed = async (data) => {
     const newData = { ...data, likes: 0, report: 0 }
-    // console.log('dataaa', newData);
+    console.log('dataaa', newData);
     try {
         const res = await userRequest.post('/createfeed', newData);
         console.log('Response Status:', res.status);
