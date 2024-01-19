@@ -73,18 +73,26 @@ const Home = () => {
   // console.log(banLogs);
 
 
-  const userCountByDay = userList.reduce((countByDay, user) => {
-    const date = user.createdAt.split('T')[0];
-    countByDay[date] = (countByDay[date] || 0) + 1;
-    return countByDay;
-  }, {});
+  // const userCountByDay = userList.reduce((countByDay, user) => {
+  //   const date = user.createdAt.split('T')[0];
+  //   countByDay[date] = (countByDay[date] || 0) + 1;
+  //   return countByDay;
+  // }, {});
 
-  const xLabels = Object.keys(userCountByDay);
-  const uData = xLabels.map((date) => userCountByDay[date]);
+  const userCountByDay = userList.reduce((countByDay, user) => {
+    const dateParts = user.createdAt.split('T')[0].split('-');
+    const monthDay = `${dateParts[2]}-${dateParts[1]}`;
+    countByDay[monthDay] = (countByDay[monthDay] || 0) + 1;
+    return countByDay;
+}, {});
+
+  // const xLabels = Object.keys(userCountByDay);
+  // const uData = xLabels.map((date) => userCountByDay[date]);
+
+  const recentXLabels = Object.keys(userCountByDay).slice(-6);
+const recentUData = recentXLabels.map((date) => userCountByDay[date]);
 
   // Limit to the most recent 7 days
-  const recentXLabels = xLabels.slice(-7);
-  const recentUData = uData.slice(-7);
 
 
   const data = [
