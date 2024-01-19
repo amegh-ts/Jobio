@@ -176,7 +176,12 @@ const Home = () => {
                     </div>
                     <div className="blp-boady">
                       <div className="blpb-container">
-                        
+                        {banLogs.map((log, index) => (
+                          <div key={index} className="log-item">
+                            <p>Log {index + 1}:</p>
+                            <div>User: {log._id}</div>
+                          </div>
+                        ))}
                       </div>
                     </div>
                   </div>
