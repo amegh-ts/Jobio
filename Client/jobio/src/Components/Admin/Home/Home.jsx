@@ -165,7 +165,9 @@ const Home = () => {
                 <button onClick={()=>{setBanLogpopup(true)}}>Full logs</button>
 
                 <Popup trigger={banLogpopup} setTrigger={setBanLogpopup}>
-
+                <div className="banlog-popup">
+                  jhsjdhjsh
+                </div>
                 </Popup>
 
               </div>
