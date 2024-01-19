@@ -2,10 +2,12 @@ import { useEffect, useState } from 'react';
 import './EmployerHome.scss';
 import { IoCloseCircleOutline, IoThumbsUpOutline, IoEllipsisVertical } from 'react-icons/io5';
 import { viewProfile } from '../../ApiCalls';
+import Popup from '../../../Assets/Popups/Popup';
 
 const EmployerHome = () => {
   const [showWelcomeContainer, setShowWelcomeContainer] = useState(true);
   const [data, setData] = useState({});
+  const [addFeedPopup, setAddFeedPopup] = useState(false)
 
   const handleCloseWelcomeContainer = () => {
     setShowWelcomeContainer(false);
@@ -51,17 +53,24 @@ const EmployerHome = () => {
                   <img src="" alt="" />
                 </div>
                 <div className="add-post">
-                  <button>add post</button>
+                  <button onClick={() => { setAddFeedPopup(true) }}>add post</button>
                 </div>
               </section>
-
               <div className="add-post-buttons">
-                <button>Media</button>
-                <button></button>
-                <button>Write Article</button>
+                <button onClick={() => { setAddFeedPopup(true) }}>Media</button>
+                <button onClick={() => { setAddFeedPopup(true) }}>Events</button>
+                <button onClick={() => { setAddFeedPopup(true) }}>Write Article</button>
               </div>
             </div>
+            <Popup trigger={addFeedPopup} setTrigger={setAddFeedPopup}>
+              <div className="add-feed-popup">
+                <div className="afp-header">
+                  <h3>Create New feed</h3>
+                </div>
+              </div>
+            </Popup>
           </div>
+
           {showWelcomeContainer && (
             <div className="welcome-container">
               <div className="close" onClick={handleCloseWelcomeContainer}>
