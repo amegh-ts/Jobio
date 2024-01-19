@@ -145,7 +145,7 @@ const EmployerHome = ({ userId }) => {
                       </div>
                       <div className="header-title">
                         <h3>{feeds.username}</h3>
-                        <h6>Time</h6>
+                        <h6>{new Date(feeds.createdAt).toLocaleString()}</h6>
                       </div>
                     </div>
                     <div className='header-right'>
