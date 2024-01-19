@@ -178,8 +178,9 @@ const Home = () => {
                       <div className="blpb-container">
                         {banLogs.map((log, index) => (
                           <div key={index} className="log-item">
-                            <div>{index + 1} : [{log.createdAt ? new Date(log.createdAt).toLocaleString() : 'N/A'}]</div>
-                            <div>User: {log._id}</div>
+                            {/* <p>{index + 1}</p> */}
+                            <div className='log-info'>INFO - [{log.createdAt ? new Date(log.createdAt).toLocaleString() : 'N/A'}] :  <span>{log._id} </span> </div>
+                            <div className="log-content">User {log.banned} state set to {log.state} by {log.bannedBy}</div>
                           </div>
                         ))}
                       </div>
