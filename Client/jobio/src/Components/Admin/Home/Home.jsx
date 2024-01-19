@@ -70,7 +70,7 @@ const Home = () => {
     display()
   }, []);
 
-  console.log(banLogs);
+  // console.log(banLogs);
 
 
   const userCountByDay = userList.reduce((countByDay, user) => {
