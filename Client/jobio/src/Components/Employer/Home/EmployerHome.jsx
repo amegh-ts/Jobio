@@ -25,7 +25,7 @@ const EmployerHome = () => {
 
 
   return (
-    <div className="Home">
+    <div className="EHome">
       <div className="home-main">
         <div className="left">
           <div className="header">
@@ -34,10 +34,11 @@ const EmployerHome = () => {
           <div className="photo"></div>
           <div className="footer">
             <h2>{data.username}</h2>
-            <h3>Highlights</h3>
+            <h3>{data.about}</h3>
             <h5>
-              kozhikode, kerala, India <span>Contact info</span>
+              kozhikode, kerala, India 
             </h5>
+            <h5>Contact info</h5>
           </div>
         </div>
 
