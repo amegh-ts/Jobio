@@ -1,4 +1,4 @@
-const JobSchema=require('../Models/JobSchema')
+const JobSchema = require('../Models/JobSchema')
 
 // add jobs
 const AddJobs = async (req, res) => {
@@ -14,4 +14,4 @@ const AddJobs = async (req, res) => {
 // edit jobs
 // delete jobs 
 
-module.exports = { AddJobs}
+module.exports = { AddJobs }
