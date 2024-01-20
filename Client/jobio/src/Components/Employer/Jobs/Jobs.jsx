@@ -2,7 +2,7 @@ import { useState } from 'react'
 import './Jobs.scss'
 import { createPost } from '../../ApiCalls'
 
-const Jobs = () => {
+const Jobs = (userId) => {
     const [job, setJob] = useState('')
     const [city, setCity] = useState('')
     const [district, setDistrict] = useState('')
@@ -30,7 +30,7 @@ const Jobs = () => {
     const handlePostJob = async() => {
         console.log({job,city,district,description,salary});
         try {
-            await createPost({job,city,district,description,salary,userId:})
+            await createPost({job,city,district,description,salary,userId:userId})
         } catch (error) {
             console.log(error);
         }
