@@ -1,6 +1,26 @@
 import './Jobs.scss'
 
 const Jobs = () => {
+
+
+    const KeralaStates = [
+        'Trivandrum',
+        'Kollam',
+        'Pathanamthitta',
+        'Alappuzha',
+        'Kottayam',
+        'Idukki',
+        'Ernakulam',
+        'Thrissur',
+        'Palakkad',
+        'Malappuram',
+        'Kozhikode',
+        'Wayanad',
+        'Kannur',
+        'Kasaragod',
+    ];
+
+
     return (
         <div className="Jobs">
             <div className="jobs-main">
@@ -105,12 +125,33 @@ const Jobs = () => {
                     <div className="jb-right">
                         <div className="jbr-container">
                             <div className="jbr-header">
-                                <h1>Create Feed</h1>
+                                <h1>Post Job</h1>
                             </div>
                             <div className="jbr-body">
                                 <div className="jbrb-container">
-                                    <input type="text" placeholder='hiiii'/>
-                                    <input type="text" placeholder='hiiii'/>
+                                    <div className="inp-container">
+                                        <input type="text" placeholder='Job Title' />
+                                    </div>
+                                    <div className="inp-container">
+                                        <input type="text" placeholder='City' />
+                                    </div>
+                                    <div className="inp-container">
+                                        <select name="district" id="district">
+                                            <option value="" disabled defaultValue>State</option>
+                                            {KeralaStates.map((state, index) => (
+                                                <option key={index} value={state}>
+                                                    {state}
+                                                </option>
+                                            ))}
+                                        </select>
+                                    </div>
+                                    <div className="inp-container">
+                                        <textarea name="" id="" cols="30" rows="10" placeholder='Brief Description about the Job' ></textarea>
+
+                                    </div>
+                                    <div className="inp-container">
+                                        <input type="text" placeholder='Base salary' />
+                                    </div>
                                 </div>
                             </div>
                         </div>
