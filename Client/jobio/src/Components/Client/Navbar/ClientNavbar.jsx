@@ -29,6 +29,8 @@ const ClientNavbar = () => {
     const storedData = localStorage.getItem('persist:jobio');
     const user = storedData ? JSON.parse(JSON.parse(storedData).user) : null;
     const userType = user?.userInfo?.[0]?.type;
+    const userId = user?.userInfo?.[0]?.id;
+
 
     const [activePage, setActivePage] = useState(() => {
         // Retrieve the active page from sessionStorage on component mount
