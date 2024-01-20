@@ -27,7 +27,7 @@ const Jobs = () => {
     ];
 
     const handlePostJob = () => {
-        console.log();
+        console.log({job,city,district,description,salary});
     }
 
     return (
