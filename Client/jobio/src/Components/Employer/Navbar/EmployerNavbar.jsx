@@ -4,7 +4,7 @@ import { DiCodeigniter } from 'react-icons/di';
 import {
     IoPersonSharp,
     IoHome,
-    IoLayers,
+    IoBriefcase,
     IoChatbubbleEllipses,
     IoSearch,
     IoDocumentText,
@@ -111,12 +111,11 @@ const EmployerNavbar = () => {
                         
                     </div>
                     <div className="menu-item" onClick={toggleDropdown} ref={dropdownRef}>
-                        <IoLayers className="icon" />
-                        <span>Services</span>
+                        <IoBriefcase className="icon" />
+                        <span>Jobs</span>
                         <div className={`dropdown-container ${isDropdownVisible ? 'visible' : ''}`} style={{ display: isDropdownVisible ? 'block' : 'none' }}>
-                            <span className="dropdown-item">jjd</span>
-                            <span className="dropdown-item">jjd</span>
-                            <span className="dropdown-item">jjd</span>
+                            <span className="dropdown-item">Add</span>
+                            <span className="dropdown-item">View</span>
                         </div>
                     </div>
                     <div className={`menu-item ${activePage === 'chats' ? 'active' : ''}`} onClick={() => { setActivePage('chats'); }}>
