@@ -8,7 +8,7 @@ const ChatBody = ({ selectedChatId, selectedChatDetails }) => {
     const [messages, setMessages] = useState([]);
     const [inputMessage, setInputMessage] = useState('');
 
-    console.log('selected user', selectedChatDetails);
+    // console.log('selected user', selectedChatDetails);
 
     const storedData = localStorage.getItem('persist:jobio');
     const user = storedData ? JSON.parse(JSON.parse(storedData).user) : null;

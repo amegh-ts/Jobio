@@ -91,8 +91,8 @@ const ClientNavbar = () => {
     };
 
     const pageComponents = {
-        home: <ClientHome />,
-        chats: <Chats />,
+        home: <ClientHome userId={userId}/>,
+        chats: <Chats setActivePageToChats={setActivePageToChats}/>,
         profile: <Profile />
     };
 
@@ -118,13 +118,13 @@ const ClientNavbar = () => {
                             <span className="dropdown-item">View</span>
                         </div>
                     </div>
-                    <div className="menu-item">
+                    <div className={`menu-item ${activePage === 'chats' ? 'active' : ''}`} onClick={() => { setActivePage('chats'); }}>
                         <IoChatbubbleEllipses className="icon" />
-                        <span>Inbox</span>
+                        <span>Chats</span>
                     </div>
                     <div className="menu-item">
                         <IoPeople className="icon" />
-                        <span>Chats</span>
+                        <span>Users</span>
                     </div>
                     <div className="menu-item">
                         <IoDocumentText className="icon" />
