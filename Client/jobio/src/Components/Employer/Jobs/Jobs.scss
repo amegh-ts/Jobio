@@ -1,8 +1,9 @@
 .Jobs {
     display: flex;
     min-width: 100%;
-    min-height: 100%;
+    overflow: hidden;
     background: red;
+    max-height: 830px;
 
     .jobs-main {
         padding: 10px;
@@ -47,6 +48,12 @@
                 border-radius: 10px;
                 max-width: 1150px;
                 width: 100%;
+                height: 87%;
+                overflow-y: auto;
+
+                &::-webkit-scrollbar {
+                    width: 5px;
+                }
 
                 .jbl-container {
                     width: 100%;
@@ -62,11 +69,28 @@
                         border-radius: 10px;
                         background: rgb(255, 255, 255);
                         display: flex;
+                        gap: 10px;
                         flex-direction: column;
 
-                        .jbc-header{
+                        .jbc-header {
                             display: flex;
                             flex-direction: column;
+                        }
+
+                        .jbc-body {
+                            display: flex;
+                            flex-direction: column;
+
+                            span {
+                                display: flex;
+                                gap: 10px;
+                            }
+                        }
+
+                        .jbc-footer {
+                            display: flex;
+                            justify-content: space-between;
+                            align-items: center;
                         }
                     }
                 }
@@ -75,10 +99,20 @@
             .jb-right {
                 background: rgb(75, 2, 246);
                 min-width: 36%;
+                height: 87%;
                 border-radius: 10px;
+                display: flex;
+                flex-direction: column;
 
                 .jbr-header {
                     padding: 10px;
+                    text-align: center;
+                }
+
+                .jbr-body{
+                    .jbrb-container{
+                        
+                    }
                 }
             }
         }
