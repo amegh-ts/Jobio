@@ -6,5 +6,8 @@ const router = require('express').Router()
 router.post('/createfeed',AddFeed);
 // all feeds
 router.get('/allfeeds',allFeeds);
+// view feeds
+// edit feed
+// delete feed
 
 module.exports = router

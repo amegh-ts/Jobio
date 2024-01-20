@@ -267,3 +267,16 @@ export const allFeeds=async ()=>{
         console.log(error);
     }
 }
+
+// view feeds
+// edit feed
+// delete feed
+
+
+// <-------------------jobs-------------------> //
+// add jobs
+// view all jobs
+// view jobs by user id
+// edit jobs
+// delete jobs
+
