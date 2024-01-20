@@ -2,6 +2,7 @@ const mongoose = require('mongoose')
 
 const JobSchema = new mongoose.Schema({
     job: { type: String, required: true },
+    place: { type: String, required: true },
     salary: { type: String },
     skills: { type: Array },
     userId: { type: String, required: true },
