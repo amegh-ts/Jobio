@@ -26,7 +26,7 @@ const Jobs = () => {
             <div className="jobs-main">
                 <div className="jobs-header">
                     <h3>Jobs</h3>
-                    <button>New Feed</button>
+                    <button>Post Job</button>
                 </div>
                 <div className="jobs-body">
                     <div className="jb-left">
@@ -151,6 +151,9 @@ const Jobs = () => {
                                     </div>
                                     <div className="inp-container">
                                         <input type="text" placeholder='Base salary' />
+                                    </div>
+                                    <div className="inp-button">
+                                        <button>Post Job</button>
                                     </div>
                                 </div>
                             </div>
