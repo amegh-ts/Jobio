@@ -34,6 +34,10 @@ const ClientNavbar = () => {
         return sessionStorage.getItem('activePage') || 'home';
     });
 
+    const setActivePageToChats = () => {
+        setActivePage('chats');
+    };
+
     const toggleDropdown = () => {
         setIsDropdownVisible(!isDropdownVisible);
     };
@@ -47,21 +51,21 @@ const ClientNavbar = () => {
     useEffect(() => {
         // Set primary color based on user type
         switch (userType) {
-          case 'admin':
-            setPrimaryColor('rgb(231, 0, 0)'); // Red color
-            break;
-          case 'employer':
-            setPrimaryColor('rgb(0, 128, 0'); // Green color
-            break;
-          case 'employee':
-            setPrimaryColor('#695CFE'); // Blue color
-            break;
-          default:
-            setPrimaryColor('#695CFE'); // Default color
+            case 'admin':
+                setPrimaryColor('rgb(231, 0, 0)'); // Red color
+                break;
+            case 'employer':
+                setPrimaryColor('rgb(0, 128, 0'); // Green color
+                break;
+            case 'employee':
+                setPrimaryColor('#695CFE'); // Blue color
+                break;
+            default:
+                setPrimaryColor('#695CFE'); // Default color
         }
         document.body.style.setProperty('--primary-color', primaryColor);
-    
-      }, [primaryColor]);
+
+    }, [primaryColor]);
 
     useEffect(() => {
         document.addEventListener('click', closeDropdown);
@@ -84,6 +88,7 @@ const ClientNavbar = () => {
     };
 
     const pageComponents = {
+        home:<
         chats: <Chats />,
         profile: <Profile />
     };
