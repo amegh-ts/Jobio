@@ -224,7 +224,7 @@ const Profile = () => {
                   <div className="form">
                     <input type="file" placeholder='Photo' accept='image/*' onChange={convertCoverToBase64} />
                     {coverphoto == '' || coverphoto == null ? '' : <img src={coverphoto} alt="" width={100} height={100} />}
-                    <div>
+                    <div className='button-container'>
                       <button onClick={onSubmit}>SUBMIT</button>
                       <button onClick={() => { setCoverphoto('') }}>clear</button>
                     </div>
