@@ -6,9 +6,10 @@ const JobSchema = new mongoose.Schema({
     district: { type: String, required: true },
     salary: { type: String },
     // skills: { type: Array },
-    applicants: { type: Array },
     userId: { type: String, required: true },
-    description: { type: String, required: true }
+    description: { type: String, required: true },
+    applicants: { type: Array }
+   
 }, { timestamps: true })
 
 

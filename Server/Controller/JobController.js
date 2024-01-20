@@ -1,9 +1,11 @@
-const JobSchema = require('../Models/JobSchema')
+const JobSchema = require('../Models/JobSchema');
+
 
 // add jobs
-const AddJobs = async (req, res) => {
+const AddJobs =   async(req, res) => {
+    console.log("************************* ",req.body)
     const feedData = new JobSchema(req.body)
-    console.log(feedData);
+  
     res.status(200).json(feedData)
     try {
         await feedData.save();
