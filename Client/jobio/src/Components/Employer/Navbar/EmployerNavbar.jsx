@@ -71,7 +71,7 @@ const EmployerNavbar = () => {
     };
     const pageComponents = {
         home: <EmployerHome userId={userId} />,
-        jobs: <Jobs />,
+        jobs: <Jobs userId={userId} />,
         chats: <Chats setActivePageToChats={setActivePageToChats} />,
         profile: <Profile />
     };
