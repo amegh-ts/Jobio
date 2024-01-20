@@ -1,0 +1,36 @@
+.Jobs{
+    display: flex;
+    min-width: 100%;
+    min-height: 100%;
+    background: red;
+
+    .jobs-main{
+        padding: 10px;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+
+        .jobs-header{
+            padding: 10px 15px;
+            border-radius: 10px ;
+            background: var(--sidebar-color);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+
+            h3{
+                font-size: 26px;
+                letter-spacing: 2px;
+            }
+
+            button{
+                padding: 10px;
+                border-radius: 10px;
+                border: 1px solid rgb(207, 207, 207);
+                font-weight: 500;
+                letter-spacing: 2px;
+            }
+        }
+    }
+
+}
