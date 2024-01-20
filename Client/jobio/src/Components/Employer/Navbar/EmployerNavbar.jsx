@@ -108,7 +108,6 @@ const EmployerNavbar = () => {
                     <div className={`menu-item ${activePage === 'home' ? 'active' : ''}`} onClick={() => { setActivePage('home'); }}>
                         <IoHome className="icon" />
                         <span>Home</span>
-                        
                     </div>
                     <div className="menu-item" onClick={toggleDropdown} ref={dropdownRef}>
                         <IoBriefcase className="icon" />

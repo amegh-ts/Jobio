@@ -4,7 +4,7 @@ import { DiCodeigniter } from 'react-icons/di';
 import {
     IoPersonSharp,
     IoHome,
-    IoLayers,
+    IoBriefcase,
     IoChatbubbleEllipses,
     IoSearch,
     IoPeople,
@@ -18,6 +18,7 @@ import { useDispatch } from 'react-redux';
 import { logoutUser } from '../../../Redux/UserRedux';
 import Profile from '../../Profile/Profile';
 import Chats from '../../Chats/Chats';
+import ClientHome from '../Home/ClientHome';
 
 const ClientNavbar = () => {
     const [isDropdownVisible, setIsDropdownVisible] = useState(false);
@@ -88,7 +89,7 @@ const ClientNavbar = () => {
     };
 
     const pageComponents = {
-        home:<
+        home: <ClientHome />,
         chats: <Chats />,
         profile: <Profile />
     };
@@ -103,18 +104,17 @@ const ClientNavbar = () => {
                 </header>
 
                 <div className="menu-bar">
-                    <div className="menu-item" onClick={toggleDropdown} ref={dropdownRef}>
+                    <div className={`menu-item ${activePage === 'home' ? 'active' : ''}`} onClick={() => { setActivePage('home'); }}>
                         <IoHome className="icon" />
                         <span>Home</span>
-                        <div className={`dropdown-container ${isDropdownVisible ? 'visible' : ''}`} style={{ display: isDropdownVisible ? 'block' : 'none' }}>
-                            <span className="dropdown-item">jjd</span>
-                            <span className="dropdown-item">jjd</span>
-                            <span className="dropdown-item">jjd</span>
-                        </div>
                     </div>
-                    <div className="menu-item">
-                        <IoLayers className="icon" />
-                        <span>Services</span>
+                    <div className="menu-item" onClick={toggleDropdown} ref={dropdownRef}>
+                        <IoBriefcase className="icon" />
+                        <span>Jobs</span>
+                        <div className={`dropdown-container ${isDropdownVisible ? 'visible' : ''}`} style={{ display: isDropdownVisible ? 'block' : 'none' }}>
+                            <span className="dropdown-item">Add</span>
+                            <span className="dropdown-item">View</span>
+                        </div>
                     </div>
                     <div className="menu-item">
                         <IoChatbubbleEllipses className="icon" />
