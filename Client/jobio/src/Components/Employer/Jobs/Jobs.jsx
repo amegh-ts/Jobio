@@ -28,7 +28,7 @@ const Jobs = (userId) => {
     ];
 
     const handlePostJob = async() => {
-        console.log({job,city,district,description,salary});
+        // console.log({job,city,district,description,salary});
         try {
             await createPost({job,city,district,description,salary,userId:userId})
         } catch (error) {
