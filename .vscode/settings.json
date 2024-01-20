@@ -1,5 +1,6 @@
 {
     "cSpell.words": [
+        "Alappuzha",
         "anav",
         "bicon",
         "changepass",
@@ -16,21 +17,32 @@
         "dataone",
         "deleteprofile",
         "editprofile",
+        "Ernakulam",
         "firstname",
         "forgotpass",
         "forgotpassword",
         "getalert",
+        "Idukki",
         "jblc",
         "jobio",
+        "Kannur",
+        "Kasaragod",
+        "Kollam",
+        "Kottayam",
         "lastname",
+        "Malappuram",
         "Otps",
         "otpvalidation",
+        "Palakkad",
+        "Pathanamthitta",
         "Repost",
         "resetpass",
         "sendalert",
         "tada",
+        "Thrissur",
         "unban",
         "updatedata",
-        "Viewprofile"
+        "Viewprofile",
+        "Wayanad"
     ]
 }
