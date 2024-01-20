@@ -278,12 +278,12 @@ export const allFeeds=async ()=>{
 export const createPost = async (data) => {
     // const newData = { ...data, likes: 0, report: 0 }
     console.log('dataaa', data);
-    // try {
-    //     const res = await userRequest.post('/createfeed', data);
-    //     console.log('Response Status:', res.status);
-    // } catch (err) {
-    //     console.log(err);
-    // }
+    try {
+        const res = await userRequest.post('/createfeed', data);
+        console.log('Response Status:', res.status);
+    } catch (err) {
+        console.log(err);
+    }
 }
 
 // view all jobs
