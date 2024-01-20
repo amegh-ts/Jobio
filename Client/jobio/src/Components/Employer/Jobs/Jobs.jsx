@@ -1,6 +1,12 @@
+import { useState } from 'react'
 import './Jobs.scss'
 
 const Jobs = () => {
+    const [job, setJob] = useState('')
+    const [city, setCity] = useState('')
+    const [district, setDistrict] = useState('')
+    const [description, setDescription] = useState('')
+    const [salary, setSalary] = useState('')
 
 
     const KeralaStates = [
@@ -20,6 +26,9 @@ const Jobs = () => {
         'Kasaragod',
     ];
 
+    const handlePostJob = () => {
+        console.log();
+    }
 
     return (
         <div className="Jobs">
@@ -130,14 +139,14 @@ const Jobs = () => {
                             <div className="jbr-body">
                                 <div className="jbrb-container">
                                     <div className="inp-container">
-                                        <input type="text" placeholder='Job Title' />
+                                        <input type="text" placeholder='Job Title' value={job} onChange={(e) => setJob(e.target.value)} />
                                     </div>
                                     <div className="inp-container">
-                                        <input type="text" placeholder='City' />
+                                        <input type="text" placeholder='City' value={city} onChange={(e) => setCity(e.target.value)} />
                                     </div>
                                     <div className="inp-container">
-                                        <select name="district" id="district">
-                                            <option value="" disabled defaultValue>State</option>
+                                        <select name="district" id="district" value={district} onChange={(e) => setDistrict(e.target.value)}>
+                                            <option value="" disabled defaultValue >State</option>
                                             {KeralaStates.map((state, index) => (
                                                 <option key={index} value={state}>
                                                     {state}
@@ -146,14 +155,14 @@ const Jobs = () => {
                                         </select>
                                     </div>
                                     <div className="inp-container">
-                                        <textarea name="" id="" cols="30" rows="10" placeholder='Brief Description about the Job' ></textarea>
+                                        <textarea name="" id="" cols="30" rows="10" placeholder='Brief Description about the Job' value={description} onChange={(e) => setDescription(e.target.value)}></textarea>
 
                                     </div>
                                     <div className="inp-container">
-                                        <input type="text" placeholder='Base salary' />
+                                        <input type="text" placeholder='Base salary' value={salary} onChange={(e) => setSalary(e.target.value)} />
                                     </div>
                                     <div className="inp-button">
-                                        <button>Post Job</button>
+                                        <button onClick={handlePostJob}>Post Job</button>
                                     </div>
                                 </div>
                             </div>
