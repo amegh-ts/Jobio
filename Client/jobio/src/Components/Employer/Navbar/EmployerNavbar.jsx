@@ -18,6 +18,7 @@ import { logoutUser } from '../../../Redux/UserRedux';
 import Profile from '../../Profile/Profile';
 import EmployerHome from '../Home/EmployerHome';
 import Chats from '../../Chats/Chats';
+import Jobs from '../Jobs/Jobs';
 
 const EmployerNavbar = () => {
     const [isDropdownVisible, setIsDropdownVisible] = useState(false);
@@ -52,23 +53,23 @@ const EmployerNavbar = () => {
     useEffect(() => {
         // Set primary color based on user type
         switch (userType) {
-          case 'admin':
-            setPrimaryColor('rgb(231, 0, 0)'); // Red color
-            break;
-          case 'employer':
-            setPrimaryColor('rgb(0, 128, 0'); // Green color
-            break;
-          case 'employee':
-            setPrimaryColor('#695CFE'); // Blue color
-            break;
-          default:
-            setPrimaryColor('#695CFE'); // Default color
+            case 'admin':
+                setPrimaryColor('rgb(231, 0, 0)'); // Red color
+                break;
+            case 'employer':
+                setPrimaryColor('rgb(0, 128, 0'); // Green color
+                break;
+            case 'employee':
+                setPrimaryColor('#695CFE'); // Blue color
+                break;
+            default:
+                setPrimaryColor('#695CFE'); // Default color
         }
         document.body.style.setProperty('--primary-color', primaryColor);
-    
-      }, [primaryColor]);
-    
-    
+
+    }, [primaryColor]);
+
+
 
     useEffect(() => {
         document.addEventListener('click', closeDropdown);
@@ -78,7 +79,7 @@ const EmployerNavbar = () => {
         };
     }, []);
 
-    
+
     useEffect(() => {
         // Save the active page to sessionStorage whenever it changes
         sessionStorage.setItem('activePage', activePage);
@@ -90,13 +91,14 @@ const EmployerNavbar = () => {
         window.location.reload();
     };
     const pageComponents = {
-        home:<EmployerHome userId={userId}/>,
-        chats: <Chats setActivePageToChats={setActivePageToChats}/>,
+        home: <EmployerHome userId={userId} />,
+        jobs: <Jobs />,
+        chats: <Chats setActivePageToChats={setActivePageToChats} />,
         profile: <Profile />
     };
 
-  return (
-    <div className='employer'>
+    return (
+        <div className='employer'>
             <nav className="sidebar">
                 <header>
                     <div className="title">
@@ -133,7 +135,7 @@ const EmployerNavbar = () => {
 
                 <footer>
                     <div className="logout">
-                        <IoLogOut className="icon logout-icon" onClick={handleLogout}/>
+                        <IoLogOut className="icon logout-icon" onClick={handleLogout} />
                     </div>
                 </footer>
             </nav>
@@ -147,8 +149,8 @@ const EmployerNavbar = () => {
 
                     <div className="navbar-icon">
                         <span>
-                            <IoMoonOutline className='icon'/>
-                            <IoNotifications className='icon'/>
+                            <IoMoonOutline className='icon' />
+                            <IoNotifications className='icon' />
                         </span>
                         <div className={`profile  ${activePage === 'profile' ? 'active' : ''}`} onClick={() => { setActivePage('profile'); }}>
                             <IoPersonSharp />
@@ -156,11 +158,11 @@ const EmployerNavbar = () => {
                     </div>
                 </div>
                 <div className={'main-body'}>
-                {pageComponents[activePage]}
+                    {pageComponents[activePage]}
                 </div>
             </section>
         </div>
-  )
+    )
 }
 
 export default EmployerNavbar
