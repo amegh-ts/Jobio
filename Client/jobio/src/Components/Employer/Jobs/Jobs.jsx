@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import './Jobs.scss'
+import { createPost } from '../../ApiCalls'
 
 const Jobs = () => {
     const [job, setJob] = useState('')
@@ -26,8 +27,13 @@ const Jobs = () => {
         'Kasaragod',
     ];
 
-    const handlePostJob = () => {
+    const handlePostJob = async() => {
         console.log({job,city,district,description,salary});
+        try {
+            await createPost({job,city,district,description,salary,userId:})
+        } catch (error) {
+            console.log(error);
+        }
     }
 
     return (
