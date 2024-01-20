@@ -50,6 +50,8 @@ const EmployerHome = ({ userId }) => {
     }
   }
 
+  console.log(file);
+
   const onSendClick = async () => {
     try {
       window.location.reload();
