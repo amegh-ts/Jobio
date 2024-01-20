@@ -60,7 +60,7 @@ const ClientHome = ({ userId }) => {
     }
 
   }
-
+console.log({ senderId: userId, description: feedContent, image: file, username: data.username });
 
   return (
     <div className="EHome">
