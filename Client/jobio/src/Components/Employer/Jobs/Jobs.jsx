@@ -103,12 +103,15 @@ const Jobs = () => {
                         </div>
                     </div>
                     <div className="jb-right">
-                        <div className="jbr-header">
-                            <h1>Create Feed</h1>
-                        </div>
-                        <div className="jbr-body">
-                            <div className="jbrb-container">
-                                
+                        <div className="jbr-container">
+                            <div className="jbr-header">
+                                <h1>Create Feed</h1>
+                            </div>
+                            <div className="jbr-body">
+                                <div className="jbrb-container">
+                                    <input type="text" placeholder='hiiii'/>
+                                    <input type="text" placeholder='hiiii'/>
+                                </div>
                             </div>
                         </div>
                     </div>

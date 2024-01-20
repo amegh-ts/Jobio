@@ -102,18 +102,37 @@
                 height: 87%;
                 border-radius: 10px;
                 display: flex;
-                flex-direction: column;
+                padding: 10px;
+                
 
-                .jbr-header {
-                    padding: 10px;
-                    text-align: center;
-                }
+                .jbr-container {
+                    display: flex;
+                    flex-direction: column;
+                    background: teal;
+                    height: auto;
+                    width: 100%;
 
-                .jbr-body{
-                    .jbrb-container{
-                        
+                    .jbr-header {
+                        padding: 10px;
+                        text-align: center;
+                    }
+
+                    .jbr-body {
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+
+                        .jbrb-container {
+                            padding: 10px;
+                            border-radius: 10px;
+                            border: 1px solid rgb(212, 212, 212);
+                            display: flex;
+                            flex-direction: column;
+                        }
                     }
                 }
+
+
             }
         }
     }
