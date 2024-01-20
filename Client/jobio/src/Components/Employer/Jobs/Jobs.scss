@@ -1,34 +1,79 @@
-.Jobs{
+.Jobs {
     display: flex;
     min-width: 100%;
     min-height: 100%;
     background: red;
 
-    .jobs-main{
+    .jobs-main {
         padding: 10px;
-        width: 100%;
+        // width: 100%;
+        flex: 1;
         display: flex;
         flex-direction: column;
+        gap: 20px;
 
-        .jobs-header{
+        .jobs-header {
             padding: 10px 15px;
-            border-radius: 10px ;
+            border-radius: 10px;
             background: var(--sidebar-color);
             display: flex;
             align-items: center;
             justify-content: space-between;
 
-            h3{
+            h3 {
                 font-size: 26px;
                 letter-spacing: 2px;
             }
 
-            button{
+            button {
                 padding: 10px;
                 border-radius: 10px;
                 border: 1px solid rgb(207, 207, 207);
                 font-weight: 500;
                 letter-spacing: 2px;
+                // display: none;
+            }
+        }
+
+        .jobs-body {
+            flex: 1;
+            display: flex;
+            gap: 20px;
+            justify-content: space-between;
+
+            .jb-left {
+                display: flex;
+                background: rgb(242, 255, 0);
+                border-radius: 10px;
+                max-width: 1150px;
+                width: 100%;
+
+                .jbl-container {
+                    width: 100%;
+                    padding: 10px;
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+                    gap: 10px;
+
+                    .jblc-cards {
+                        background: rgb(255, 255, 255);
+                        display: flex;
+                        flex-direction: column;
+
+
+                    }
+                }
+            }
+
+            .jb-right {
+                background: rgb(75, 2, 246);
+                min-width: 36%;
+                border-radius: 10px;
+
+                .jbr-header {
+                    padding: 10px;
+                }
             }
         }
     }
