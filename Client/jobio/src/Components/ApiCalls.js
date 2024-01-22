@@ -267,3 +267,27 @@ export const allFeeds=async ()=>{
         console.log(error);
     }
 }
+
+// view feeds
+// edit feed
+// delete feed
+
+
+// <-------------------jobs-------------------> //
+// add jobs
+export const createPost = async (data) => {
+    // const newData = { ...data, likes: 0, report: 0 }
+    console.log('dataaa', data);
+    try {
+        const res = await userRequest.post('/addjob', data);
+        console.log('Response Status:', res.status);
+    } catch (err) {
+        console.log(err);
+    }
+}
+
+// view all jobs
+// view jobs by user id
+// edit jobs
+// delete jobs
+

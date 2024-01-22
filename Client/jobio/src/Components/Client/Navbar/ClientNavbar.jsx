@@ -4,7 +4,7 @@ import { DiCodeigniter } from 'react-icons/di';
 import {
     IoPersonSharp,
     IoHome,
-    IoLayers,
+    IoBriefcase,
     IoChatbubbleEllipses,
     IoSearch,
     IoPeople,
@@ -18,6 +18,7 @@ import { useDispatch } from 'react-redux';
 import { logoutUser } from '../../../Redux/UserRedux';
 import Profile from '../../Profile/Profile';
 import Chats from '../../Chats/Chats';
+import ClientHome from '../Home/ClientHome';
 
 const ClientNavbar = () => {
     const [isDropdownVisible, setIsDropdownVisible] = useState(false);
@@ -28,11 +29,17 @@ const ClientNavbar = () => {
     const storedData = localStorage.getItem('persist:jobio');
     const user = storedData ? JSON.parse(JSON.parse(storedData).user) : null;
     const userType = user?.userInfo?.[0]?.type;
+    const userId = user?.userInfo?.[0]?.id;
+
 
     const [activePage, setActivePage] = useState(() => {
         // Retrieve the active page from sessionStorage on component mount
         return sessionStorage.getItem('activePage') || 'home';
     });
+
+    const setActivePageToChats = () => {
+        setActivePage('chats');
+    };
 
     const toggleDropdown = () => {
         setIsDropdownVisible(!isDropdownVisible);
@@ -47,21 +54,21 @@ const ClientNavbar = () => {
     useEffect(() => {
         // Set primary color based on user type
         switch (userType) {
-          case 'admin':
-            setPrimaryColor('rgb(231, 0, 0)'); // Red color
-            break;
-          case 'employer':
-            setPrimaryColor('rgb(0, 128, 0'); // Green color
-            break;
-          case 'employee':
-            setPrimaryColor('#695CFE'); // Blue color
-            break;
-          default:
-            setPrimaryColor('#695CFE'); // Default color
+            case 'admin':
+                setPrimaryColor('rgb(231, 0, 0)'); // Red color
+                break;
+            case 'employer':
+                setPrimaryColor('rgb(0, 128, 0'); // Green color
+                break;
+            case 'employee':
+                setPrimaryColor('#695CFE'); // Blue color
+                break;
+            default:
+                setPrimaryColor('#695CFE'); // Default color
         }
         document.body.style.setProperty('--primary-color', primaryColor);
-    
-      }, [primaryColor]);
+
+    }, [primaryColor]);
 
     useEffect(() => {
         document.addEventListener('click', closeDropdown);
@@ -84,7 +91,8 @@ const ClientNavbar = () => {
     };
 
     const pageComponents = {
-        chats: <Chats />,
+        home: <ClientHome userId={userId}/>,
+        chats: <Chats setActivePageToChats={setActivePageToChats}/>,
         profile: <Profile />
     };
 
@@ -98,26 +106,25 @@ const ClientNavbar = () => {
                 </header>
 
                 <div className="menu-bar">
-                    <div className="menu-item" onClick={toggleDropdown} ref={dropdownRef}>
+                    <div className={`menu-item ${activePage === 'home' ? 'active' : ''}`} onClick={() => { setActivePage('home'); }}>
                         <IoHome className="icon" />
                         <span>Home</span>
+                    </div>
+                    <div className="menu-item" onClick={toggleDropdown} ref={dropdownRef}>
+                        <IoBriefcase className="icon" />
+                        <span>Jobs</span>
                         <div className={`dropdown-container ${isDropdownVisible ? 'visible' : ''}`} style={{ display: isDropdownVisible ? 'block' : 'none' }}>
-                            <span className="dropdown-item">jjd</span>
-                            <span className="dropdown-item">jjd</span>
-                            <span className="dropdown-item">jjd</span>
+                            <span className="dropdown-item">Add</span>
+                            <span className="dropdown-item">View</span>
                         </div>
                     </div>
-                    <div className="menu-item">
-                        <IoLayers className="icon" />
-                        <span>Services</span>
-                    </div>
-                    <div className="menu-item">
+                    <div className={`menu-item ${activePage === 'chats' ? 'active' : ''}`} onClick={() => { setActivePage('chats'); }}>
                         <IoChatbubbleEllipses className="icon" />
-                        <span>Inbox</span>
+                        <span>Chats</span>
                     </div>
                     <div className="menu-item">
                         <IoPeople className="icon" />
-                        <span>Chats</span>
+                        <span>Users</span>
                     </div>
                     <div className="menu-item">
                         <IoDocumentText className="icon" />

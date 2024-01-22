@@ -43,12 +43,13 @@
             align-items: center;
             gap: 20px;
 
-            img{
+            img {
                 border-radius: 50%;
-                width:80px;
+                width: 80px;
                 object-fit: cover;
-                 height:80px;
+                height: 80px;
             }
+
             h3 {
                 font-size: 26px;
             }
@@ -84,20 +85,26 @@
                     resize: vertical;
                 }
 
-                button {
-                    padding: 10px;
-                    border-radius: 10px;
-                    font-size: 16px;
-                    font-weight: bold;
-                    letter-spacing: 2px;
-                    color: white;
-                    background: var(--primary-color);
+                .button-container {
+                    display: flex;
+                    gap: 10px;
 
-                    &:hover {
-                        box-shadow: 1px 1px 10px var(--primary-color);
+                    button {
+                        padding: 10px;
+                        border-radius: 10px;
+                        font-size: 16px;
+                        font-weight: bold;
+                        letter-spacing: 2px;
+                        color: white;
+                        background: var(--primary-color);
 
+                        &:hover {
+                            box-shadow: 1px 1px 10px var(--primary-color);
+
+                        }
                     }
                 }
+
             }
         }
 
@@ -441,22 +448,23 @@
                     outline: none;
                 }
 
-                
+
             }
-            .afp-footer{
+
+            .afp-footer {
                 display: flex;
                 align-items: center;
                 justify-content: space-between;
 
-                button{
-                    display: flex   ;
+                button {
+                    display: flex;
                     padding: 10px;
                     color: var(--primary-color);
                     font-size: 26px;
                     border-radius: 50%;
                     background: transparent;
 
-                    &:hover{
+                    &:hover {
                         box-shadow: 0 0 10px rgb(201, 201, 201);
                     }
                 }

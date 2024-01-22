@@ -13,6 +13,7 @@ const chatRoutes = require('./Routes/ChatRoutes')
 const messageRoutes = require('./Routes/MessageRoutes')
 const banRoutes = require('./Routes/BanRoutes')
 const feedRoutes=require('./Routes/FeedRoutes')
+const jobRoutes=require('./Routes/JobRoutes')
 
 
 mongoose.connect(process.env.Mongo_Key).then(() => {
@@ -26,6 +27,7 @@ app.use('/', chatRoutes)
 app.use('/chat/messages', messageRoutes)
 app.use('/',banRoutes)
 app.use('/',feedRoutes)
+app.use('/',jobRoutes)
 
 
 app.listen(PORT, () => {
