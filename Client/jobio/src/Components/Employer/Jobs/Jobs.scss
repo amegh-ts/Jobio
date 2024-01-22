@@ -67,7 +67,8 @@
 
                     .jblc-cards {
                         padding: 15px;
-                        min-width: 800px;
+                        max-width: 800px;
+                        width: 100%;
                         border-radius: 10px;
                         background: rgb(255, 255, 255);
                         display: flex;

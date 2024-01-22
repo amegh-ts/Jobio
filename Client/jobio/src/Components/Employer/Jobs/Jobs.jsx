@@ -1,7 +1,7 @@
 /* eslint-disable react/prop-types */
 import { useEffect, useState } from 'react'
 import './Jobs.scss'
-import { createPost, jobsById, } from '../../ApiCalls'
+import { createPost, deleteJob, jobsById, } from '../../ApiCalls'
 
 const Jobs = (props) => {
     const [job, setJob] = useState('')
@@ -59,6 +59,15 @@ const Jobs = (props) => {
         }
     }
 
+    const handelDeleteJob=async (id)=>{
+        console.log(id);
+        try {
+            await deleteJob(id);
+            
+        } catch (error) {
+            console.log(error);
+        }
+    }
 
 
     return (
@@ -93,14 +102,12 @@ const Jobs = (props) => {
                                     <button>Delete</button>
                                 </div>
                             </div>
-
-                            {reversedJobs && reversedJobs.map((jobs)=>(
-                            <div className="jblc-cards" key={jobs._id}>
+                            <div className="jblc-cards">
                                 <div className="jbc-header">
-                                    <h3>{jobs.job}</h3>
-                                    <h4>{jobs.city}, {jobs.district}</h4>
+                                    <h3>Job Title</h3>
+                                    <h4>place</h4>
                                     <div>
-                                        <button>{jobs.salary}</button>
+                                        <button>Revenue</button>
                                     </div>
                                 </div>
 
@@ -114,6 +121,30 @@ const Jobs = (props) => {
                                 <div className="jbc-footer">
                                     <h6>Date</h6>
                                     <button>Delete</button>
+                                </div>
+                            </div>
+
+
+                            {reversedJobs && reversedJobs.map((jobs)=>(
+                            <div className="jblc-cards" key={jobs._id}>
+                                <div className="jbc-header">
+                                    <h3>{jobs.job}</h3>
+                                    <h4>{jobs.city}, {jobs.district}</h4>
+                                    <div>
+                                        <button>{jobs.salary}</button>
+                                    </div>
+                                </div>
+
+                                <div className="jbc-body">
+                                    <p>{jobs.description}</p>
+                                    {/* <span>
+                                        <button>Skill 1</button>
+                                        <button>Skill 2</button>
+                                    </span> */}
+                                </div>
+                                <div className="jbc-footer">
+                                    <h6>{new Date(jobs.createdAt).toLocaleString()}</h6>
+                                    <button onClick={()=>{handelDeleteJob(jobs._id)}}>Delete</button>
                                 </div>
                             </div>
 

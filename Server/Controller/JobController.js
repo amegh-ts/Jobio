@@ -22,8 +22,9 @@ const getAllJobs = async (req, res) => {
 // delete jobs 
 const deleteJobs = async (req, res) => {
     try {
-        const deleteData = await JobSchema.findByIdAndDelete(req.params.id);
-        res.status(200).json(deleteData)
+        console.log(req.params.id);
+        // const deleteData = await JobSchema.findByIdAndDelete(req.params.id);
+        // res.status(200).json(deleteData)
     } catch (error) {
         res.status(500).json(error)
     }
