@@ -62,8 +62,8 @@ const Jobs = (props) => {
     const handelDeleteJob=async (id)=>{
         console.log(id);
         try {
-            await deleteJob(id);
-            
+            await deleteJob({id});
+
         } catch (error) {
             console.log(error);
         }
