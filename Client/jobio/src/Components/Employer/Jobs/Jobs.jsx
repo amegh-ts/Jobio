@@ -71,10 +71,7 @@ const Jobs = (props) => {
                                 </div>
                                 <div className="jbc-footer">
                                     <h6>Date</h6>
-                                    <span>
-                                        <button>Edit</button>
                                         <button>Delete</button>
-                                    </span>
                                 </div>
                             </div>
 
