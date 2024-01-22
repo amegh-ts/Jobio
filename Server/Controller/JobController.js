@@ -35,7 +35,6 @@ const deleteJobs = async (req, res) => {
         res.status(200).json(deleteData)
     } catch (error) {
         res.status(500).json(error)
-
     }
 }
 
