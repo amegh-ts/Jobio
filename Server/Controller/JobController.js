@@ -1,6 +1,5 @@
 const JobSchema = require('../Models/JobSchema');
 
-
 // add jobs
 const AddJobs = async (req, res) => {
     const feedData = new JobSchema(req.body)
