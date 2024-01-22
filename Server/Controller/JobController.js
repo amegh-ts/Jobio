@@ -42,6 +42,4 @@ const deleteJobs = async (req, res) => {
 
 
 
-
-
-module.exports = { AddJobs, getAllJobs, jobsById }
+module.exports = { AddJobs, getAllJobs, jobsById, deleteJobs }
