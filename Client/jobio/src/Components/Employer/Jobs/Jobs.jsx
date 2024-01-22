@@ -1,7 +1,7 @@
 /* eslint-disable react/prop-types */
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import './Jobs.scss'
-import { createPost } from '../../ApiCalls'
+import { createPost, jobsById } from '../../ApiCalls'
 
 const Jobs = (props) => {
     const [job, setJob] = useState('')
@@ -9,6 +9,7 @@ const Jobs = (props) => {
     const [district, setDistrict] = useState('')
     const [description, setDescription] = useState('')
     const [salary, setSalary] = useState('')
+    const [jobsById, setJobsById] = useState([])
     var userId = props.userId
 
     const KeralaStates = [
@@ -28,12 +29,25 @@ const Jobs = (props) => {
         'Kasaragod',
     ];
 
+    useEffect(() => {
+        async function fetchJobsById() {
+            try {
+                const jobData = await jobsById();
+                console.log(jobData);
+                setJobsById(jobData)
+            } catch (error) {
+                console.log(error);
+            }
+        }
+        fetchJobsById()
+    }, [])
+
     const handlePostJob = async () => {
         if (!job || !city || !district || !description || !salary) {
             alert("Please fill in all the fields.");
             return;
         }
-    
+
         try {
             await createPost({ job, city, district, description, salary, userId });
             window.location.reload();
@@ -41,7 +55,9 @@ const Jobs = (props) => {
             console.log(error);
         }
     }
-    
+
+
+
     return (
         <div className="Jobs">
             <div className="jobs-main">
@@ -71,7 +87,7 @@ const Jobs = (props) => {
                                 </div>
                                 <div className="jbc-footer">
                                     <h6>Date</h6>
-                                        <button>Delete</button>
+                                    <button>Delete</button>
                                 </div>
                             </div>
 
