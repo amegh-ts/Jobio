@@ -42,6 +42,9 @@ const Jobs = (props) => {
         fetchJobs()
     }, [])
 
+    const reversedJobs = [...jobsId].reverse();
+
+
     const handlePostJob = async () => {
         if (!job || !city || !district || !description || !salary) {
             alert("Please fill in all the fields.");
@@ -90,6 +93,33 @@ const Jobs = (props) => {
                                     <button>Delete</button>
                                 </div>
                             </div>
+
+                            {reversedJobs && reversedJobs.map((jobs)=>(
+                            <div className="jblc-cards" key={jobs._id}>
+                                <div className="jbc-header">
+                                    <h3>{jobs.job}</h3>
+                                    <h4>{jobs.city}, {jobs.district}</h4>
+                                    <div>
+                                        <button>{jobs.salary}</button>
+                                    </div>
+                                </div>
+
+                                <div className="jbc-body">
+                                    <p>Description</p>
+                                    <span>
+                                        <button>Skill 1</button>
+                                        <button>Skill 2</button>
+                                    </span>
+                                </div>
+                                <div className="jbc-footer">
+                                    <h6>Date</h6>
+                                    <button>Delete</button>
+                                </div>
+                            </div>
+
+))}
+
+
 
                         </div>
                     </div>
