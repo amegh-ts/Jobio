@@ -1,7 +1,7 @@
 /* eslint-disable react/prop-types */
 import { useEffect, useState } from 'react'
 import './Jobs.scss'
-import { createPost, jobsById } from '../../ApiCalls'
+import { createPost, jobsById, } from '../../ApiCalls'
 
 const Jobs = (props) => {
     const [job, setJob] = useState('')
@@ -9,7 +9,7 @@ const Jobs = (props) => {
     const [district, setDistrict] = useState('')
     const [description, setDescription] = useState('')
     const [salary, setSalary] = useState('')
-    const [jobsById, setJobsById] = useState([])
+    const [jobsId, setJobsId] = useState([])
     var userId = props.userId
 
     const KeralaStates = [
@@ -30,16 +30,16 @@ const Jobs = (props) => {
     ];
 
     useEffect(() => {
-        async function fetchJobsById() {
+        async function fetchJobs() {
             try {
                 const jobData = await jobsById();
                 console.log(jobData);
-                setJobsById(jobData)
+                setJobsId(jobData)
             } catch (error) {
                 console.log(error);
             }
         }
-        fetchJobsById()
+        fetchJobs()
     }, [])
 
     const handlePostJob = async () => {
