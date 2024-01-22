@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import { useState } from 'react'
 import './Jobs.scss'
 import { createPost } from '../../ApiCalls'
@@ -8,7 +9,7 @@ const Jobs = (props) => {
     const [district, setDistrict] = useState('')
     const [description, setDescription] = useState('')
     const [salary, setSalary] = useState('')
-var userId=props.userId
+    var userId = props.userId
 
     const KeralaStates = [
         'Trivandrum',
@@ -27,15 +28,20 @@ var userId=props.userId
         'Kasaragod',
     ];
 
-    const handlePostJob = async() => {
-        // console.log({job,city,district,description,salary});
+    const handlePostJob = async () => {
+        if (!job || !city || !district || !description || !salary) {
+            alert("Please fill in all the fields.");
+            return;
+        }
+    
         try {
-            await createPost({job,city,district,description,salary,userId})
+            await createPost({ job, city, district, description, salary, userId });
+            window.location.reload();
         } catch (error) {
             console.log(error);
         }
     }
-
+    
     return (
         <div className="Jobs">
             <div className="jobs-main">
@@ -65,73 +71,10 @@ var userId=props.userId
                                 </div>
                                 <div className="jbc-footer">
                                     <h6>Date</h6>
-                                    <button>Apply Now</button>
-                                </div>
-                            </div>
-
-                            <div className="jblc-cards">
-                                <div className="jbc-header">
-                                    <h3>Job Title</h3>
-                                    <h4>place</h4>
-                                    <div>
-                                        <button>Revenue</button>
-                                    </div>
-                                </div>
-
-                                <div className="jbc-body">
-                                    <p>Description</p>
                                     <span>
-                                        <button>Skill 1</button>
-                                        <button>Skill 2</button>
+                                        <button>Edit</button>
+                                        <button>Delete</button>
                                     </span>
-                                </div>
-                                <div className="jbc-footer">
-                                    <h6>Date</h6>
-                                    <button>Apply Now</button>
-                                </div>
-                            </div>
-
-                            <div className="jblc-cards">
-                                <div className="jbc-header">
-                                    <h3>Job Title</h3>
-                                    <h4>place</h4>
-                                    <div>
-                                        <button>Revenue</button>
-                                    </div>
-                                </div>
-
-                                <div className="jbc-body">
-                                    <p>Description</p>
-                                    <span>
-                                        <button>Skill 1</button>
-                                        <button>Skill 2</button>
-                                    </span>
-                                </div>
-                                <div className="jbc-footer">
-                                    <h6>Date</h6>
-                                    <button>Apply Now</button>
-                                </div>
-                            </div>
-
-                            <div className="jblc-cards">
-                                <div className="jbc-header">
-                                    <h3>Job Title</h3>
-                                    <h4>place</h4>
-                                    <div>
-                                        <button>Revenue</button>
-                                    </div>
-                                </div>
-
-                                <div className="jbc-body">
-                                    <p>Description</p>
-                                    <span>
-                                        <button>Skill 1</button>
-                                        <button>Skill 2</button>
-                                    </span>
-                                </div>
-                                <div className="jbc-footer">
-                                    <h6>Date</h6>
-                                    <button>Apply Now</button>
                                 </div>
                             </div>
 
