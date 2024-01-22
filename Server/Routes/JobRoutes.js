@@ -1,4 +1,4 @@
-const { AddJobs, getAllJobs, jobsById, deleteJobs } = require('../Controller/JobController')
+const { AddJobs, getAllJobs, deleteJobs } = require('../Controller/JobController')
 const { verifyToken, verifyTokenAndAuthorization } = require('../VerifyToken')
 
 const router = require('express').Router()
@@ -7,8 +7,6 @@ const router = require('express').Router()
 router.post('/addjob',verifyToken, AddJobs);
 // view all jobs
 router.get('/alljobs',verifyToken,getAllJobs);
-// view jobs by user id
-router.get('/jobById',verifyToken,verifyTokenAndAuthorization,jobsById);
 // delete jobs 
 router.delete('/deletejob',verifyToken,deleteJobs);
 

@@ -258,7 +258,7 @@ export const createFeed = async (data) => {
 }
 
 // all feeds
-export const allFeeds=async ()=>{
+export const allFeeds = async () => {
     try {
         const res = await userRequest.get('/allfeeds');
         console.log('Response Status:', res.status);
@@ -286,9 +286,9 @@ export const createPost = async (data) => {
 }
 
 // view all jobs
-export const AllJobs=async()=>{
+export const AllJobs = async () => {
     try {
-        const res=await userRequest.post('/alljobs');
+        const res = await userRequest.get('/alljobs');
         console.log('Response Status:', res.status);
         return res.data
     } catch (error) {
@@ -298,8 +298,10 @@ export const AllJobs=async()=>{
 // view jobs by user id
 export const jobsById = async () => {
     try {
-        const res = await userRequest.get(`/jobById/${userId}`)
-        return res.data
+        const res = await userRequest.get('/alljobs')
+        const jobs = res.data;
+        const filteredJobs = jobs.filter(job => job.userId === userId);
+        return filteredJobs
     } catch (error) {
         console.log(error);
     }
