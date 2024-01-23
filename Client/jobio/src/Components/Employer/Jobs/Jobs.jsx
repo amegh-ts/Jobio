@@ -2,7 +2,7 @@
 import { useEffect, useState } from 'react'
 import './Jobs.scss'
 import { createPost, deleteJob, jobsById, } from '../../ApiCalls'
-import Popup from '../../../Assets/Popups/Popup';
+import Popup from './JobPopup/Jpopup';
 
 
 const Jobs = (props) => {
