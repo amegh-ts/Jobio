@@ -11,6 +11,8 @@ const ViewJobs = () => {
             try {
                 const jobData = await AllJobs();
                 setJobs(jobData);
+                setSelectedJob(jobData.length > 0 ? jobData[jobData.length - 1] : null);
+
             } catch (error) {
                 console.log(error);
             }
@@ -19,6 +21,7 @@ const ViewJobs = () => {
     }, []);
 
     const reversedJobs = [...jobs].reverse();
+    
 
     const handleJobClick = (job) => {
         setSelectedJob(job);

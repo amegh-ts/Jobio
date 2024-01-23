@@ -49,6 +49,7 @@
                     align-items: center;
                     width: 100%;
                     gap: 10px;
+                    padding-top: 10px;
 
                     .vjml-card {
                         background: white;
@@ -63,7 +64,7 @@
                     }
 
                     .vjml-card.selected {
-                        border: 2px solid var(--primary-color);
+                        border: 1px solid var(--primary-color);
                     }
                     
                 }
@@ -76,13 +77,13 @@
                 padding: 10px;
                 align-items: flex-start;
                 justify-content: center;
-                background: yellow;
 
                 .vjmr-container {
                     max-width: 600px;
                     width: 100%;
-                    background: rgb(121, 255, 255);
+                    background: rgb(255, 255, 255);
                     border-radius: 10px;
+                    border: 1px solid rgb(177, 177, 177);
                     padding: 20px;
 
                     .detailed-info{
