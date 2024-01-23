@@ -35,11 +35,7 @@ const ViewJobs = () => {
                         <div className="vjml-container">
                             {reversedJobs &&
                                 reversedJobs.map((job) => (
-                                    <div
-                                        className={`vjml-card ${selectedJob === job ? 'selected' : ''}`}
-                                        key={job._id}
-                                        onClick={() => handleJobClick(job)}
-                                    >
+                                    <div className={`vjml-card ${selectedJob === job ? 'selected' : ''}`} key={job._id} onClick={() => handleJobClick(job)}>
                                         <div className="vjmlc-header">
                                             <p>{job._id}</p>
                                             <h3>{job.job}</h3>
@@ -60,7 +56,8 @@ const ViewJobs = () => {
                                 <div className="detailed-info">
                                     <div className="vjmc-header">
                                         <h3>{selectedJob.job}</h3>
-
+                                        <h4>posted by {selectedJob.userId}</h4>
+                                        <h5>{selectedJob.city}, {selectedJob.district}</h5>
                                     </div>
                                     <div className="vjmc-body">
                                         <p>{selectedJob.description}</p>
