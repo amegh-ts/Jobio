@@ -5,8 +5,12 @@ const verifyToken = (req, res, next) => {
     let authHeader = req.headers.token       
 
     if (authHeader) {
-        const token = authHeader.split(" ")[1];          
-        // console.log('Separated token==', token);
+        const token = authHeader.split(" ")[1];   
+        
+        if (!token) {
+            return res.status(401).json({ error: "Invalid token format" });
+        }
+
 
         jwt.verify(token, process.env.Jwt_Key, (err, user) => {
             if (err) {
