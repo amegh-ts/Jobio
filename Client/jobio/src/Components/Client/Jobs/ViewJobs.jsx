@@ -64,7 +64,12 @@ const ViewJobs = () => {
                                     </div>
                                     <div className="vjmc-body">
                                         <p>{selectedJob.description}</p>
-
+                                        <span>Base salary <button>₹ {selectedJob.salary}/-</button></span>
+                                    </div>
+                                    <div className="vjmc-footer">
+                                        <button>Apply</button>
+                                        <button>Contact Us</button>
+                                        <button>Report</button>
                                     </div>
                                 </div>
                             )}

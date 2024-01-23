@@ -91,10 +91,54 @@
                         display: flex;
                         flex-direction: column;
                         gap: 10px;
+                        cursor: default;
 
                         .vjmc-header{
                             h3{
                                 font-size: 26px;
+                            }
+                        }
+
+                        .vjmc-body{
+                            display: flex;
+                            flex-direction: column;
+                            gap: 10px;
+
+                            p{
+                                letter-spacing: 1px;
+                            }
+                            span{
+                                letter-spacing: 1px;
+
+                                button{
+                                    padding: 5px 10px;
+                                    background: rgb(225, 251, 225);
+                                    border-radius: 3px;
+                                }
+                            }
+                        }
+
+                        .vjmc-footer{
+                            justify-content: flex-end;
+                            flex: 1;
+                            display: flex;
+                            flex-direction: column;
+                            align-items: center;
+                            gap: 15px;
+
+                            button{
+                                padding: 8px;
+                                width: 150px;
+                                border-radius: 20px;
+                                border: 1px solid rgb(198, 198, 198);
+                                background: transparent;
+                                font-size: 15px;
+                                font-weight: 500;
+                                letter-spacing: 2px;
+
+                                &:hover{
+                                    box-shadow: 0 0 10px var(--primary-color);
+                                }
                             }
                         }
                     }
