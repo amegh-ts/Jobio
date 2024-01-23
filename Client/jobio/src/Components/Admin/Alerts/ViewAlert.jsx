@@ -53,7 +53,7 @@ const ViewAlert = () => {
 
   const handleDeleteAlert = async (data) => {
     try {
-      await deleteAlert({id:data})
+      await deleteAlert({ id: data })
       window.location.reload();
       alert(`Deleted successfully`)
     } catch (error) {
@@ -81,7 +81,7 @@ const ViewAlert = () => {
                     <h6>  {new Date(alert.createdAt).toLocaleString()}</h6>
                     <p>{alert.alert}</p>
                   </div>
-                  <div className="delete-notification" onClick={()=>{handleDeleteAlert(alert._id)}}>
+                  <div className="delete-notification" onClick={() => { handleDeleteAlert(alert._id) }}>
                     <IoTrashOutline className="nt-icon" />
                   </div>
                 </div>
