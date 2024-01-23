@@ -6,13 +6,11 @@ const Jwt = require('jsonwebtoken');
 const setUserState = async () => {
     try {
         const threeDaysAgo = new Date(Date.now() - 3 * 24 * 60 * 60 * 1000);
-
         const inactiveUsers = await userController.updateMany(
             { state: 'active', lastLogin: { $lt: threeDaysAgo } },
             { $set: { state: 'inactive' } },
             { new: true }
         );
-
         console.log(`${inactiveUsers.nModified} user(s) updated to inactive state.`);
     } catch (error) {
         console.error('Error updating user states:', error);
@@ -20,8 +18,6 @@ const setUserState = async () => {
 };
 
 setInterval(setUserState, 60 * 60 * 1000);
-
-
 
 
 // Signup

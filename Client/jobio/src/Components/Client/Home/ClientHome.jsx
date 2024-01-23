@@ -60,17 +60,17 @@ const ClientHome = ({ userId }) => {
     }
 
   }
-console.log({ senderId: userId, description: feedContent, image: file, username: data.username });
+  console.log({ senderId: userId, description: feedContent, image: file, username: data.username });
 
   return (
     <div className="EHome">
       <div className="home-main">
         <div className="left">
           <div className="header">
-            <img src={data.coverphoto} alt="" />
+            <img src={!data.coverphoto || data.coverphoto === '' || data.coverphoto === null ? '/Images/banner.png' : data.coverphoto} alt="" width={100} height={100} />
           </div>
           <div className="photo">
-            <img src={data.photo} alt="" />
+            <img src={!data.photo || data.photo === '' || data.photo === null ? '/Images/user.png' : data.photo} alt="" width={100} height={100} />
           </div>
           <div className="footer">
             <h2>{data.username}</h2>
@@ -88,7 +88,7 @@ console.log({ senderId: userId, description: feedContent, image: file, username:
             <div className="apc-header">
               <section>
                 <div className="image">
-                  <img src={data.photo} alt="" />
+                  <img src={!data.photo || data.photo === '' || data.photo === null ? '/Images/user.png' : data.photo} alt="" width={100} height={100} />
                 </div>
                 <div className="add-post">
                   <button onClick={() => { setAddFeedPopup(true) }}>add post</button>
@@ -124,7 +124,7 @@ console.log({ senderId: userId, description: feedContent, image: file, username:
                 <IoCloseCircleOutline className="icon" />
               </div>
               <div className="image">
-                <img src={data.photo} alt="Profile" />
+                <img src={!data.photo || data.photo === '' || data.photo === null ? '/Images/user.png' : data.photo} alt="" width={100} height={100} />
               </div>
               <div className="note">
                 <h1>Welcome back {data.username}</h1>
@@ -143,7 +143,7 @@ console.log({ senderId: userId, description: feedContent, image: file, username:
                   <div className='header'>
                     <div className='header-left'>
                       <div className='image'>
-                        <img src="" alt="pic" />
+                        <img src={!data.photo || data.photo === '' || data.photo === null ? '/Images/user.png' : data.photo} alt="" width={70} height={70} />
                       </div>
                       <div className="header-title">
                         <h3>{feeds.username}</h3>

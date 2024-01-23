@@ -14,6 +14,7 @@ const EmployerHome = ({ userId }) => {
   const [file, setFile] = useState('');
   const [allFeed, setAllFeed] = useState([])
 
+  // console.log(data);
 
   const handleCloseWelcomeContainer = () => {
     setShowWelcomeContainer(false);
@@ -67,10 +68,10 @@ const EmployerHome = ({ userId }) => {
       <div className="home-main">
         <div className="left">
           <div className="header">
-            <img src={data.coverphoto} alt="" />
+            <img src={!data.coverphoto || data.coverphoto === '' || data.coverphoto === null ? '/Images/banner.png' : data.coverphoto} alt="" width={100} height={100} />
           </div>
           <div className="photo">
-            <img src={data.photo} alt="" />
+            <img src={!data.photo || data.photo === '' || data.photo === null ? '/Images/user.png' : data.photo} alt="" width={100} height={100} />
           </div>
           <div className="footer">
             <h2>{data.username}</h2>
@@ -78,17 +79,14 @@ const EmployerHome = ({ userId }) => {
             <h5>{data.city}, {data.district} </h5>
             <h5>Contact info</h5>
             <button>Add post</button>
-
           </div>
         </div>
-
         <div className="middle">
-
           <div className="add-post-container">
             <div className="apc-header">
               <section>
                 <div className="image">
-                  <img src={data.photo} alt="" />
+                  <img src={!data.photo || data.photo === '' || data.photo === null ? '/Images/user.png' : data.photo} alt="" width={100} height={100} />
                 </div>
                 <div className="add-post">
                   <button onClick={() => { setAddFeedPopup(true) }}>add post</button>
@@ -108,7 +106,6 @@ const EmployerHome = ({ userId }) => {
                 <div className="afp-container">
                   <textarea name="" id="" placeholder='What do you want to write about?' value={feedContent} onChange={(e) => setFeedContent(e.target.value)}></textarea>
                 </div>
-
                 <div className="afp-footer">
                   <input type="file" name="" id="" accept='image/*' onChange={convertToBase64} />
                   {file == '' || file == null ? '' : <img src={file} alt="" width={100} height={100} />}
@@ -117,14 +114,13 @@ const EmployerHome = ({ userId }) => {
               </div>
             </Popup>
           </div>
-
           {showWelcomeContainer && (
             <div className="welcome-container">
               <div className="close" onClick={handleCloseWelcomeContainer}>
                 <IoCloseCircleOutline className="icon" />
               </div>
               <div className="image">
-                <img src={data.photo} alt="Profile" />
+                <img src={!data.photo || data.photo === '' || data.photo === null ? '/Images/user.png' : data.photo} alt="" width={100} height={100} />
               </div>
               <div className="note">
                 <h1>Welcome back {data.username}</h1>
@@ -135,7 +131,6 @@ const EmployerHome = ({ userId }) => {
               </div>
             </div>
           )}
-
           <div className="posts">
             {reversedState &&
               reversedState.map((feeds,) => (
@@ -143,7 +138,7 @@ const EmployerHome = ({ userId }) => {
                   <div className='header'>
                     <div className='header-left'>
                       <div className='image'>
-                        <img src="" alt="pic" />
+                        <img src={!data.photo || data.photo === '' || data.photo === null ? '/Images/user.png' : data.photo} alt="" width={70} height={70} />
                       </div>
                       <div className="header-title">
                         <h3>{feeds.username}</h3>
@@ -156,7 +151,6 @@ const EmployerHome = ({ userId }) => {
                   </div>
                   <div className='description'>
                     <p>{feeds.description}</p>
-
                   </div>
                   <div className='cimage'>
                     <img src={feeds.image} alt="" />
@@ -183,7 +177,6 @@ const EmployerHome = ({ userId }) => {
               ))}
           </div>
         </div>
-
         <div className="right">
           <h1>ads</h1>
         </div>

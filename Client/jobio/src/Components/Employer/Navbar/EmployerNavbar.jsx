@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useState } from 'react';
 import './EmployerNavbar.scss'
 import { DiCodeigniter } from 'react-icons/di';
 import {
@@ -19,10 +19,10 @@ import Profile from '../../Profile/Profile';
 import EmployerHome from '../Home/EmployerHome';
 import Chats from '../../Chats/Chats';
 import Jobs from '../Jobs/Jobs';
+import EmployerAlerts from '../Alerts/EmployerAlerts';
 
 const EmployerNavbar = () => {
     const [primaryColor, setPrimaryColor] = useState('');
-    const dropdownRef = useRef(null);
     const dispatch = useDispatch()
 
     const storedData = localStorage.getItem('persist:jobio');
@@ -73,7 +73,8 @@ const EmployerNavbar = () => {
         home: <EmployerHome userId={userId} />,
         jobs: <Jobs userId={userId} />,
         chats: <Chats setActivePageToChats={setActivePageToChats} />,
-        profile: <Profile />
+        profile: <Profile />,
+        alert: <EmployerAlerts />
     };
 
     return (
@@ -125,7 +126,7 @@ const EmployerNavbar = () => {
                     <div className="navbar-icon">
                         <span>
                             <IoMoonOutline className='icon' />
-                            <IoNotifications className='icon' />
+                            <IoNotifications className={` ${activePage === 'alert' ? 'active' : ''}`} onClick={() => { setActivePage('alert') }} />
                         </span>
                         <div className={`profile  ${activePage === 'profile' ? 'active' : ''}`} onClick={() => { setActivePage('profile'); }}>
                             <IoPersonSharp />

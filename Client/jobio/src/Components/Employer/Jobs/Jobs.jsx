@@ -1,6 +1,9 @@
-import { useState } from 'react'
+/* eslint-disable react/prop-types */
+import { useEffect, useState } from 'react'
 import './Jobs.scss'
-import { createPost } from '../../ApiCalls'
+import { createPost, deleteJob, jobsById, } from '../../ApiCalls'
+import Popup from './JobPopup/Jpopup';
+
 
 const Jobs = (props) => {
     const [job, setJob] = useState('')
@@ -8,7 +11,10 @@ const Jobs = (props) => {
     const [district, setDistrict] = useState('')
     const [description, setDescription] = useState('')
     const [salary, setSalary] = useState('')
-var userId=props.userId
+    const [jobsId, setJobsId] = useState([])
+    var userId = props.userId
+    const [applicationPopup, setApplicationPopup] = useState(false)
+
 
     const KeralaStates = [
         'Trivandrum',
@@ -27,14 +33,47 @@ var userId=props.userId
         'Kasaragod',
     ];
 
-    const handlePostJob = async() => {
-        // console.log({job,city,district,description,salary});
+    useEffect(() => {
+        async function fetchJobs() {
+            try {
+                const jobData = await jobsById();
+                console.log(jobData);
+                setJobsId(jobData)
+            } catch (error) {
+                console.log(error);
+            }
+        }
+        fetchJobs()
+    }, [])
+
+    const reversedJobs = [...jobsId].reverse();
+
+
+    const handlePostJob = async () => {
+        if (!job || !city || !district || !description || !salary) {
+            alert("Please fill in all the fields.");
+            return;
+        }
+
         try {
-            await createPost({job,city,district,description,salary,userId})
+            await createPost({ job, city, district, description, salary, userId });
+            window.location.reload();
         } catch (error) {
             console.log(error);
         }
     }
+
+    const handelDeleteJob = async (data) => {
+        console.log(data);
+        try {
+            await deleteJob({ id: data });
+            window.location.reload();
+            alert(`Deleted successfully`)
+        } catch (error) {
+            console.log(error);
+        }
+    }
+
 
     return (
         <div className="Jobs">
@@ -47,93 +86,108 @@ var userId=props.userId
                     <div className="jb-left">
                         <div className="jbl-container">
 
-                            <div className="jblc-cards">
-                                <div className="jbc-header">
-                                    <h3>Job Title</h3>
-                                    <h4>place</h4>
-                                    <div>
-                                        <button>Revenue</button>
+                            {reversedJobs && reversedJobs.map((jobs) => (
+                                <div className="jblc-cards" key={jobs._id}>
+                                    <div className="jbc-header">
+                                        <h3>{jobs.job}</h3>
+                                        <h4>{jobs.city}, {jobs.district}</h4>
+                                        <div>
+                                            <button>{jobs.salary}</button>
+                                        </div>
+                                    </div>
+
+                                    <div className="jbc-body">
+                                        <p>{jobs.description}</p>
+                                        {/* <span>
+                                        <button>Skill 1</button>
+                                        <button>Skill 2</button>
+                                    </span> */}
+                                    </div>
+                                    <div className="jbc-footer">
+                                        <h6>{new Date(jobs.createdAt).toLocaleString()}</h6>
+                                        <span>
+                                            <button onClick={() => setApplicationPopup(true)}>Applications</button>
+                                            <button onClick={() => { handelDeleteJob(jobs._id) }}>Delete</button>
+                                        </span>
+
+                                        <Popup trigger={applicationPopup} setTrigger={setApplicationPopup}>
+                                            <div className="Application-popup">
+                                                <div className="apl-container">
+                                                    <div className="aplc-header">
+                                                        <h3>Applications</h3>
+                                                    </div>
+                                                    <div className="aplc-body">
+                                                        <div className="aplcb-table">
+                                                            <table className="all-application-table">
+                                                                <thead>
+                                                                    <tr>
+                                                                        <th>Applicant ID</th>
+                                                                        <th>email</th>
+                                                                        <th>Email</th>
+                                                                        <th>State</th>
+                                                                        <th>Phone</th>
+                                                                        <th>Type</th>
+                                                                        <th>Action</th>
+                                                                    </tr>
+                                                                </thead>
+                                                                <tbody>
+                                                                    {/* {filteredUsers.map((user, index) => (
+                                                                        <tr key={index}>
+                                                                            <td>
+                                                                                <div className="user-cards-img">
+                                                                                    <img src={user.photo} alt="" />
+                                                                                </div>
+                                                                            </td>
+                                                                            <td>{user.username}</td>
+                                                                            <td>{user.email}</td>
+                                                                            <td>{user.state}</td>
+                                                                            <td>{user.phone}</td>
+                                                                            <td>{user.type}</td>
+                                                                            <td>
+                                                                                <div className="edit-chat">
+                                                                                    <button><IoPencil className='bicon' /></button>
+                                                                                    <button onClick={() => handleChatButtonClick(userId, user._id)}><IoChatbubbles className='bicon' /></button>
+                                                                                    <button onClick={() => handleBanButtonClick(userId, user._id, user.username)}><IoBan /></button>
+                                                                                </div>
+                                                                            </td>
+                                                                        </tr>
+                                                                    ))}
+                                                                     */}
+
+                                                                    <tr>
+                                                                        <td>abc test</td>
+                                                                        <td>abc test</td>
+                                                                        <td>abc test</td>
+                                                                        <td>abc test</td>
+                                                                        <td>abc test</td>
+                                                                        <td>abc test</td>
+                                                                        <td>abc test</td>
+                                                                    </tr>
+
+                                                                    <tr>
+                                                                        <td>abc test</td>
+                                                                        <td>abc test</td>
+                                                                        <td>abc test</td>
+                                                                        <td>abc test</td>
+                                                                        <td>abc test</td>
+                                                                        <td>abc test</td>
+                                                                        <td>abc test</td>
+                                                                    </tr>
+
+                                                                </tbody>
+                                                            </table>
+                                                        </div>
+
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </Popup>
                                     </div>
                                 </div>
 
-                                <div className="jbc-body">
-                                    <p>Description</p>
-                                    <span>
-                                        <button>Skill 1</button>
-                                        <button>Skill 2</button>
-                                    </span>
-                                </div>
-                                <div className="jbc-footer">
-                                    <h6>Date</h6>
-                                    <button>Apply Now</button>
-                                </div>
-                            </div>
+                            ))}
 
-                            <div className="jblc-cards">
-                                <div className="jbc-header">
-                                    <h3>Job Title</h3>
-                                    <h4>place</h4>
-                                    <div>
-                                        <button>Revenue</button>
-                                    </div>
-                                </div>
 
-                                <div className="jbc-body">
-                                    <p>Description</p>
-                                    <span>
-                                        <button>Skill 1</button>
-                                        <button>Skill 2</button>
-                                    </span>
-                                </div>
-                                <div className="jbc-footer">
-                                    <h6>Date</h6>
-                                    <button>Apply Now</button>
-                                </div>
-                            </div>
-
-                            <div className="jblc-cards">
-                                <div className="jbc-header">
-                                    <h3>Job Title</h3>
-                                    <h4>place</h4>
-                                    <div>
-                                        <button>Revenue</button>
-                                    </div>
-                                </div>
-
-                                <div className="jbc-body">
-                                    <p>Description</p>
-                                    <span>
-                                        <button>Skill 1</button>
-                                        <button>Skill 2</button>
-                                    </span>
-                                </div>
-                                <div className="jbc-footer">
-                                    <h6>Date</h6>
-                                    <button>Apply Now</button>
-                                </div>
-                            </div>
-
-                            <div className="jblc-cards">
-                                <div className="jbc-header">
-                                    <h3>Job Title</h3>
-                                    <h4>place</h4>
-                                    <div>
-                                        <button>Revenue</button>
-                                    </div>
-                                </div>
-
-                                <div className="jbc-body">
-                                    <p>Description</p>
-                                    <span>
-                                        <button>Skill 1</button>
-                                        <button>Skill 2</button>
-                                    </span>
-                                </div>
-                                <div className="jbc-footer">
-                                    <h6>Date</h6>
-                                    <button>Apply Now</button>
-                                </div>
-                            </div>
 
                         </div>
                     </div>

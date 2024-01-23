@@ -205,6 +205,12 @@
                                 height: 70px;
                                 width: 70px;
                                 border-radius: 50%;
+                                display: flex;
+                                flex-direction: column;
+
+                                img{
+                                    object-fit: cover;
+                                }
                             }
 
                             .header-title {

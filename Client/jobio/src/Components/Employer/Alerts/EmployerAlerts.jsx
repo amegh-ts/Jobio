@@ -1,19 +1,20 @@
 import { useEffect, useState } from "react";
 import { CiBellOn } from "react-icons/ci";
-import { IoTrashOutline } from "react-icons/io5";
 import { IoRadio, IoCog, IoPerson } from "react-icons/io5";
 import { FaUserTie } from "react-icons/fa6";
 
-import './ViewAlerts.scss'
-import { deleteAlert, getAlert } from "../../ApiCalls";
+import './EmployerAlerts.scss'
+import { getAlert } from "../../ApiCalls";
 
-const ViewAlert = () => {
+const EmployerAlerts = () => {
   const [state, setState] = useState([]);
 
   useEffect(() => {
     async function display() {
       const alert = await getAlert();
-      setState(alert);
+      const filteredAlert = alert.filter(item => item.priority !== 'employee');
+
+      setState(filteredAlert);
     }
     display()
 
@@ -51,18 +52,9 @@ const ViewAlert = () => {
     }
   };
 
-  const handleDeleteAlert = async (data) => {
-    try {
-      await deleteAlert({ id: data })
-      window.location.reload();
-      alert(`Deleted successfully`)
-    } catch (error) {
-      console.log(error);
-    }
-  }
 
   return (
-    <div className="Alerts">
+    <div className="EmployerAlerts">
       <div className="notification-main">
         <div className='notification-header'>
           <CiBellOn className='bell-icon' />
@@ -81,9 +73,6 @@ const ViewAlert = () => {
                     <h6>  {new Date(alert.createdAt).toLocaleString()}</h6>
                     <p>{alert.alert}</p>
                   </div>
-                  <div className="delete-notification" onClick={() => { handleDeleteAlert(alert._id) }}>
-                    <IoTrashOutline className="nt-icon" />
-                  </div>
                 </div>
 
               </div>
@@ -94,4 +83,4 @@ const ViewAlert = () => {
   )
 }
 
-export default ViewAlert
+export default EmployerAlerts

@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useState } from 'react';
 import './ClientNavbar.scss';
 import { DiCodeigniter } from 'react-icons/di';
 import {
@@ -7,7 +7,6 @@ import {
     IoBriefcase,
     IoChatbubbleEllipses,
     IoSearch,
-    IoPeople,
     IoDocumentText,
     IoCog,
     IoLogOut,
@@ -19,11 +18,12 @@ import { logoutUser } from '../../../Redux/UserRedux';
 import Profile from '../../Profile/Profile';
 import Chats from '../../Chats/Chats';
 import ClientHome from '../Home/ClientHome';
+import ViewJobs from '../Jobs/ViewJobs';
+import ClientAlerts from '../Alerts/ClientAlerts';
+
 
 const ClientNavbar = () => {
-    const [isDropdownVisible, setIsDropdownVisible] = useState(false);
     const [primaryColor, setPrimaryColor] = useState('');
-    const dropdownRef = useRef(null);
     const dispatch = useDispatch()
 
     const storedData = localStorage.getItem('persist:jobio');
@@ -41,15 +41,6 @@ const ClientNavbar = () => {
         setActivePage('chats');
     };
 
-    const toggleDropdown = () => {
-        setIsDropdownVisible(!isDropdownVisible);
-    };
-
-    const closeDropdown = (event) => {
-        if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
-            setIsDropdownVisible(false);
-        }
-    };
 
     useEffect(() => {
         // Set primary color based on user type
@@ -70,14 +61,6 @@ const ClientNavbar = () => {
 
     }, [primaryColor]);
 
-    useEffect(() => {
-        document.addEventListener('click', closeDropdown);
-
-        return () => {
-            document.removeEventListener('click', closeDropdown);
-        };
-    }, []);
-
 
     useEffect(() => {
         // Save the active page to sessionStorage whenever it changes
@@ -92,8 +75,10 @@ const ClientNavbar = () => {
 
     const pageComponents = {
         home: <ClientHome userId={userId}/>,
-        chats: <Chats setActivePageToChats={setActivePageToChats}/>,
-        profile: <Profile />
+        chats: <Chats/>,
+        profile: <Profile />,
+        jobs:<ViewJobs setActivePageToChats={setActivePageToChats} />,
+        alert:<ClientAlerts/>
     };
 
     return (
@@ -110,32 +95,23 @@ const ClientNavbar = () => {
                         <IoHome className="icon" />
                         <span>Home</span>
                     </div>
-                    <div className="menu-item" onClick={toggleDropdown} ref={dropdownRef}>
+                    <div className={`menu-item ${activePage === 'jobs' ? 'active' : ''}`} onClick={() => { setActivePage('jobs'); }}>
                         <IoBriefcase className="icon" />
                         <span>Jobs</span>
-                        <div className={`dropdown-container ${isDropdownVisible ? 'visible' : ''}`} style={{ display: isDropdownVisible ? 'block' : 'none' }}>
-                            <span className="dropdown-item">Add</span>
-                            <span className="dropdown-item">View</span>
-                        </div>
+                    </div>
+                    <div className="menu-item">
+                        <IoDocumentText className="icon" />
+                        <span>Request</span>
                     </div>
                     <div className={`menu-item ${activePage === 'chats' ? 'active' : ''}`} onClick={() => { setActivePage('chats'); }}>
                         <IoChatbubbleEllipses className="icon" />
                         <span>Chats</span>
                     </div>
                     <div className="menu-item">
-                        <IoPeople className="icon" />
-                        <span>Users</span>
-                    </div>
-                    <div className="menu-item">
-                        <IoDocumentText className="icon" />
-                        <span>Request</span>
-                    </div>
-                    <div className="menu-item">
                         <IoCog className="icon" />
                         <span>Settings</span>
                     </div>
                 </div>
-
                 <footer>
                     <div className="logout">
                         <IoLogOut className="icon logout-icon" onClick={handleLogout} />
@@ -153,7 +129,7 @@ const ClientNavbar = () => {
                     <div className="navbar-icon">
                         <span>
                             <IoMoonOutline />
-                            <IoNotifications />
+                            <IoNotifications className={` ${activePage === 'alert' ? 'active' : ''}`} onClick={() => { setActivePage('alert') }} />
                         </span>
                         <div className={`profile  ${activePage === 'profile' ? 'active' : ''}`} onClick={() => { setActivePage('profile'); }}>
                             <IoPersonSharp />

@@ -258,9 +258,9 @@ export const createFeed = async (data) => {
 }
 
 // all feeds
-export const allFeeds=async ()=>{
+export const allFeeds = async () => {
     try {
-        const res = await userRequest.get('/allfeeds')
+        const res = await userRequest.get('/allfeeds');
         console.log('Response Status:', res.status);
         return res.data
     } catch (error) {
@@ -276,8 +276,7 @@ export const allFeeds=async ()=>{
 // <-------------------jobs-------------------> //
 // add jobs
 export const createPost = async (data) => {
-    // const newData = { ...data, likes: 0, report: 0 }
-    console.log('dataaa', data);
+    // console.log('dataaa', data);
     try {
         const res = await userRequest.post('/addjob', data);
         console.log('Response Status:', res.status);
@@ -287,7 +286,33 @@ export const createPost = async (data) => {
 }
 
 // view all jobs
+export const AllJobs = async () => {
+    try {
+        const res = await userRequest.get('/alljobs');
+        console.log('Response Status:', res.status);
+        return res.data
+    } catch (error) {
+        console.log(error);
+    }
+}
 // view jobs by user id
-// edit jobs
+export const jobsById = async () => {
+    try {
+        const res = await userRequest.get('/alljobs')
+        const jobs = res.data;
+        const filteredJobs = jobs.filter(job => job.userId === userId);
+        return filteredJobs
+    } catch (error) {
+        console.log(error);
+    }
+}
 // delete jobs
-
+export const deleteJob = async (data) => {
+    console.log('api id', data);
+    try {
+        const res = await userRequest.delete('/deletejob',{data})
+        console.log('Response Status:', res.status);
+    } catch (error) {
+        console.log(error);
+    }
+}

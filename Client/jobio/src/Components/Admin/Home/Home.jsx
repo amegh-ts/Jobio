@@ -24,7 +24,7 @@ const Home = () => {
   const [banLogpopup, setBanLogpopup] = useState(false)
 
   const [banLogs, setBanLogs] = useState([]);
-  const [recenrBanLog, setRecentBanLog] = useState({});
+  const [recentBanLog, setRecentBanLog] = useState({});
 
 
 
@@ -202,20 +202,20 @@ const recentUData = recentXLabels.map((date) => userCountByDay[date]);
                 <div className="log-container">
                   <div className='lc-top'>
                     <div className="lc-users">
-                      <p>Ban of </p><h4>{recenrBanLog.banned}</h4><p>by </p><h4>{recenrBanLog.bannedBy}</h4>
+                      <p>Ban of </p><h4>{recentBanLog.banned}</h4><p>by </p><h4>{recentBanLog.bannedBy}</h4>
                     </div>
                     <div className="lc-date">
                       <h5>
-                        {recenrBanLog.createdAt ? new Date(recenrBanLog.createdAt).toLocaleString() : 'N/A'}
+                        {recentBanLog.createdAt ? new Date(recentBanLog.createdAt).toLocaleString() : 'N/A'}
                       </h5>
                     </div>
                   </div>
                   <div className="lc-content">
                     <span>
-                      <p>Reason : {recenrBanLog.reason}</p>
+                      <p>Reason : {recentBanLog.reason}</p>
                     </span>
                     <span>
-                      <p>Current status : {recenrBanLog.state}</p>
+                      <p>Current status : {recentBanLog.state}</p>
                     </span>
                   </div>
                 </div>

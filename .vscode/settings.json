@@ -1,6 +1,8 @@
 {
     "cSpell.words": [
+        "addjob",
         "Alappuzha",
+        "alljobs",
         "anav",
         "bicon",
         "changepass",
@@ -15,6 +17,7 @@
         "Codeigniter",
         "coverphoto",
         "dataone",
+        "deletejob",
         "deleteprofile",
         "editprofile",
         "Ernakulam",
@@ -43,6 +46,11 @@
         "unban",
         "updatedata",
         "Viewprofile",
+        "vjmb",
+        "vjmc",
+        "vjml",
+        "vjmlc",
+        "vjmr",
         "Wayanad"
     ]
 }

@@ -1,0 +1,111 @@
+.ClientAlerts {
+    padding: 20px;
+
+    .notification-main {
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+
+        .notification-header {
+            background: var(--sidebar-color);
+            border-radius: 10px;
+            padding: 10px 0;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+
+            h3 {
+                font-weight: var(--h3-font-weight);
+                font-size: var(--h3-font-size);
+            }
+
+            .bell-icon {
+                font-size: var(--icon-size);
+            }
+        }
+
+        .notification-container {
+            display: flex;
+            justify-content: flex-start;
+            height: 700px;
+            overflow-y: auto;
+            flex-direction: column;
+            gap: 13px;
+
+            .notification-box {
+            background: var(--sidebar-color);
+
+                padding: 10px;
+                display: flex;
+                align-items: center;
+                gap: 20px;
+                // padding-left: 100px;
+                border: 1px solid rgb(216, 216, 216);
+                border-left: solid 8px var(--priority-color);
+                border-radius: 10px;
+
+                .ntb-left {
+                    display: flex;
+                    align-items: center;
+                    font-size: 26px;
+                    margin: 0 15px;
+                }
+
+                .ntb-right {
+                    display: flex;
+                    align-items: center;
+                    justify-content: space-between;
+                    flex: 1;
+
+                    .ntb-content {
+                        h6 {
+                            color: var(--text-color);
+                            font-weight: 400;
+                            letter-spacing: 3px;
+                        }
+
+                        p {
+                            font-size: 16px;
+                        }
+                    }
+
+                    .delete-notification {
+                        display: flex;
+                        align-items: center;
+                        border-radius: 50%;
+                        padding: 5px;
+                        cursor: pointer;
+                        color: var(--text-color);
+
+
+                        .nt-icon {
+                            font-size: 24px;
+                        }
+
+                        &:hover {
+                            color: rgb(208, 0, 0);
+                            box-shadow: 0 0 10px var(--text-color);
+                        }
+                    }
+                }
+
+            }
+        }
+    }
+
+    .system-priority {
+        --priority-color: rgb(231, 0, 0);
+    }
+
+    .common-priority {
+        --priority-color: rgb(141, 141, 141);
+    }
+
+    .employer-priority {
+        --priority-color: rgb(0, 128, 0);
+    }
+
+    .employee-priority {
+        --priority-color: #695CFE;
+    }
+}
