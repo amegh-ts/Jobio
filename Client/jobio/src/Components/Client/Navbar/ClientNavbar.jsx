@@ -100,24 +100,19 @@ const ClientNavbar = () => {
                         <IoBriefcase className="icon" />
                         <span>Jobs</span>
                     </div>
-                    <div className={`menu-item ${activePage === 'chats' ? 'active' : ''}`} onClick={() => { setActivePage('chats'); }}>
-                        <IoChatbubbleEllipses className="icon" />
-                        <span>Chats</span>
-                    </div>
-                    <div className="menu-item">
-                        <IoPeople className="icon" />
-                        <span>Users</span>
-                    </div>
                     <div className="menu-item">
                         <IoDocumentText className="icon" />
                         <span>Request</span>
+                    </div>
+                    <div className={`menu-item ${activePage === 'chats' ? 'active' : ''}`} onClick={() => { setActivePage('chats'); }}>
+                        <IoChatbubbleEllipses className="icon" />
+                        <span>Chats</span>
                     </div>
                     <div className="menu-item">
                         <IoCog className="icon" />
                         <span>Settings</span>
                     </div>
                 </div>
-
                 <footer>
                     <div className="logout">
                         <IoLogOut className="icon logout-icon" onClick={handleLogout} />
