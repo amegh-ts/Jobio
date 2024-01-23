@@ -21,9 +21,7 @@ import Chats from '../../Chats/Chats';
 import ClientHome from '../Home/ClientHome';
 
 const ClientNavbar = () => {
-    const [isDropdownVisible, setIsDropdownVisible] = useState(false);
     const [primaryColor, setPrimaryColor] = useState('');
-    const dropdownRef = useRef(null);
     const dispatch = useDispatch()
 
     const storedData = localStorage.getItem('persist:jobio');
@@ -41,15 +39,6 @@ const ClientNavbar = () => {
         setActivePage('chats');
     };
 
-    const toggleDropdown = () => {
-        setIsDropdownVisible(!isDropdownVisible);
-    };
-
-    const closeDropdown = (event) => {
-        if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
-            setIsDropdownVisible(false);
-        }
-    };
 
     useEffect(() => {
         // Set primary color based on user type
@@ -69,14 +58,6 @@ const ClientNavbar = () => {
         document.body.style.setProperty('--primary-color', primaryColor);
 
     }, [primaryColor]);
-
-    useEffect(() => {
-        document.addEventListener('click', closeDropdown);
-
-        return () => {
-            document.removeEventListener('click', closeDropdown);
-        };
-    }, []);
 
 
     useEffect(() => {
@@ -110,13 +91,9 @@ const ClientNavbar = () => {
                         <IoHome className="icon" />
                         <span>Home</span>
                     </div>
-                    <div className="menu-item" onClick={toggleDropdown} ref={dropdownRef}>
+                    <div className="menu-item">
                         <IoBriefcase className="icon" />
                         <span>Jobs</span>
-                        <div className={`dropdown-container ${isDropdownVisible ? 'visible' : ''}`} style={{ display: isDropdownVisible ? 'block' : 'none' }}>
-                            <span className="dropdown-item">Add</span>
-                            <span className="dropdown-item">View</span>
-                        </div>
                     </div>
                     <div className={`menu-item ${activePage === 'chats' ? 'active' : ''}`} onClick={() => { setActivePage('chats'); }}>
                         <IoChatbubbleEllipses className="icon" />
