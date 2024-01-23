@@ -112,7 +112,14 @@ const Jobs = (props) => {
 
                                         <Popup trigger={applicationPopup} setTrigger={setApplicationPopup}>
                                             <div className="Application-popup">
-
+                                                <div className="apl-container">
+                                                    <div className="aplc-header">
+                                                        <h3>Applications</h3>
+                                                    </div>
+                                                    <div className="aplc-body">
+                                                        <h1></h1>
+                                                    </div>
+                                                </div>
                                             </div>
                                         </Popup>
                                     </div>
