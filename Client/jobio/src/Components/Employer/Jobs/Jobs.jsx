@@ -13,7 +13,7 @@ const Jobs = (props) => {
     const [salary, setSalary] = useState('')
     const [jobsId, setJobsId] = useState([])
     var userId = props.userId
-  const [applicationPopup, setApplicationPopup] = useState(false)
+    const [applicationPopup, setApplicationPopup] = useState(false)
 
 
     const KeralaStates = [
@@ -106,12 +106,14 @@ const Jobs = (props) => {
                                     <div className="jbc-footer">
                                         <h6>{new Date(jobs.createdAt).toLocaleString()}</h6>
                                         <span>
-                                            <button>Applications</button>
+                                            <button onClick={() => setApplicationPopup(true)}>Applications</button>
                                             <button onClick={() => { handelDeleteJob(jobs._id) }}>Delete</button>
                                         </span>
 
-                                        <Popup>
+                                        <Popup trigger={applicationPopup} setTrigger={setApplicationPopup}>
+                                            <div className="Application-popup">
 
+                                            </div>
                                         </Popup>
                                     </div>
                                 </div>
