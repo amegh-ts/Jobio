@@ -17,7 +17,7 @@ const ViewJobs = () => {
                                     <h3>Python Fullstack</h3>
                                     <h5>userid</h5>
                                 </div>
-                                <div className="vjmlc-boady">
+                                <div className="vjmlc-body">
 
                                 </div>
                                 <div className="vjmlc-footer">
@@ -30,7 +30,7 @@ const ViewJobs = () => {
                                     <h3>Python Fullstack</h3>
                                     <h5>userid</h5>
                                 </div>
-                                <div className="vjmlc-boady">
+                                <div className="vjmlc-body">
 
                                 </div>
                                 <div className="vjmlc-footer">
@@ -43,7 +43,7 @@ const ViewJobs = () => {
                                     <h3>Python Fullstack</h3>
                                     <h5>userid</h5>
                                 </div>
-                                <div className="vjmlc-boady">
+                                <div className="vjmlc-body">
 
                                 </div>
                                 <div className="vjmlc-footer">
@@ -56,7 +56,7 @@ const ViewJobs = () => {
                                     <h3>Python Fullstack</h3>
                                     <h5>userid</h5>
                                 </div>
-                                <div className="vjmlc-boady">
+                                <div className="vjmlc-body">
 
                                 </div>
                                 <div className="vjmlc-footer">
@@ -69,7 +69,7 @@ const ViewJobs = () => {
                                     <h3>Python Fullstack</h3>
                                     <h5>userid</h5>
                                 </div>
-                                <div className="vjmlc-boady">
+                                <div className="vjmlc-body">
 
                                 </div>
                                 <div className="vjmlc-footer">
@@ -82,47 +82,7 @@ const ViewJobs = () => {
                                     <h3>Python Fullstack</h3>
                                     <h5>userid</h5>
                                 </div>
-                                <div className="vjmlc-boady">
-
-                                </div>
-                                <div className="vjmlc-footer">
-                                    <h6>date</h6>
-                                </div>
-                            </div>
-
-
-                            <div className="vjml-card">
-                                <div className="vjmlc-header">
-                                    <h3>Python Fullstack</h3>
-                                    <h5>userid</h5>
-                                </div>
-                                <div className="vjmlc-boady">
-
-                                </div>
-                                <div className="vjmlc-footer">
-                                    <h6>date</h6>
-                                </div>
-                            </div>
-
-                            <div className="vjml-card">
-                                <div className="vjmlc-header">
-                                    <h3>Python Fullstack</h3>
-                                    <h5>userid</h5>
-                                </div>
-                                <div className="vjmlc-boady">
-
-                                </div>
-                                <div className="vjmlc-footer">
-                                    <h6>date</h6>
-                                </div>
-                            </div>
-
-                            <div className="vjml-card">
-                                <div className="vjmlc-header">
-                                    <h3>Python Fullstack</h3>
-                                    <h5>userid</h5>
-                                </div>
-                                <div className="vjmlc-boady">
+                                <div className="vjmlc-body">
 
                                 </div>
                                 <div className="vjmlc-footer">
@@ -136,7 +96,7 @@ const ViewJobs = () => {
                                     <h3>Python Fullstack</h3>
                                     <h5>userid</h5>
                                 </div>
-                                <div className="vjmlc-boady">
+                                <div className="vjmlc-body">
 
                                 </div>
                                 <div className="vjmlc-footer">
@@ -149,7 +109,7 @@ const ViewJobs = () => {
                                     <h3>Python Fullstack</h3>
                                     <h5>userid</h5>
                                 </div>
-                                <div className="vjmlc-boady">
+                                <div className="vjmlc-body">
 
                                 </div>
                                 <div className="vjmlc-footer">
@@ -162,7 +122,7 @@ const ViewJobs = () => {
                                     <h3>Python Fullstack</h3>
                                     <h5>userid</h5>
                                 </div>
-                                <div className="vjmlc-boady">
+                                <div className="vjmlc-body">
 
                                 </div>
                                 <div className="vjmlc-footer">
@@ -176,7 +136,7 @@ const ViewJobs = () => {
                                     <h3>Python Fullstack</h3>
                                     <h5>userid</h5>
                                 </div>
-                                <div className="vjmlc-boady">
+                                <div className="vjmlc-body">
 
                                 </div>
                                 <div className="vjmlc-footer">
@@ -189,7 +149,7 @@ const ViewJobs = () => {
                                     <h3>Python Fullstack</h3>
                                     <h5>userid</h5>
                                 </div>
-                                <div className="vjmlc-boady">
+                                <div className="vjmlc-body">
 
                                 </div>
                                 <div className="vjmlc-footer">
@@ -202,7 +162,7 @@ const ViewJobs = () => {
                                     <h3>Python Fullstack</h3>
                                     <h5>userid</h5>
                                 </div>
-                                <div className="vjmlc-boady">
+                                <div className="vjmlc-body">
 
                                 </div>
                                 <div className="vjmlc-footer">
@@ -211,7 +171,47 @@ const ViewJobs = () => {
                             </div>
 
 
-                            
+                            <div className="vjml-card">
+                                <div className="vjmlc-header">
+                                    <h3>Python Fullstack</h3>
+                                    <h5>userid</h5>
+                                </div>
+                                <div className="vjmlc-body">
+
+                                </div>
+                                <div className="vjmlc-footer">
+                                    <h6>date</h6>
+                                </div>
+                            </div>
+
+                            <div className="vjml-card">
+                                <div className="vjmlc-header">
+                                    <h3>Python Fullstack</h3>
+                                    <h5>userid</h5>
+                                </div>
+                                <div className="vjmlc-body">
+
+                                </div>
+                                <div className="vjmlc-footer">
+                                    <h6>date</h6>
+                                </div>
+                            </div>
+
+                            <div className="vjml-card">
+                                <div className="vjmlc-header">
+                                    <h3>Python Fullstack</h3>
+                                    <h5>userid</h5>
+                                </div>
+                                <div className="vjmlc-body">
+
+                                </div>
+                                <div className="vjmlc-footer">
+                                    <h6>date</h6>
+                                </div>
+                            </div>
+
+
+
                         </div>
                     </div>
                     <div className="vjmb-right"></div>
