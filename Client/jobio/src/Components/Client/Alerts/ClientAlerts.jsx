@@ -12,7 +12,7 @@ const ClientAlerts = () => {
   useEffect(() => {
     async function display() {
       const alert = await getAlert();
-      const filteredAlert = alert.filter(item => item.priority !== 'employee');
+      const filteredAlert = alert.filter(item => item.priority !== 'employer');
 
       setState(filteredAlert);
     }

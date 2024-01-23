@@ -20,6 +20,8 @@ import Profile from '../../Profile/Profile';
 import Chats from '../../Chats/Chats';
 import ClientHome from '../Home/ClientHome';
 import ViewJobs from '../Jobs/ViewJobs';
+import ClientAlerts from '../Alerts/ClientAlerts';
+
 
 const ClientNavbar = () => {
     const [primaryColor, setPrimaryColor] = useState('');
@@ -77,6 +79,7 @@ const ClientNavbar = () => {
         chats: <Chats setActivePageToChats={setActivePageToChats}/>,
         profile: <Profile />,
         jobs:<ViewJobs/>,
+        alert:<ClientAlerts/>
     };
 
     return (
@@ -132,7 +135,7 @@ const ClientNavbar = () => {
                     <div className="navbar-icon">
                         <span>
                             <IoMoonOutline />
-                            <IoNotifications />
+                            <IoNotifications className={` ${activePage === 'alert' ? 'active' : ''}`} onClick={() => { setActivePage('alert') }} />
                         </span>
                         <div className={`profile  ${activePage === 'profile' ? 'active' : ''}`} onClick={() => { setActivePage('profile'); }}>
                             <IoPersonSharp />
