@@ -2,6 +2,8 @@
 import { useEffect, useState } from 'react'
 import './Jobs.scss'
 import { createPost, deleteJob, jobsById, } from '../../ApiCalls'
+import Popup from '../../../Assets/Popups/Popup';
+
 
 const Jobs = (props) => {
     const [job, setJob] = useState('')
@@ -11,6 +13,7 @@ const Jobs = (props) => {
     const [salary, setSalary] = useState('')
     const [jobsId, setJobsId] = useState([])
     var userId = props.userId
+    
 
     const KeralaStates = [
         'Trivandrum',
@@ -101,7 +104,14 @@ const Jobs = (props) => {
                                     </div>
                                     <div className="jbc-footer">
                                         <h6>{new Date(jobs.createdAt).toLocaleString()}</h6>
-                                        <button onClick={() => { handelDeleteJob(jobs._id) }}>Delete</button>
+                                        <span>
+                                            <button>Applications</button>
+                                            <button onClick={() => { handelDeleteJob(jobs._id) }}>Delete</button>
+                                        </span>
+
+                                        <Popup>
+
+                                        </Popup>
                                     </div>
                                 </div>
 
