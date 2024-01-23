@@ -13,7 +13,6 @@ const Jobs = (props) => {
     const [salary, setSalary] = useState('')
     const [jobsId, setJobsId] = useState([])
     var userId = props.userId
-    var userName = props.username
     const [applicationPopup, setApplicationPopup] = useState(false)
 
 
@@ -57,7 +56,7 @@ const Jobs = (props) => {
         }
 
         try {
-            await createPost({ job, city, district, description, salary, userId, userName });
+            await createPost({ job, city, district, description, salary, userId });
             window.location.reload();
         } catch (error) {
             console.log(error);
@@ -155,7 +154,7 @@ const Jobs = (props) => {
                                                                     ))}
                                                                      */}
 
-                                                                    <tr>
+                                                                     <tr>
                                                                         <td>abc test</td>
                                                                         <td>abc test</td>
                                                                         <td>abc test</td>
@@ -163,9 +162,9 @@ const Jobs = (props) => {
                                                                         <td>abc test</td>
                                                                         <td>abc test</td>
                                                                         <td>abc test</td>
-                                                                    </tr>
+                                                                     </tr>
 
-                                                                    <tr>
+                                                                     <tr>
                                                                         <td>abc test</td>
                                                                         <td>abc test</td>
                                                                         <td>abc test</td>
@@ -173,8 +172,8 @@ const Jobs = (props) => {
                                                                         <td>abc test</td>
                                                                         <td>abc test</td>
                                                                         <td>abc test</td>
-                                                                    </tr>
-
+                                                                     </tr>
+                                                                     
                                                                 </tbody>
                                                             </table>
                                                         </div>
