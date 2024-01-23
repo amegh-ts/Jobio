@@ -117,8 +117,55 @@ const Jobs = (props) => {
                                                         <h3>Applications</h3>
                                                     </div>
                                                     <div className="aplc-body">
+                                                        <div className="aplcb-table">
+                                                            <table className="all-users-table">
+                                                                <thead>
+                                                                    <tr>
+                                                                        <th>Image</th>
+                                                                        <th>Username</th>
+                                                                        <th>Email</th>
+                                                                        <th>State</th>
+                                                                        <th>Phone</th>
+                                                                        <th>Type</th>
+                                                                        <th>Action</th>
+                                                                    </tr>
+                                                                </thead>
+                                                                <tbody>
+                                                                    {/* {filteredUsers.map((user, index) => (
+                                                                        <tr key={index}>
+                                                                            <td>
+                                                                                <div className="user-cards-img">
+                                                                                    <img src={user.photo} alt="" />
+                                                                                </div>
+                                                                            </td>
+                                                                            <td>{user.username}</td>
+                                                                            <td>{user.email}</td>
+                                                                            <td>{user.state}</td>
+                                                                            <td>{user.phone}</td>
+                                                                            <td>{user.type}</td>
+                                                                            <td>
+                                                                                <div className="edit-chat">
+                                                                                    <button><IoPencil className='bicon' /></button>
+                                                                                    <button onClick={() => handleChatButtonClick(userId, user._id)}><IoChatbubbles className='bicon' /></button>
+                                                                                    <button onClick={() => handleBanButtonClick(userId, user._id, user.username)}><IoBan /></button>
+                                                                                </div>
+                                                                            </td>
+                                                                        </tr>
+                                                                    ))}
+                                                                     */}
 
-                                                        
+                                                                     <tr>
+                                                                        <td>abc test</td>
+                                                                        <td>abc test</td>
+                                                                        <td>abc test</td>
+                                                                        <td>abc test</td>
+                                                                        <td>abc test</td>
+                                                                        <td>abc test</td>
+                                                                     </tr>
+                                                                </tbody>
+                                                            </table>
+                                                        </div>
+
                                                     </div>
                                                 </div>
                                             </div>

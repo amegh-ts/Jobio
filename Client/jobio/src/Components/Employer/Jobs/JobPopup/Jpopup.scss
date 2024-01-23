@@ -41,6 +41,16 @@
         .Application-popup {
             background: red;
             min-width: 200px;
+
+            .apl-container {
+                .aplc-header {
+                    h3 {
+                        font-size: 20px;
+                    }
+                }
+
+            }
+
         }
     }
 }
