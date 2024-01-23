@@ -70,7 +70,11 @@
                 justify-content: center;
                 background: yellow;
 
-
+                .vjmr-container {
+                    max-width: 600px;
+                    width: 100%;
+                    background: rgb(121, 255, 255);
+                }
             }
         }
     }

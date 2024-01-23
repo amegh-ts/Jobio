@@ -55,18 +55,17 @@ const ViewJobs = () => {
                         </div>
                     </div>
                     <div className="vjmb-right">
-                        
-                        {selectedJob && (
-                            <>
+                        <div className="vjmr-container">
+                            {selectedJob && (
                                 <div className="detailed-info">
                                     <h3>{selectedJob.job}</h3>
                                     <p>{selectedJob.userId}</p>
                                     <p>{selectedJob.description}</p>
                                     {/* Add other fields from selectedJob as needed */}
                                 </div>
-                                {/* Add additional detailed explanation components as needed */}
-                            </>
-                        )}
+                            )}
+                        </div>
+
                     </div>
                 </div>
             </div>
