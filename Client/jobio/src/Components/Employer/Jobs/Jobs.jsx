@@ -154,7 +154,7 @@ const Jobs = (props) => {
                                                                     ))}
                                                                      */}
 
-                                                                     <tr>
+                                                                    <tr>
                                                                         <td>abc test</td>
                                                                         <td>abc test</td>
                                                                         <td>abc test</td>
@@ -162,9 +162,9 @@ const Jobs = (props) => {
                                                                         <td>abc test</td>
                                                                         <td>abc test</td>
                                                                         <td>abc test</td>
-                                                                     </tr>
+                                                                    </tr>
 
-                                                                     <tr>
+                                                                    <tr>
                                                                         <td>abc test</td>
                                                                         <td>abc test</td>
                                                                         <td>abc test</td>
@@ -172,8 +172,8 @@ const Jobs = (props) => {
                                                                         <td>abc test</td>
                                                                         <td>abc test</td>
                                                                         <td>abc test</td>
-                                                                     </tr>
-                                                                     
+                                                                    </tr>
+
                                                                 </tbody>
                                                             </table>
                                                         </div>
