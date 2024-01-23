@@ -79,12 +79,9 @@ const EmployerHome = ({ userId }) => {
             <h5>{data.city}, {data.district} </h5>
             <h5>Contact info</h5>
             <button>Add post</button>
-
           </div>
         </div>
-
         <div className="middle">
-
           <div className="add-post-container">
             <div className="apc-header">
               <section>
@@ -109,7 +106,6 @@ const EmployerHome = ({ userId }) => {
                 <div className="afp-container">
                   <textarea name="" id="" placeholder='What do you want to write about?' value={feedContent} onChange={(e) => setFeedContent(e.target.value)}></textarea>
                 </div>
-
                 <div className="afp-footer">
                   <input type="file" name="" id="" accept='image/*' onChange={convertToBase64} />
                   {file == '' || file == null ? '' : <img src={file} alt="" width={100} height={100} />}
@@ -118,7 +114,6 @@ const EmployerHome = ({ userId }) => {
               </div>
             </Popup>
           </div>
-
           {showWelcomeContainer && (
             <div className="welcome-container">
               <div className="close" onClick={handleCloseWelcomeContainer}>
@@ -136,7 +131,6 @@ const EmployerHome = ({ userId }) => {
               </div>
             </div>
           )}
-
           <div className="posts">
             {reversedState &&
               reversedState.map((feeds,) => (
@@ -157,7 +151,6 @@ const EmployerHome = ({ userId }) => {
                   </div>
                   <div className='description'>
                     <p>{feeds.description}</p>
-
                   </div>
                   <div className='cimage'>
                     <img src={feeds.image} alt="" />
@@ -184,7 +177,6 @@ const EmployerHome = ({ userId }) => {
               ))}
           </div>
         </div>
-
         <div className="right">
           <h1>ads</h1>
         </div>
