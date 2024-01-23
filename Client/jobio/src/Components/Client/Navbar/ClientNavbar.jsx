@@ -19,6 +19,7 @@ import { logoutUser } from '../../../Redux/UserRedux';
 import Profile from '../../Profile/Profile';
 import Chats from '../../Chats/Chats';
 import ClientHome from '../Home/ClientHome';
+import ViewJobs from '../Jobs/ViewJobs';
 
 const ClientNavbar = () => {
     const [primaryColor, setPrimaryColor] = useState('');
@@ -74,7 +75,8 @@ const ClientNavbar = () => {
     const pageComponents = {
         home: <ClientHome userId={userId}/>,
         chats: <Chats setActivePageToChats={setActivePageToChats}/>,
-        profile: <Profile />
+        profile: <Profile />,
+        jobs:<ViewJobs/>,
     };
 
     return (
@@ -91,7 +93,7 @@ const ClientNavbar = () => {
                         <IoHome className="icon" />
                         <span>Home</span>
                     </div>
-                    <div className="menu-item">
+                    <div className={`menu-item ${activePage === 'jobs' ? 'active' : ''}`} onClick={() => { setActivePage('jobs'); }}>
                         <IoBriefcase className="icon" />
                         <span>Jobs</span>
                     </div>

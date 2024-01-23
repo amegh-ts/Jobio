@@ -2,7 +2,13 @@ import './ViewJobs.scss'
 
 const ViewJobs = () => {
   return (
-    <div>ViewJobs</div>
+    <div className='ViewJobs'>
+        <div className="vj-main">
+            <div className="vjm-header">
+                <h3>Job Openings</h3>
+            </div>
+        </div>
+    </div>
   )
 }
 
