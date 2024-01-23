@@ -5,6 +5,7 @@
     max-height: 830px;
 
     .vj-main {
+        background: red;
         padding: 10px;
         flex: 1;
         display: flex;
@@ -26,6 +27,11 @@
         }
 
         .vjm-body {
+            flex: 1;
+            display: flex;
+            gap: 20px;
+            justify-content: space-between;
+
             .vjmb-left {}
 
             .vjmb-righ {}
