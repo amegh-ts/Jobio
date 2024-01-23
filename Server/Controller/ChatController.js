@@ -58,21 +58,5 @@ const findChat = async (req, res) => {
 
 
 
-const clearChatsAtEndOfDay = async () => {
-    try {
-        // Add logic to find and remove all chats here
-        await chatSchema.deleteMany({});
-        console.log('All chats cleared from the database.');
-    } catch (error) {
-        console.error('Error clearing chats:', error);
-    }
-}
-
-// Schedule the task to run at the end of each day (24-hour interval)
-const interval = 24 * 60 * 60 * 1000; 
-clearChatsAtEndOfDay();
-
-setInterval(clearChatsAtEndOfDay, interval);
-
 
 module.exports = { createChat,findUserChats,findChat };
