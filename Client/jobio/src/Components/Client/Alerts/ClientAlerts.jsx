@@ -3,10 +3,10 @@ import { CiBellOn } from "react-icons/ci";
 import { IoRadio, IoCog, IoPerson } from "react-icons/io5";
 import { FaUserTie } from "react-icons/fa6";
 
-import './EmployeeAlerts.scss'
+import './ClientAlerts.scss'
 import { getAlert } from "../../ApiCalls";
 
-const EmployeeAlerts = () => {
+const ClientAlerts = () => {
   const [state, setState] = useState([]);
 
   useEffect(() => {
@@ -54,7 +54,7 @@ const EmployeeAlerts = () => {
 
 
   return (
-    <div className="EmployeeAlerts">
+    <div className="ClientAlerts">
       <div className="notification-main">
         <div className='notification-header'>
           <CiBellOn className='bell-icon' />
@@ -83,4 +83,4 @@ const EmployeeAlerts = () => {
   )
 }
 
-export default EmployeeAlerts
+export default ClientAlerts
