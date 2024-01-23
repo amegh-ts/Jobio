@@ -1,15 +1,16 @@
-.ViewJobs{
-    .vj-main{
-        .vjm-header{
-            
-        }
-        .vjm-body{
-            .vjmb-left{
-                
-            }
-            .vjmb-righ{
-                
-            }
+.ViewJobs {
+    display: flex;
+    min-width: 100%;
+    overflow: hidden;
+    max-height: 830px;
+
+    .vj-main {
+        .vjm-header {}
+
+        .vjm-body {
+            .vjmb-left {}
+
+            .vjmb-righ {}
         }
     }
 }
