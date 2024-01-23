@@ -69,7 +69,6 @@ const EmployerHome = ({ userId }) => {
         <div className="left">
           <div className="header">
             <img src={!data.coverphoto || data.coverphoto === '' || data.coverphoto === null ? '/Images/banner.png' : data.coverphoto} alt="" width={100} height={100} />
-
           </div>
           <div className="photo">
             <img src={!data.photo || data.photo === '' || data.photo === null ? '/Images/user.png' : data.photo} alt="" width={100} height={100} />
