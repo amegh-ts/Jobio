@@ -13,7 +13,8 @@ const Jobs = (props) => {
     const [salary, setSalary] = useState('')
     const [jobsId, setJobsId] = useState([])
     var userId = props.userId
-    
+  const [applicationPopup, setApplicationPopup] = useState(false)
+
 
     const KeralaStates = [
         'Trivandrum',
