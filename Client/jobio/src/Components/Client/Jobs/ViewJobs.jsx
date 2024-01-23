@@ -44,26 +44,9 @@ const ViewJobs = () => {
                                         <span>posted by {jobs.userId}</span>
                                     </div>
                                     <div className="vjmlc-footer">
-                                        <h6>date</h6>
-                                    </div>
+                                    <h6>{new Date(jobs.createdAt).toLocaleString()}</h6>                                    </div>
                                 </div>
                             ))}
-
-
-                            <div className="vjml-card">
-                                <div className="vjmlc-header">
-                                    <h3>Python Fullstack</h3>
-                                    <h5>userid</h5>
-                                </div>
-                                <div className="vjmlc-body">
-
-                                </div>
-                                <div className="vjmlc-footer">
-                                    <h6>date</h6>
-                                </div>
-                            </div>
-
-
 
                         </div>
                     </div>
