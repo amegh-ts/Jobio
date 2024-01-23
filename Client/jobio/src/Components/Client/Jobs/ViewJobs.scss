@@ -35,7 +35,7 @@
             .vjmb-left {
                 display: flex;
                 border-radius: 10px;
-                max-width: 1000px;
+                max-width: 800px;
                 width: 100%;
                 height: 725px;
                 overflow-y: auto;
@@ -43,6 +43,21 @@
 
                 &::-webkit-scrollbar {
                     width: 5px;
+                }
+
+                .vjml-container {
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+                    width: 100%;
+                    gap: 10px;
+
+                    .vjml-card {
+                        background: white;
+                        padding: 10px;
+                        width: 500px;
+                        border-radius: 10px;
+                    }
                 }
             }
 
@@ -54,6 +69,8 @@
                 align-items: flex-start;
                 justify-content: center;
                 background: yellow;
+
+
             }
         }
     }
