@@ -1,4 +1,4 @@
-.popup {
+.jpopup {
     position: fixed;
     top: 0;
     left: 0;
@@ -10,16 +10,16 @@
     align-items: center;
     z-index: 1000;
 
-    .popup-inner {
+    .jpopup-inner {
         position: relative;
         border-radius: 10px;
         padding: 32px;
         width: 100%;
-        max-width: 640px;
+        max-width: 1500px;
         background: #ffffff;
         // background: linear-gradient(-135deg, #4158d0,#c850c0);
 
-        .close-btn {
+        .jclose-btn {
             position: absolute;
             top: 16px;
             right: 16px;

@@ -117,7 +117,8 @@ const Jobs = (props) => {
                                                         <h3>Applications</h3>
                                                     </div>
                                                     <div className="aplc-body">
-                                                        <h1></h1>
+
+                                                        
                                                     </div>
                                                 </div>
                                             </div>
