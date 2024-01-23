@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useState } from 'react';
 import './ClientNavbar.scss';
 import { DiCodeigniter } from 'react-icons/di';
 import {
@@ -7,7 +7,6 @@ import {
     IoBriefcase,
     IoChatbubbleEllipses,
     IoSearch,
-    IoPeople,
     IoDocumentText,
     IoCog,
     IoLogOut,
@@ -76,9 +75,9 @@ const ClientNavbar = () => {
 
     const pageComponents = {
         home: <ClientHome userId={userId}/>,
-        chats: <Chats setActivePageToChats={setActivePageToChats}/>,
+        chats: <Chats/>,
         profile: <Profile />,
-        jobs:<ViewJobs/>,
+        jobs:<ViewJobs setActivePageToChats={setActivePageToChats} />,
         alert:<ClientAlerts/>
     };
 

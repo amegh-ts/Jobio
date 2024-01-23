@@ -1,10 +1,14 @@
 import { useEffect, useState } from 'react';
 import './ViewJobs.scss';
-import { AllJobs } from '../../ApiCalls';
+import { AllJobs, createChat } from '../../ApiCalls';
 
-const ViewJobs = () => {
+const ViewJobs = ({ setActivePageToChats }) => {
     const [jobs, setJobs] = useState('');
     const [selectedJob, setSelectedJob] = useState(null);
+
+    const storedData = localStorage.getItem('persist:jobio');
+    const user = storedData ? JSON.parse(JSON.parse(storedData).user) : null;
+    const userId = user?.userInfo?.[0]?.id;
 
     useEffect(() => {
         async function fetchJobs() {
@@ -25,6 +29,15 @@ const ViewJobs = () => {
 
     const handleJobClick = (job) => {
         setSelectedJob(job);
+    };
+
+    const handleChatButtonClick = async (firstId, secondId) => {
+        try {
+            await createChat({ firstId, secondId });
+            setActivePageToChats();
+        } catch (error) {
+            console.log(error);
+        }
     };
 
     return (
@@ -68,7 +81,7 @@ const ViewJobs = () => {
                                     </div>
                                     <div className="vjmc-footer">
                                         <button>Apply</button>
-                                        <button>Contact Us</button>
+                                        <button onClick={() => handleChatButtonClick(userId, selectedJob.userId)}>Contact Us</button>
                                         <button>Report</button>
                                     </div>
                                 </div>
