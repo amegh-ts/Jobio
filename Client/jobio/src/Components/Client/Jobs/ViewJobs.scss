@@ -30,7 +30,7 @@
             flex: 1;
             display: flex;
             gap: 20px;
-            justify-content: space-between;
+            justify-content: center;
 
             .vjmb-left {
                 display: flex;
@@ -46,7 +46,15 @@
                 }
             }
 
-            .vjmb-righ {}
+            .vjmb-right {
+                min-width: 36%;
+                border-radius: 10px;
+                display: flex;
+                padding: 10px;
+                align-items: flex-start;
+                justify-content: center;
+                background: yellow;
+            }
         }
     }
 }
