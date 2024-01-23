@@ -39,7 +39,6 @@
 
 
         .Application-popup {
-            background: red;
             min-width: 200px;
 
             .apl-container {
@@ -49,6 +48,30 @@
                     }
                 }
 
+                .aplc-body {
+                    .aplcb-table {
+                        overflow-y: auto;
+                        height: 720px;
+
+                        .all-application-table {
+                            width: 100%;
+                            border-collapse: collapse;
+                            margin-top: 30px;
+
+                            th,
+                            td {
+                                border: 1px solid #ddd;
+                                padding: 12px;
+                                text-align: left;
+                            }
+
+                            th {
+                                background-color: var(--primary-color);
+                                color: white;
+                            }
+                        }
+                    }
+                }
             }
 
         }

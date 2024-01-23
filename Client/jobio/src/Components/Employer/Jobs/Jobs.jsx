@@ -118,11 +118,11 @@ const Jobs = (props) => {
                                                     </div>
                                                     <div className="aplc-body">
                                                         <div className="aplcb-table">
-                                                            <table className="all-users-table">
+                                                            <table className="all-application-table">
                                                                 <thead>
                                                                     <tr>
-                                                                        <th>Image</th>
-                                                                        <th>Username</th>
+                                                                        <th>Applicant ID</th>
+                                                                        <th>email</th>
                                                                         <th>Email</th>
                                                                         <th>State</th>
                                                                         <th>Phone</th>
@@ -161,7 +161,19 @@ const Jobs = (props) => {
                                                                         <td>abc test</td>
                                                                         <td>abc test</td>
                                                                         <td>abc test</td>
+                                                                        <td>abc test</td>
                                                                      </tr>
+
+                                                                     <tr>
+                                                                        <td>abc test</td>
+                                                                        <td>abc test</td>
+                                                                        <td>abc test</td>
+                                                                        <td>abc test</td>
+                                                                        <td>abc test</td>
+                                                                        <td>abc test</td>
+                                                                        <td>abc test</td>
+                                                                     </tr>
+                                                                     
                                                                 </tbody>
                                                             </table>
                                                         </div>
