@@ -59,11 +59,12 @@ const Jobs = (props) => {
         }
     }
 
-    const handelDeleteJob=async (id)=>{
-        console.log(id);
+    const handelDeleteJob = async (data) => {
+        console.log(data);
         try {
-            await deleteJob({id});
-
+            await deleteJob({ id: data });
+            window.location.reload();
+            alert(`Deleted successfully`)
         } catch (error) {
             console.log(error);
         }
@@ -81,30 +82,30 @@ const Jobs = (props) => {
                     <div className="jb-left">
                         <div className="jbl-container">
 
-                            {reversedJobs && reversedJobs.map((jobs)=>(
-                            <div className="jblc-cards" key={jobs._id}>
-                                <div className="jbc-header">
-                                    <h3>{jobs.job}</h3>
-                                    <h4>{jobs.city}, {jobs.district}</h4>
-                                    <div>
-                                        <button>{jobs.salary}</button>
+                            {reversedJobs && reversedJobs.map((jobs) => (
+                                <div className="jblc-cards" key={jobs._id}>
+                                    <div className="jbc-header">
+                                        <h3>{jobs.job}</h3>
+                                        <h4>{jobs.city}, {jobs.district}</h4>
+                                        <div>
+                                            <button>{jobs.salary}</button>
+                                        </div>
                                     </div>
-                                </div>
 
-                                <div className="jbc-body">
-                                    <p>{jobs.description}</p>
-                                    {/* <span>
+                                    <div className="jbc-body">
+                                        <p>{jobs.description}</p>
+                                        {/* <span>
                                         <button>Skill 1</button>
                                         <button>Skill 2</button>
                                     </span> */}
+                                    </div>
+                                    <div className="jbc-footer">
+                                        <h6>{new Date(jobs.createdAt).toLocaleString()}</h6>
+                                        <button onClick={() => { handelDeleteJob(jobs._id) }}>Delete</button>
+                                    </div>
                                 </div>
-                                <div className="jbc-footer">
-                                    <h6>{new Date(jobs.createdAt).toLocaleString()}</h6>
-                                    <button onClick={()=>{handelDeleteJob(jobs._id)}}>Delete</button>
-                                </div>
-                            </div>
 
-))}
+                            ))}
 
 
 
