@@ -2,9 +2,7 @@ const jwt = require("jsonwebtoken");
 
 // Code to check the token is correct
 const verifyToken = (req, res, next) => {
-    // console.log('>>>>>>>>>>>>>>>', req);
     let authHeader = req.headers.token       
-    // console.log("req.header.token===", authHeader);
 
     if (authHeader) {
         const token = authHeader.split(" ")[1];          
