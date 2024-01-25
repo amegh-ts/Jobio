@@ -1,6 +1,7 @@
+/* eslint-disable react/prop-types */
 import { useEffect, useState } from 'react';
 import './ViewJobs.scss';
-import { AllJobs, createChat } from '../../ApiCalls';
+import { AllJobs, createApplication, createChat } from '../../ApiCalls';
 
 const ViewJobs = ({ setActivePageToChats }) => {
     const [jobs, setJobs] = useState('');
@@ -25,7 +26,7 @@ const ViewJobs = ({ setActivePageToChats }) => {
     }, []);
 
     const reversedJobs = [...jobs].reverse();
-    
+
 
     const handleJobClick = (job) => {
         setSelectedJob(job);
@@ -39,6 +40,15 @@ const ViewJobs = ({ setActivePageToChats }) => {
             console.log(error);
         }
     };
+
+    const handleApplyJobClick = async () => {
+        console.log('clickeddd');
+        try {
+            await createApplication()
+        } catch (error) {
+            console.log(error);
+        }
+    }
 
     return (
         <div className='ViewJobs'>
@@ -80,7 +90,7 @@ const ViewJobs = ({ setActivePageToChats }) => {
                                         <span>Base salary <button>₹ {selectedJob.salary}/-</button></span>
                                     </div>
                                     <div className="vjmc-footer">
-                                        <button>Apply</button>
+                                        <button onClick={() => handleApplyJobClick(userId, selectedJob._id, { selectedJob })}>Apply</button>
                                         <button onClick={() => handleChatButtonClick(userId, selectedJob.userId)}>Contact Us</button>
                                         <button>Report</button>
                                     </div>

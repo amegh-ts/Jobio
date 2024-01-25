@@ -318,7 +318,9 @@ export const deleteJob = async (data) => {
 
 // <-------------------job Applications-------------------> //
 // apply job
-export const 
+export const createApplication =async(data)=>{
+    console.log('API data', data);
+}
 // view all application
 // view application by applicant id
 // view application by job id
