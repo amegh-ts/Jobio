@@ -1,4 +1,4 @@
-const { ApplyJob } = require('../Controller/ApplicationController');
+const { ApplyJob, getAllApplications, deleteApplication } = require('../Controller/ApplicationController');
 const { AddJobs, getAllJobs, deleteJobs } = require('../Controller/JobController')
 const { verifyToken, verifyTokenAndAuthorization } = require('../VerifyToken')
 
@@ -17,6 +17,8 @@ router.delete('/deletejob',verifyToken,deleteJobs);
 // apply job
 router.post('/applyjob',verifyToken,ApplyJob)
 // view application
+router.get('/allApplications',verifyToken,getAllApplications);
 // delete application
+router.delete('/deleteApplication',verifyToken,deleteApplication);
 
 module.exports = router
