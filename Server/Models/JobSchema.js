@@ -8,8 +8,6 @@ const JobSchema = new mongoose.Schema({
     // skills: { type: Array },
     userId: { type: String, required: true },
     description: { type: String, required: true },
-    applicants: { type: Array }
-   
 }, { timestamps: true })
 
 
