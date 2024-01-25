@@ -5,8 +5,8 @@ const ApplicationSchema=new mongoose.Schema({
     applicantId:{type:String,required:true},
     applicantName:{type:String,required:true},
     jobId:{type:String,required:true},
-    job:{type:String,required:true},
-    senderId:{type:String,required:true},
+    jobDetails:{type:Array,required:true},
+    status:{type:String,required:true},
 })
 
 
