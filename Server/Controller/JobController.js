@@ -21,8 +21,6 @@ const getAllJobs = async (req, res) => {
 }
 // delete jobs 
 const deleteJobs = async (req, res) => {
-    console.log(req.body);
-    console.log('asdfghjkl');
     try {
         const deleteData = await JobSchema.findByIdAndDelete(req.body.id);
         res.status(200).json(deleteData)
