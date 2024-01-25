@@ -41,8 +41,8 @@ const ViewJobs = ({ setActivePageToChats }) => {
         }
     };
 
-    const handleApplyJobClick = async () => {
-        console.log('clickeddd');
+    const handleApplyJobClick = async (userId,jobId,data) => {
+        console.log('clickeddd',userId,jobId,data);
         try {
             await createApplication()
         } catch (error) {
