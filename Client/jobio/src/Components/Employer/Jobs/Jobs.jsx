@@ -1,7 +1,7 @@
 /* eslint-disable react/prop-types */
 import { useEffect, useState } from 'react'
 import './Jobs.scss'
-import { createPost, deleteJob, jobsById, } from '../../ApiCalls'
+import { createJob, deleteJob, jobsById, } from '../../ApiCalls'
 import Popup from './JobPopup/Jpopup';
 
 
@@ -56,7 +56,7 @@ const Jobs = (props) => {
         }
 
         try {
-            await createPost({ job, city, district, description, salary, userId });
+            await createJob({ job, city, district, description, salary, userId });
             window.location.reload();
         } catch (error) {
             console.log(error);
