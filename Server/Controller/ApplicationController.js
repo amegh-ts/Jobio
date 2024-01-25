@@ -12,3 +12,5 @@ const ApplyJob = async (req, res) => {
 }
 // view application
 // delete application
+
+module.exports={ApplyJob}
