@@ -1,17 +1,17 @@
-.Entries{
+.Entries {
     display: flex;
     min-width: 100%;
     overflow: hidden;
     max-height: 830px;
 
-    .es-main{
+    .es-main {
         padding: 10px;
         flex: 1;
         display: flex;
         flex-direction: column;
         gap: 20px;
 
-        .em-header{
+        .em-header {
             padding: 10px 15px;
             border-radius: 10px;
             background: var(--sidebar-color);
@@ -22,6 +22,18 @@
             h3 {
                 font-size: 26px;
                 letter-spacing: 2px;
+            }
+        }
+
+        .em-body {
+            flex: 1;
+            display: flex;
+            gap: 20px;
+            background: red;
+            padding: 10px;
+            // justify-content: center;
+
+            .emb-table {
             }
         }
     }

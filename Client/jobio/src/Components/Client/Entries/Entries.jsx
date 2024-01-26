@@ -5,7 +5,7 @@ const Entries = () => {
         <div className='Entries'>
             <div className="es-main">
                 <div className="em-header">
-                    <h1>My Entries</h1>
+                    <h3>My Entries</h3>
                 </div>
                 <div className="em-body">
                     <div className="emb-table">
