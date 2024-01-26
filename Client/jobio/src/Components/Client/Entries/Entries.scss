@@ -29,11 +29,24 @@
             flex: 1;
             display: flex;
             gap: 20px;
-            background: red;
             padding: 10px;
             // justify-content: center;
 
             .emb-table {
+                background: var(--sidebar-color);
+                padding: 20px;
+
+                #detailTable {
+                    width: 100%;
+                    border-collapse: collapse;
+                }
+
+                #detailTable th,
+                #detailTable td {
+                    border: 1px solid #ddd;
+                    padding: 8px;
+                    text-align: left;
+                }
             }
         }
     }
