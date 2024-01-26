@@ -8,7 +8,6 @@ const user = createSlice({
     reducers: {
         loginUser: (state, action) => {
             state.userInfo.push(action.payload)
-            // console.log('the action.payload......',action.payload);
         },
 
         logoutUser: (state) => {
