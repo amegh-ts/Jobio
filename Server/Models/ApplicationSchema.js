@@ -1,9 +1,8 @@
 const mongoose=require('mongoose')
 
 const ApplicationSchema=new mongoose.Schema({
-    senderId:{type:String,required:true},
+    employerId:{type:String,required:true},
     applicantId:{type:String,required:true},
-    applicantName:{type:String,required:true},
     jobId:{type:String,required:true},
     jobDetails:{type:Array,required:true},
     status:{type:String,required:true},

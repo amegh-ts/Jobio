@@ -41,10 +41,10 @@ const ViewJobs = ({ setActivePageToChats }) => {
         }
     };
 
-    const handleApplyJobClick = async (userId,jobId,data) => {
-        console.log('clickeddd',userId,jobId,data);
+    const handleApplyJobClick = async (userId,employerId,jobId,data) => {
+        console.log('clickeddd',data);
         try {
-            await createApplication()
+            await createApplication({employerId,applicantId:userId,jobId,jobDetails:data})
         } catch (error) {
             console.log(error);
         }
@@ -90,7 +90,7 @@ const ViewJobs = ({ setActivePageToChats }) => {
                                         <span>Base salary <button>₹ {selectedJob.salary}/-</button></span>
                                     </div>
                                     <div className="vjmc-footer">
-                                        <button onClick={() => handleApplyJobClick(userId, selectedJob._id, { selectedJob })}>Apply</button>
+                                        <button onClick={() => handleApplyJobClick(userId,selectedJob.userId, selectedJob._id,  selectedJob )}>Apply</button>
                                         <button onClick={() => handleChatButtonClick(userId, selectedJob.userId)}>Contact Us</button>
                                         <button>Report</button>
                                     </div>

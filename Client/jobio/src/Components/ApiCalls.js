@@ -318,8 +318,16 @@ export const deleteJob = async (data) => {
 
 // <-------------------job Applications-------------------> //
 // apply job
-export const createApplication =async(data)=>{
+export const createApplication = async (data) => {
     console.log('API data', data);
+    const newData = { ...data, status:'applied', }
+    console.log(newData);
+    try {
+        const res = await userRequest.post('/applyjob', data);
+        console.log('Response Status:', res.status);
+    } catch (error) {
+        console.log(error);
+    }
 }
 // view all application
 // view application by applicant id
