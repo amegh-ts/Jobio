@@ -30,23 +30,65 @@
             display: flex;
             gap: 20px;
             padding: 10px;
-            // justify-content: center;
+            justify-content: center;
 
-            .emb-table {
-                background: var(--sidebar-color);
-                padding: 20px;
-                flex: 1;
+            .emb-left {
+                display: flex;
+                border-radius: 10px;
+                max-width: 800px;
+                width: 100%;
+                height: 725px;
+                overflow-y: auto;
 
-                #detailTable {
-                    width: 100%;
-                    border-collapse: collapse;
+                &::-webkit-scrollbar {
+                    width: 5px;
                 }
 
-                #detailTable th,
-                #detailTable td {
-                    border: 1px solid #ddd;
-                    padding: 8px;
-                    text-align: left;
+                .embl-container{
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+                    width: 100%;
+                    gap: 10px;
+                    padding-top: 10px;
+
+                    .embl-card{
+                        background: white;
+                        padding: 10px;
+                        width: 500px;
+                        border-radius: 10px;
+                        cursor: pointer;
+
+                        &:hover{
+                            box-shadow: 0 0 10px var(--primary-color);
+                        }
+                    }
+                }
+            }
+
+            .emb-right {
+                min-width: 36%;
+                border-radius: 10px;
+                display: flex;
+                padding: 10px;
+                align-items: flex-start;
+                justify-content: center;
+
+                .embr-container{
+                    max-width: 600px;
+                    width: 100%;
+                    background: rgb(255, 255, 255);
+                    border-radius: 10px;
+                    border: 1px solid rgb(177, 177, 177);
+                    padding: 20px;
+
+                    .detailed-info{
+                        min-height: 400px;
+                        display: flex;
+                        flex-direction: column;
+                        gap: 10px;
+                        cursor: default;
+                    }
                 }
             }
         }
