@@ -1,0 +1,28 @@
+.Entries{
+    display: flex;
+    min-width: 100%;
+    overflow: hidden;
+    max-height: 830px;
+
+    .es-main{
+        padding: 10px;
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+
+        .em-header{
+            padding: 10px 15px;
+            border-radius: 10px;
+            background: var(--sidebar-color);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+
+            h3 {
+                font-size: 26px;
+                letter-spacing: 2px;
+            }
+        }
+    }
+}
