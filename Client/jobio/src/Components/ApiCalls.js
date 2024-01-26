@@ -319,11 +319,9 @@ export const deleteJob = async (data) => {
 // <-------------------job Applications-------------------> //
 // apply job
 export const createApplication = async (data) => {
-    console.log('API data', data);
-    const newData = { ...data, status:'applied', }
-    console.log(newData);
+    const newData = { ...data, status: 'applied' }
     try {
-        const res = await userRequest.post('/applyjob', data);
+        const res = await userRequest.post('/applyjob', newData);
         console.log('Response Status:', res.status);
     } catch (error) {
         console.log(error);
