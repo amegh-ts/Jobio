@@ -1,0 +1,96 @@
+.Entries {
+    display: flex;
+    min-width: 100%;
+    overflow: hidden;
+    max-height: 830px;
+
+    .es-main {
+        padding: 10px;
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+
+        .em-header {
+            padding: 10px 15px;
+            border-radius: 10px;
+            background: var(--sidebar-color);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+
+            h3 {
+                font-size: 26px;
+                letter-spacing: 2px;
+            }
+        }
+
+        .em-body {
+            flex: 1;
+            display: flex;
+            gap: 20px;
+            padding: 10px;
+            justify-content: center;
+
+            .emb-left {
+                display: flex;
+                border-radius: 10px;
+                max-width: 800px;
+                width: 100%;
+                height: 725px;
+                overflow-y: auto;
+
+                &::-webkit-scrollbar {
+                    width: 5px;
+                }
+
+                .embl-container{
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+                    width: 100%;
+                    gap: 10px;
+                    padding-top: 10px;
+
+                    .embl-card{
+                        background: white;
+                        padding: 10px;
+                        width: 500px;
+                        border-radius: 10px;
+                        cursor: pointer;
+
+                        &:hover{
+                            box-shadow: 0 0 10px var(--primary-color);
+                        }
+                    }
+                }
+            }
+
+            .emb-right {
+                min-width: 36%;
+                border-radius: 10px;
+                display: flex;
+                padding: 10px;
+                align-items: flex-start;
+                justify-content: center;
+
+                .embr-container{
+                    max-width: 600px;
+                    width: 100%;
+                    background: rgb(255, 255, 255);
+                    border-radius: 10px;
+                    border: 1px solid rgb(177, 177, 177);
+                    padding: 20px;
+
+                    .detailed-info{
+                        min-height: 400px;
+                        display: flex;
+                        flex-direction: column;
+                        gap: 10px;
+                        cursor: default;
+                    }
+                }
+            }
+        }
+    }
+}

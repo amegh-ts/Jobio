@@ -248,7 +248,6 @@ export const viewMessages = async (chatId) => {
 // create feed
 export const createFeed = async (data) => {
     const newData = { ...data, likes: 0, report: 0 }
-    console.log('dataaa', newData);
     try {
         const res = await userRequest.post('/createfeed', newData);
         console.log('Response Status:', res.status);
@@ -275,8 +274,8 @@ export const allFeeds = async () => {
 
 // <-------------------jobs-------------------> //
 // add jobs
-export const createPost = async (data) => {
-    // console.log('dataaa', data);
+export const createJob = async (data) => {
+    // console.log('data', data);
     try {
         const res = await userRequest.post('/addjob', data);
         console.log('Response Status:', res.status);
@@ -310,9 +309,25 @@ export const jobsById = async () => {
 export const deleteJob = async (data) => {
     console.log('api id', data);
     try {
-        const res = await userRequest.delete('/deletejob',{data})
+        const res = await userRequest.delete('/deletejob', { data })
         console.log('Response Status:', res.status);
     } catch (error) {
         console.log(error);
     }
 }
+
+// <-------------------job Applications-------------------> //
+// apply job
+export const createApplication = async (data) => {
+    const newData = { ...data, status: 'applied' }
+    try {
+        const res = await userRequest.post('/applyjob', newData);
+        console.log('Response Status:', res.status);
+    } catch (error) {
+        console.log(error);
+    }
+}
+// view all application
+// view application by applicant id
+// view application by job id
+// delete application

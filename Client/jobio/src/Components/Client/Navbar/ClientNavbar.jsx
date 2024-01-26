@@ -20,6 +20,7 @@ import Chats from '../../Chats/Chats';
 import ClientHome from '../Home/ClientHome';
 import ViewJobs from '../Jobs/ViewJobs';
 import ClientAlerts from '../Alerts/ClientAlerts';
+import Entries from '../Entries/Entries';
 
 
 const ClientNavbar = () => {
@@ -78,6 +79,7 @@ const ClientNavbar = () => {
         chats: <Chats/>,
         profile: <Profile />,
         jobs:<ViewJobs setActivePageToChats={setActivePageToChats} />,
+        entries:<Entries/>,
         alert:<ClientAlerts/>
     };
 
@@ -99,9 +101,9 @@ const ClientNavbar = () => {
                         <IoBriefcase className="icon" />
                         <span>Jobs</span>
                     </div>
-                    <div className="menu-item">
+                    <div  className={`menu-item ${activePage === 'entries' ? 'active' : ''}`} onClick={() => { setActivePage('entries'); }}>
                         <IoDocumentText className="icon" />
-                        <span>Request</span>
+                        <span>Entries</span>
                     </div>
                     <div className={`menu-item ${activePage === 'chats' ? 'active' : ''}`} onClick={() => { setActivePage('chats'); }}>
                         <IoChatbubbleEllipses className="icon" />
