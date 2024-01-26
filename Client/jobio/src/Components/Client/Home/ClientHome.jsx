@@ -73,12 +73,15 @@ const ClientHome = ({ userId }) => {
             <img src={!data.photo || data.photo === '' || data.photo === null ? '/Images/user.png' : data.photo} alt="" width={100} height={100} />
           </div>
           <div className="footer">
-            <h2>{data.username}</h2>
-            <h3>{data.about}</h3>
-            <h5>{data.city}, {data.district} </h5>
-            <h5>Contact info</h5>
-            <button>Add post</button>
-
+            {data && (
+              <>
+                <h2>{data.username}</h2>
+                <h3>{data.about}</h3>
+                <h5>{data.city}, {data.district} </h5>
+                <h5>Contact info</h5>
+                <button>Add post</button>
+              </>
+            )}
           </div>
         </div>
 
@@ -118,7 +121,7 @@ const ClientHome = ({ userId }) => {
             </Popup>
           </div>
 
-          {showWelcomeContainer && (
+          {showWelcomeContainer && data &&  (
             <div className="welcome-container">
               <div className="close" onClick={handleCloseWelcomeContainer}>
                 <IoCloseCircleOutline className="icon" />
