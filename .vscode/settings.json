@@ -26,6 +26,7 @@
         "deletejob",
         "deleteprofile",
         "editprofile",
+        "embl",
         "Ernakulam",
         "fetchuser",
         "firstname",
