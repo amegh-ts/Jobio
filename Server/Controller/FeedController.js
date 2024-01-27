@@ -18,8 +18,7 @@ const allFeeds = async (req, res) => {
         res.status(500).json(error)
     }
 }
-// view feeds
-// edit feed
 // delete feed
+
 
 module.exports = { AddFeed ,allFeeds}
