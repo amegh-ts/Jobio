@@ -19,6 +19,14 @@ const allFeeds = async (req, res) => {
     }
 }
 // delete feed
+const deleteFeed = async (req, res) => {
+    console.log(req.body);
+    try {
+        // const deleteData=await FeedSchema.findByIdAndDelete(req.body.id)
+        // res.status(200).json(deleteData)
+    } catch (error) {
+        res.status(500).json(error)
+    }
+}
 
-
-module.exports = { AddFeed ,allFeeds}
+module.exports = { AddFeed, allFeeds, deleteFeed }
