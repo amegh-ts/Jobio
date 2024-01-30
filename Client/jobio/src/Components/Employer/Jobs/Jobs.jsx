@@ -83,8 +83,8 @@ const Jobs = (props) => {
             const apiData = await viewProfileById(id)
             console.log(apiData);
             const userProfile = apiData[0];
-
             setUser(userProfile);
+            setDetailsPopup(true)
         } catch (error) {
             console.log(error);
         }
@@ -163,11 +163,12 @@ const Jobs = (props) => {
                                                                             <td><button onClick={() => { handleViewProfile(application.applicantId) }}>View Profile</button></td>
                                                                         </tr>
                                                                     ))}
-                                                                    <Popup trigger={detailsPopup} setTrigger={setDetailsPopup}>
 
-                                                                    </Popup>
                                                                 </tbody>
                                                             </table>
+                                                            <Popup trigger={detailsPopup} setTrigger={setDetailsPopup}>
+
+                                                            </Popup>
                                                         </div>
 
                                                     </div>
