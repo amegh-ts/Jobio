@@ -327,6 +327,25 @@ export const createApplication = async (data) => {
     }
 }
 // view all application
+export const AllApplication = async () => {
+    try {
+        const res = await userRequest.get('/allApplications');
+        console.log('Response Status:', res.status);
+        return res.data
+    } catch (error) {
+        console.log(error);
+    }
+}
 // view application by applicant id
+export const applicationByUID = async () => {
+    try {
+        const res = await userRequest.get('/allApplications')
+        const applications = res.data;
+        const filteredApplication = applications.filter(application => application.userId === userId);
+        return filteredApplication
+    } catch (error) {
+        console.log(error);
+    }
+}
 // view application by job id
 // delete application
