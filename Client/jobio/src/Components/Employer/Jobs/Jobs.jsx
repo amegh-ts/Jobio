@@ -169,7 +169,23 @@ const Jobs = (props) => {
                                                             <Popup trigger={detailsPopup} setTrigger={setDetailsPopup}>
                                                                 <div className="userDetail-popup">
                                                                     <div className="udp-container">
-hh
+                                                                        <div className="header">
+                                                                            <img src={!user.coverphoto || user.coverphoto === '' || user.coverphoto === null ? '/Images/banner.png' : user.coverphoto} alt="" width={100} height={100} />
+                                                                        </div>
+                                                                        <div className='middle'>
+                                                                            <div className="photo">
+                                                                                <img src={!user.photo || user.photo === '' || user.photo === null ? '/Images/user.png' : user.photo} alt="" width={100} height={100} />
+                                                                            </div>
+                                                                            <div className='detail-container'>
+                                                                                <h3>{user.username}</h3>
+                                                                                <span className='fullname'>
+                                                                                    <h2>{user.firstname}</h2><h2>{user.lastname}</h2>
+                                                                                </span>
+                                                                                <h5>{user.city}, {user.district}, India : </h5>
+                                                                                <span>Phone : {user.phone}</span>
+                                                                                <span>Email : {user.email}</span>
+                                                                            </div>
+                                                                        </div>
                                                                     </div>
                                                                 </div>
                                                             </Popup>
