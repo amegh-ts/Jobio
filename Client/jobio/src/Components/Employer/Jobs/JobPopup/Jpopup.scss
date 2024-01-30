@@ -145,6 +145,25 @@
                 }
 
                 .user-skills {
+                    width: 100%;
+                    max-width: 800px;
+                    background: var(--sidebar-color);
+                    border-radius: 10px;
+
+                    h3 {
+                        padding: 10px 20px;
+                    }
+
+                    .skill-container {
+                        display: flex;
+                        flex-wrap: wrap;
+                        padding: 0 20px;
+                        gap: 20px;
+
+                        .btn {
+                            padding: 10px;
+                        }
+                    }
                 }
 
                 .user-education {
