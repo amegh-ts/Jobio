@@ -60,6 +60,20 @@
                                 border: 1px solid #ddd;
                                 padding: 12px;
                                 text-align: left;
+
+                                button{
+                                    border: 1px solid var(--primary-color);
+                                    font-weight: 500;
+                                    letter-spacing: 2px;
+                                    padding: 10px;
+                                    font-size: 16px;
+                                    border-radius: 10px;
+            
+                                    &:hover{
+                                        background: var(--primary-color);
+                                        color: white;
+                                    }
+                                }
                             }
 
                             th {
@@ -167,6 +181,52 @@
                 }
 
                 .user-education {
+                    width: 100%;
+                    max-width: 800px;
+                    background: var(--sidebar-color);
+                    border-radius: 10px;
+
+                    h3 {
+                        padding: 10px 20px;
+                    }
+
+                    .education-container {
+                        padding: 0 20px;
+
+                        .content {
+                            h5 {
+                                font-size: 24px;
+                            }
+
+                            h6 {
+                                font-size: 20px;
+                                font-weight: 500;
+                            }
+
+                            p {
+                                color: var(--text-color);
+                            }
+                        }
+                    }
+                }
+
+                .user-action{
+                    display: flex;
+                    justify-content: center;
+
+                    button{
+                        border: 1px solid var(--primary-color);
+                        font-weight: 500;
+                        letter-spacing: 2px;
+                        padding: 10px;
+                        font-size: 16px;
+                        border-radius: 10px;
+
+                        &:hover{
+                            background: var(--primary-color);
+                            color: white;
+                        }
+                    }
                 }
             }
         }

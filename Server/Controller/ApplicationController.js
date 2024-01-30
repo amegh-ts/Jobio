@@ -38,6 +38,10 @@ const getAllApplications = async (req, res) => {
         res.status(500).json(error)
     }
 }
+// edit application
+const editApplication = async (req, res) => {
+
+}
 // delete application
 const deleteApplication = async (req, res) => {
     console.log(req.body);

@@ -92,7 +92,15 @@ const Jobs = (props) => {
         }
     }
 
-    console.log(user);
+    // console.log(user);
+
+    const handleApprove=async(id)=>{
+        try {
+            console.log(id);
+        } catch (error) {
+            console.log(error);
+        }
+    }
 
     const handelDeleteJob = async (data) => {
         console.log(data);
@@ -154,7 +162,7 @@ const Jobs = (props) => {
                                                                     <tr>
                                                                         <th>Applicant ID</th>
                                                                         <th>Status</th>
-                                                                        <th>Action</th>
+                                                                        <th colSpan={2}>Action</th>
                                                                     </tr>
                                                                 </thead>
                                                                 <tbody>
@@ -163,6 +171,7 @@ const Jobs = (props) => {
                                                                             <td>{application.applicantId}</td>
                                                                             <td>{application.status}</td>
                                                                             <td><button onClick={() => { handleViewProfile(application.applicantId) }}>View Profile</button></td>
+                                                                            <td><button onClick={()=>{handleApprove(application._id)}}>Approve</button></td>
                                                                         </tr>
                                                                     ))}
 
@@ -215,10 +224,6 @@ const Jobs = (props) => {
                                                                                     <p>Year of completion : {user.year}</p>
                                                                                 </div>
                                                                             </div>
-                                                                        </div>
-
-                                                                        <div className="user-action">
-                                                                            <button>Approve</button>
                                                                         </div>
                                                                     </div>
                                                                 </div>

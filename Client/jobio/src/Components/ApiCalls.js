@@ -371,4 +371,5 @@ export const applicationByJID = async (id) => {
         console.log(error);
     }
 }
+// edit application
 // delete application
