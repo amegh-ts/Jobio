@@ -27,16 +27,13 @@
 
             &:hover {
                 color: rgb(221, 2, 2);
-
             }
 
             .icon {
                 font-size: 28px;
                 cursor: pointer;
-
             }
         }
-
 
         .Application-popup {
             min-width: 200px;
@@ -73,31 +70,48 @@
                     }
                 }
             }
-
         }
 
-        .userDetail-popup{
+        .userDetail-popup {
             min-width: 200px;
             display: flex;
-            
-            .udp-container{
-                .user-details{
-                    .header{
+            justify-content: center;
 
+            .udp-container {
+                background: red;
+                padding: 10px;
+
+                .user-details {
+                    width: 100%;
+                    max-width: 800px;
+                    background: var(--sidebar-color);
+                    border-radius: 10px;
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: space-evenly;
+                    align-items: flex-start;
+
+                    .header {
+                        height: 200px;
+                        width: 800px;
+                        position: relative;
+
+                        .image {
+                            img {
+                                height: 200px;
+                                width: 800px;
+                            }
+                        }
                     }
-                    .middle{
 
-                    }
-                    .footer{
+                    .middle {}
 
-                    }
+                    .footer {}
                 }
-                .user-skills{
 
-                }
-                .user-education{
-                    
-                }
+                .user-skills {}
+
+                .user-education {}
             }
         }
     }
