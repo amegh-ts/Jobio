@@ -16,6 +16,7 @@ const Jobs = (props) => {
     var userId = props.userId
     const [applicationPopup, setApplicationPopup] = useState(false)
     const [detailsPopup, setDetailsPopup] = useState(false)
+    const [displaySkill, setDisplaySkill] = useState([])
     const [user, setUser] = useState({})
 
 
@@ -84,6 +85,7 @@ const Jobs = (props) => {
             console.log(apiData);
             const userProfile = apiData[0];
             setUser(userProfile);
+            setDisplaySkill(userProfile.selectedSkills || []);
             setDetailsPopup(true)
         } catch (error) {
             console.log(error);
@@ -191,6 +193,32 @@ const Jobs = (props) => {
                                                                                 <h4>Highlight</h4>
                                                                                 <p>{user.about}</p>
                                                                             </div>
+                                                                        </div>
+
+                                                                        <div className="user-skills">
+                                                                            <h3>Skills</h3>
+                                                                            <div className='skill-container'>
+                                                                                {displaySkill.map((skill, index) => (
+                                                                                    <button key={index} className='btn'>
+                                                                                        {skill}
+                                                                                    </button>
+                                                                                ))}
+                                                                            </div>
+                                                                        </div>
+
+                                                                        <div className="user-education">
+                                                                            <h3>Last Education</h3>
+                                                                            <div className="education-container">
+                                                                                <div className='content'>
+                                                                                    <h5>{user.institute}</h5>
+                                                                                    <h6>{user.course}</h6>
+                                                                                    <p>Year of completion : {user.year}</p>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+
+                                                                        <div className="user-action">
+                                                                            <button>Approve</button>
                                                                         </div>
                                                                     </div>
                                                                 </div>
