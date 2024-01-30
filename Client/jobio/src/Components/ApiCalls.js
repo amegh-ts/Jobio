@@ -372,9 +372,9 @@ export const applicationByJID = async (id) => {
     }
 }
 // edit application
-export const editApplication = async (id) => {
+export const editApplication = async (id,data) => {
     try {
-        const res = await userRequest.put(`/editapplication/${id}`, {status:'approved'})
+        const res = await userRequest.put(`/editapplication/${id}`, data)
         console.log('Response Status:', res.status);
     } catch (error) {
         console.log(error);

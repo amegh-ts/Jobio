@@ -42,8 +42,8 @@ const getAllApplications = async (req, res) => {
 const editApplication = async (req, res) => {
     console.log(req);
     try {
-        // const updateData = await ApplicationSchema.findByIdAndUpdate(req.params.id, { $set: req.body }, { new: true })
-        // res.status(200).json(updateData)
+        const updateData = await ApplicationSchema.findByIdAndUpdate(req.params.id, { $set: req.body }, { new: true })
+        res.status(200).json(updateData)
     } catch (error) {
         res.status(500).json(error)
     }
