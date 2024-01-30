@@ -25,6 +25,7 @@
         "deletealert",
         "deletejob",
         "deleteprofile",
+        "editapplication",
         "editprofile",
         "embl",
         "emblc",

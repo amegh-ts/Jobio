@@ -372,4 +372,13 @@ export const applicationByJID = async (id) => {
     }
 }
 // edit application
+export const editApplication = async (id) => {
+    try {
+        const res = await userRequest.put(`/editapplication/${id}`, {status:'approved'})
+        console.log('Response Status:', res.status);
+    } catch (error) {
+        console.log(error);
+
+    }
+}
 // delete application

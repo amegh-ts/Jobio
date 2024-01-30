@@ -40,18 +40,19 @@ const getAllApplications = async (req, res) => {
 }
 // edit application
 const editApplication = async (req, res) => {
+    console.log(req);
     try {
-        const updateData = await ApplicationSchema.findByIdAndUpdate(req.params.id, { $set: req.body }, { new: true })
-        res.status(200).json(updateData)
+        // const updateData = await ApplicationSchema.findByIdAndUpdate(req.params.id, { $set: req.body }, { new: true })
+        // res.status(200).json(updateData)
     } catch (error) {
         res.status(500).json(error)
     }
 }
 // delete application
 const deleteApplication = async (req, res) => {
-    console.log(req.body);
+    console.log(req);
     try {
-        const applicationData = await ApplicationSchema.findByIdAndDelete(req.body.id);
+        const applicationData = await ApplicationSchema.findByIdAndDelete(req.params.id);
         res.status(200).json(applicationData)
     } catch (error) {
         res.status(500).json(error)
