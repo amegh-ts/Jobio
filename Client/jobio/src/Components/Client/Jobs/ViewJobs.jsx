@@ -48,6 +48,7 @@ const ViewJobs = ({ setActivePageToChats }) => {
             alert('Successfully Applies for the Job')
         } catch (error) {
             console.log(error);
+            alert('error')
         }
     }
 

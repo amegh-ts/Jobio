@@ -53,6 +53,18 @@ export const viewProfile = async () => {
         console.log(error);
     }
 }
+// view profile by id
+export const viewProfileById = async (id) => {
+    console.log(id);
+    try {
+        const res = await userRequest.get('/allusers');
+        const filteredUser = res.data.filter(user => user._id === id);
+        console.log('Response Status:', res.status);
+        return filteredUser;
+    } catch (error) {
+        console.log(error);
+    }
+}
 
 // edit profile
 export const editProfile = async (data) => {
@@ -319,7 +331,7 @@ export const deleteJob = async (data) => {
 // apply job
 export const createApplication = async (data) => {
     const newData = { ...data, status: 'applied' }
-    console.log('new dataaaaa',newData);
+    console.log('new dataaaaa', newData);
     try {
         const res = await userRequest.post('/applyjob', newData);
         console.log('Response Status:', res.status);
@@ -349,4 +361,14 @@ export const applicationByUID = async () => {
     }
 }
 // view application by job id
+export const applicationByJID = async (id) => {
+    try {
+        const res = await userRequest.get('/allApplications')
+        const applications = res.data;
+        const filteredApplication = applications.filter(application => application.jobId === id);
+        return filteredApplication
+    } catch (error) {
+        console.log(error);
+    }
+}
 // delete application

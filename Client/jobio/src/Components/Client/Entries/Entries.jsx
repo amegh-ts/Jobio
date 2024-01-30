@@ -13,7 +13,7 @@ const Entries = () => {
             try {
                 const entries = await applicationByUID()
                 setEntries(entries)
-                setSelectedEntry(entries.length > 0 ? entries[entries - 1] : null)
+                setSelectedEntry(entries.length > 0 ? entries[entries.length - 1] : null)
             } catch (error) {
                 console.log(error);
             }
@@ -28,7 +28,6 @@ const Entries = () => {
     };
 
 
-    console.log(reversedEntries);
     return (
         <div className='Entries'>
             <div className="es-main">

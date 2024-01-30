@@ -1,7 +1,7 @@
 /* eslint-disable react/prop-types */
 import { useEffect, useState } from 'react'
 import './Jobs.scss'
-import { createJob, deleteJob, jobsById, } from '../../ApiCalls'
+import { applicationByJID, createJob, deleteJob, jobsById, viewProfile, viewProfileById, } from '../../ApiCalls'
 import Popup from './JobPopup/Jpopup';
 
 
@@ -12,8 +12,11 @@ const Jobs = (props) => {
     const [description, setDescription] = useState('')
     const [salary, setSalary] = useState('')
     const [jobsId, setJobsId] = useState([])
+    const [applications, setApplications] = useState([])
     var userId = props.userId
     const [applicationPopup, setApplicationPopup] = useState(false)
+    const [detailsPopup, setDetailsPopup] = useState(false)
+    const [user,setUser]=useState({})
 
 
     const KeralaStates = [
@@ -63,6 +66,27 @@ const Jobs = (props) => {
         }
     }
 
+    const handleApplicationPopup = async (id) => {
+        console.log(id);
+        try {
+            const data = await applicationByJID(id)
+            setApplications(data)
+            setApplicationPopup(true)
+        } catch (error) {
+            console.log(error);
+        }
+    }
+    console.log(applications);
+
+    const handleViewProfile=async(id)=>{
+        console.log(id);
+        try {
+            const apiData=await viewProfileById(id)
+            console.log(apiData);
+        } catch (error) {
+            console.log(error);
+        }
+    }
     const handelDeleteJob = async (data) => {
         console.log(data);
         try {
@@ -106,7 +130,7 @@ const Jobs = (props) => {
                                     <div className="jbc-footer">
                                         <h6>{new Date(jobs.createdAt).toLocaleString()}</h6>
                                         <span>
-                                            <button onClick={() => setApplicationPopup(true)}>Applications</button>
+                                            <button onClick={() => handleApplicationPopup(jobs._id)}>Applications</button>
                                             <button onClick={() => { handelDeleteJob(jobs._id) }}>Delete</button>
                                         </span>
 
@@ -122,58 +146,21 @@ const Jobs = (props) => {
                                                                 <thead>
                                                                     <tr>
                                                                         <th>Applicant ID</th>
-                                                                        <th>Username</th>
-                                                                        <th>Email</th>
-                                                                        <th>State</th>
-                                                                        <th>Phone</th>
-                                                                        <th>Type</th>
+                                                                        <th>Status</th>
                                                                         <th>Action</th>
                                                                     </tr>
                                                                 </thead>
                                                                 <tbody>
-                                                                    {/* {filteredUsers.map((user, index) => (
+                                                                    {applications.map((application, index) => (
                                                                         <tr key={index}>
-                                                                            <td>
-                                                                                <div className="user-cards-img">
-                                                                                    <img src={user.photo} alt="" />
-                                                                                </div>
-                                                                            </td>
-                                                                            <td>{user.username}</td>
-                                                                            <td>{user.email}</td>
-                                                                            <td>{user.state}</td>
-                                                                            <td>{user.phone}</td>
-                                                                            <td>{user.type}</td>
-                                                                            <td>
-                                                                                <div className="edit-chat">
-                                                                                    <button><IoPencil className='bicon' /></button>
-                                                                                    <button onClick={() => handleChatButtonClick(userId, user._id)}><IoChatbubbles className='bicon' /></button>
-                                                                                    <button onClick={() => handleBanButtonClick(userId, user._id, user.username)}><IoBan /></button>
-                                                                                </div>
-                                                                            </td>
+                                                                            <td>{application.applicantId}</td>
+                                                                            <td>{application.status}</td>
+                                                                            <td><button onClick={()=>{handleViewProfile(application.applicantId)}}>View Profile</button></td>
                                                                         </tr>
                                                                     ))}
-                                                                     */}
+                                                                    <Popup trigger={detailsPopup} setTrigger={setDetailsPopup}>
 
-                                                                    <tr>
-                                                                        <td>abc test</td>
-                                                                        <td>abc test</td>
-                                                                        <td>abc test</td>
-                                                                        <td>abc test</td>
-                                                                        <td>abc test</td>
-                                                                        <td>abc test</td>
-                                                                        <td>abc test</td>
-                                                                    </tr>
-
-                                                                    <tr>
-                                                                        <td>abc test</td>
-                                                                        <td>abc test</td>
-                                                                        <td>abc test</td>
-                                                                        <td>abc test</td>
-                                                                        <td>abc test</td>
-                                                                        <td>abc test</td>
-                                                                        <td>abc test</td>
-                                                                    </tr>
-
+                                                                    </Popup>
                                                                 </tbody>
                                                             </table>
                                                         </div>
