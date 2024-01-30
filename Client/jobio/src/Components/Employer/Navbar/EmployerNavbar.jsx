@@ -20,6 +20,7 @@ import EmployerHome from '../Home/EmployerHome';
 import Chats from '../../Chats/Chats';
 import Jobs from '../Jobs/Jobs';
 import EmployerAlerts from '../Alerts/EmployerAlerts';
+import EmployerSettings from '../Settings/EmployerSettings';
 
 const EmployerNavbar = () => {
     const [primaryColor, setPrimaryColor] = useState('');
@@ -74,7 +75,8 @@ const EmployerNavbar = () => {
         jobs: <Jobs userId={userId} />,
         chats: <Chats setActivePageToChats={setActivePageToChats} />,
         profile: <Profile />,
-        alert: <EmployerAlerts />
+        alert: <EmployerAlerts />,
+        settings:<EmployerSettings setActivePage={setActivePage}/>
     };
 
     return (
@@ -103,7 +105,7 @@ const EmployerNavbar = () => {
                         <IoDocumentText className="icon" />
                         <span>Request</span>
                     </div>
-                    <div className="menu-item">
+                    <div className={`menu-item ${activePage === 'settings' ? 'active' : ''}`} onClick={() => { setActivePage('settings'); }}>
                         <IoCog className="icon" />
                         <span>Settings</span>
                     </div>
