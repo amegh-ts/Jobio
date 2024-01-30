@@ -91,8 +91,8 @@ const EmployerHome = ({ userId }) => {
                 <h2>{data.username}</h2>
                 <h3>{data.about}</h3>
                 <h5>{data.city}, {data.district} </h5>
-                <h5>Contact info</h5>
-                <button>Add post</button>
+                <h5>Contact info : <span>{data.email}</span></h5>
+                {/* <button>Add post</button> */}
               </>
             )}
           </div>
