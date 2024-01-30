@@ -63,6 +63,9 @@
                             box-shadow: 0 0 10px var(--primary-color);
                         }
                     }
+                    .embl-card.selected{
+                        border: 1px solid var(--primary-color);
+                    }
                 }
             }
 

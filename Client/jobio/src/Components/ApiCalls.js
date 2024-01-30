@@ -319,6 +319,7 @@ export const deleteJob = async (data) => {
 // apply job
 export const createApplication = async (data) => {
     const newData = { ...data, status: 'applied' }
+    console.log('new dataaaaa',newData);
     try {
         const res = await userRequest.post('/applyjob', newData);
         console.log('Response Status:', res.status);
@@ -341,7 +342,7 @@ export const applicationByUID = async () => {
     try {
         const res = await userRequest.get('/allApplications')
         const applications = res.data;
-        const filteredApplication = applications.filter(application => application.userId === userId);
+        const filteredApplication = applications.filter(application => application.applicantId === userId);
         return filteredApplication
     } catch (error) {
         console.log(error);

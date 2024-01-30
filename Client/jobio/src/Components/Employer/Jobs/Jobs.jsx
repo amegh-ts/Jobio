@@ -37,7 +37,7 @@ const Jobs = (props) => {
         async function fetchJobs() {
             try {
                 const jobData = await jobsById();
-                console.log(jobData);
+                // console.log(jobData);
                 setJobsId(jobData)
             } catch (error) {
                 console.log(error);
