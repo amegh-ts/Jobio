@@ -122,7 +122,7 @@ const Jobs = (props) => {
                                                                 <thead>
                                                                     <tr>
                                                                         <th>Applicant ID</th>
-                                                                        <th>email</th>
+                                                                        <th>Username</th>
                                                                         <th>Email</th>
                                                                         <th>State</th>
                                                                         <th>Phone</th>
