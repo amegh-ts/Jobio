@@ -76,17 +76,22 @@ const Jobs = (props) => {
             console.log(error);
         }
     }
-    console.log(applications);
 
     const handleViewProfile = async (id) => {
         console.log(id);
         try {
             const apiData = await viewProfileById(id)
             console.log(apiData);
+            const userProfile = apiData[0];
+
+            setUser(userProfile);
         } catch (error) {
             console.log(error);
         }
     }
+
+    console.log(user);
+
     const handelDeleteJob = async (data) => {
         console.log(data);
         try {
