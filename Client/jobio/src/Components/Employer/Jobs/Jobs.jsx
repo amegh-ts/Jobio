@@ -16,7 +16,7 @@ const Jobs = (props) => {
     var userId = props.userId
     const [applicationPopup, setApplicationPopup] = useState(false)
     const [detailsPopup, setDetailsPopup] = useState(false)
-    const [user,setUser]=useState({})
+    const [user, setUser] = useState({})
 
 
     const KeralaStates = [
@@ -78,10 +78,10 @@ const Jobs = (props) => {
     }
     console.log(applications);
 
-    const handleViewProfile=async(id)=>{
+    const handleViewProfile = async (id) => {
         console.log(id);
         try {
-            const apiData=await viewProfileById(id)
+            const apiData = await viewProfileById(id)
             console.log(apiData);
         } catch (error) {
             console.log(error);
@@ -155,7 +155,7 @@ const Jobs = (props) => {
                                                                         <tr key={index}>
                                                                             <td>{application.applicantId}</td>
                                                                             <td>{application.status}</td>
-                                                                            <td><button onClick={()=>{handleViewProfile(application.applicantId)}}>View Profile</button></td>
+                                                                            <td><button onClick={() => { handleViewProfile(application.applicantId) }}>View Profile</button></td>
                                                                         </tr>
                                                                     ))}
                                                                     <Popup trigger={detailsPopup} setTrigger={setDetailsPopup}>
