@@ -111,7 +111,7 @@ const ClientNavbar = () => {
                         <IoChatbubbleEllipses className="icon" />
                         <span>Chats</span>
                     </div>
-                    <div className="menu-item">
+                    <div className={`menu-item ${activePage === 'settings' ? 'active' : ''}`} onClick={() => { setActivePage('settings'); }}>
                         <IoCog className="icon" />
                         <span>Settings</span>
                     </div>
