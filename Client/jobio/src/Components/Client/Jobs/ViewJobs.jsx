@@ -42,7 +42,7 @@ const ViewJobs = ({ setActivePageToChats }) => {
     };
 
     const handleApplyJobClick = async (userId,employerId,jobId,data) => {
-        console.log('clickeddd',data);
+        // console.log('clickeddd',data);
         try {
             await createApplication({employerId,applicantId:userId,jobId,jobDetails:data})
             alert('Successfully Applies for the Job')

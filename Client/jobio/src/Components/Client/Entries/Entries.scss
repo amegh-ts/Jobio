@@ -121,6 +121,7 @@
 
                         .embrc-footer {
                             justify-content: flex-end;
+                            flex: 1;
                             display: flex;
                             align-items: center;
                             gap: 15px;
@@ -128,7 +129,6 @@
                             button {
                                 padding: 8px;
                                 width: 150px;
-                                border-radius: 20px;
                                 border: 1px solid rgb(198, 198, 198);
                                 background: transparent;
                                 font-size: 15px;

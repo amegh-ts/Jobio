@@ -13,6 +13,7 @@ const Entries = () => {
             try {
                 const entries = await applicationByUID()
                 setEntries(entries)
+                setSelectedEntry(entries.length > 0 ? entries[entries - 1] : null)
             } catch (error) {
                 console.log(error);
             }
