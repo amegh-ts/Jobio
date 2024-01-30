@@ -132,6 +132,15 @@
                     }
 
                     .footer {
+                        padding: 0 30px;
+                        left: 20px;
+                        top: 263px;
+
+                        p {
+                            font-size: 14px;
+                            font-weight: 500;
+                            color: var(--text-color);
+                        }
                     }
                 }
 
