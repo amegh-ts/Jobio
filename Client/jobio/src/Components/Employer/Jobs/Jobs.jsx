@@ -167,7 +167,11 @@ const Jobs = (props) => {
                                                                 </tbody>
                                                             </table>
                                                             <Popup trigger={detailsPopup} setTrigger={setDetailsPopup}>
-
+                                                                <div className="userDetail-popup">
+                                                                    <div className="udp-container">
+hh
+                                                                    </div>
+                                                                </div>
                                                             </Popup>
                                                         </div>
 
