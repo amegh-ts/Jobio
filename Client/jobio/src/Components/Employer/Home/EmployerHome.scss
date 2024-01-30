@@ -29,7 +29,7 @@
             }
 
             .photo {
-                background: rgb(0, 255, 94);
+                // background: rgb(0, 255, 94);
                 width: 50px;
                 height: 50px;
                 border-radius: 50%;
@@ -210,6 +210,9 @@
 
                                 img{
                                     object-fit: cover;
+                                    border-radius: 50%;
+                                    height: 70px;
+                                    width: 70px;
                                 }
                             }
 

@@ -170,7 +170,7 @@ const EmployerHome = ({ userId }) => {
                     </div>
                     <div className='blocks'>
                       <IoThumbsUpOutline />
-                      <span>Send</span>
+                      <span>Send</span> 
                     </div>
                   </div>
                 </div>

@@ -268,7 +268,6 @@ export const allFeeds = async () => {
 }
 
 // view feeds
-// edit feed
 // delete feed
 
 
