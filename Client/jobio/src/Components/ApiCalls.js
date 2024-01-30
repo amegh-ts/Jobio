@@ -4,6 +4,7 @@ import { publicRequest, userRequest } from "../RequestMethods";
 const storedData = localStorage.getItem('persist:jobio');
 const user = storedData ? JSON.parse(JSON.parse(storedData).user) : null;
 const userId = user?.userInfo?.[0]?.id;
+const userType = user?.userInfo?.[0]?.type;
 
 
 
@@ -128,7 +129,8 @@ export const changePassword = async (data) => {
 // <-------------------Alerts-------------------> //
 // send alert
 export const sendAlert = async (data) => {
-    const newData = { ...data, user: 'Admin', userId: userId }
+    const newData = { ...data, user: userType, userId: userId }
+    console.log('alert data',newData);
     try {
         const res = await userRequest.post('/sendalert', newData)
         console.log('Response Status:', res.status);

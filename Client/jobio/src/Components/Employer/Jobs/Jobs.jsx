@@ -1,7 +1,7 @@
 /* eslint-disable react/prop-types */
 import { useEffect, useState } from 'react'
 import './Jobs.scss'
-import { applicationByJID, createJob, deleteJob, editApplication, jobsById, viewProfileById, } from '../../ApiCalls'
+import { applicationByJID, createJob, deleteJob, editApplication, jobsById, sendAlert, viewProfileById, } from '../../ApiCalls'
 import Popup from './JobPopup/Jpopup';
 
 
@@ -97,14 +97,15 @@ const Jobs = (props) => {
     const handleApprove = async (id) => {
         try {
             console.log(id);
-            await editApplication(id , {status: 'approved'})
-            window.location.reload();
-            alert(`Deleted successfully`)
+            await editApplication(id, { status: 'approved' })
             const alertMessage = {
-                alert: `${id} application request accepted`,priority:'employee'
+                alert: `${id} application request accepted`, priority: 'employee'
             };
+            await sendAlert(alertMessage)
+            window.location.reload();
+            alert(`Approved successfully`)
 
-            
+
         } catch (error) {
             console.log(error);
         }

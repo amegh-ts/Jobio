@@ -40,7 +40,6 @@ const getAllApplications = async (req, res) => {
 }
 // edit application
 const editApplication = async (req, res) => {
-    console.log(req);
     try {
         const updateData = await ApplicationSchema.findByIdAndUpdate(req.params.id, { $set: req.body }, { new: true })
         res.status(200).json(updateData)
@@ -50,7 +49,6 @@ const editApplication = async (req, res) => {
 }
 // delete application
 const deleteApplication = async (req, res) => {
-    console.log(req);
     try {
         const applicationData = await ApplicationSchema.findByIdAndDelete(req.params.id);
         res.status(200).json(applicationData)
