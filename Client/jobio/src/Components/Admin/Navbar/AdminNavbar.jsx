@@ -100,7 +100,7 @@ const AdminNavbar = () => {
         sendAlert: <SendAlert />,
         viewAlert: <ViewAlert />,
         chats: <Chats />,
-        jobs: <AJobs />,
+        jobs: <AJobs setActivePageToChats={setActivePageToChats} />,
         users: <Users setActivePageToChats={setActivePageToChats} />,
         settings: <AdminSettings setActivePage={setActivePage} />,
         profile: <Profile />

@@ -111,10 +111,10 @@ const Jobs = (props) => {
         }
     }
 
-    const handelDeleteJob = async (data) => {
-        console.log(data);
+    const handelDeleteJob = async (id) => {
+        console.log(id);
         try {
-            await deleteJob({ id: data });
+            await deleteJob(id);
             window.location.reload();
             alert(`Deleted successfully`)
         } catch (error) {

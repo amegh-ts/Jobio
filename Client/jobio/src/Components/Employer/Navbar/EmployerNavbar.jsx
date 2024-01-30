@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import { useEffect, useState } from 'react';
 import './EmployerNavbar.scss'
 import { DiCodeigniter } from 'react-icons/di';
@@ -7,7 +8,7 @@ import {
     IoBriefcase,
     IoChatbubbleEllipses,
     IoSearch,
-    IoDocumentText,
+    // IoDocumentText,
     IoCog,
     IoLogOut,
     IoNotifications,
@@ -101,10 +102,10 @@ const EmployerNavbar = () => {
                         <IoChatbubbleEllipses className="icon" />
                         <span>Chats</span>
                     </div>
-                    <div className="menu-item">
+                    {/* <div className="menu-item">
                         <IoDocumentText className="icon" />
                         <span>Request</span>
-                    </div>
+                    </div> */}
                     <div className={`menu-item ${activePage === 'settings' ? 'active' : ''}`} onClick={() => { setActivePage('settings'); }}>
                         <IoCog className="icon" />
                         <span>Settings</span>

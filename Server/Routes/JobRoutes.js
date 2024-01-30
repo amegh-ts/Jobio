@@ -10,7 +10,7 @@ router.post('/addjob',verifyToken, AddJobs);
 // view all jobs
 router.get('/alljobs',verifyToken,getAllJobs);
 // delete jobs 
-router.delete('/deletejob',verifyToken,deleteJobs);
+router.delete('/deletejob/:id',verifyToken,deleteJobs);
 
 
 //****************************** job applications******************************

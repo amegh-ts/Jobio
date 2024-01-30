@@ -1,7 +1,7 @@
 /* eslint-disable react/prop-types */
 import { useEffect, useState } from 'react';
 import './AJobs.scss';
-import { AllJobs, createApplication, createChat, deleteJob } from '../../ApiCalls';
+import { AllJobs, createChat, deleteJob } from '../../ApiCalls';
 
 const AJobs = ({ setActivePageToChats }) => {
     const [jobs, setJobs] = useState('');
@@ -58,7 +58,7 @@ const AJobs = ({ setActivePageToChats }) => {
         <div className='AJobs'>
             <div className="Aj-main">
                 <div className="vjm-header">
-                    <h3>Job Openings</h3>
+                    <h3>Jobs</h3>
                 </div>
                 <div className="Ajm-body">
                     <div className="Ajmb-left">

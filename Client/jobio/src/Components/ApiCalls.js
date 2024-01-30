@@ -320,9 +320,9 @@ export const jobsById = async () => {
 }
 // delete jobs
 export const deleteJob = async (id) => {
-    console.log('api id', id);
+    // console.log('api id', id);
     try {
-        const res = await userRequest.delete('/deletejob/:id')
+        const res = await userRequest.delete(`/deletejob/${id}`)
         console.log('Response Status:', res.status);
     } catch (error) {
         console.log(error);
