@@ -78,8 +78,13 @@
             justify-content: center;
 
             .udp-container {
-                background: red;
                 padding: 10px;
+                border: 1px solid var(--primary-color);
+                border-radius: 10px;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                gap: 10px;
 
                 .user-details {
                     width: 100%;
@@ -88,7 +93,7 @@
                     border-radius: 10px;
                     display: flex;
                     flex-direction: column;
-                    justify-content: space-evenly;
+                    // justify-content: space-evenly;
                     align-items: flex-start;
 
                     .header {
@@ -96,22 +101,45 @@
                         width: 800px;
                         position: relative;
 
-                        .image {
+                        img {
+                            height: 200px;
+                            width: 800px;
+                        }
+                    }
+
+                    .middle {
+                        display: flex;
+                        justify-content: space-between;
+                        padding: 20px;
+                        gap: 30px;
+
+                        .photo {
+                            background: rgb(217, 217, 217);
+                            width: 150px;
+                            height: 150px;
+                            border-radius: 50%;
+                            left: 30px;
+                            bottom: 100px;
+                            object-fit: contain;
+
                             img {
-                                height: 200px;
-                                width: 800px;
+                                width: 150px;
+                                height: 150px;
+                                object-fit: cover;
+                                border-radius: 50%;
                             }
                         }
                     }
 
-                    .middle {}
-
-                    .footer {}
+                    .footer {
+                    }
                 }
 
-                .user-skills {}
+                .user-skills {
+                }
 
-                .user-education {}
+                .user-education {
+                }
             }
         }
     }
