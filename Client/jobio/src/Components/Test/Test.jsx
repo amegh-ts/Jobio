@@ -1,134 +1,73 @@
-import './Test.scss'
+import { useState, useEffect } from 'react';
 
 const Test = () => {
-  return (
-    <div className='Test-main'>
-        <div className="test-chat">
-            <div className="tc-header">
-                <h1>Chats</h1>
-            </div>
-            <div className="tc-body">
-                <div className="tcb-left">
-                    <div className="tcbl-header">
-                        <h2>Users</h2>
-                        <input type="text" placeholder='search'/>
-                    </div>
-                    <div className="tcbl-user-container">
-                        <div className="tcblu-cards">
-                            <h1>hello</h1>
-                        </div>
+    const [formData, setFormData] = useState({
+        name: '',
+        email: '',
+        password: '',
+    });
 
-                        <div className="tcblu-cards">
-                            <h1>hello</h1>
-                        </div>
+    const handleChange = (e) => {
+        setFormData({
+            ...formData,
+            [e.target.name]: e.target.value,
+        });
+    };
 
-                        <div className="tcblu-cards">
-                            <h1>hello</h1>
-                        </div>
+    const logValues = () => {
+        console.log("Name: " + formData.name);
+        console.log("Email: " + formData.email);
+        console.log("Password: " + formData.password);
 
-                        <div className="tcblu-cards">
-                            <h1>hello</h1>
-                        </div>
+        // You can perform additional actions here, such as sending the values to a server.
+    }
 
-                        <div className="tcblu-cards">
-                            <h1>hello</h1>
-                        </div>
 
-                        <div className="tcblu-cards">
-                            <h1>hello</h1>
-                        </div>
+    return (
+        <div className='signup'>
+            <form>
+                <label htmlFor="name">Name:</label>
+                <input
+                    type="text"
+                    id="name"
+                    name="name"
+                    value={formData.name}
+                    onChange={handleChange}
+                    required
+                />
 
-                        <div className="tcblu-cards">
-                            <h1>hello</h1>
-                        </div>
+                <br />
 
-                        <div className="tcblu-cards">
-                            <h1>hello</h1>
-                        </div>
+                <label htmlFor="email">Email:</label>
+                <input
+                    type="email"
+                    id="email"
+                    name="email"
+                    value={formData.email}
+                    onChange={handleChange}
+                    required
+                />
 
-                        <div className="tcblu-cards">
-                            <h1>hello</h1>
-                        </div>
+                <br />
 
-                        <div className="tcblu-cards">
-                            <h1>hello</h1>
-                        </div>
+                <label htmlFor="password">Password:</label>
+                <input
+                    type="password"
+                    id="password"
+                    name="password"
+                    value={formData.password}
+                    onChange={handleChange}
+                    required
+                />
 
-                        <div className="tcblu-cards">
-                            <h1>hello</h1>
-                        </div>
+                <br />
 
-                        <div className="tcblu-cards">
-                            <h1>hello</h1>
-                        </div>
-
-                        <div className="tcblu-cards">
-                            <h1>hello</h1>
-                        </div>
-
-                        
-                    </div>
-                </div>
-                <div className="tcb-right">
-                    <div className="tcbr-header">
-                        chat with username
-                    </div>
-                    <div className="tcb-message">
-                        <div className="tcbm-cards">
-                            <h1>dfghjk</h1>
-                        </div>
-                        <div className="tcbm-cards">
-                            <h1>dfghjk</h1>
-                        </div>
-                        <div className="tcbm-cards">
-                            <h1>dfghjk</h1>
-                        </div>
-                        <div className="tcbm-cards">
-                            <h1>dfghjk</h1>
-                        </div>
-                        <div className="tcbm-cards">
-                            <h1>dfghjk</h1>
-                        </div>
-                        <div className="tcbm-cards">
-                            <h1>dfghjk</h1>
-                        </div>
-                        <div className="tcbm-cards">
-                            <h1>dfghjk</h1>
-                        </div>
-                        <div className="tcbm-cards">
-                            <h1>dfghjk</h1>
-                        </div>
-                        <div className="tcbm-cards">
-                            <h1>dfghjk</h1>
-                        </div>
-                        <div className="tcbm-cards">
-                            <h1>dfghjk</h1>
-                        </div>
-                        <div className="tcbm-cards">
-                            <h1>dfghjk</h1>
-                        </div>
-                        <div className="tcbm-cards">
-                            <h1>dfghjk</h1>
-                        </div>
-                        <div className="tcbm-cards">
-                            <h1>dfghjk</h1>
-                        </div>
-                        <div className="tcbm-cards">
-                            <h1>dfghjk</h1>
-                        </div>
-                        <div className="tcbm-cards">
-                            <h1>dfghjk</h1>
-                        </div>
-                        <div className="tcbm-cards">
-                            <h1>dfghjk</h1>
-                        </div>
-                        
-                    </div>
-                </div>
-            </div>
+                <button type="button" onClick={logValues}>
+                    Log Values
+                </button>
+            </form>
         </div>
-    </div>
-  )
-}
+    );
+};
 
-export default Test
+export default Test;

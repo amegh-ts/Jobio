@@ -21,6 +21,7 @@ import ClientHome from '../Home/ClientHome';
 import ViewJobs from '../Jobs/ViewJobs';
 import ClientAlerts from '../Alerts/ClientAlerts';
 import Entries from '../Entries/Entries';
+import ClientSettings from '../Settings/ClientSettings';
 
 
 const ClientNavbar = () => {
@@ -75,12 +76,13 @@ const ClientNavbar = () => {
     };
 
     const pageComponents = {
-        home: <ClientHome userId={userId}/>,
-        chats: <Chats/>,
+        home: <ClientHome userId={userId} />,
+        chats: <Chats />,
         profile: <Profile />,
-        jobs:<ViewJobs setActivePageToChats={setActivePageToChats} />,
-        entries:<Entries/>,
-        alert:<ClientAlerts/>
+        jobs: <ViewJobs setActivePageToChats={setActivePageToChats} />,
+        entries: <Entries />,
+        alert: <ClientAlerts />,
+        settings: <ClientSettings setActivePage={setActivePage} />
     };
 
     return (
@@ -101,7 +103,7 @@ const ClientNavbar = () => {
                         <IoBriefcase className="icon" />
                         <span>Jobs</span>
                     </div>
-                    <div  className={`menu-item ${activePage === 'entries' ? 'active' : ''}`} onClick={() => { setActivePage('entries'); }}>
+                    <div className={`menu-item ${activePage === 'entries' ? 'active' : ''}`} onClick={() => { setActivePage('entries'); }}>
                         <IoDocumentText className="icon" />
                         <span>Entries</span>
                     </div>
@@ -109,7 +111,7 @@ const ClientNavbar = () => {
                         <IoChatbubbleEllipses className="icon" />
                         <span>Chats</span>
                     </div>
-                    <div className="menu-item">
+                    <div className={`menu-item ${activePage === 'settings' ? 'active' : ''}`} onClick={() => { setActivePage('settings'); }}>
                         <IoCog className="icon" />
                         <span>Settings</span>
                     </div>

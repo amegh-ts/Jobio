@@ -4,6 +4,7 @@ import { publicRequest, userRequest } from "../RequestMethods";
 const storedData = localStorage.getItem('persist:jobio');
 const user = storedData ? JSON.parse(JSON.parse(storedData).user) : null;
 const userId = user?.userInfo?.[0]?.id;
+const userType = user?.userInfo?.[0]?.type;
 
 
 
@@ -49,6 +50,18 @@ export const viewProfile = async () => {
         const res = await userRequest.get(`/Viewprofile/${userId}`)
         console.log('Response Status:', res.status);
         return res.data
+    } catch (error) {
+        console.log(error);
+    }
+}
+// view profile by id
+export const viewProfileById = async (id) => {
+    console.log(id);
+    try {
+        const res = await userRequest.get('/allusers');
+        const filteredUser = res.data.filter(user => user._id === id);
+        console.log('Response Status:', res.status);
+        return filteredUser;
     } catch (error) {
         console.log(error);
     }
@@ -116,7 +129,8 @@ export const changePassword = async (data) => {
 // <-------------------Alerts-------------------> //
 // send alert
 export const sendAlert = async (data) => {
-    const newData = { ...data, user: 'Admin', userId: userId }
+    const newData = { ...data, user: userType, userId: userId }
+    console.log('alert data',newData);
     try {
         const res = await userRequest.post('/sendalert', newData)
         console.log('Response Status:', res.status);
@@ -305,10 +319,10 @@ export const jobsById = async () => {
     }
 }
 // delete jobs
-export const deleteJob = async (data) => {
-    console.log('api id', data);
+export const deleteJob = async (id) => {
+    // console.log('api id', id);
     try {
-        const res = await userRequest.delete('/deletejob', { data })
+        const res = await userRequest.delete(`/deletejob/${id}`)
         console.log('Response Status:', res.status);
     } catch (error) {
         console.log(error);
@@ -319,6 +333,7 @@ export const deleteJob = async (data) => {
 // apply job
 export const createApplication = async (data) => {
     const newData = { ...data, status: 'applied' }
+    console.log('new dataaaaa', newData);
     try {
         const res = await userRequest.post('/applyjob', newData);
         console.log('Response Status:', res.status);
@@ -327,6 +342,45 @@ export const createApplication = async (data) => {
     }
 }
 // view all application
+export const AllApplication = async () => {
+    try {
+        const res = await userRequest.get('/allApplications');
+        console.log('Response Status:', res.status);
+        return res.data
+    } catch (error) {
+        console.log(error);
+    }
+}
 // view application by applicant id
+export const applicationByUID = async () => {
+    try {
+        const res = await userRequest.get('/allApplications')
+        const applications = res.data;
+        const filteredApplication = applications.filter(application => application.applicantId === userId);
+        return filteredApplication
+    } catch (error) {
+        console.log(error);
+    }
+}
 // view application by job id
+export const applicationByJID = async (id) => {
+    try {
+        const res = await userRequest.get('/allApplications')
+        const applications = res.data;
+        const filteredApplication = applications.filter(application => application.jobId === id);
+        return filteredApplication
+    } catch (error) {
+        console.log(error);
+    }
+}
+// edit application
+export const editApplication = async (id,data) => {
+    try {
+        const res = await userRequest.put(`/editapplication/${id}`, data)
+        console.log('Response Status:', res.status);
+    } catch (error) {
+        console.log(error);
+
+    }
+}
 // delete application

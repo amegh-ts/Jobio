@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import { useEffect, useState } from 'react';
 import './EmployerNavbar.scss'
 import { DiCodeigniter } from 'react-icons/di';
@@ -7,7 +8,7 @@ import {
     IoBriefcase,
     IoChatbubbleEllipses,
     IoSearch,
-    IoDocumentText,
+    // IoDocumentText,
     IoCog,
     IoLogOut,
     IoNotifications,
@@ -20,6 +21,7 @@ import EmployerHome from '../Home/EmployerHome';
 import Chats from '../../Chats/Chats';
 import Jobs from '../Jobs/Jobs';
 import EmployerAlerts from '../Alerts/EmployerAlerts';
+import EmployerSettings from '../Settings/EmployerSettings';
 
 const EmployerNavbar = () => {
     const [primaryColor, setPrimaryColor] = useState('');
@@ -74,7 +76,8 @@ const EmployerNavbar = () => {
         jobs: <Jobs userId={userId} />,
         chats: <Chats setActivePageToChats={setActivePageToChats} />,
         profile: <Profile />,
-        alert: <EmployerAlerts />
+        alert: <EmployerAlerts />,
+        settings:<EmployerSettings setActivePage={setActivePage}/>
     };
 
     return (
@@ -99,11 +102,11 @@ const EmployerNavbar = () => {
                         <IoChatbubbleEllipses className="icon" />
                         <span>Chats</span>
                     </div>
-                    <div className="menu-item">
+                    {/* <div className="menu-item">
                         <IoDocumentText className="icon" />
                         <span>Request</span>
-                    </div>
-                    <div className="menu-item">
+                    </div> */}
+                    <div className={`menu-item ${activePage === 'settings' ? 'active' : ''}`} onClick={() => { setActivePage('settings'); }}>
                         <IoCog className="icon" />
                         <span>Settings</span>
                     </div>
@@ -126,7 +129,7 @@ const EmployerNavbar = () => {
                     <div className="navbar-icon">
                         <span>
                             <IoMoonOutline className='icon' />
-                            <IoNotifications className={` ${activePage === 'alert' ? 'active' : ''}`} onClick={() => { setActivePage('alert') }} />
+                            <IoNotifications className={`icon ${activePage === 'alert' ? 'active' : ''}`} onClick={() => { setActivePage('alert') }} />
                         </span>
                         <div className={`profile  ${activePage === 'profile' ? 'active' : ''}`} onClick={() => { setActivePage('profile'); }}>
                             <IoPersonSharp />

@@ -1,7 +1,7 @@
 /* eslint-disable react/prop-types */
 import { useEffect, useState } from 'react'
 import './Jobs.scss'
-import { createJob, deleteJob, jobsById, } from '../../ApiCalls'
+import { applicationByJID, createJob, deleteJob, editApplication, jobsById, sendAlert, viewProfileById, } from '../../ApiCalls'
 import Popup from './JobPopup/Jpopup';
 
 
@@ -12,8 +12,12 @@ const Jobs = (props) => {
     const [description, setDescription] = useState('')
     const [salary, setSalary] = useState('')
     const [jobsId, setJobsId] = useState([])
+    const [applications, setApplications] = useState([])
     var userId = props.userId
     const [applicationPopup, setApplicationPopup] = useState(false)
+    const [detailsPopup, setDetailsPopup] = useState(false)
+    const [displaySkill, setDisplaySkill] = useState([])
+    const [user, setUser] = useState({})
 
 
     const KeralaStates = [
@@ -37,7 +41,7 @@ const Jobs = (props) => {
         async function fetchJobs() {
             try {
                 const jobData = await jobsById();
-                console.log(jobData);
+                // console.log(jobData);
                 setJobsId(jobData)
             } catch (error) {
                 console.log(error);
@@ -63,10 +67,54 @@ const Jobs = (props) => {
         }
     }
 
-    const handelDeleteJob = async (data) => {
-        console.log(data);
+    const handleApplicationPopup = async (id) => {
+        console.log(id);
         try {
-            await deleteJob({ id: data });
+            const data = await applicationByJID(id)
+            setApplications(data)
+            setApplicationPopup(true)
+        } catch (error) {
+            console.log(error);
+        }
+    }
+
+    const handleViewProfile = async (id) => {
+        console.log(id);
+        try {
+            const apiData = await viewProfileById(id)
+            console.log(apiData);
+            const userProfile = apiData[0];
+            setUser(userProfile);
+            setDisplaySkill(userProfile.selectedSkills || []);
+            setDetailsPopup(true)
+        } catch (error) {
+            console.log(error);
+        }
+    }
+
+    // console.log(user);
+
+    const handleApprove = async (id) => {
+        try {
+            console.log(id);
+            await editApplication(id, { status: 'approved' })
+            const alertMessage = {
+                alert: `${id} application request accepted`, priority: 'employee'
+            };
+            await sendAlert(alertMessage)
+            window.location.reload();
+            alert(`Approved successfully`)
+
+
+        } catch (error) {
+            console.log(error);
+        }
+    }
+
+    const handelDeleteJob = async (id) => {
+        console.log(id);
+        try {
+            await deleteJob(id);
             window.location.reload();
             alert(`Deleted successfully`)
         } catch (error) {
@@ -106,7 +154,7 @@ const Jobs = (props) => {
                                     <div className="jbc-footer">
                                         <h6>{new Date(jobs.createdAt).toLocaleString()}</h6>
                                         <span>
-                                            <button onClick={() => setApplicationPopup(true)}>Applications</button>
+                                            <button onClick={() => handleApplicationPopup(jobs._id)}>Applications</button>
                                             <button onClick={() => { handelDeleteJob(jobs._id) }}>Delete</button>
                                         </span>
 
@@ -122,60 +170,73 @@ const Jobs = (props) => {
                                                                 <thead>
                                                                     <tr>
                                                                         <th>Applicant ID</th>
-                                                                        <th>email</th>
-                                                                        <th>Email</th>
-                                                                        <th>State</th>
-                                                                        <th>Phone</th>
-                                                                        <th>Type</th>
-                                                                        <th>Action</th>
+                                                                        <th>Status</th>
+                                                                        <th colSpan={2}>Action</th>
                                                                     </tr>
                                                                 </thead>
                                                                 <tbody>
-                                                                    {/* {filteredUsers.map((user, index) => (
+                                                                    {applications.map((application, index) => (
                                                                         <tr key={index}>
-                                                                            <td>
-                                                                                <div className="user-cards-img">
-                                                                                    <img src={user.photo} alt="" />
-                                                                                </div>
-                                                                            </td>
-                                                                            <td>{user.username}</td>
-                                                                            <td>{user.email}</td>
-                                                                            <td>{user.state}</td>
-                                                                            <td>{user.phone}</td>
-                                                                            <td>{user.type}</td>
-                                                                            <td>
-                                                                                <div className="edit-chat">
-                                                                                    <button><IoPencil className='bicon' /></button>
-                                                                                    <button onClick={() => handleChatButtonClick(userId, user._id)}><IoChatbubbles className='bicon' /></button>
-                                                                                    <button onClick={() => handleBanButtonClick(userId, user._id, user.username)}><IoBan /></button>
-                                                                                </div>
-                                                                            </td>
+                                                                            <td>{application.applicantId}</td>
+                                                                            <td>{application.status}</td>
+                                                                            <td><button onClick={() => { handleViewProfile(application.applicantId) }}>View Profile</button></td>
+                                                                            <td><button onClick={() => { handleApprove(application._id) }}>Approve</button></td>
                                                                         </tr>
                                                                     ))}
-                                                                     */}
-
-                                                                    <tr>
-                                                                        <td>abc test</td>
-                                                                        <td>abc test</td>
-                                                                        <td>abc test</td>
-                                                                        <td>abc test</td>
-                                                                        <td>abc test</td>
-                                                                        <td>abc test</td>
-                                                                        <td>abc test</td>
-                                                                    </tr>
-
-                                                                    <tr>
-                                                                        <td>abc test</td>
-                                                                        <td>abc test</td>
-                                                                        <td>abc test</td>
-                                                                        <td>abc test</td>
-                                                                        <td>abc test</td>
-                                                                        <td>abc test</td>
-                                                                        <td>abc test</td>
-                                                                    </tr>
 
                                                                 </tbody>
                                                             </table>
+                                                            <Popup trigger={detailsPopup} setTrigger={setDetailsPopup}>
+                                                                <div className="userDetail-popup">
+                                                                    <div className="udp-container">
+                                                                        <div className="user-details">
+                                                                            <div className="header">
+                                                                                <img src={!user.coverphoto || user.coverphoto === '' || user.coverphoto === null ? '/Images/banner.png' : user.coverphoto} alt="" width={100} height={100} />
+                                                                            </div>
+                                                                            <div className='middle'>
+                                                                                <div className="photo">
+                                                                                    <img src={!user.photo || user.photo === '' || user.photo === null ? '/Images/user.png' : user.photo} alt="" width={100} height={100} />
+                                                                                </div>
+                                                                                <div className='detail-container'>
+                                                                                    <h3>{user.username}</h3>
+                                                                                    <span className='fullname'>
+                                                                                        <h2>{user.firstname}</h2><h2>{user.lastname}</h2>
+                                                                                    </span>
+                                                                                    <h5>{user.city}, {user.district}, India : </h5>
+                                                                                    <span>Phone : {user.phone}</span>
+                                                                                    <span>Email : {user.email}</span>
+                                                                                </div>
+                                                                            </div>
+                                                                            <div className='footer'>
+                                                                                <h4>Highlight</h4>
+                                                                                <p>{user.about}</p>
+                                                                            </div>
+                                                                        </div>
+
+                                                                        <div className="user-skills">
+                                                                            <h3>Skills</h3>
+                                                                            <div className='skill-container'>
+                                                                                {displaySkill.map((skill, index) => (
+                                                                                    <button key={index} className='btn'>
+                                                                                        {skill}
+                                                                                    </button>
+                                                                                ))}
+                                                                            </div>
+                                                                        </div>
+
+                                                                        <div className="user-education">
+                                                                            <h3>Last Education</h3>
+                                                                            <div className="education-container">
+                                                                                <div className='content'>
+                                                                                    <h5>{user.institute}</h5>
+                                                                                    <h6>{user.course}</h6>
+                                                                                    <p>Year of completion : {user.year}</p>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </Popup>
                                                         </div>
 
                                                     </div>

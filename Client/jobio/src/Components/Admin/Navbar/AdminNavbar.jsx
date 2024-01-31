@@ -17,7 +17,7 @@ import Home from '../Home/Home';
 import SendAlert from '../Alerts/SendAlert';
 import ViewAlert from '../Alerts/ViewAlert';
 import Chats from '../../Chats/Chats';
-import Jobs from '../Jobs/Jobs';
+import AJobs from '../Jobs/AJobs';
 import Users from '../Users/Users';
 import AdminSettings from '../Settings/AdminSettings';
 import Profile from '../../Profile/Profile';
@@ -100,7 +100,7 @@ const AdminNavbar = () => {
         sendAlert: <SendAlert />,
         viewAlert: <ViewAlert />,
         chats: <Chats />,
-        jobs: <Jobs />,
+        jobs: <AJobs setActivePageToChats={setActivePageToChats} />,
         users: <Users setActivePageToChats={setActivePageToChats} />,
         settings: <AdminSettings setActivePage={setActivePage} />,
         profile: <Profile />

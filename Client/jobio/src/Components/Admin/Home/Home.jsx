@@ -80,11 +80,14 @@ const Home = () => {
   // }, {});
 
   const userCountByDay = userList.reduce((countByDay, user) => {
-    const dateParts = user.createdAt.split('T')[0].split('-');
-    const monthDay = `${dateParts[2]}-${dateParts[1]}`;
-    countByDay[monthDay] = (countByDay[monthDay] || 0) + 1;
+    if (user.createdAt) {
+        const dateParts = user.createdAt.split('T')[0].split('-');
+        const monthDay = `${dateParts[2]}-${dateParts[1]}`;
+        countByDay[monthDay] = (countByDay[monthDay] || 0) + 1;
+    }
     return countByDay;
 }, {});
+
 
   // const xLabels = Object.keys(userCountByDay);
   // const uData = xLabels.map((date) => userCountByDay[date]);

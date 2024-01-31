@@ -12,6 +12,7 @@ import EmployerNavbar from './Components/Employer/Navbar/EmployerNavbar';
 import ForgotPassword from './Components/Login/ForgotPassword';
 import { logoutUser } from './Redux/UserRedux';
 import Test from './Components/Test/Test';
+import { useEffect } from 'react';
 
 function App() {
 
@@ -19,6 +20,24 @@ function App() {
   // console.log('reduxdata', reduxData);
   const token = reduxData?.accessToken;
   const dispatch = useDispatch()
+
+  useEffect(() => {
+    const validateToken = () => {
+      if (token) {
+        // Decode the token to get expiration time (assuming it contains an 'exp' claim)
+        const decodedToken = atob(token.split('.')[1]);
+        const { exp } = JSON.parse(decodedToken);
+
+        // Check if the token is expired
+        if (exp && exp * 1000 < Date.now()) {
+          // Token is expired, logout the user
+          dispatch(logoutUser());
+        }
+      }
+    };
+
+    validateToken();
+  }, [token, dispatch]);
 
   let content;
 

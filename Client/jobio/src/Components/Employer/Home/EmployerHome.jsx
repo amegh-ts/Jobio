@@ -68,17 +68,33 @@ const EmployerHome = ({ userId }) => {
       <div className="home-main">
         <div className="left">
           <div className="header">
-            <img src={!data.coverphoto || data.coverphoto === '' || data.coverphoto === null ? '/Images/banner.png' : data.coverphoto} alt="" width={100} height={100} />
+            {/* <img src={!data.coverphoto || data.coverphoto === '' || data.coverphoto === null ? '/Images/banner.png' : data.coverphoto} alt="" width={100} height={100} /> */}
+            <img
+              src={data?.coverphoto || '/Images/banner.png'}
+              alt=""
+              width={100}
+              height={100}
+            />
           </div>
           <div className="photo">
-            <img src={!data.photo || data.photo === '' || data.photo === null ? '/Images/user.png' : data.photo} alt="" width={100} height={100} />
+            {/* <img src={!data.photo || data.photo === '' || data.photo === null ? '/Images/user.png' : data.photo} alt="" width={100} height={100} /> */}
+            <img
+              src={data?.photo || '/Images/user.png'}
+              alt=""
+              width={100}
+              height={100}
+            />
           </div>
           <div className="footer">
-            <h2>{data.username}</h2>
-            <h3>{data.about}</h3>
-            <h5>{data.city}, {data.district} </h5>
-            <h5>Contact info</h5>
-            <button>Add post</button>
+            {data && (
+              <>
+                <h2>{data.username}</h2>
+                <h3>{data.about}</h3>
+                <h5>{data.city}, {data.district} </h5>
+                <h5>Contact info : <span>{data.email}</span></h5>
+                {/* <button>Add post</button> */}
+              </>
+            )}
           </div>
         </div>
         <div className="middle">
@@ -86,7 +102,13 @@ const EmployerHome = ({ userId }) => {
             <div className="apc-header">
               <section>
                 <div className="image">
-                  <img src={!data.photo || data.photo === '' || data.photo === null ? '/Images/user.png' : data.photo} alt="" width={100} height={100} />
+                  {/* <img src={!data.photo || data.photo === '' || data.photo === null ? '/Images/user.png' : data.photo} alt="" width={100} height={100} /> */}
+                  <img
+                    src={data?.photo || '/Images/user.png'}
+                    alt=""
+                    width={100}
+                    height={100}
+                  />
                 </div>
                 <div className="add-post">
                   <button onClick={() => { setAddFeedPopup(true) }}>add post</button>
@@ -120,10 +142,16 @@ const EmployerHome = ({ userId }) => {
                 <IoCloseCircleOutline className="icon" />
               </div>
               <div className="image">
-                <img src={!data.photo || data.photo === '' || data.photo === null ? '/Images/user.png' : data.photo} alt="" width={100} height={100} />
+                {/* <img src={!data.photo || data.photo === '' || data.photo === null ? '/Images/user.png' : data.photo} alt="" width={100} height={100} /> */}
+                <img
+                  src={data?.photo || '/Images/user.png'}
+                  alt=""
+                  width={100}
+                  height={100}
+                />
               </div>
               <div className="note">
-                <h1>Welcome back {data.username}</h1>
+                <h1>Welcome back {data?.username}</h1>
               </div>
               <div className="status">
                 {/* <button>Available to work</button>
@@ -138,7 +166,13 @@ const EmployerHome = ({ userId }) => {
                   <div className='header'>
                     <div className='header-left'>
                       <div className='image'>
-                        <img src={!data.photo || data.photo === '' || data.photo === null ? '/Images/user.png' : data.photo} alt="" width={70} height={70} />
+                        {/* <img src={!data.photo || data.photo === '' || data.photo === null ? '/Images/user.png' : data.photo} alt="" width={70} height={70} /> */}
+                        <img
+                          src={data?.photo || '/Images/user.png'}
+                          alt=""
+                          width={100}
+                          height={100}
+                        />
                       </div>
                       <div className="header-title">
                         <h3>{feeds.username}</h3>
@@ -170,7 +204,7 @@ const EmployerHome = ({ userId }) => {
                     </div>
                     <div className='blocks'>
                       <IoThumbsUpOutline />
-                      <span>Send</span> 
+                      <span>Send</span>
                     </div>
                   </div>
                 </div>
