@@ -60,7 +60,7 @@ const signIn = async (req, res) => {
         const originalPassword = hashedPassword.toString(Crypto.enc.Utf8);
         originalPassword !== req.body.password && res.status(401).json({ response: "Password and Email don't match" });
 
-        // await userController.findByIdAndUpdate(DB._id, { $set: { lastLogin: Date.now() } });
+        await userController.findByIdAndUpdate(DB._id, { $set: { lastLogin: Date.now() } });
 
         const accessToken = Jwt.sign({ id: DB._id }, process.env.Jwt_Key, { expiresIn: '1d' });
         const { password, ...others } = updatedata._doc;
