@@ -27,6 +27,7 @@ const signUp = async (req, res) => {
     newUser.lastLogin = Date.now();
     console.log('new user', newUser);
     try {
+        console.log('*********************************************************');
         const savedUser = await newUser.save()
         console.log('saved user', savedUser);
         console.log('200 Successful');
