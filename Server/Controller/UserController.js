@@ -29,6 +29,7 @@ const signUp = async (req, res) => {
     try {
         const savedUser = await newUser.save()
         console.log('saved user', savedUser);
+        console.log('200 Successful');
         res.status(200).json(savedUser)
     } catch (error) {
         res.status(500).json(error)
@@ -56,7 +57,7 @@ const signIn = async (req, res) => {
 
         const accessToken = Jwt.sign({ id: DB._id }, process.env.Jwt_Key, { expiresIn: '1d' });
         const { password, ...others } = updatedata._doc;
-
+        console.log('200 Successful');
         res.status(200).json({ ...others, accessToken });
     } catch (error) {
         res.status(500).json(error);
@@ -92,6 +93,7 @@ const viewProfile = async (req, res) => {
 const editProfile = async (req, res) => {
     try {
         const updateData = await userController.findByIdAndUpdate(req.params.id, { $set: req.body }, { new: true })
+        console.log('200 Successful');
         res.status(200).json(updateData)
     } catch (error) {
         res.status(500).json(error)
@@ -102,6 +104,7 @@ const editProfile = async (req, res) => {
 const deleteProfile = async (req, res) => {
     try {
         const deleteData = await userController.findByIdAndDelete(req.params.id)
+        console.log('200 Successful');
         res.status(200).json(deleteData)
     } catch (error) {
         res.status(500).json(error)
