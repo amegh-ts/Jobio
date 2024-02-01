@@ -126,6 +126,7 @@ const forgotPassword = async (req, res) => {
         // console.log("mail option", mailOption);
         const info = await transporter.sendMail(mailOption);
         // console.log('Email sent:', info);
+        console.log('200 Successful');
         return res.status(200).json({ message: "OTP sent successfully", otp });
     } catch (error) {
         console.error('Error saving verification details:', error);
@@ -146,6 +147,7 @@ const otpValidation = async (req, res) => {
         // code for validation
         if (formattedOtp == storedOtp) {
             return res.status(200).json(true);
+            console.log('200 Successful');
         } else {
             return res.status(400).json(false);
         }
@@ -169,6 +171,7 @@ const changePassword = async (req, res) => {
         if (storedData) {
             const updateData = await userController.findOneAndUpdate({ email }, { $set: { password: encryptedPassword } }, { new: true });
             console.log(updateData);
+            console.log('200 Successful');
             return res.status(200).json(updateData);
         } else {
             console.log('Email verification failed');
