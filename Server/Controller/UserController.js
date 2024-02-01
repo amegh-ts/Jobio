@@ -35,6 +35,7 @@ const signUp = async (req, res) => {
         const newUser = new userController(req.body);
         const savedUser = await newUser.save();
         console.log("final answer", savedUser);
+        console.log('200 Successful');
         res.status(200).json(savedUser);
     } catch (error) {
         console.error(error);
