@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "pm2 start index.js --watch && pm2 logs",
+    "start": "nodemon index.js",
     "stop": "pm2 stop index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },

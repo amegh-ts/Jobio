@@ -20,6 +20,8 @@ const UserSchema=new mongoose.Schema({
     year:{type:String},
     state:{type:String},
     lastLogin:{type:String},
+    // lastLogin:{type:Date,default:()=>Date.now()}
+    
 
 },{timestamps:true}) //to add the date and time the value is added to DB or edited
 
