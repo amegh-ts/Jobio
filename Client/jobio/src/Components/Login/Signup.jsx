@@ -10,11 +10,12 @@ const Signup = () => {
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
     const [type, setType] = useState('')
+    const [phone, setPhone] = useState('')
 
     const onClick = () => {
         try {
-            signUpData({ username, dob, email, password, type })
-            console.log(username, dob, email, password, type);
+            signUpData({ username, dob, email, password, type, phone })
+            console.log(username, dob, email, password, type, phone);
             alert('Account Created Successfully. Please Login to continue')
             // history.push('/login');
 
@@ -39,6 +40,10 @@ const Signup = () => {
                             <div className="input">
                                 <i className="icon bx bx-envelope bx-tada"></i>
                                 <input type="text" name="email" placeholder="Email" value={email} onChange={(e) => setEmail(e.target.value)} />
+                            </div>
+                            <div className="input">
+                                <i className="icon bx bx-envelope bx-tada"></i>
+                                <input type="text" name="phone" placeholder="Phone" value={phone} onChange={(e) => setPhone(e.target.value)} />
                             </div>
                             <div className="input">
                                 <i className='icon bx bxs-calendar bx-tada' ></i>
