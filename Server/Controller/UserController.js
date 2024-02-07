@@ -2,7 +2,6 @@ const userController = require('../Models/UserSchema')
 const Crypto = require('crypto-js')
 const Jwt = require('jsonwebtoken');
 
-
 const setUserState = async () => {
     try {
         const threeDaysAgo = new Date(Date.now() - 3 * 24 * 60 * 60 * 1000);
