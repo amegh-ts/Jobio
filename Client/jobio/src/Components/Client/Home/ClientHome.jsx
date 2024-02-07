@@ -146,7 +146,7 @@ const ClientHome = ({ userId }) => {
                   <div className='header'>
                     <div className='header-left'>
                       <div className='image'>
-                        <img src={!data.photo || data.photo === '' || data.photo === null ? '/Images/user.png' : data.photo} alt="" width={70} height={70} />
+                        <img src={!feeds.photo || feeds.photo === '' || feeds.photo === null ? '/Images/user.png' : data.photo} alt="" width={70} height={70} />
                       </div>
                       <div className="header-title">
                         <h3>{feeds.username}</h3>

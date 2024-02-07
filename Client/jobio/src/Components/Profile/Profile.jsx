@@ -278,7 +278,7 @@ const Profile = () => {
                 <input type="number" placeholder='Phone' value={phone} onChange={(e) => setPhone(e.target.value)} />
                 <input type="text" placeholder='City' value={city} onChange={(e) => setCity(e.target.value)} />
                 <select name="district" id="district" value={district} onChange={(e) => { setDistrict(e.target.value) }}>
-                  <option value="" disabled defaultValue>State</option>
+                  <option value="" disabled defaultValue>District</option>
                   {KeralaStates.map((state, index) => (
                     <option key={index} value={state}>
                       {state}

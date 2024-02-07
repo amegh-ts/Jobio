@@ -57,9 +57,9 @@ const Users = ({ setActivePageToChats }) => {
         setFilteredUsers(filtered);
     };
 
-    const handleBanButtonClick = async (AdminId, userId,username) => {
+    const handleBanButtonClick = async (AdminId, userId, username) => {
         setBanPopup(true);
-        setIds({ AdminId, userId,username })
+        setIds({ AdminId, userId, username })
         try {
             const apiData = await fetchUser(userId)
             setData(apiData)
@@ -68,7 +68,7 @@ const Users = ({ setActivePageToChats }) => {
         }
     }
 
-    
+
     const handleBanUser = async () => {
         console.log(userId);
 
@@ -77,7 +77,7 @@ const Users = ({ setActivePageToChats }) => {
             await banUser(Ids.userId, { state: newState })
             await banLog({ bannedBy: Ids.AdminId, banned: Ids.userId, state: newState, reason: reason })
             const alertMessage = {
-                alert: `${Ids.username} status set to ${newState} in the server`,priority:'system'
+                alert: `${Ids.username} status set to ${newState} in the server`, priority: 'system'
             };
             await sendAlert(alertMessage)
             window.location.reload();
@@ -123,7 +123,7 @@ const Users = ({ setActivePageToChats }) => {
                                 <tr key={index}>
                                     <td>
                                         <div className="user-cards-img">
-                                            <img src={user.photo} alt="" />
+                                            <img src={user?.photo || '/Images/user.png'} alt="" />
                                         </div>
                                     </td>
                                     <td>{user.username}</td>
@@ -135,7 +135,7 @@ const Users = ({ setActivePageToChats }) => {
                                         <div className="edit-chat">
                                             <button><IoPencil className='bicon' /></button>
                                             <button onClick={() => handleChatButtonClick(userId, user._id)}><IoChatbubbles className='bicon' /></button>
-                                            <button onClick={() => handleBanButtonClick(userId, user._id,user.username)}><IoBan /></button>
+                                            <button onClick={() => handleBanButtonClick(userId, user._id, user.username)}><IoBan /></button>
 
                                             <Popup trigger={banPopup} setTrigger={setBanPopup} key={user._id}>
                                                 <div className="ban-popup">
@@ -146,7 +146,7 @@ const Users = ({ setActivePageToChats }) => {
                                                                 <h2>Do you want to {data.state === 'banned' ? 'unban' : 'ban'} {data.username}</h2>
                                                             </div>
                                                             <div>
-                                                                <textarea name="reason" id="" cols="30" rows="10" placeholder='Mention the reason'value={reason} onChange={(e) => { setReason(e.target.value) }}></textarea>
+                                                                <textarea name="reason" id="" cols="30" rows="10" placeholder='Mention the reason' value={reason} onChange={(e) => { setReason(e.target.value) }}></textarea>
                                                             </div>
                                                             {/* <h3>{Ids.AdminId}</h3>
                                                             <h3>{Ids.userId}</h3> */}
