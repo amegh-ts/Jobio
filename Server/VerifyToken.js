@@ -2,11 +2,11 @@ const jwt = require("jsonwebtoken");
 
 // Code to check the token is correct
 const verifyToken = (req, res, next) => {
-    let authHeader = req.headers.token       
+    let authHeader = req.headers.token
 
     if (authHeader) {
-        const token = authHeader.split(" ")[1];   
-        
+        const token = authHeader.split(" ")[1];
+
         if (!token) {
             return res.status(401).json({ error: "Invalid token format" });
         }
@@ -19,7 +19,7 @@ const verifyToken = (req, res, next) => {
             }
             req.user = user;
             // console.log("User?????????", user);
-            next();                                           
+            next();
         });
     } else {
         return res.status(401).json({ error: "Token not found" })
