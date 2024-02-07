@@ -5,6 +5,8 @@ const AddFeed = async (req, res) => {
     const feedData = new FeedSchema(req.body)
     try {
         await feedData.save();
+        console.log('200 Successful');
+        res.status(200).json(feedData)
     } catch (error) {
         res.status(500).json(error)
     }
@@ -24,6 +26,7 @@ const deleteFeed = async (req, res) => {
     try {
         // const deleteData=await FeedSchema.findByIdAndDelete(req.body.id)
         // res.status(200).json(deleteData)
+        console.log('200 Successful');
     } catch (error) {
         res.status(500).json(error)
     }

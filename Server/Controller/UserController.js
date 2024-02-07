@@ -2,7 +2,6 @@ const userController = require('../Models/UserSchema')
 const Crypto = require('crypto-js')
 const Jwt = require('jsonwebtoken');
 
-
 const setUserState = async () => {
     try {
         const threeDaysAgo = new Date(Date.now() - 3 * 24 * 60 * 60 * 1000);
@@ -22,16 +21,24 @@ setInterval(setUserState, 60 * 60 * 1000);
 
 // Signup
 const signUp = async (req, res) => {
+    console.log("req.body", req.body);
     req.body.password = Crypto.AES.encrypt(req.body.password, process.env.Crypto_js).toString()
-    const newUser = new userController(req.body)
-    newUser.lastLogin = Date.now();
-    console.log('new user', newUser);
+    req.body.lastLogin = Date.now();
+
     try {
-        const savedUser = await newUser.save()
-        console.log('saved user', savedUser);
-        res.status(200).json(savedUser)
+        const existingUser = await userController.findOne({ email: req.body.email });
+        if (existingUser) {
+            return res.status(400).json({ error: 'Username already exists' });
+        }
+
+        const newUser = new userController(req.body);
+        const savedUser = await newUser.save();
+        console.log("final answer", savedUser);
+        console.log('200 Successful');
+        res.status(200).json(savedUser);
     } catch (error) {
-        res.status(500).json(error)
+        console.error(error);
+        res.status(500).json(error);
     }
 }
 
@@ -56,7 +63,7 @@ const signIn = async (req, res) => {
 
         const accessToken = Jwt.sign({ id: DB._id }, process.env.Jwt_Key, { expiresIn: '1d' });
         const { password, ...others } = updatedata._doc;
-
+        console.log('200 Successful');
         res.status(200).json({ ...others, accessToken });
     } catch (error) {
         res.status(500).json(error);
@@ -92,6 +99,7 @@ const viewProfile = async (req, res) => {
 const editProfile = async (req, res) => {
     try {
         const updateData = await userController.findByIdAndUpdate(req.params.id, { $set: req.body }, { new: true })
+        console.log('200 Successful');
         res.status(200).json(updateData)
     } catch (error) {
         res.status(500).json(error)
@@ -102,6 +110,7 @@ const editProfile = async (req, res) => {
 const deleteProfile = async (req, res) => {
     try {
         const deleteData = await userController.findByIdAndDelete(req.params.id)
+        console.log('200 Successful');
         res.status(200).json(deleteData)
     } catch (error) {
         res.status(500).json(error)

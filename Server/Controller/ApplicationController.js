@@ -4,7 +4,6 @@ const ApplicationSchema = require('../Models/ApplicationSchema')
 const ApplyJob = async (req, res) => {
     // Assuming ApplicationSchema is a Mongoose schema
     const { applicantId, jobId } = req.body;
-
     try {
         // Check if an application already exists for the given user and job details
         const existingApplication = await ApplicationSchema.findOne({
@@ -22,6 +21,7 @@ const ApplyJob = async (req, res) => {
         // If no existing application is found, create and save a new application
         const applicationData = new ApplicationSchema(req.body);
         await applicationData.save();
+        console.log('200 Successful');
         res.status(200).json(applicationData);
     } catch (error) {
         res.status(500).json(error);
@@ -42,6 +42,7 @@ const getAllApplications = async (req, res) => {
 const editApplication = async (req, res) => {
     try {
         const updateData = await ApplicationSchema.findByIdAndUpdate(req.params.id, { $set: req.body }, { new: true })
+        console.log('200 Successful');
         res.status(200).json(updateData)
     } catch (error) {
         res.status(500).json(error)
@@ -51,6 +52,7 @@ const editApplication = async (req, res) => {
 const deleteApplication = async (req, res) => {
     try {
         const applicationData = await ApplicationSchema.findByIdAndDelete(req.params.id);
+        console.log('200 Successful');
         res.status(200).json(applicationData)
     } catch (error) {
         res.status(500).json(error)

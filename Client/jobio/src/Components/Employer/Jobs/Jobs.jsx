@@ -140,7 +140,7 @@ const Jobs = (props) => {
                                         <h3>{jobs.job}</h3>
                                         <h4>{jobs.city}, {jobs.district}</h4>
                                         <div>
-                                            <button>{jobs.salary}</button>
+                                            <button>Base Salary : ₹{jobs.salary}</button>
                                         </div>
                                     </div>
 

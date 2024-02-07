@@ -168,7 +168,7 @@ const EmployerHome = ({ userId }) => {
                       <div className='image'>
                         {/* <img src={!data.photo || data.photo === '' || data.photo === null ? '/Images/user.png' : data.photo} alt="" width={70} height={70} /> */}
                         <img
-                          src={data?.photo || '/Images/user.png'}
+                          src={feeds?.photo || '/Images/user.png'}
                           alt=""
                           width={100}
                           height={100}

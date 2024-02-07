@@ -6,6 +6,7 @@ const sendAlert = async (req, res) => {
     console.log(newAlert);
     try {
         const saveAlert = await newAlert.save()
+        console.log('200 Successful');
         res.status(200).json(saveAlert)
     } catch (error) {
         res.status(500).json(error)
@@ -27,6 +28,7 @@ const deleteAlert=async(req,res)=>{
     console.log(req.body);
     try {
         const deleteData=await alert.findByIdAndDelete(req.body.id)
+        console.log('200 Successful');
         res.status(200).json(deleteData)
     } catch (error) {
         res.status(500).json(error)

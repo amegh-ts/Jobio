@@ -3,9 +3,10 @@ const JobSchema = require('../Models/JobSchema');
 // add jobs
 const AddJobs = async (req, res) => {
     const feedData = new JobSchema(req.body)
-    res.status(200).json(feedData)
     try {
         await feedData.save();
+        console.log('200 Successful');
+        res.status(200).json(feedData)
     } catch (error) {
         res.status(500).json(error)
     }
@@ -24,6 +25,7 @@ const deleteJobs = async (req, res) => {
     console.log(req.params.id);
     try {
         const deleteData = await JobSchema.findByIdAndDelete(req.params.id);
+        console.log('200 Successful');
         res.status(200).json(deleteData)
     } catch (error) {
         res.status(500).json(error)
