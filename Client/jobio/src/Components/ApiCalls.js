@@ -335,7 +335,6 @@ export const deleteJob = async (id) => {
 // apply job
 export const createApplication = async (data) => {
     const newData = { ...data, status: 'applied' }
-    // console.log('new dataaaaa', newData);
     try {
         const res = await userRequest.post('/applyjob', newData);
         console.log('Response Status:', res.status);
