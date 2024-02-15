@@ -23,7 +23,7 @@ const EmployerSettings = ({ setActivePage }) => {
             onClick: () => setActivePage('profile'),
         },
         {
-            title: 'Delete Profile',
+            title: 'Delete Account',
             description: 'Delete your profile',
             onClick: () => setDeletePopup(true),
         },
