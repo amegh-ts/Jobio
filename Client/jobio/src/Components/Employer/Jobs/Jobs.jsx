@@ -50,6 +50,7 @@ const Jobs = (props) => {
         fetchJobs()
     }, [])
 
+    
     const reversedJobs = [...jobsId].reverse();
 
 

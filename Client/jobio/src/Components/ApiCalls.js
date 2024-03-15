@@ -104,7 +104,7 @@ export const forgotPassword = async (data) => {
 
 // otp validation
 export const otpValidation = async (data) => {
-    console.log('otp validation data', data);
+    // console.log('otp validation data', data);
     try {
         const res = await publicRequest.post('/otpvalidation', data)
         console.log('Response Status:', res);
@@ -116,7 +116,7 @@ export const otpValidation = async (data) => {
 }
 
 export const changePassword = async (data) => {
-    console.log(data);
+    // console.log(data);
     try {
         const res = await publicRequest.put('/changepass', data)
         console.log('Response Status:', res);
@@ -130,7 +130,7 @@ export const changePassword = async (data) => {
 // send alert
 export const sendAlert = async (data) => {
     const newData = { ...data, user: userType, userId: userId }
-    console.log('alert data',newData);
+    // console.log('alert data',newData);
     try {
         const res = await userRequest.post('/sendalert', newData)
         console.log('Response Status:', res.status);
@@ -152,7 +152,7 @@ export const getAlert = async () => {
 
 // delete alert
 export const deleteAlert = async (data) => {
-    console.log(data);
+    // console.log(data);
     try {
         const res = await userRequest.delete('/deletealert', { data })
         console.log('Response Status:', res.status);
@@ -188,7 +188,7 @@ export const banUser = async (id, data) => {
 
 // ban logs
 export const banLog = async (data) => {
-    console.log(data);
+    // console.log(data);
     try {
         const res = await userRequest.post('/banlog', data)
         console.log('Response Status:', res.status);
@@ -213,7 +213,7 @@ export const fetchBanLogs = async () => {
 // <-------------------Chats-------------------> //
 // create chat
 export const createChat = async (data) => {
-    console.log(data);
+    // console.log(data);
     try {
         const res = await userRequest.post('/createchat', data)
         console.log(res);
@@ -251,6 +251,7 @@ export const sendMessage = async (chatId, senderId, text) => {
 export const viewMessages = async (chatId) => {
     try {
         const res = await userRequest.get(`/chat/messages/${chatId}`)
+        console.log('Response Status:', res.status);
         return res.data
     } catch (error) {
         console.log(error);
@@ -313,6 +314,7 @@ export const jobsById = async () => {
         const res = await userRequest.get('/alljobs')
         const jobs = res.data;
         const filteredJobs = jobs.filter(job => job.userId === userId);
+        console.log('Response Status:', res.status);
         return filteredJobs
     } catch (error) {
         console.log(error);
@@ -333,7 +335,6 @@ export const deleteJob = async (id) => {
 // apply job
 export const createApplication = async (data) => {
     const newData = { ...data, status: 'applied' }
-    console.log('new dataaaaa', newData);
     try {
         const res = await userRequest.post('/applyjob', newData);
         console.log('Response Status:', res.status);
@@ -368,6 +369,7 @@ export const applicationByJID = async (id) => {
         const res = await userRequest.get('/allApplications')
         const applications = res.data;
         const filteredApplication = applications.filter(application => application.jobId === id);
+        console.log('Response Status:', res.status);
         return filteredApplication
     } catch (error) {
         console.log(error);
