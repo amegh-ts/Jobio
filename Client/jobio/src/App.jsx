@@ -45,11 +45,11 @@ function App() {
     const state = reduxData.state;
     const type = reduxData.type;
 
-  
+
     if (state === 'banned') {
       alert('You are Banned');
       dispatch(logoutUser())
-        sessionStorage.clear();
+      sessionStorage.clear();
     } else {
       if (token) {
         if (type === 'employee') {
@@ -66,7 +66,7 @@ function App() {
   } else {
     content = <Landing />;
   }
-  
+
 
   const router = createBrowserRouter([
     {
@@ -93,7 +93,7 @@ function App() {
     }, {
       path: '/forgotpassword',
       element: <ForgotPassword />,
-    },{
+    }, {
       path: '/test',
       element: <Test />,
     },

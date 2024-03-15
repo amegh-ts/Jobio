@@ -39,7 +39,7 @@ const Login = () => {
                             <>
                             <div className='input'>
                             <i className='icon bx bx-envelope bx-tada' ></i>
-                                <input type="text" name="email" placeholder="Email" value={email} onChange={(e) => setEmail(e.target.value)} />
+                                <input type="mail" name="email" placeholder="Email" value={email} onChange={(e) => setEmail(e.target.value)} />
                             </div>
                             <div className='input'>
                             <i className='icon bx bxs-lock bx-tada' ></i>
